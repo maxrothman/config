@@ -1,0 +1,94 @@
+# Bashrc extensions - activation/configuration for external software
+# Software used:
+#   - trash <http://hasseg.org/trash/>
+#     CLI interface for Mac trash
+#
+#   - coreutils (via brew) <https://www.gnu.org/software/coreutils>
+#     Adds standard Linux utilities
+#
+#   - gnu-sed (via brew) <https://www.gnu.org/software/sed/>
+#     Overrides Mac's sed with gnu-sed (they're slightly different)
+#
+#   - .dircolors (in this repo)
+#     Colorizes ls output
+#
+#   - src-highlite (via brew) <http://www.gnu.org/software/src-highlite/source-highlight.html>
+#     Adds syntax highlighting to less
+#     I made a small modification to make it extensible (see src-hilite-lesspipe.sh for details)
+#
+#   - bash_completion (via brew) <https://bash-completion.alioth.debian.org/>
+#     Adds more rich bash tab completion
+#
+#   - awscli completions <http://docs.aws.amazon.com/cli/latest/userguide/cli-command-completion.html>
+#     Adds tab completion to AWS CLI
+#
+#   - autojump <https://github.com/wting/autojump>
+#     cd on steroids
+#
+#   - VirtualenvWrapper <https://virtualenvwrapper.readthedocs.org/en/latest/install.html>
+#     Management utility for Python's virtualenv
+
+#Alias `rm` to `trash`
+#Yeah, yeah, I know this is a "Bad Idea" but I've been burned too many times.
+#If you really want to delete something, you can just use `\rm`.
+if $(which trash); then
+  alias rm=trash
+fi
+
+if [ -n "$(brew ls --versions coreutils)" ]; then
+  
+  # Move user executables to beginning of path
+  # If you install coreutils/gnu-sed/etc. via brew, you might need this
+  # Uses Mac's sed (since gnu-sed isn't installed yet)
+  if grep -q '/usr/local/bin' <<< "$PATH"; then
+    export PATH=`echo "$PATH" | sed -E 's|(.*):/usr/local/bin(.*)|/usr/local/bin:\1\2|'`
+  fi
+
+  # Add coreutils and gnu-sed paths and manpaths
+  export MANPATH="`brew --prefix`/opt/coreutils/libexec/gnuman:$MANPATH"
+  export PATH="`brew --prefix`/opt/coreutils/libexec/gnubin:$PATH"
+
+  if [ -n "$(brew ls --versions gnu-sed)" ]; then
+    export MANPATH="`brew --prefix`/opt/gnu-sed/libexec/gnuman:$MANPATH"
+    export PATH="`brew --prefix`/opt/gnu-sed/libexec/gnubin:$PATH"
+  fi
+fi
+
+# Enable shell colors (ls and others)
+# See .dircolors for details
+if [ -f ~/.dircolors ]; then
+  eval `dircolors ~/.dircolors`
+fi
+
+if [ -f `brew --prefix`/bin/src-hilite-lesspipe.sh ]; then
+  # Add syntax highlighting to less via gnu source-highlight
+  # See src-highlight-lesspipe for details
+  export LESSOPEN="| `brew --prefix`/bin/src-hilite-lesspipe.sh %s"
+  export LESS=' -R '
+
+  # Extended source-highlight definitions. See src-hilite-lesspipe.sh for details.
+  export SOURCE_HIGHLIGHT_BASH_EXT=".bashrc .profile"
+fi
+
+# Activate bash-completion package
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  source $(brew --prefix)/etc/bash_completion
+fi
+
+# Activate awscli completions
+if [ -f '/usr/local/bin/aws_completer' ]; then
+  complete -C '/usr/local/bin/aws_completer' aws
+fi
+
+# Activate autojump
+if [ -f $(brew --prefix)/etc/autojump.bash ]; then
+  source $(brew --prefix)/etc/autojump.bash
+fi
+
+# Virtualenvwrapper setup
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+  export WORKON_HOME=~/.virtualenvs
+  export PROJECT_HOME=~
+  export VIRTUAL_ENV_DISABLE_PROMPT=1
+  source /usr/local/bin/virtualenvwrapper.sh
+fi
