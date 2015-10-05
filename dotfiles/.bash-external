@@ -1,4 +1,6 @@
 # Bashrc extensions - activation/configuration for external software
+# Location: ~/.bash-external
+#
 # Software used:
 #   - trash <http://hasseg.org/trash/>
 #     CLI interface for Mac trash

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#My extensions to the standard src-hilite-lesspipe.sh provided by gnu source-highlight
+#My extensions to the standard src-hilite-lesspipe.sh provided by gnu source-highlite
 # <http://www.gnu.org/software/src-highlite/>
 #
 #Adds an environment variable SOURCE_HIGHLIGHT_BASH_EXT that defines additional specific files

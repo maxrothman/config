@@ -28,29 +28,37 @@
   s = status
   ch = checkout
 
+  #Commit all
   #Usage: git cmal 'My commit message'
   cmal = commit -a -m
 
+  #Amend all and don't change commit message
   cmend = commit -a --amend --no-edit
+
+  #Delete branch from remote
+  #Usage: git delbranch <branchname>
   delbranch = push origin --delete
 
   #Find all conflicts (not conflicted files) to avoid accidentally commiting half-resolved merges
   conflicts = !grep -H -r "<<<<<<<"
 
+  #Show additions/deletions/modifications in git log
   logs = log --name-status
+
+  #Git diff showing additions/deletions/modifications
   changed = !git --no-pager diff --name-status
 
-  #push a local branch to the remote
+  #Push current local branch to the remote
   pushb = !git push --set-upstream origin $(git symbolic-ref --short HEAD)
   
-  #pretty git log with graph and colors
+  #Pretty git log with graph and colors
   lg = log --graph --format=format:'%C(red)%h%C(reset) - %C(green)(%ar)%C(reset) %C(bold blue)%an%C(reset)%C(yellow)%d%C(reset)%n          %s'
  
   #Put all unpushed work on a new branch and reset this one
   #Usage: git switch <branchname>
   switch = "!f() { [ `git rev-list @{u}.. | wc -l` = 0 ] && return; [ -z $1 ] && echo branch name required && return 2; git branch $1 && git reset --hard @{u} && git checkout $1; }; f"
   
-  #open a pull request in github:
+  #Open a pull request in github:
   # git pr: open a PR from the current branch against master
   # git pr <refname>: open a pr from the current branch against refname
   # git pr <ref1> <ref2>: open a pr from ref2 against ref1
@@ -62,14 +70,19 @@
   merged = "!f() { git merge-base --is-ancestor $1 ${2-HEAD} && echo \"$1 is merged into ${2-HEAD}\" && return 0 || echo \"$1 is NOT merged into ${2-HEAD}\" && return 1; }; f"
   
   #Delete all local branches that have been merged into master (as determined by the "git merged" alias)
-  cleanup = "!git for-each-ref --format '%(refname)' refs/heads | grep -v 'master\\|release' | while read ref; do git merged $ref master >/dev/null && git branch -D ${ref#refs/heads/}; done"
+  cleanup-merged = "!git for-each-ref --format '%(refname)' refs/heads | grep -v 'master\\|release' | while read ref; do git merged $ref master >/dev/null && git branch -D ${ref#refs/heads/}; done"
 
+  #Delete all local branches whose upstreams no longer exist (excluding branches that never had upstreams)
+  cleanup-deleted = "!git for-each-ref refs/heads --format='%(refname:short) %(upstream:short)' | while read l; do remote=$(cut -d' ' -f2 <<< $l); here=$(cut -d' ' -f1 <<< $l); if [ -n \"$remote\" ]; then git rev-parse \"$remote\" &>/dev/null; result=$?; [ \"$result\" -gt 0 ] && git branch -D $here; fi; done"
+
+  cleanup = "!git cleanup-merged; git cleanup-deleted"
+  
   postmerge = !git checkout master && git pull && git cleanup
 
 
 [init]
   #Put a hooks directory in wherever this points to and they'll all get copied
-  # into new cloned repos. MAKE SURE THEY'RE ALL EXECUTABLE!
+  #into new cloned repos. MAKE SURE THEY'RE ALL EXECUTABLE!
   templatedir = ~/repos/.git-template
 
 #See <https://github.com/alebedev/git-media>

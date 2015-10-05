@@ -11,3 +11,6 @@ Git Completions:
 * .dircolors
 * .bash_colors
 * .inputrc
+* .gitconfig
+* pre-push
+* src-hilite-lesspipe.sh

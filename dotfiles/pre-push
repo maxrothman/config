@@ -1,10 +1,11 @@
 #!/bin/bash
 
 #Pre-push hook
+#Location: ~/repos/.git-template
+#
 # When user attempts to push to master, prompt them to switch to another branch
 # Install: put in .git/hooks/ (or add to existing pre-push file there)
 # Dependencies: pushb, pr, and switch aliases (see .gitconfig)
-# Location: ~/repos/.git-template
 
 if [ "`git symbolic-ref --short HEAD`" == 'master' ]; then
   i=0
@@ -23,7 +24,7 @@ if [ "`git symbolic-ref --short HEAD`" == 'master' ]; then
   git switch $input
   git pushb
   
-  sleep .3  #github takes a sec to register the branch
+  sleep .5  #github takes a sec to register the branch
   git pr
   
   exit 1  #blocks original push
