@@ -14,3 +14,12 @@ Git Completions:
 * .gitconfig
 * pre-push
 * src-hilite-lesspipe.sh
+
+##Todo
+* Write manage script that reads locations, diffs things, warns, then moves files into place
+* Add sublime configs
+* Add important brew packages
+* Add important python packages et al
+* Add onetime-steup.bash from gist
+* Add alfred plugins
+* Add installed apps
