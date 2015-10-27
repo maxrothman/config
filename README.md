@@ -21,5 +21,6 @@ Git Completions:
 * Add important brew packages
 * Add important python packages et al
 * Add onetime-steup.bash from gist
+** Include installing iTerm2 nightly (for keyboard pane resizing) and shell integrations
 * Add alfred plugins
 * Add installed apps
