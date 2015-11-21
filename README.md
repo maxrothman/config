@@ -16,11 +16,10 @@ Git Completions:
 * src-hilite-lesspipe.sh
 * brew packages
 * python packages
+* misc-setup.bash
 
 ##Todo
 * Write manage script that reads locations, diffs things, warns, then hardlinks files into place
 * Add sublime configs
-* Add onetime-steup.bash from gist
-** Include installing iTerm2 nightly (for keyboard pane resizing) and shell integrations
 * Add alfred plugins
 * Add installed apps

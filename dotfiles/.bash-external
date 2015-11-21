@@ -97,3 +97,6 @@ fi
 
 #Turn off Ansible default cowsay output
 export ANSIBLE_NOCOWS=1
+
+#Enable iTerm shell integration
+source ~/.iterm2_shell_integration.bash
