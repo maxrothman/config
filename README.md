@@ -9,14 +9,14 @@ Git Completions:
 * .bashrc
 * .bash-external
 * .dircolors
-* .bash_colors
+* .bash-colors
 * .inputrc
 * .gitconfig
 * pre-push
 * src-hilite-lesspipe.sh
 
 ##Todo
-* Write manage script that reads locations, diffs things, warns, then moves files into place
+* Write manage script that reads locations, diffs things, warns, then hardlinks files into place
 * Add sublime configs
 * Add important brew packages
 * Add important python packages et al

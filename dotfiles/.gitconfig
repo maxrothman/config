@@ -64,6 +64,11 @@
   # git pr <ref1> <ref2>: open a pr from ref2 against ref1
   #All refnames are from the remote's perspective, so "git pr master HEAD^" will use origin's head, aka the tip of master.  
   pr = "!f() { open https://github.com/$(git config --get remote.origin.url | sed -r 's|^.*[:/]([^/]+/[^/]+).git$|\\1|')/compare/${1-master}...${2-$(git symbolic-ref HEAD &> /dev/null && git rev-parse --abbrev-ref HEAD)}?expand=1; }; f"
+
+  #Check out a github PR locally
+  #Usage: git chpr <PR #>
+  #Remember to delete the branch afterwards so you stop tracking it
+  chpr = "!f() { git fetch origin pull/$1/head:pr-$1; git checkout pr-$1; }; f"
   
   #Show whether ref1 is merged into ref2 (default: HEAD) 
   #Usage: git merged <ref1> [ref2]

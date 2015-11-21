@@ -94,3 +94,6 @@ if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
   export VIRTUAL_ENV_DISABLE_PROMPT=1
   source /usr/local/bin/virtualenvwrapper.sh
 fi
+
+#Turn off Ansible default cowsay output
+export ANSIBLE_NOCOWS=1

@@ -24,9 +24,6 @@ notify() {
   echo -ne "\e]9;${*}\007"
 }
 
-#Turn off Ansible default cowsay output
-export ANSIBLE_NOCOWS=1
-
 #Handy git aliases
 lastm() { git --no-pager log --merges -n1 --format='%H'; }
 lastp() { git --no-pager rev-parse "@{u}"; }
@@ -61,7 +58,7 @@ alias gitcd='cd $(git rev-parse --show-toplevel)'
 #<https://github.com/git/git/blob/master/contrib/completion/git-completion.bash>
 
 #Get color aliases (e.g. $Green, $BBlue, $Nocolor, etc.)
-source ~/.bash_colors
+source ~/.bash-colors
 
 shorten_path () {
   #arg: path to shorten (defaults to $PWD)
