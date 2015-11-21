@@ -14,11 +14,12 @@ Git Completions:
 * .gitconfig
 * pre-push
 * src-hilite-lesspipe.sh
+* brew packages
+* python packages
 
 ##Todo
 * Write manage script that reads locations, diffs things, warns, then hardlinks files into place
 * Add sublime configs
-* Add important python packages et al
 * Add onetime-steup.bash from gist
 ** Include installing iTerm2 nightly (for keyboard pane resizing) and shell integrations
 * Add alfred plugins
