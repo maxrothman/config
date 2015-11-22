@@ -18,8 +18,9 @@ Git Completions:
 * python packages
 * misc-setup.bash
 * alfred plugins
+* installed apps
 
 ##Todo
 * Write manage script that reads locations, diffs things, warns, then hardlinks files into place
 * Add sublime configs
-* Add installed apps
+* Fix iTerm pane resizing shortcuts, add iTerm prefs

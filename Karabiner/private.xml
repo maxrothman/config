@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!-- 
+  Overrides F8, F9, and F10 as true Mac volume media buttons.
+  If you use a custom keyboard and want to remap some media keys,
+  this will allow you to put some of them back to their original functions.
+
+  Location: ~/Library/Application Support/Karabiner/private.xml
+-->
+<root>
+  <item>
+    <name>Mute Volume</name>
+    <identifier>private.mute_volume</identifier>
+    <autogen>__KeyToKey__ KeyCode::F8, ConsumerKeyCode::VOLUME_MUTE</autogen>
+  </item>
+  <item>
+    <name>Increase Volume</name>
+    <identifier>private.increase_volume</identifier>
+    <autogen>__KeyToKey__ KeyCode::F10, ConsumerKeyCode::VOLUME_UP</autogen>
+  </item>
+  <item>
+    <name>Decrease Volume</name>
+    <identifier>private.decrease_volume</identifier>
+    <autogen>__KeyToKey__ KeyCode::F9, ConsumerKeyCode::VOLUME_DOWN</autogen>
+  </item>
+</root>
