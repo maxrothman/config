@@ -15,3 +15,5 @@ Some Alfred workflows are not tracked in this repo. They fall into 2 categories:
   * https://github.com/Kapeli/Dash-Alfred-Workflow
 
 These workflows are in this directory's `.gitignore`. If you install them manually, make sure their directories are still ignored.
+
+This directory also contains a script, `alfred-workflow-status.bash`, that shows what workflows are tracked and not.
