@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>customSites</key>
+	<dict>
+		<key>D287C28D-ED6D-4589-A01D-27AD84863514</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>wiki</string>
+			<key>plusSpaces</key>
+			<false/>
+			<key>text</key>
+			<string>Search Wiki for</string>
+			<key>url</key>
+			<string>https://openedx.atlassian.net/wiki/dosearchsite.action?queryString={query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

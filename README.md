@@ -17,9 +17,9 @@ Git Completions:
 * brew packages
 * python packages
 * misc-setup.bash
+* alfred plugins
 
 ##Todo
 * Write manage script that reads locations, diffs things, warns, then hardlinks files into place
 * Add sublime configs
-* Add alfred plugins
 * Add installed apps
