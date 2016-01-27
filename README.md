@@ -24,3 +24,4 @@ Git Completions:
 * Write manage script that reads locations, diffs things, warns, then hardlinks files into place
 * Add sublime configs
 * Fix iTerm pane resizing shortcuts, add iTerm prefs
+* Add Stylish css (Chrome)

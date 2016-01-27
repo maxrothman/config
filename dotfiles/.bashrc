@@ -17,6 +17,9 @@ alias ls='ls --color'
 alias ll='ls -lArth'
 alias la='ls -A'
 
+#Always open sublime text in a new window
+alias subl='subl -n'
+
 #Launch a Mac notification
 #Usage: notify <message>
 #Requirements: iTerm2
