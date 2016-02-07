@@ -90,6 +90,10 @@
   #into new cloned repos. MAKE SURE THEY'RE ALL EXECUTABLE!
   templatedir = ~/repos/.git-template
 
+[diff]
+  # Use the "patience" diff algorithm. It's better. Google it.
+  algorithm = patience
+
 #See <https://github.com/alebedev/git-media>
 [filter "media"]
   clean = git media clean %f
