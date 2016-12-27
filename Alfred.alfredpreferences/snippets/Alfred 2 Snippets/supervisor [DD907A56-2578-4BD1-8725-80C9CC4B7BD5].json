@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "sudo service pre_supervisor start && sudo service supervisor restart",
+    "uid" : "DD907A56-2578-4BD1-8725-80C9CC4B7BD5",
+    "name" : "supervisor",
+    "keyword" : "supervisor"
+  }
+}

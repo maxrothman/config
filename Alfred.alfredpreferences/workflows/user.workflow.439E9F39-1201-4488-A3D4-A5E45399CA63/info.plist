@@ -4,8 +4,6 @@
 <dict>
 	<key>bundleid</key>
 	<string>carlosnz.eggtimer2</string>
-	<key>category</key>
-	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
 		<key>251F013F-0729-46CB-9A8A-59FD5120BBFD</key>

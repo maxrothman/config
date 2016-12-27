@@ -17,6 +17,8 @@
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
+				<key>vitoclose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>destinationuid</key>
@@ -25,6 +27,8 @@
 				<integer>524288</integer>
 				<key>modifiersubtext</key>
 				<string>Close this tab</string>
+				<key>vitoclose</key>
+				<false/>
 			</dict>
 		</array>
 		<key>1D3AC690-8936-40C9-95DD-628CF2A811C6</key>
@@ -36,6 +40,8 @@
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
+				<key>vitoclose</key>
+				<false/>
 			</dict>
 		</array>
 	</dict>
@@ -52,10 +58,16 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>concurrently</key>
+				<false/>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
 				<string>ruby actions/activate.rb "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
@@ -64,7 +76,7 @@
 			<key>uid</key>
 			<string>73C183A0-4D38-4DA7-A383-F36A5C7CBB95</string>
 			<key>version</key>
-			<integer>0</integer>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -73,9 +85,15 @@
 				<integer>0</integer>
 				<key>argument</key>
 				<integer>0</integer>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
 				<key>leftcursor</key>
 				<false/>
 				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
 				<integer>0</integer>
 			</dict>
 			<key>type</key>
@@ -83,21 +101,35 @@
 			<key>uid</key>
 			<string>1D3AC690-8936-40C9-95DD-628CF2A811C6</string>
 			<key>version</key>
-			<integer>0</integer>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
 				<key>argumenttype</key>
 				<integer>1</integer>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
 				<string>tabs</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
 				<key>runningsubtext</key>
 				<string>Retrieving tabs...</string>
 				<key>script</key>
 				<string>ruby filter.rb "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
 				<key>subtext</key>
 				<string>Search tabs in Safari and Chrome</string>
 				<key>title</key>
@@ -105,22 +137,28 @@
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
-				<false/>
+				<true/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>0E88E3D0-4E7B-48B2-88ED-5CF0EBD76F5D</string>
 			<key>version</key>
-			<integer>0</integer>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>concurrently</key>
+				<false/>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
 				<string>ruby actions/close.rb "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
@@ -129,7 +167,7 @@
 			<key>uid</key>
 			<string>1F537C5E-7F6F-4B71-987D-DAF5775545CF</string>
 			<key>version</key>
-			<integer>0</integer>
+			<integer>2</integer>
 		</dict>
 	</array>
 	<key>readme</key>
@@ -138,21 +176,29 @@
 	<dict>
 		<key>0E88E3D0-4E7B-48B2-88ED-5CF0EBD76F5D</key>
 		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
 			<key>ypos</key>
 			<real>70</real>
 		</dict>
 		<key>1D3AC690-8936-40C9-95DD-628CF2A811C6</key>
 		<dict>
+			<key>xpos</key>
+			<integer>100</integer>
 			<key>ypos</key>
 			<real>70</real>
 		</dict>
 		<key>1F537C5E-7F6F-4B71-987D-DAF5775545CF</key>
 		<dict>
+			<key>xpos</key>
+			<integer>500</integer>
 			<key>ypos</key>
 			<real>130</real>
 		</dict>
 		<key>73C183A0-4D38-4DA7-A383-F36A5C7CBB95</key>
 		<dict>
+			<key>xpos</key>
+			<integer>500</integer>
 			<key>ypos</key>
 			<real>10</real>
 		</dict>
