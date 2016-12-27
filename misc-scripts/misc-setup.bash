@@ -8,3 +8,6 @@ defaults write com.googlecode.iterm2 AlternateMouseScroll -bool true
 #Get iTerm shell integration <https://iterm2.com/shell_integration.html>
 curl -L https://iterm2.com/misc/bash_startup.in >> \
 ~/.iterm2_shell_integration.bash
+
+#Switch the default Grab (screenshot) file format
+defaults write com.apple.screencapture type jpg; killall SystemUIServer

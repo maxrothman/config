@@ -1,5 +1,4 @@
 # Bash input configuration
-# Location: ~/.inputrc
 
 set completion-ignore-case on     #Enable case-insensitive tab-complete
 "\e[A": history-search-backward   #Press up or down arrow to search through shell history on what you've already typed
