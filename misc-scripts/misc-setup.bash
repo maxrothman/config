@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 #One-time setup tasks
 #Requirements:
 # - iTerm nightly build installed: <https://iterm2.com/downloads/nightly/#/section/home>

@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 #Installs all brew packages
 packages=(
   apg                  # Secure password generator
