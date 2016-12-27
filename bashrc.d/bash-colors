@@ -1,9 +1,8 @@
 # Color definitions for bash colors
 # Primarily used in bash prompt (.bashrc), but could be used anywhere.
 #
-# Location: ~/.bash-colors
 # Usage: Before defining PS1, run:
-#   source .bash_colors
+#   source .bash-colors
 
 # Reset
 NoColor='\[\e[m\]'       # Text Reset
