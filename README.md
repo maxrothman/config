@@ -9,13 +9,13 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * pre-push
 * alfred plugins
 * src-hilite-lesspipe.sh
+* misc-setup.bash
 
 ##Todo
 * .bashrc
 * .bash-external
 * .gitconfig
 * python packages
-* misc-setup.bash
 * installed apps
 * Write manage script that reads locations, diffs things, warns, then hardlinks files into place
 * Add sublime configs and custom color scheme
