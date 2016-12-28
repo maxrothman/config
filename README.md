@@ -12,10 +12,10 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * misc-setup.bash
 * installed apps
 * Add Stylish css (Chrome)
-
-##Todo
 * .jq
 * .vimrc
+
+##Todo
 * .bashrc
 * .bash-external
 * .gitconfig
