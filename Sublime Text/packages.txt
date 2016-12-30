@@ -1,0 +1,49 @@
+### REQUIRED ###
+
+AlignTab                         # Vertical alignment tools
+ApplySyntax                      # Allows for writing custom rules for which syntax file to apply
+Edit Command Palette             # Make your own command palette items
+ExpandRegion                     # Like "expand selection to scope" but better
+Git Config                       # .gitconfig and .gitignore syntax
+GitGutter                        # Git diffs in gutter
+Ignore Words                     # Ignore words in spellcheck
+Indent XML                       # Properly reindent XML and JSON (the default autoindenter sucks)
+Markdown Preview                 # Build and preview markdown
+Origami                          # For managing panes
+PackageDev                       # Tools for making snippets, syntax definitions, etc.
+PackageResourceViewer            # Easily view package contents
+PythonOutputFormat               # Format native python datastructures. Also works well on JSON.
+ScopeHunter                      # Show syntax scope under cursor. Helpful for working with syntax definitions.
+Select Quoted                    # Expand selection to quoted
+SerializedDataConverter          # Convert between plist, json, and yaml
+SideBarEnhancements              # More actions on files and folders in sidebar
+Sort Lines By selection          # What it says on the tin
+SublimePythonIDE                 # Stronger python support, e.g. marking errors, go to definition, etc.
+SublimeRepl                      # Run a repl in a buffer
+SyncedSideBar                    # When a file is open, expand folders in the sidebar to reveal that file
+Unquote                          # Shortcut for removing quotes around selection
+Virtualenv                       # Manage virtualenvs
+Wrap Plus                        # Hard line wrapping
+
+
+
+### OPTIONAL ###
+
+Ansible                          # Ansible syntax
+CSS3                             # Better CSS support
+INI                              # INI syntax
+JavaScriptNext                   # ES6 syntax
+Jinja2                           # Jinja syntax
+JSONLint                         # Mark issues in JSON files
+JSHint                           # JSHint any javascript file
+nginx                            # nginx syntax
+JsFormat                         # Automatic javascript formatting
+Restructured Text (RST) snippets # Helpful snippets for working with RST
+RestructuredText Improved        # Better RST syntax
+Terraform                        # Terraform syntax
+
+
+
+### DISABLE ###
+
+RestructuredText                 # If you install RestructuredText Improved, otherwise they fight

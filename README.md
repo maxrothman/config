@@ -24,3 +24,8 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * .gitconfig
 * Write manage script that reads locations, diffs things, warns, then hardlinks files into place
 * Add sublime configs and custom color scheme
+
+##Left off:
+* finish adding custom sublime stuff (stopped on Default.sublime-commands)
+* figure out why Sublime Text Commands syntax doesn't like comments
+* Upgrade all sublime packages
