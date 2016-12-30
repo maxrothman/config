@@ -15,12 +15,12 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * .jq
 * .vimrc
 * .virtualenvwrapperrc
+* python packages
 
 ##Todo
 * .bashrc
 * .bash-external
 * .gitconfig
-* python packages
 * Write manage script that reads locations, diffs things, warns, then hardlinks files into place
 * Add sublime configs and custom color scheme
 * iTerm (Preferences>General>Load preferences from custom folder or URL)

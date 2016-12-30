@@ -1,0 +1,16 @@
+# Global Python 2 packages
+# Usage: pip3 install -r python-requirements.txt
+
+ipython
+
+#virtualenv management
+virtualenvwrapper
+
+#show pip dependency tree
+pipdeptree
+
+#Natual datetime parsing
+py-dateutil
+
+#Installs `py` command, for easier python 1-liners
+pythonpy

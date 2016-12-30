@@ -1,0 +1,14 @@
+# Global Python 2 packages
+# Usage: pip install -r python-requirements.txt
+
+#Graphical debugger
+pudb
+
+#YAML support
+pyaml
+
+#Natual datetime parsing
+py-dateutil
+
+#show pip dependency tree
+pipdeptree
