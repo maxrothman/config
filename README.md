@@ -16,6 +16,7 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * .vimrc
 * .virtualenvwrapperrc
 * python packages
+* iTerm (Preferences>General>Load preferences from custom folder or URL)
 
 ##Todo
 * .bashrc
@@ -23,5 +24,4 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * .gitconfig
 * Write manage script that reads locations, diffs things, warns, then hardlinks files into place
 * Add sublime configs and custom color scheme
-* iTerm (Preferences>General>Load preferences from custom folder or URL)
 * /etc/shells
