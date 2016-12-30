@@ -9,3 +9,11 @@
 #Switch the default Grab (screenshot) file format
 #TODO: test if this works
 #defaults write com.apple.screencapture type jpg; killall SystemUIServer
+
+
+# *****************
+# *** IMPORTANT ***
+# *****************
+#
+# Add the following to the top of /etc/shells:
+# /usr/local/bin/bash (assuming that's where brew put it)

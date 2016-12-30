@@ -24,4 +24,3 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * .gitconfig
 * Write manage script that reads locations, diffs things, warns, then hardlinks files into place
 * Add sublime configs and custom color scheme
-* /etc/shells

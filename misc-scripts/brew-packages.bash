@@ -4,7 +4,7 @@
 packages=(
   apg                  # Secure password generator
   autojump             # cd on steroids: <https://github.com/wting/autojump>
-  bash                 # Fix shellshock on older systems
+  bash                 # Update to latest
   bash-completion      # Basic tab completion
   coreutils            # Make Mac more Linux-y
   cowsay               # Moo
