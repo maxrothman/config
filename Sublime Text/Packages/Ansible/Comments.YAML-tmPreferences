@@ -1,0 +1,6 @@
+name: Comments
+scope: source.ansible
+settings:
+  shellVariables:
+  - {name: TM_COMMENT_START, value: '# '}
+uuid: 6eb2cecc-198a-40d2-b520-00117f65d451

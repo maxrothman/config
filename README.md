@@ -18,13 +18,11 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * python packages
 * iTerm (Preferences>General>Load preferences from custom folder or URL)
 * Upgrade all sublime packages
+* Add sublime configs and custom color scheme
 
 ##Todo
 * .bashrc
 * .bash-external
 * .gitconfig
 * Write manage script that reads locations, diffs things, warns, then hardlinks files into place
-* Add sublime configs and custom color scheme
-
-##Left off:
-* finish adding custom sublime stuff (stopped on Default.sublime-commands)
+* Distribute modified Ansible package

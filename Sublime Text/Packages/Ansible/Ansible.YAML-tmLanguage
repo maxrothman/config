@@ -1,0 +1,206 @@
+# My custom Ansible syntax definition
+#
+# A complete rewrite of the one provided in the "Ansible" package based off of
+# an old version of the default yaml syntax.
+
+name: Ansible
+scopeName: source.ansible
+fileTypes: []
+uuid: 6eb2cecc-198a-40d2-b520-00117f65d451
+
+foldingStartMarker: ^[^#]\s*.*:(\s*\[?| &.+)?$
+foldingStopMarker: ^\s*$|^\s*\}|^\s*\]|^\s*\)
+keyEquivalent: ^~Y
+patterns:
+- begin: ^(\s*)(?:(-)|(?:(-\s*)?(\w+\s*(:))))\s+(\||>)
+  beginCaptures:
+    '2':
+      name: punctuation.definition.entry.ansible
+    '3':
+      name: punctuation.definition.entry.ansible
+    '4':
+      name: entity.name.tag.ansible
+    '5':
+      name: punctuation.separator.key-value.ansible
+  end: ^(?!^\1)|^(?=\1(-|\w+\s*:)|#)
+  patterns:
+  - include: '#jinja_var'
+  - include: '#keyval'
+  name: string.unquoted.block.ansible
+- captures:
+    '1':
+      name: punctuation.definition.entry.ansible
+    '2':
+      name: entity.name.tag.ansible
+    '3':
+      name: punctuation.separator.key-value.ansible
+    '4':
+      name: punctuation.definition.entry.ansible
+  match: (?:(?:(-\s*)?(\w+\s*(:)(?:\s+)))|(-))\s*((0(x|X)[0-9a-fA-F]*)|(([0-9]+\.?[0-9]*)|(\.[0-9]+))((e|E)(\+|-)?[0-9]+)?)(L|l|UL|ul|u|U|F|f)?\s*$
+  name: constant.numeric.ansible
+
+- name: string.unquoted.ansible
+  begin: \s*(?:(?:(-\s*)?(\w+\s*(:)(?:\s+)))|(-))(?!\s*[,{}&#\[\]])
+  beginCaptures:
+    '1': 
+      name: punctuation.definition.entry.ansible
+    '2':
+      name: entity.name.tag.ansible
+    '3':
+      name: punctuation.separator.key-value.ansible
+    '4':
+      name: punctuation.definition.entry.ansible
+  end: (?=#|$)
+  
+  patterns:
+  - name: string.quoted.double.ansible
+    begin: \s*(")
+    beginCaptures:
+      '1': 
+        name: punctuation.definition.string.begin.ansible
+    end: (")\s*
+    endCaptures:
+      '1': 
+        name: punctuation.definition.string.end.ansible
+    patterns:
+    - include: '#jinja_var'
+    - include: '#keyval'
+  
+  - name: string.quoted.single.ansible
+    begin: \s*(')
+    beginCaptures:
+      '1': 
+        name: punctuation.definition.string.begin.ansible
+    end: (')\s*
+    endCaptures:
+      '1': 
+        name: punctuation.definition.string.end.ansible
+    patterns:
+    - include: '#jinja_var'
+    - include: '#keyval'
+  
+  - name: string.unquoted.ansible
+    begin: \s*(?=[^,{}&#\[\]])
+    end: \s*(?=$)
+    patterns:
+    - include: '#jinja_var'
+    - include: '#keyval'
+    - name: string.unquoted.ansible
+      match: "[^{}]+?"
+
+- captures:
+    '1':
+      name: punctuation.definition.entry.ansible
+    '2':
+      name: entity.name.tag.ansible
+    '3':
+      name: punctuation.separator.key-value.ansible
+    '4':
+      name: punctuation.definition.entry.ansible
+  match: (?:(?:(-\s*)?(\w+\s*(:)(?:\s+)))|(-))\s*([0-9]{4}-[0-9]{2}-[0-9]{2})\s*$
+  include: '#jinja_var'
+  include: '#keyval'
+  name: constant.other.date.ansible
+- captures:
+    '1':
+      name: entity.name.tag.ansible
+    '2':
+      name: punctuation.separator.key-value.ansible
+    '3':
+      name: keyword.other.omap.ansible
+    '4':
+      name: punctuation.definition.keyword.ansible
+  match: (\w.*?)(:)\s+((\!\!)omap)?
+  name: meta.tag.ansible
+- captures:
+    '1':
+      name: punctuation.definition.variable.ansible
+  match: (\&|\*)\w.*?$
+  name: variable.other.ansible
+
+- begin: '"'
+  beginCaptures:
+    '0':
+      name: punctuation.definition.string.begin.ansible
+  end: '"'
+  endCaptures:
+    '0':
+      name: punctuation.definition.string.end.ansible
+  name: string.quoted.double.ansible
+  patterns:
+  - include: '#escaped_char'
+  - include: '#jinja_var'
+  - include: '#keyval'
+
+- begin: ''''
+  beginCaptures:
+    '0':
+      name: punctuation.definition.string.begin.ansible
+  end: ''''
+  endCaptures:
+    '0':
+      name: punctuation.definition.string.end.ansible
+  name: string.quoted.single.ansible
+  patterns:
+  - include: '#escaped_char'
+  - include: '#jinja_var'
+  - include: '#keyval'
+- begin: '`'
+  beginCaptures:
+    '0':
+      name: punctuation.definition.string.begin.ansible
+  end: '`'
+  endCaptures:
+    '0':
+      name: punctuation.definition.string.end.ansible
+  name: string.interpolated.ansible
+  patterns:
+  - include: '#escaped_char'
+- captures:
+    '1':
+      name: entity.name.tag.ansible
+    '2':
+      name: keyword.operator.merge-key.ansible
+    '3':
+      name: punctuation.definition.keyword.ansible
+  match: '(\<\<): ((\*).*)$'
+  name: keyword.operator.merge-key.ansible
+- disabled: '1'
+  match: ( | )+$
+  name: invalid.deprecated.trailing-whitespace.ansible
+- captures:
+    '1':
+      name: punctuation.definition.comment.ansible
+  match: (?<!\$)(#)(?!\{).*$\n?
+  name: comment.line.number-sign.ansible
+- match: '-'
+  name: keyword.operator.symbol
+- begin: ^(?=\t)
+  end: (?=[^\t])
+  name: meta.leading-tabs.ansible
+  patterns:
+  - captures:
+      '1':
+        name: meta.odd-tab
+      '2':
+        name: meta.even-tab
+    match: (\t)(\t)?
+
+repository:
+  escaped_char:
+    match: \\.
+    name: constant.character.escape.ansible
+
+  jinja_var:
+    match: (?:\{\{ *([^\{\}]+?) *\}\})|(?:\$\{([^\{\}]+)\})
+    captures:
+      '1': {name: storage.type.jinja.ansible}
+      '2': {name: storage.type.jinja.ansible}
+    name: storage.type.ansible
+
+  keyval:
+    name: entity.other.attribute-name.ansible
+    match: (\w+)(=)
+    captures:
+      '1': {name: variable.parameter.ansible}
+      '2': {name: keyword.operator.assignment.ansible}

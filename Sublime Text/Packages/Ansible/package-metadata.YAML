@@ -1,0 +1,7 @@
+dependencies: []
+description: Syntax highlighting for Ansible
+platforms:
+- '*'
+sublime_text: '*'
+url: https://github.com/maxrothman/TODO ADD ME
+version: 1.0.0
