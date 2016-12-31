@@ -17,6 +17,7 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * .virtualenvwrapperrc
 * python packages
 * iTerm (Preferences>General>Load preferences from custom folder or URL)
+* Upgrade all sublime packages
 
 ##Todo
 * .bashrc
@@ -27,4 +28,3 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 
 ##Left off:
 * finish adding custom sublime stuff (stopped on Default.sublime-commands)
-* Upgrade all sublime packages
