@@ -1,3 +1,14 @@
+# Virtualenv and virtualenvwrapper stuff
+
+export WORKON_HOME=~/.virtualenvs
+export PROJECT_HOME=~
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+
+
+# If you dont' want to use the lazy loading below, uncomment the line below:
+#source /usr/local/bin/virtualenvwrapper.sh
+
+####################################################################### 
 # Dynamically load virtualenvwrapper functions to reduce shell startup
 # time.
 #

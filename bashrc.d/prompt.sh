@@ -1,67 +1,34 @@
-# Main bash user config file
-# Assumes Mac OSX
-# Requirements:
-#   - Mac OSX
-#   - Using brew <http://brew.sh> as your primary package manager
-#   - iTerm2
-# Location: ~/.bashrc
-
-#add timestamps to bash history
-export HISTTIMEFORMAT='%F %T '
-
-#Turn on colors
-alias grep='grep --color'
-alias ls='ls --color'
-
-#Common ls aliases
-alias ll='ls -lArth'
-alias la='ls -A'
-
-#Always open sublime text in a new window
-alias subl='subl -n'
-
-#Launch a Mac notification
-#Usage: notify <message>
-#Requirements: iTerm2
-notify() {
-  echo -ne "\e]9;${*}\007"
-}
-
-#Handy git aliases
-lastm() { git --no-pager log --merges -n1 --format='%H'; }
-lastp() { git --no-pager rev-parse "@{u}"; }
-alias gitcd='cd $(git rev-parse --show-toplevel)'
-  
-
-#-- Prompt --
-#Features:
-# - Shortened path
-#   Examples:
-#     - /movies -> movies
-#     - /movies/starwars/characters/lukeskywalker -> /movies/.../characters/lukeskywalker
-# - Switches to "git mode" when in a git repo
-#   e.g. myrepo +(master): -/subdir $
-#         ^     ^   ^         ^
-#         |     |   |         |
-#     repo name | branch name |
-#               |      path from top of repo
-#        ahead of remote
+# -- Prompt --
+# Features:
+#  - Shortened path
+#    Examples:
+#      - /movies -> movies
+#      - /movies/starwars/characters/lukeskywalker -> /movies/.../characters/lukeskywalker
 #
-#   - Features:
-#     - Shows repo name and branch name
-#     - + if ahead of remote, - if behind, !! if local and remote have diverged
-#     - Branch name changes color to indicate status:
-#       - Yellow if untracked changes
-#       - Red if ready to commit
-#       - Green if clean
-#       - Red if in detached HEAD state
-#     - Shows path relative to top of repo
-#
-#TODO: perhaps shorten with __git_ps1? (provided by git-completion.sh)
-#<https://github.com/git/git/blob/master/contrib/completion/git-completion.bash>
+#  - Switches to "git mode" when in a git repo
+#    e.g. myrepo +(master): -/subdir $
+#          ^     ^   ^         ^
+#          |     |   |         |
+#      repo name | branch name |
+#                |      path from top of repo
+#         ahead of remote
+# 
+#    - Features:
+#      - Shows repo name and branch name
+#      - + if ahead of remote, - if behind, !! if local and remote have diverged
+#      - Branch name changes color to indicate status:
+#        - Yellow if untracked changes
+#        - Red if ready to commit
+#        - Green if clean
+#        - Red if in detached HEAD state
+#      - Shows path relative to top of repo
+# 
+# NB: bash_colors.sh must be sourced before this (luckily it comes first alphabetically)
 
-#Get color aliases (e.g. $Green, $BBlue, $Nocolor, etc.)
-source ~/.bash_colors
+# TODO: perhaps shorten with __git_ps1? (provided by git-completion.sh)
+# <https://github.com/git/git/blob/master/contrib/completion/git-completion.bash>
+
+export SUDO_PS1="${IWhite}${On_Red}\u@\h: \W#${NoColor} "
 
 shorten_path () {
   #arg: path to shorten (defaults to $PWD)
@@ -141,12 +108,8 @@ set_prompt () {
   export PS1="${venv}${prompt} ${BBlue}\$${NoColor} "
 }
 
-[ -n "$PROMPT_COMMAND" ] \ 
-  && PROMPT_COMMAND="$PROMPT_COMMAND; set_prompt" \
-  || PROMPT_COMMAND="set_prompt"
-
-export SUDO_PS1="${IWhite}${On_Red}\u@\h: \W#${NoColor} "
-
-
-#Include external stuff
-source .bash-external
+if [ -n "$PROMPT_COMMAND" ]; then
+  PROMPT_COMMAND="$PROMPT_COMMAND; set_prompt"
+else
+  PROMPT_COMMAND="set_prompt"
+fi
