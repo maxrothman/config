@@ -19,10 +19,12 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * iTerm (Preferences>General>Load preferences from custom folder or URL)
 * Upgrade all sublime packages
 * Add sublime configs and custom color scheme
+* .gitconfig
 
 ##Todo
 * .bashrc
 * .bash-external
-* .gitconfig
 * Write manage script that reads locations, diffs things, warns, then hardlinks files into place
 * Distribute modified Ansible package
+  * Should prompt for:
+    * gitconfig user.name and user.email

@@ -1,58 +1,92 @@
-# Git user config file
-# Location: ~/.gitconfig
+# Git per-user config file
 
 [user]
-  name = Max Rothman
-  email = max@edx.org
+  name = <UPDATE-ME>
+  email = <UPDATE-ME>
 
 [core]
   #only set this true if you're on windows
   ignorecase = false
 
+  #Put hooks in this directory and they'll be accessible from all repos. MAKE SURE THEY'RE ALL EXECUTABLE!
+  hooksPath = ~/repos/.git-hooks
+
 [fetch]
-  prune = true #WARNING: will remove local branches if they've been deleted from the remote
+  #WARNING: will remove local branches if they've been deleted from the remote
+  prune = true
+
+[diff]
+  # Use the "patience" diff algorithm. It's better. Google it.
+  algorithm = patience
+
+# Visually highlight changes inside lines
+[pager]
+  log = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
+  show = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
+  diff = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
+[interactive]
+  diffFilter = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight
 
 #For explanation on the following group of options, see <http://grimoire.ca/git/config>
+[rebase]
+  autosquash = true
 [branch]
   autosetupmerge = always
   autosetuprebase = always
-[rebase]
-  autosquash = true
 [push]
   default = simple
 [rerere]
   enabled = true
 
+#See <https://github.com/alebedev/git-media>
+[filter "media"]
+  clean = git media clean %f
+  smudge = git media smudge %f
+  required = true
 
 [alias]
   s = status
   ch = checkout
 
-  #Commit all
-  #Usage: git cmal 'My commit message'
+  cm = git commit -m
+  cma = git commit -a
   cmal = commit -a -m
 
-  #Amend all and don't change commit message
-  cmend = commit -a --amend --no-edit
+  #Amend and don't change commit message. If file arguments are provided, amend only those files.
+  #Usage: cmend [FILE ...]
+  cmend = "!f() { cd \"$GIT_PREFIX\"; [ $# -eq 0 ] && all=-a || git add $@; git commit $all --amend --no-edit; }; f"
+  #                   ^            ^
+  #NB: without these quotes this'll run an empty cd when you're at the top of the repo taking you to ~
+  
+  #Add all the arguments and commit
+  cmad = "!f() { cd \"$GIT_PREFIX\"; git add $@ && git commit; }; f"
 
   #Delete branch from remote
-  #Usage: git delbranch <branchname>
   delbranch = push origin --delete
 
   #Find all conflicts (not conflicted files) to avoid accidentally commiting half-resolved merges
-  conflicts = !grep -H -r "<<<<<<<"
+  conflicts = !grep -H -r "======="
 
-  #Show additions/deletions/modifications in git log
-  logs = log --name-status
+  #Push current local branch to the remote
+  pushb = !git push --set-upstream origin $(git symbolic-ref --short HEAD)
+
+  #safer push -f
+  fpush = push --force-with-lease
 
   #Git diff showing additions/deletions/modifications
   changed = !git --no-pager diff --name-status
 
-  #Push current local branch to the remote
-  pushb = !git push --set-upstream origin $(git symbolic-ref --short HEAD)
+  #Show additions/deletions/modifications in git log
+  logs = log --name-status
   
   #Pretty git log with graph and colors
   lg = log --graph --format=format:'%C(red)%h%C(reset) - %C(green)(%ar)%C(reset) %C(bold blue)%an%C(reset)%C(yellow)%d%C(reset)%n          %s'
+
+  #Short-format log of all commits since the last merge
+  lastlog = "!git --no-pager log --oneline $(git --no-pager log --merges -n1 --format='%H').."
+
+  #Short-format log of all commits since the last push
+  plastlog = "!git --no-pager log --oneline @{u}.."
  
   #Put all unpushed work on a new branch and reset this one
   #Usage: git switch <branchname>
@@ -83,19 +117,3 @@
   cleanup = "!git cleanup-merged; git cleanup-deleted"
   
   postmerge = !git checkout master && git pull && git cleanup
-
-
-[init]
-  #Put a hooks directory in wherever this points to and they'll all get copied
-  #into new cloned repos. MAKE SURE THEY'RE ALL EXECUTABLE!
-  templatedir = ~/repos/.git-template
-
-[diff]
-  # Use the "patience" diff algorithm. It's better. Google it.
-  algorithm = patience
-
-#See <https://github.com/alebedev/git-media>
-[filter "media"]
-  clean = git media clean %f
-  smudge = git media smudge %f
-  required = true
