@@ -16,10 +16,11 @@ for source in "$@"; do
     *Makefile|*makefile) 
       source-highlight --failsafe -f esc --lang-def=makefile.lang --style-file=esc.style -i "$source" ;;
     *)
-      grep -q `basename $source` <<< $SOURCE_HIGHLIGHT_BASH_EXT && 
+      if grep -q `basename $source` <<< $SOURCE_HIGHLIGHT_BASH_EXT; then
         source-highlight --failsafe -f esc --lang-def=sh.lang --style-file=esc.style -i "$source"
-
-      source-highlight --failsafe --infer-lang -f esc --style-file=esc.style -i "$source"
+      else
+        source-highlight --failsafe --infer-lang -f esc --style-file=esc.style -i "$source"
+      fi
     ;;
   esac
 done
