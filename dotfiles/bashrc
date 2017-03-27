@@ -2,7 +2,7 @@
 source_all() {
   if [[ -d "$1" ]]; then
     for script in "$1"/*; do
-      source "$script"
+      [ -x "$script" ] && source "$script"
     done
   else
     echo "$1 is not a directory!" >&2

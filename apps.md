@@ -28,3 +28,4 @@ Install these chrome plugins:
 * LastPass: obviously
 * The Great Suspender: suspends inactive tabs. Frees up toooons of memory
 * Stylish: custom themes for webpages. Install all the ones in the "stylish" dir.
+* Event Merge for Google Calendar: visually merges identical events on multiple calendars
