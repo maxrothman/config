@@ -19,7 +19,9 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * automator: add buttons to Finder that open apps via Apple automator
 
 ## Setup instructions:
+* Clone this repo somewhere
 * Install the apps in apps.md
+  * For Alfred, iTerm, etc. where the config is in this repo, follow the instructions in their READMEs to use said config.
 * Follow the instructions in the README in automator/
 * Run deploy.sh
 * Update ~/.gitconfig with your name, email address, and optionally, where you'd like to store your hooks.
@@ -56,8 +58,6 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 
 ##Todo
 * Remove virtualenvwrapperrc since the newest release has a lazy script
-* Write manage script that reads locations, diffs things, warns, then hardlinks files into place
-  * Should write a default ~/.bash-secure
 * Distribute modified Ansible package
 * Should prompt for:
   * gitconfig user.name and user.email

@@ -2,6 +2,7 @@
 
 Install all of these:
 
+* iTerm2: a better terminal emulator
 * Alfred: like Sublime's panels, but for the whole computer
 * Sublime Text 3: my editor of choice
 * Dash: offline documentation browser (integrates with Alfred)

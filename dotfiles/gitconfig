@@ -48,8 +48,8 @@
   s = status
   ch = checkout
 
-  cm = git commit -m
-  cma = git commit -a
+  cm = commit -m
+  cma = commit -a
   cmal = commit -a -m
 
   #Amend and don't change commit message. If file arguments are provided, amend only those files.
