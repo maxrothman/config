@@ -1,7 +1,0 @@
-set nocompatible                  "disable vi-compatable mode
-syntax on                         "syntax highlighting
-set encoding=utf-8
-set tabstop=2 shiftwidth=2 expandtab autoindent smarttab    "sane tab setup
-set backspace=indent,eol,start    "backspace over space indents
-"set mouse=a                       "enable mouse
-filetype plugin indent on         "enable syntax-specific autotab
