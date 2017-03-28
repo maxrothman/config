@@ -2,7 +2,7 @@
 
 #Installs all brew packages
 packages=(
-  homebrew/boneyard/apg # Secure password generator
+#   homebrew/boneyard/apg # Secure password generator. Removed from formulas?
   autojump              # cd on steroids: <https://github.com/wting/autojump>
   bash                  # Update to latest
   bash-completion       # Basic tab completion
