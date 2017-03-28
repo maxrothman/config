@@ -18,7 +18,6 @@ else
 fi
 
 echo 'Deploying dotfiles...'
-# Use hardlinks to avoid any issues where programs won't follow symlinks
 problems=false
 for f in "$configdir"/dotfiles/*; do
   #Ignore ignoreable files
@@ -28,8 +27,8 @@ for f in "$configdir"/dotfiles/*; do
 
   base_name="$(basename "$f")"
   if [[ ! -e ~/."${base_name}" ]]; then
-    ln "$f" ~/."${base_name}"
-  elif [[ "$f" -ef ~/."${base_name}" ]]; then
+    ln -s "$f" ~/."${base_name}"
+  elif [[ -L ~/."${base_name}" && "$(readlink ~/."${base_name}")" == "$f" ]]; then
     :   #it's already synced
   else
     echo "Refusing to overwrite ~/.${base_name}, already exists! Resolve differences then rerun this script."
@@ -71,8 +70,8 @@ find "$configdir"/"Sublime Text" -type f -print0 | while read -d $'\0' f; do
   fi
 
   if [[ ! -e "$sublimepath"/"$relpath" ]]; then
-    ln "$f" "$sublimepath"/"$relpath"
-  elif [[ "$f" -ef "$sublimepath"/"$relpath" ]]; then
+    ln -s "$f" "$sublimepath"/"$relpath"
+  elif [[ -L "$sublimepath"/"$relpath" && "$(readlink "$sublimepath"/"$relpath")" == "$f" ]]; then
     :   #it's already synced
   else
     echo "Refusing to overwrite $sublimepath/$relpath, already exists! Resolve differences then rerun this script."
