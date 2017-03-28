@@ -8,9 +8,9 @@ set -euo pipefail
 configdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo 'Deploying bashrc.d...'
-if [[ ! -e "~/.bashrc.d" ]]; then
-  ln -s "$configdir"/bashrc.d ~/.bashrc.d
-elif [[ -L "~/.bashrc.d" && "$(readlink -f ~/.bashrc.d)" == "$configdir"/bashrc.d ]]; then
+if [[ ! -e ~/.bashrc.d ]]; then
+  ln -sT "$configdir"/bashrc.d ~/.bashrc.d
+elif [[ -L ~/.bashrc.d && "$(readlink ~/.bashrc.d)" == "$configdir"/bashrc.d ]]; then
   :   #it's already synced
 else
   echo "Refusing to overwrite ~/.bashrc.d, already exists or is a different symlink! Resolve differences then rerun this script."
@@ -26,12 +26,13 @@ for f in "$configdir"/dotfiles/*; do
     continue
   fi
 
-  if [[ ! -e "~/.${f}" ]]; then
-    ln "$f" "~/.${f}"
-  elif [[ "$f" -ef "~/.${f}" ]]; then
+  base_name="$(basename "$f")"
+  if [[ ! -e ~/."${base_name}" ]]; then
+    ln -T "$f" ~/."${base_name}"
+  elif [[ "$f" -ef ~/."${base_name}" ]]; then
     :   #it's already synced
   else
-    echo "Refusing to overwrite ~/.${f}, already exists! Resolve differences then rerun this script."
+    echo "Refusing to overwrite ~/.${base_name}, already exists! Resolve differences then rerun this script."
     problems=true
   fi
 done
@@ -47,9 +48,9 @@ sed -i "s/name = <UPDATE-ME>/name = $gitname/" ~/.gitconfig
 sed -i "s/email = <UPDATE-ME>/email = $gitemail/" ~/.gitconfig
 
 echo 'Deploying bin...'
-if [[ ! -e "~/.bin" ]]; then
-  ln -s "$configdir"/bin ~/.bin
-elif [[ -L "~/.bin" && "$(readlink -f "~/.bin")" == "$configdir"/bin ]]; then
+if [[ ! -e ~/.bin ]]; then
+  ln -sT "$configdir"/bin ~/.bin
+elif [[ -L ~/.bin && "$(readlink ~/.bin)" == "$configdir"/bin ]]; then
   :   #it's already synced
 else
   echo "Refusing to overwrite ~/.bin, already exists or is a different symlink! Resolve differences then rerun this script."
@@ -58,7 +59,7 @@ fi
 
 echo 'Deploying Sublime configs'
 problems=false
-sublimepath="~/Library/Application Support/Sublime Text 3/"
+sublimepath=~/Library/"Application Support"/"Sublime Text 3"/
 find "$configdir"/"Sublime Text" -type f -print0 | while read -d $'\0' f; do
   relpath="${f#"$configdir"/"Sublime Text/"}"    #get the path relative to the root
   
@@ -70,11 +71,11 @@ find "$configdir"/"Sublime Text" -type f -print0 | while read -d $'\0' f; do
   fi
 
   if [[ ! -e "$sublimepath"/"$relpath" ]]; then
-    ln "$f" "~/.${f}"
+    ln -T "$f" "$sublimepath"/"$relpath"
   elif [[ "$f" -ef "$sublimepath"/"$relpath" ]]; then
     :   #it's already synced
   else
-    echo "Refusing to overwrite ~/.${f}, already exists! Resolve differences then rerun this script."
+    echo "Refusing to overwrite $sublimepath/$relpath, already exists! Resolve differences then rerun this script."
     problems=true
   fi
 done
