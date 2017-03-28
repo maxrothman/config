@@ -23,10 +23,10 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * Install the apps in apps.md
   * For Alfred, iTerm, etc. where the config is in this repo, follow the instructions in their READMEs to use said config.
 * Follow the instructions in the README in automator/
+* Install brew: <http://brew.sh/>
+* Run all the scripts in misc-scripts except pre-push starting with brew-packages.bash
 * Run deploy.sh
 * Update ~/.gitconfig with your name, email address, and optionally, where you'd like to store your hooks.
-* Install brew: <http://brew.sh/>
-* Run all the scripts in misc-scripts except pre-push
 * Copy pre-push to where your hooksPath points in gitconfig
 * Follow the instructions in Alfred.alfredpreferences/README.md
 * TODO: karabiner
@@ -59,8 +59,6 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 ##Todo
 * Remove virtualenvwrapperrc since the newest release has a lazy script
 * Distribute modified Ansible package
-* Should prompt for:
-  * gitconfig user.name and user.email
 * Sublime plugin to split selection on words (rather than lines)
 * Maybe rewrite prompt in python or something else for performance?
 * Find sublime plugins to:
