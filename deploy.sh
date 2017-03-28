@@ -9,7 +9,7 @@ configdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo 'Deploying bashrc.d...'
 if [[ ! -e ~/.bashrc.d ]]; then
-  ln -sT "$configdir"/bashrc.d ~/.bashrc.d
+  ln -s "$configdir"/bashrc.d ~/.bashrc.d
 elif [[ -L ~/.bashrc.d && "$(readlink ~/.bashrc.d)" == "$configdir"/bashrc.d ]]; then
   :   #it's already synced
 else
@@ -28,7 +28,7 @@ for f in "$configdir"/dotfiles/*; do
 
   base_name="$(basename "$f")"
   if [[ ! -e ~/."${base_name}" ]]; then
-    ln -T "$f" ~/."${base_name}"
+    ln "$f" ~/."${base_name}"
   elif [[ "$f" -ef ~/."${base_name}" ]]; then
     :   #it's already synced
   else
@@ -49,7 +49,7 @@ sed -i "s/email = <UPDATE-ME>/email = $gitemail/" ~/.gitconfig
 
 echo 'Deploying bin...'
 if [[ ! -e ~/.bin ]]; then
-  ln -sT "$configdir"/bin ~/.bin
+  ln -s "$configdir"/bin ~/.bin
 elif [[ -L ~/.bin && "$(readlink ~/.bin)" == "$configdir"/bin ]]; then
   :   #it's already synced
 else
@@ -71,7 +71,7 @@ find "$configdir"/"Sublime Text" -type f -print0 | while read -d $'\0' f; do
   fi
 
   if [[ ! -e "$sublimepath"/"$relpath" ]]; then
-    ln -T "$f" "$sublimepath"/"$relpath"
+    ln "$f" "$sublimepath"/"$relpath"
   elif [[ "$f" -ef "$sublimepath"/"$relpath" ]]; then
     :   #it's already synced
   else
