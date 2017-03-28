@@ -5,7 +5,7 @@ set -euo pipefail
 
 # Location of the config repo
 # This magic gets the location of the current script
-local configdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+configdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo 'Deploying bashrc.d...'
 if [[ ! -e "~/.bashrc.d" ]]; then
@@ -19,7 +19,7 @@ fi
 
 echo 'Deploying dotfiles...'
 # Use hardlinks to avoid any issues where programs won't follow symlinks
-local problems=false
+problems=false
 for f in "$configdir"/dotfiles/*; do
   #Ignore ignoreable files
   if git --git-dir "$configdir"/.git check-ignore "$f"; then
@@ -57,10 +57,10 @@ else
 fi
 
 echo 'Deploying Sublime configs'
-local problems=false
+problems=false
 sublimepath="~/Library/Application Support/Sublime Text 3/"
 find "$configdir"/"Sublime Text" -type f -print0 | while read -d $'\0' f; do
-  local relpath="${f#"$configdir"/"Sublime Text/"}"    #get the path relative to the root
+  relpath="${f#"$configdir"/"Sublime Text/"}"    #get the path relative to the root
   
   #Ignore ignoreable files
   if git --git-dir "$configdir"/.git check-ignore "$f"; then
