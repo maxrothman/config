@@ -496,11 +496,13 @@
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>289 244 918 512 0 0 1440 877 </string>
+	<string>282 154 918 512 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 394 732 478 0 0 1440 877 </string>
+	<string>217 310 732 478 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>214 97 980 708 0 0 1440 877 </string>
+	<string>214 306 732 478 0 0 1440 877 </string>
+	<key>NSWindow Frame iTerm Window 2</key>
+	<string>239 399 732 478 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_8FA0A1AC-A4C5-4C2A-9879-D49F66555368</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -716,7 +718,7 @@
 			<key>Columns</key>
 			<integer>80</integer>
 			<key>Command</key>
-			<string>/usr/local/bin/bash</string>
+			<string>/usr/local/bin/bash --login</string>
 			<key>Cursor Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -1085,7 +1087,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Consolas 19</string>
+			<string>Menlo-Regular 15</string>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
