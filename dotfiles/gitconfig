@@ -1,8 +1,6 @@
 # Git per-user config file
 
-[user]
-  name = <UPDATE-ME>
-  email = <UPDATE-ME>
+# Username and email are set by environment variables in ~/.bash-secure
 
 [core]
   #only set this true if you're on windows

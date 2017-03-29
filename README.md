@@ -25,6 +25,8 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * Follow the instructions in the README in automator/
 * Install brew: <http://brew.sh/>
 * Run all the scripts in misc-scripts except pre-push starting with brew-packages.bash
+* add `/usr/local/bin/bash` to the top of your /etc/shells, make a new terminal session
+  * for some reason this doesn't make iterm open to the correct shell, but you can run `bash` to get the right one
 * Run deploy.sh
 * Update ~/.gitconfig with your name, email address, and optionally, where you'd like to store your hooks.
 * Copy pre-push to where your hooksPath points in gitconfig

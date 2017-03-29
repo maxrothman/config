@@ -37,15 +37,7 @@ for f in "$configdir"/dotfiles/*; do
 done
 $problems && exit 1
 
-# Set values in gitconfig
-echo 'The following two values will be added to your .gitconfig'
-echo 'Name? (e.g. Tom Tickle)'
-read -r -p '> ' gitname
-echo 'Email address? (e.g. tom@tickle.me)'
-read -r -p '> ' gitemail
-sed -i "s/name = <UPDATE-ME>/name = $gitname/" ~/.gitconfig
-sed -i "s/email = <UPDATE-ME>/email = $gitemail/" ~/.gitconfig
-
+#LEFT OFF: ran brew script, ran deploy up to here. No other scripts.
 echo 'Deploying bin...'
 if [[ ! -e ~/.bin ]]; then
   ln -s "$configdir"/bin ~/.bin
@@ -80,8 +72,18 @@ find "$configdir"/"Sublime Text" -type f -print0 | while read -d $'\0' f; do
 done
 $problems && exit 1
 
+# Make bash-secure with proper git env vars
+echo 'Name? (e.g. Tom Tickle)'
+read -r -p '> ' gitname
+echo 'Email address? (e.g. tom@tickle.me)'
+read -r -p '> ' gitemail
 echo 'Deploying sample bash-secure'
 cat <<EOF > ~/.bash-secure
+export GIT_AUTHOR_NAME="$gitname"
+export GIT_AUTHOR_EMAIL="$gitemail"
+export GIT_COMMITTER_NAME="$gitname"
+export GIT_COMMITTER_EMAIL="$gitemail"
+
 # Add things to this file that you don't want to check in to git
 # For example:
 # if [ -f some/other/script.sh ]; then
