@@ -22,6 +22,7 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * Clone this repo somewhere
 * Install the apps in apps.md
   * For Alfred, iTerm, etc. where the config is in this repo, follow the instructions in their READMEs to use said config.
+* Install all the plugins in `Sublime Text/packages.txt`
 * Follow the instructions in the README in automator/
 * Install brew: <http://brew.sh/>
 * Run all the scripts in misc-scripts except pre-push starting with brew-packages.bash

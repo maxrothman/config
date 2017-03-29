@@ -61,6 +61,12 @@ find "$configdir"/"Sublime Text" -type f -print0 | while read -d $'\0' f; do
     continue
   fi
 
+  #If the plugin for a file isn't installed, skip and log
+  if [[ ! -e "$(dirname "$sublimepath"/"$relpath")" ]]; then
+    echo "$(dirname "$sublimepath"/"$relpath") does not exist, the plugin may not be installed. Skipping..."
+    continue
+  fi
+
   if [[ ! -e "$sublimepath"/"$relpath" ]]; then
     ln -s "$f" "$sublimepath"/"$relpath"
   elif [[ -L "$sublimepath"/"$relpath" && "$(readlink "$sublimepath"/"$relpath")" == "$f" ]]; then
