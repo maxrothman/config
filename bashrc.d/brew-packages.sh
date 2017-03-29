@@ -1,3 +1,10 @@
+# Put /usr/local/bin in the path (it's not necessarily there by default)
+if grep -q '/usr/local/bin' <<< "$PATH"; then
+  :  #already in path
+else
+  export PATH=/usr/local/bin:"$PATH"
+fi
+
 #Outdated leaf packages (ones I installed, not including dependencies)
 alias brew-outdated-leaves='cat <(brew outdated) <(brew leaves) | sort | uniq -d | grep -f - --color=never <(brew outdated -v)'
 
