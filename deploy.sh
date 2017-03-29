@@ -50,7 +50,7 @@ fi
 
 echo 'Deploying Sublime configs'
 problems=false
-sublimepath=~/Library/"Application Support"/"Sublime Text 3"/
+sublimepath=~/Library/"Application Support"/"Sublime Text 3"
 find "$configdir"/"Sublime Text" -type f -print0 | while read -d $'\0' f; do
   relpath="${f#"$configdir"/"Sublime Text/"}"    #get the path relative to the root
   
