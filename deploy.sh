@@ -37,7 +37,6 @@ for f in "$configdir"/dotfiles/*; do
 done
 $problems && exit 1
 
-#LEFT OFF: ran brew script, ran deploy up to here. No other scripts.
 echo 'Deploying bin...'
 if [[ ! -e ~/.bin ]]; then
   ln -s "$configdir"/bin ~/.bin
