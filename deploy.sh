@@ -78,12 +78,13 @@ done
 $problems && exit 1
 
 # Make bash-secure with proper git env vars
-echo 'Name? (e.g. Tom Tickle)'
-read -r -p '> ' gitname
-echo 'Email address? (e.g. tom@tickle.me)'
-read -r -p '> ' gitemail
-echo 'Deploying sample bash-secure'
-cat <<EOF > ~/.bash-secure
+if [[ ! -e ~/.bash-secure ]]; then
+  echo 'Name? (e.g. Tom Tickle)'
+  read -r -p '> ' gitname
+  echo 'Email address? (e.g. tom@tickle.me)'
+  read -r -p '> ' gitemail
+  echo 'Deploying sample bash-secure'
+  cat <<EOF > ~/.bash-secure
 export GIT_AUTHOR_NAME="$gitname"
 export GIT_AUTHOR_EMAIL="$gitemail"
 export GIT_COMMITTER_NAME="$gitname"
@@ -97,3 +98,7 @@ export GIT_COMMITTER_EMAIL="$gitemail"
 # fi
 
 EOF
+else
+  echo "Not writing ~/.bash-secure, one already exists"
+fi
+
