@@ -11,3 +11,6 @@ alias ls='ls --color'
 # Common ls aliases
 alias ll='ls -lArth'
 alias la='ls -A'
+
+# For some reason, set completion-ignore-case on isn't working in my ~/.inputrc
+bind 'set completion-ignore-case on'
