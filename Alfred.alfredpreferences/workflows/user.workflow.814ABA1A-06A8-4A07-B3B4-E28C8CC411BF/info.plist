@@ -4,8 +4,6 @@
 <dict>
 	<key>bundleid</key>
 	<string>com.tedwise.menubarsearch</string>
-	<key>category</key>
-	<string>Tools</string>
 	<key>connections</key>
 	<dict>
 		<key>C8DFF277-2C74-48D3-B685-F304268DF007</key>
@@ -25,7 +23,7 @@
 	<key>createdby</key>
 	<string>Ted Wise</string>
 	<key>description</key>
-	<string>Search through menu options for front-most application (1.3)</string>
+	<string>Search through menu options for front-most application (1.4)</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -41,6 +39,14 @@
 				<integer>4</integer>
 				<key>keyword</key>
 				<string>m</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>2</integer>
 				<key>runningsubtext</key>
 				<string>Loading...</string>
 				<key>script</key>
@@ -58,6 +64,8 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>D75A822F-5FB7-4372-B080-617E8D0BA5C1</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -73,6 +81,8 @@
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
 			<string>C8DFF277-2C74-48D3-B685-F304268DF007</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 	</array>
 	<key>readme</key>
