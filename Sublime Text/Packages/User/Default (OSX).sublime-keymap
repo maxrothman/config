@@ -25,8 +25,6 @@
   { "keys": ["ctrl+alt+shift+down"], "command": "carry_file_to_pane", "args": {"direction": "down"} },
   { "keys": ["ctrl+alt+shift+left"], "command": "carry_file_to_pane", "args": {"direction": "left"} },
 
-  // this might not be necessary anymore
-  // { "keys": ["shift+enter"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Add Line.sublime-macro"} },
   { "keys": ["super+shift+d"], "command": "find_all_under" },
   
   // Keybindings for various plugins
