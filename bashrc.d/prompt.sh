@@ -28,7 +28,7 @@
 # TODO: perhaps shorten with __git_ps1? (provided by git-completion.sh)
 # <https://github.com/git/git/blob/master/contrib/completion/git-completion.bash>
 
-export SUDO_PS1="${IWhite}${On_Red}\u@\h: \W#${NoColor} "
+export SUDO_PS1="${Color_IWhite}${Color_On_Red}\u@\h: \W#${Color_NoColor} "
 
 shorten_path () {
   #arg: path to shorten (defaults to $PWD)
@@ -44,18 +44,18 @@ shorten_path () {
     } else 
       print $0;}
   ')
-  echo "${BGreen}${shortened}${NoColor}"
+  echo "${Color_BGreen}${shortened}${Color_NoColor}"
 }
 
 user_at_loc () {
-  echo "${BBlue}\u${NoColor}@${BPurple}\h${NoColor}"
+  echo "${Color_BBlue}\u${Color_NoColor}@${Color_BPurple}\h${NoColor}"
 }
 
 git_prompt () {
   git_branch=$(git symbolic-ref HEAD 2>&1)
   r=$?
   if [ "$git_branch" = "fatal: ref HEAD is not a symbolic ref" ]; then 
-    echo "${Red}???${NoColor} "
+    echo "${Color_Red}???${Color_NoColor} "
   
   elif [ $r -eq 0 ]; then
     git_branch="${git_branch#refs/heads/}"
@@ -70,32 +70,32 @@ git_prompt () {
     fi
 
     if grep -q "nothing to commit" <<<"$s"; then
-      git_branch="${Green}($git_branch)${NoColor}"
+      git_branch="${Color_Green}($git_branch)${Color_NoColor}"
     elif grep -q -E "Untracked files|not staged" <<<"$s"; then
-      git_branch="${Yellow}($git_branch)${NoColor}"
+      git_branch="${Color_Yellow}($git_branch)${Color_NoColor}"
     elif grep -q "Changes to be committed" <<<"$s"; then
-      git_branch="${Red}($git_branch)${NoColor}"
+      git_branch="${Color_Red}($git_branch)${Color_NoColor}"
     fi
     
-    [ -n "$git_branch" ] && echo "${BYellow}${symbol}${NoColor}${git_branch}"
+    [ -n "$git_branch" ] && echo "${Color_BYellow}${symbol}${Color_NoColor}${git_branch}"
   fi
 }
 
 git_branch () {
   toplevel=$(git rev-parse --show-toplevel)
-  echo "${BPurple}"$(basename "$toplevel")"${NoColor}"
+  echo "${Color_BPurple}"$(basename "$toplevel")"${Color_NoColor}"
 }
 
 git_path () {
   toplevel="$(git rev-parse --show-toplevel)"
   shortened=-$([ "$toplevel" != "$PWD" ] && shorten_path ${PWD#$toplevel})
-  echo "${BGreen}$shortened${NoColor}"
+  echo "${Color_BGreen}$shortened${Color_NoColor}"
 }
 
 set_prompt () {
   gitstuff=$(git_prompt)
   if [ -n "$VIRTUAL_ENV" ]; then
-    venv="${Yellow}!${NoColor} "
+    venv="${Color_Yellow}!${Color_NoColor} "
   else
     venv=""
   fi
@@ -105,7 +105,7 @@ set_prompt () {
   else
     prompt="$(user_at_loc): $(shorten_path)"
   fi
-  export PS1="${venv}${prompt} ${BBlue}\$${NoColor} "
+  export PS1="${venv}${prompt} ${Color_BBlue}\$${Color_NoColor} "
 }
 
 if [ -n "$PROMPT_COMMAND" ]; then
