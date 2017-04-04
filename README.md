@@ -59,6 +59,7 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * bash config
 
 ##Todo
+* Make all bash use strict mode and all function variables local
 * Remove virtualenvwrapperrc since the newest release has a lazy script
 * Distribute modified Ansible package
 * Sublime plugin to split selection on words (rather than lines)
