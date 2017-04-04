@@ -52,6 +52,8 @@ user_at_loc () {
 }
 
 git_prompt () {
+  local git_branch r s symbol
+
   git_branch=$(git symbolic-ref HEAD 2>&1)
   r=$?
   if [ "$git_branch" = "fatal: ref HEAD is not a symbolic ref" ]; then 
@@ -59,7 +61,7 @@ git_prompt () {
   
   elif [ $r -eq 0 ]; then
     git_branch="${git_branch#refs/heads/}"
-    s=`/usr/bin/git status`
+    s=`git status`
     
     if grep -q "ahead of" <<<"$s"; then
       symbol="+"
