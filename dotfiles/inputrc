@@ -1,8 +1,13 @@
 # Bash input configuration
 
-set completion-ignore-case on     #Enable case-insensitive tab-complete
-"\e[A": history-search-backward   #Press up or down arrow to search through shell history on what you've already typed
+#Enable case-insensitive tab-complete
+set completion-ignore-case on
+
+#Press up or down arrow to search through shell history on what you've already typed
+"\e[A": history-search-backward
 "\e[B": history-search-forward
 
-#"\e[1;9C": forward-word          #alt-left/right to move the cursor by words
-#"\e[1;9D": backward-word         #I prefer to enable this in iTerm settings so it works no matter where I'm ssh'd to.
+#alt-left/right to move the cursor by words
+#I prefer to enable this in iTerm settings so it works no matter where I'm ssh'd to.
+#"\e[1;9C": forward-word
+#"\e[1;9D": backward-word
