@@ -1,47 +1,43 @@
-// Global user settings
-
 {
-  "auto_complete_with_fields": true,
-  "color_scheme": "Packages/User/My-Monokai-Extended (SublimePythonIDE).tmTheme",
-  "file_exclude_patterns": [
-    "*.pyc",
-    "*.pyo",
-    "*.exe",
-    "*.dll",
-    "*.obj",
-    "*.o",
-    "*.a",
-    "*.lib",
-    "*.so",
-    "*.dylib",
-    "*.ncb",
-    "*.sdf",
-    "*.suo",
-    "*.pdb",
-    "*.idb",
-    ".DS_Store",
-    "*.class",
-    "*.psd",
-    "*.db",
-    "*.sublime-workspace",
-    "*.tfstate*"
-  ],
-  "font_size": 17,
-  "ignored_packages": ["Vintage"],
-  "origami_auto_close_empty_panes": true,
+	"auto_complete_with_fields": true,
+	"color_scheme": "Packages/User/My-Monokai-Extended (SublimePythonIDE).tmTheme",
+	"file_exclude_patterns": [
+		"*.pyc",
+		"*.pyo",
+		"*.exe",
+		"*.dll",
+		"*.obj",
+		"*.o",
+		"*.a",
+		"*.lib",
+		"*.so",
+		"*.dylib",
+		"*.ncb",
+		"*.sdf",
+		"*.suo",
+		"*.pdb",
+		"*.idb",
+		".DS_Store",
+		"*.class",
+		"*.psd",
+		"*.db",
+		"*.sublime-workspace",
+		"*.tfstate*"
+	],
+	"font_size": 17,
+	"ignored_packages": ["Vintage"],
+	"origami_auto_close_empty_panes": true,
 
   /* Enable/disable the SyncedSideBar plugin. Exposed here so it can be enabled/disabled
      for specific projects.
 
      The plugin can cause some wonky behavior around toggling the sidebar visibility.
-     Oddly enough, using ⌘K ⌘B or the view menu seems to circumvent the odd behavior.
-  */
-  "reveal-on-activate": true,
+     Oddly enough, using ⌘K ⌘B or the view menu seems to circumvent the odd behavior. */
+	"reveal-on-activate": true,
+	"scroll_past_end": true,
+	"tab_size": 2,
+	"translate_tabs_to_spaces": true
 
-  "scroll_past_end": true,
-  "tab_size": 2,
-  "translate_tabs_to_spaces": true,
-
-  // Override the hard word wrap line limit, it defaults to sublime's first column (78)
-  "WrapPlus.wrap_width": 85,
+	// Override the hard word wrap line limit, it defaults to sublime's first column (78)
+	"WrapPlus.wrap_width": 85,
 }
