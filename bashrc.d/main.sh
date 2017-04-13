@@ -12,3 +12,5 @@ alias ls='ls --color'
 alias ll='ls -lArth'
 alias la='ls -A'
 
+# If I'm using `file` than I want to know what a thing REALLY is, not about what it links to
+alias file='file -h'
