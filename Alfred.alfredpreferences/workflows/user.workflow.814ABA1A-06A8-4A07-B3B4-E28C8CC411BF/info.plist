@@ -17,6 +17,8 @@
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
+				<key>vitoclose</key>
+				<false/>
 			</dict>
 		</array>
 	</dict>
@@ -33,6 +35,8 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>escaping</key>
@@ -51,6 +55,10 @@
 				<string>Loading...</string>
 				<key>script</key>
 				<string>ruby main.rb "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
 				<key>subtext</key>
 				<string>Search menu bar for commands</string>
 				<key>title</key>
@@ -65,15 +73,21 @@
 			<key>uid</key>
 			<string>D75A822F-5FB7-4372-B080-617E8D0BA5C1</string>
 			<key>version</key>
-			<integer>0</integer>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>concurrently</key>
+				<false/>
 				<key>escaping</key>
 				<integer>4</integer>
 				<key>script</key>
 				<string>osascript execute.scpt "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
@@ -82,7 +96,7 @@
 			<key>uid</key>
 			<string>C8DFF277-2C74-48D3-B685-F304268DF007</string>
 			<key>version</key>
-			<integer>0</integer>
+			<integer>2</integer>
 		</dict>
 	</array>
 	<key>readme</key>
@@ -91,11 +105,15 @@
 	<dict>
 		<key>C8DFF277-2C74-48D3-B685-F304268DF007</key>
 		<dict>
+			<key>xpos</key>
+			<integer>530</integer>
 			<key>ypos</key>
-			<real>10</real>
+			<integer>10</integer>
 		</dict>
 		<key>D75A822F-5FB7-4372-B080-617E8D0BA5C1</key>
 		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
 			<key>ypos</key>
 			<real>10</real>
 		</dict>
