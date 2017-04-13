@@ -36,8 +36,8 @@
 	"reveal-on-activate": true,
 	"scroll_past_end": true,
 	"tab_size": 2,
-	"translate_tabs_to_spaces": true
+	"translate_tabs_to_spaces": true,
 
 	// Override the hard word wrap line limit, it defaults to sublime's first column (78)
-	"WrapPlus.wrap_width": 85,
+	"WrapPlus.wrap_width": 85
 }
