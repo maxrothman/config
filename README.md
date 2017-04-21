@@ -37,7 +37,7 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
   and copy-paste the styles in stylish/ into it, using the matching paths noted in
   the file headers
 
-##Complete
+## Complete
 * brew packages
 * .dircolors
 * .bash-colors
@@ -58,7 +58,7 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * .gitconfig
 * bash config
 
-##Todo
+## Todo
 * Make all bash use strict mode and all function variables local
 * Remove virtualenvwrapperrc since the newest release has a lazy script
 * Distribute modified Ansible package
@@ -67,3 +67,5 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
   * remove matching brackets
   * stop giving syntax errors for print(s, end=something) in python3
 * check for package upgrades 1/day
+* For macbooks with force touch, set force threshold to "Firm" in System Preferences, then run `defaults write com.apple.AppleMultitouchTrackpad SecondClickThreshold 1` to make force touch a little lighter
+  * Maybe figure out what some of the other keys do like `ActuateDedents`
