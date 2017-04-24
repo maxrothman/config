@@ -1,7 +1,7 @@
 # Virtualenv and virtualenvwrapper stuff
 
 export WORKON_HOME=~/.virtualenvs
-export PROJECT_HOME=~
+export PROJECT_HOME=~/repos
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 
