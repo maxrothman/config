@@ -11,7 +11,11 @@ Install all of these:
 * Stay: save window positions when changing monitor configs
 * BetterSnapTool: tiling (at least until I finish my window manager)
 * HyperSwitch: window-based switcher. I may replace this with Hammerspoon eventually.
-* Day-O: adds a calendar panel to the OSX datetime display
+* Day-O: replaces the menu bar datetime display and adds a calendar panel on click
+* coconutBattery: replaces the menu bar battery display and adds remaining time prediction (removed in Sierra)
+  * After downloading and starting, click menu bar icon and open "Preferences"
+  * Select "Launch at Startup" and "Show Icons"
+  * Change format to `%r`
 * AppCleaner: fully uninstall apps
 * Flux: so my eyes don't die (though this might be unnecessary on the newest MacOS)
 * VLC: duh.
