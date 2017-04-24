@@ -22,15 +22,19 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * Clone this repo somewhere
 * Install the apps in apps.md
   * For Alfred, iTerm, etc. where the config is in this repo, follow the instructions in their READMEs to use said config.
+  * Some stuff for iTerm isn't saved in config, particularly keybindings. Add the following:
+    * In Profiles>Default>Keys, set "Left option key acts as" to +Esc
+    * In Profiles>Default>Keys, change ⌥→ to "Send Escape Sequence" and "f"
+    * In Profiles>Default>Keys, change ⌥← to "Send Escape Sequence" and "b"
 * Install all the plugins in `Sublime Text/packages.txt`
 * Follow the instructions in the README in automator/
 * Install brew: <http://brew.sh/>
 * Run all the scripts in misc-scripts except pre-push starting with brew-packages.bash
-* add `/usr/local/bin/bash` to the top of your /etc/shells, make a new terminal session
-  * for some reason this doesn't make iterm open to the correct shell, but you can run `bash` to get the right one. You can make sure it does the right one by setting iTerm to run `/usr/local/bin/bash --login`.
+* Change the login shell
+  * In System Preferences>Users & Groups, unlock then right click on your user and select "Advanced Options"
+  * Change "Login shell" to `/usr/local/bin/bash`
 * Run deploy.sh
 * Copy pre-push to where your hooksPath points in gitconfig
-* Follow the instructions in Alfred.alfredpreferences/README.md
 * TODO: karabiner
 * Install the 
   [Stylish Chrome plugin](https://chrome.google.com/webstore/detail/stylish/fjnbnpbmkenffdnngjfgmeleoegfcffe?hl=en)
