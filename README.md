@@ -26,6 +26,7 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
     * In Profiles>Default>Keys, set "Left option key acts as" to +Esc
     * In Profiles>Default>Keys, change ⌥→ to "Send Escape Sequence" and "f"
     * In Profiles>Default>Keys, change ⌥← to "Send Escape Sequence" and "b"
+    * In the menu, run "Install shell integration"
 * Install all the plugins in `Sublime Text/packages.txt`
 * Follow the instructions in the README in automator/
 * Install brew: <http://brew.sh/>
