@@ -90,7 +90,7 @@ git_branch () {
 
 git_path () {
   toplevel="$(git rev-parse --show-toplevel)"
-  shortened=-$([ "$toplevel" != "$PWD" ] && shorten_path ${PWD#$toplevel})
+  shortened=-$([ "$toplevel" != "$PWD" ] && shorten_path "${PWD#$toplevel}")
   echo "${Color_BGreen}$shortened${Color_NoColor}"
 }
 
