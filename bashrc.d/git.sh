@@ -1,7 +1,7 @@
 # Handy git aliases
 lastm() { git --no-pager log --merges -n1 --format='%H'; }  #commits since last merge
 lastp() { git --no-pager rev-parse "@{u}"; }                #commits since last push
-alias gitcd='cd $(git rev-parse --show-toplevel)'           #cd to top of repo
+alias gcd='cd $(git rev-parse --show-toplevel)'           #cd to top of repo
 
 #I'm so lazy I don't even want to type the space in git commands
 #TODO: fix completion
