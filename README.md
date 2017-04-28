@@ -74,3 +74,5 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * check for package upgrades 1/day
 * For macbooks with force touch, set force threshold to "Firm" in System Preferences, then run `defaults write com.apple.AppleMultitouchTrackpad SecondClickThreshold 1` to make force touch a little lighter
   * Maybe figure out what some of the other keys do like `ActuateDedents`
+* Add new stuff (bettertouchtool for instance)
+* Sublime likes to reformat the prefs and remove comments. Find a workaround?
