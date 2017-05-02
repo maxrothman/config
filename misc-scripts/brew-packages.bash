@@ -11,6 +11,7 @@ packages=(
   fzf                                        # fuzzyfinder: https://github.com/junegunn/fzf
   git                                        # Update to newest on older systems
   gnu-sed                                    # BSD sed is weird (on Mac)
+  gpatch
   "homebrew/dupes/grep --with-default-names" # BSD grep is also weird (on Mac)
   htop-osx                                   # Gotta have htop
   jq                                         # JSON parsing tool: <https://stedolan.github.io/jq/>
