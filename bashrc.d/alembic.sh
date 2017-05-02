@@ -1,5 +1,5 @@
 # Script to prefix alembic migrations so they order correctly with ls
-function alembic_prefix() {
+function alembic-prefix() {
   local fname migrations_dir last_num
   migrations_dir="$(git rev-parse --show-toplevel)"/alembic/versions
   
