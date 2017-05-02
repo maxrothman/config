@@ -24,6 +24,7 @@
 		"*.sublime-workspace",
 		"*.tfstate*"
 	],
+	"auto_find_in_selection": false,
 	"font_size": 17,
 	"ignored_packages": ["Vintage"],
 	"origami_auto_close_empty_panes": true,
