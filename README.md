@@ -42,6 +42,7 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
   [Stylish Chrome plugin](https://chrome.google.com/webstore/detail/stylish/fjnbnpbmkenffdnngjfgmeleoegfcffe?hl=en)
   and copy-paste the styles in stylish/ into it, using the matching paths noted in
   the file headers
+  * The stylish/README.md has more info on how to install these
 
 ## Complete
 * brew packages
