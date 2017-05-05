@@ -33,3 +33,6 @@ packages=(
 for package in "${packages[@]}"; do
   brew install $package
 done
+
+#Install fzf hooks
+/usr/local/opt/fzf/install
