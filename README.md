@@ -43,6 +43,7 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
   and copy-paste the styles in stylish/ into it, using the matching paths noted in
   the file headers
   * The stylish/README.md has more info on how to install these
+* In System Preferences>Keyboard>Shortcuts, disable all of the shortcuts involving ctrl. A bunch of them are used by Sublime, but Apple decided it'd be better to use them for switching spaces.
 
 ## Complete
 * brew packages
