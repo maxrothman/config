@@ -91,11 +91,11 @@
   switch = "!f() { [ `git rev-list @{u}.. | wc -l` = 0 ] && return; [ -z $1 ] && echo branch name required && return 2; git branch $1 && if [ -n \"$(git status --porcelain)\" ]; then git stash --all && stashed=1; fi && git reset --hard @{u} && git checkout $1 && if [ -n \"$stashed\" ]; then  git stash pop; fi; }; f"
   
   #Open a pull request in github:
-  # git pr: open a PR from the current branch against master
+  # git pr: open a PR from the current branch against main-branch (defined below)
   # git pr <refname>: open a pr from the current branch against refname
   # git pr <ref1> <ref2>: open a pr from ref2 against ref1
   #All refnames are from the remote's perspective, so "git pr master HEAD^" will use origin's head, aka the tip of master.  
-  pr = "!f() { open https://github.com/$(git config --get remote.origin.url | sed -r 's|^.*[:/]([^/]+/[^/]+).git$|\\1|')/compare/${1-master}...${2-$(git symbolic-ref HEAD &> /dev/null && git rev-parse --abbrev-ref HEAD)}?expand=1; }; f"
+  pr = "!f() { open https://github.com/$(git config --get remote.origin.url | sed -r 's|^.*[:/]([^/]+/[^/]+).git$|\\1|')/compare/${1-$(git config --get myconfig.main-branch)}...${2-$(git symbolic-ref HEAD &> /dev/null && git rev-parse --abbrev-ref HEAD)}?expand=1; }; f"
 
   #Check out a github PR locally
   #Usage: git chpr <PR #>
@@ -106,12 +106,21 @@
   #Usage: git merged <ref1> [ref2]
   merged = "!f() { git merge-base --is-ancestor $1 ${2-HEAD} && echo \"$1 is merged into ${2-HEAD}\" && return 0 || echo \"$1 is NOT merged into ${2-HEAD}\" && return 1; }; f"
   
-  #Delete all local branches that have been merged into master (as determined by the "git merged" alias)
-  cleanup-merged = "!git for-each-ref --format '%(refname)' refs/heads | grep -v 'master\\|release' | while read ref; do git merged $ref master >/dev/null && git branch -D ${ref#refs/heads/}; done"
+  #Delete all local branches that have been merged into main-branch (as determined by the "git merged" alias)
+  cleanup-merged = "!git for-each-ref --format '%(refname)' refs/heads | grep -vE $(git config --get myconfig.excluded-branches) | while read ref; do git merged $ref $(git config --get myconfig.main-branch) >/dev/null && git branch -D ${ref#refs/heads/}; done"
 
   #Delete all local branches whose upstreams no longer exist (excluding branches that never had upstreams)
   cleanup-deleted = "!git for-each-ref refs/heads --format='%(refname:short) %(upstream:short)' | while read l; do remote=$(cut -d' ' -f2 <<< $l); here=$(cut -d' ' -f1 <<< $l); if [ -n \"$remote\" ]; then git rev-parse \"$remote\" &>/dev/null; result=$?; [ \"$result\" -gt 0 ] && git branch -D $here; fi; done"
 
   cleanup = "!git cleanup-merged; git cleanup-deleted"
   
-  postmerge = !git checkout master && git pull && git cleanup
+  postmerge = !git checkout $(git config --get myconfig.main-branch) && git pull && git cleanup
+
+# Custom config for aliases
+[myconfig]
+  #Default branch for several aliases, like pr and postmerge
+  main-branch = master
+
+  #"|"-separated list of branches that should not be cleaned up by cleanup-merged.
+  #NB: to write a literal |, it will have to be preceeded by 2 backslashes, like \\|
+  excluded-branches = master
