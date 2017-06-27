@@ -1,9 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "tag_aws_autoscaling_groupName_",
-    "dontautoexpand" : true,
-    "uid" : "ADD3AC0D-B6E1-4D83-8324-D40494157639",
-    "name" : "ansible asg inventory name",
-    "keyword" : "asg"
-  }
-}
