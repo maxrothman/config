@@ -437,13 +437,15 @@
 	<key>HotKeyTogglesWindow</key>
 	<true/>
 	<key>Hotkey</key>
-	<true/>
+	<false/>
 	<key>HotkeyAutoHides</key>
 	<false/>
 	<key>HotkeyChar</key>
-	<integer>116</integer>
+	<integer>0</integer>
 	<key>HotkeyCode</key>
-	<integer>17</integer>
+	<integer>0</integer>
+	<key>HotkeyMigratedFromSingleToMulti</key>
+	<true/>
 	<key>HotkeyModifiers</key>
 	<integer>1310985</integer>
 	<key>IRMemory</key>
@@ -495,14 +497,14 @@
 	</data>
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
+	<key>NSWindow Frame SUStatusFrame</key>
+	<string>628 487 400 129 0 0 1440 877 </string>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>410 364 620 392 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>282 154 918 512 0 0 1440 877 </string>
+	<string>578 1166 958 433 -199 900 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>217 310 732 478 0 0 1440 877 </string>
-	<key>NSWindow Frame iTerm Window 1</key>
-	<string>214 306 732 478 0 0 1440 877 </string>
-	<key>NSWindow Frame iTerm Window 2</key>
-	<string>239 399 732 478 0 0 1440 877 </string>
+	<string>480 4 957 873 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_8FA0A1AC-A4C5-4C2A-9879-D49F66555368</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -777,10 +779,30 @@
 			</dict>
 			<key>Guid</key>
 			<string>8FA0A1AC-A4C5-4C2A-9879-D49F66555368</string>
+			<key>Has Hotkey</key>
+			<true/>
 			<key>Hide After Opening</key>
 			<false/>
 			<key>Horizontal Spacing</key>
 			<real>0.99850574171686746</real>
+			<key>HotKey Characters</key>
+			<string>t</string>
+			<key>HotKey Characters Ignoring Modifiers</key>
+			<string>t</string>
+			<key>HotKey Key Code</key>
+			<integer>17</integer>
+			<key>HotKey Modifier Flags</key>
+			<integer>1310985</integer>
+			<key>HotKey Window Animates</key>
+			<true/>
+			<key>HotKey Window AutoHides</key>
+			<false/>
+			<key>HotKey Window Dock Click Action</key>
+			<integer>0</integer>
+			<key>HotKey Window Floats</key>
+			<false/>
+			<key>HotKey Window Reopens On Activation</key>
+			<false/>
 			<key>Idle Code</key>
 			<integer>0</integer>
 			<key>Initial Text</key>
@@ -1975,16 +1997,38 @@
 			<string>/Users/max</string>
 		</dict>
 	</array>
+	<key>NoSyncCommandHistoryHasEverBeenUsed</key>
+	<true/>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
-	<string>76E3B75B-84CC-4B79-87F8-C37C8A072CAE</string>
-	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
+	<string>D5D07DB0-02D0-47CD-8484-429DF0B0D451</string>
+	<key>NoSyncLastTipTime</key>
+	<real>516636960.14148003</real>
+	<key>NoSyncPermissionToShowTip</key>
 	<true/>
-	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
-	<integer>0</integer>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>512336232.50570601</real>
+	<real>514755214.51951802</real>
+	<key>NoSyncTipsToNotShow</key>
+	<array>
+		<string>000</string>
+		<string>0000</string>
+		<string>0001</string>
+		<string>0002</string>
+		<string>0003</string>
+		<string>0004</string>
+		<string>0005</string>
+		<string>0006</string>
+		<string>0007</string>
+		<string>0008</string>
+		<string>0009</string>
+		<string>0010</string>
+		<string>0011</string>
+		<string>0012</string>
+		<string>0013</string>
+		<string>0014</string>
+		<string>0015</string>
+	</array>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -2035,7 +2079,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/max/config/iTerm</string>
+	<string>/Users/max-rothman/config/iTerm</string>
 	<key>Print In Black And White</key>
 	<true/>
 	<key>PromptOnQuit</key>
@@ -2051,11 +2095,11 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/testing.xml?shard=94</string>
+	<string>https://iterm2.com/appcasts/testing.xml?shard=4</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-03-28T19:37:53Z</date>
+	<date>2017-05-16T14:00:31Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -2106,10 +2150,12 @@
 	<string>/-+\~_.</string>
 	<key>findIgnoreCase_iTerm</key>
 	<true/>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.15</string>
+	<string>3.1.beta.3</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
