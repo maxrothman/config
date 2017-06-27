@@ -1,5 +1,6 @@
 ### REQUIRED ###
 
+Align Arguments                  # Align argument lists with their opening parens
 AlignTab                         # Vertical alignment tools
 ApplySyntax                      # Allows for writing custom rules for which syntax file to apply
 Edit Command Palette             # Make your own command palette items

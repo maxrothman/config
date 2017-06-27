@@ -64,9 +64,9 @@
           <key>lineHighlight</key>
           <string>#3E3D32</string>
           <key>selection</key>
-          <string>#297ACC</string>
+          <string>#2f4387</string>
           <key>selectionBorder</key>
-          <string>#222218</string>
+          <string>#657ed3</string>
           <key>tagsOptions</key>
           <string>stippled_underline</string>
         </dict>

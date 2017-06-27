@@ -6,6 +6,7 @@
 
   { "keys": ["shift+space"], "command": "move", "args": {"by": "characters", "forward": true}},
   { "keys": ["ctrl+space"], "command": "move", "args": {"by": "subword_ends", "forward": true}},
+  { "keys": ["super+alt+up"], "command": "jump_back"},
 
   // Overrides default behavior which is kinda wonky
   { "keys": ["ctrl+tab"], "command": "next_view" },
