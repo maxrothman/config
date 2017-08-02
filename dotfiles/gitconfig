@@ -63,7 +63,7 @@
   delbranch = push origin --delete
 
   #Find all conflicts (not conflicted files) to avoid accidentally commiting half-resolved merges
-  conflicts = !grep -H -r "======="
+  conflicts = !grep -H -r '>>>>>\\|<<<<<' --exclude-dir=.git
 
   #Push current local branch to the remote
   pushb = !git push --set-upstream origin $(git symbolic-ref --short HEAD)
