@@ -16,6 +16,7 @@ packages=(
   htop-osx                                   # Gotta have htop
   jq                                         # JSON parsing tool: <https://stedolan.github.io/jq/>
   nmap                                       # Mac really doesn't ship with this?!
+  pip-completion                             # Bash completion for pip
   pstree                                     # Gives you something like ps f on linux since there's no f on mac
   python                                     # Update to 2.7.10 which fixes major SSL flaws
   python3                                    # If only this were default
