@@ -79,3 +79,4 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
   * Maybe figure out what some of the other keys do like `ActuateDedents`
 * Add new stuff (bettertouchtool for instance)
 * Sublime likes to reformat the prefs and remove comments. Find a workaround?
+  * Maybe gitattributes and textconv: http://t-a-w.blogspot.com/2016/05/sensible-git-diff-for-json-files.html
