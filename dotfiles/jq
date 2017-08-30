@@ -11,4 +11,6 @@ def allinst: .Reservations[].Instances[];
 # Input: a string or list
 # subs: a list of sub-items (strings if input is a string, lists if input is a list)
 # Output: true if any of the items in "subs" are contained in the input
+
+# Might be able to be improved with https://stackoverflow.com/questions/40135852/jq-testing-if-a-key-is-in-a-list-of-predefined-keys
 def anyin(subs): . as $val | subs | any(inside($val));
