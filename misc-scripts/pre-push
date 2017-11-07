@@ -10,19 +10,21 @@
 #          
 #   Make sure it's executable!
 #
-# Warns about pushing to master, prompts user to switch to another branch
-# Dependencies: pushb, pr, and switch aliases (see ~/.gitconfig)
+# Warns about pushing to protected branches, prompts user to switch to another branch
+# Dependencies: pushb, pr, and switch aliases, and myconfig.protected-branches config (see ~/.gitconfig)
 
-if [ "$(git symbolic-ref --short HEAD)" == 'master' ]; then
+current_ref="$(git symbolic-ref --short HEAD)"
+protected_branches="$(git config --get myconfig.protected-branches)"
+if grep -qE  "$protected_branches" <<< "$current_ref"; then
   #wc reads from stdin by default
   [ "$(wc -l)" -le 0 ] && exit  #no refs pushed, nothing to do
 
-  echo "You are pushing to MASTER! Are you sure you want to continue?"
+  echo "You are pushing to $(tr '[:lower:]' '[:upper:]' <<< $current_ref)! Are you sure you want to continue?"
   echo "Enter the name of a new branch to switch all of your commits to, or if you're sure,"
-  echo "enter "'"'"I'm sure I want to push to master"'"'" (or CTRL+C to exit)"
+  echo "enter "'"'"I'm sure I want to push to $current_ref"'"'" (or CTRL+C to exit)"
   exec < /dev/tty   #see http://stackoverflow.com/questions/3417896/how-do-i-prompt-the-user-from-within-a-commit-msg-hook
   read -p '> ' input
-  [ "$input" = "I'm sure I want to push to master" ] && exit 0
+  [ "$input" = "I'm sure I want to push to $current_ref" ] && exit 0
   
   git switch $input
   git pushb
@@ -32,3 +34,4 @@ if [ "$(git symbolic-ref --short HEAD)" == 'master' ]; then
   
   exit 1  #blocks original push
 fi
+

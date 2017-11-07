@@ -107,7 +107,7 @@
   merged = "!f() { git merge-base --is-ancestor $1 ${2-HEAD} && echo \"$1 is merged into ${2-HEAD}\" && return 0 || echo \"$1 is NOT merged into ${2-HEAD}\" && return 1; }; f"
   
   #Delete all local branches that have been merged into main-branch (as determined by the "git merged" alias)
-  cleanup-merged = "!git for-each-ref --format '%(refname)' refs/heads | grep -vE $(git config --get myconfig.excluded-branches) | while read ref; do git merged $ref $(git config --get myconfig.main-branch) >/dev/null && git branch -D ${ref#refs/heads/}; done"
+  cleanup-merged = "!git for-each-ref --format '%(refname)' refs/heads | grep -vE $(git config --get myconfig.protected-branches) | while read ref; do git merged $ref $(git config --get myconfig.main-branch) >/dev/null && git branch -D ${ref#refs/heads/}; done"
 
   #Delete all local branches whose upstreams no longer exist (excluding branches that never had upstreams)
   cleanup-deleted = "!git for-each-ref refs/heads --format='%(refname:short) %(upstream:short)' | while read l; do remote=$(cut -d' ' -f2 <<< $l); here=$(cut -d' ' -f1 <<< $l); if [ -n \"$remote\" ]; then git rev-parse \"$remote\" &>/dev/null; result=$?; [ \"$result\" -gt 0 ] && git branch -D $here; fi; done"
@@ -123,7 +123,7 @@
 
   #"|"-separated list of branches that should not be cleaned up by cleanup-merged.
   #NB: to write a literal |, it will have to be preceeded by 2 backslashes, like \\|
-  excluded-branches = master
+  protected-branches = master
 
 [user]
   email = max.r.rothman@gmail.com
