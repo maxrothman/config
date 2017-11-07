@@ -48,11 +48,6 @@ from workflow.update import Version
 
 log = None
 
-# bundle IDs of workflows to skip
-BLACKLIST = [
-    'net.deanishe.alfred.fixum',  # this workflow
-]
-
 ICON_UPDATE = 'update-available.png'
 
 # version of AW in this workflow
@@ -62,7 +57,8 @@ MIN_VERSION = Version(open(VERSION_FILE).read())
 # path to good copy of Alfred-Workflow
 WF_DIR = os.path.join(os.path.dirname(__file__), 'workflow')
 
-# Alfred 3 preferences property list
+# Alfred 3 preferences property list. Contains path to workflow
+# directory
 ALFRED_PREFS = os.path.expanduser(
     '~/Library/Preferences/com.runningwithcrayons.Alfred-Preferences-3.plist')
 
@@ -82,8 +78,14 @@ MATCH = (MATCH_STARTSWITH |
          MATCH_INITIALS_STARTSWITH |
          MATCH_SUBSTRING)
 
-Workflow = namedtuple('Workflow', 'name id dir aw_version aw_dir')
-AWInfo = namedtuple('AWInfo', 'path version')
+Workflow = namedtuple('Workflow', 'name id dir aw')
+AWInfo = namedtuple('AWInfo', 'dir version')
+
+
+def touch(path):
+    """Set mtime and atime of ``path`` to now."""
+    with open(path, 'a'):
+        os.utime(path, None)
 
 
 def read_plist(path):
@@ -139,7 +141,7 @@ def get_workflow_info(dirpath):
     if not aw:
         return None
 
-    return Workflow(name, bid, dirpath, aw.version, aw.path)
+    return Workflow(name, bid, dirpath, aw)
 
 
 def get_workflow_directory():
@@ -161,7 +163,7 @@ def get_workflow_directory():
 
 def load_blacklist():
     """Load bundle IDs of blacklisted workflows."""
-    blacklisted = BLACKLIST[:]
+    blacklisted = []
     p = wf.datafile('blacklist.txt')
     if os.path.exists(p):
         with open(p) as fp:
@@ -189,12 +191,18 @@ def _newname(path):
 def update_workflow(info):
     """Replace outdated version of Alfred-Workflow."""
     log.info('    updating "%s" ...', info.name)
-    newdir = _newname(info.aw_dir + '.old')
-    log.debug('    moving %s to %s ...', info.aw_dir, newdir)
-    os.rename(info.aw_dir, newdir)
-    log.debug('    copying new version of AW to %s ...', info.aw_dir)
-    shutil.copytree(WF_DIR, info.aw_dir)
+    newdir = _newname(info.aw.dir + '.old')
+    log.debug('    moving %s to %s ...', info.aw.dir, newdir)
+    os.rename(info.aw.dir, newdir)
+    log.debug('    copying new version of AW to %s ...', info.aw.dir)
+    shutil.copytree(WF_DIR, info.aw.dir)
     log.info('    installed new version of Alfred-Workflow')
+
+    # Create file to let Alfred know this workflow is okay
+    open(os.path.join(info.aw.dir, '.alfredversionchecked'), 'w')
+
+    # Touch info.plist to let Alfred know this workflow has been updated
+    touch(os.path.join(info.dir, 'info.plist'))
 
 
 def list_actions(opts):
@@ -213,19 +221,23 @@ def list_actions(opts):
         dict(title='Dry Run',
              subtitle='Show what the workflow would update',
              arg='dryrun',
+             uid='dryrun',
              valid=True),
         dict(title='View Log File',
              subtitle='Open the log file in Console.app',
              arg='log',
+             uid='log',
              valid=True),
         dict(title='Edit Blacklist',
              subtitle='List of workflows to *not* update',
              arg='blacklist',
+             uid='blacklist',
              valid=True),
         dict(title='Fix Workflows',
              subtitle=('Replace broken versions of Alfred-Workflow '
                        'within your workflows'),
              arg='fix',
+             uid='fix',
              valid=True),
     ]
 
@@ -286,6 +298,7 @@ def main(wf):
 
         if not os.path.isdir(p):
             log.debug('ignoring non-directory: %s', dn)
+            continue
 
         try:
             info = get_workflow_info(p)
@@ -293,8 +306,12 @@ def main(wf):
             log.error('could not read workflow: %s: %s', dn, err)
             continue
 
-        if not info or not info.aw_dir:
+        if not info or not info.aw.dir:
             log.debug('not an AW workflow: %s', dn)
+            continue
+
+        if info.id == wf.bundleid:
+            log.debug('ignoring self')
             continue
 
         ok = True
@@ -312,16 +329,16 @@ def main(wf):
         log.info('found AW workflow: %s', dn)
         log.info('             name: %s', info.name)
         log.info('        bundle ID: %s', info.id)
-        log.info('       AW version: %s', info.aw_version)
+        log.info('       AW version: %s', info.aw.version)
 
-        if info.aw_version >= MIN_VERSION:
-            log.info('[OK] workflow "%s" has a working version of '
+        if info.aw.version >= MIN_VERSION:
+            log.info('[OK] workflow "%s" has current version of '
                      'Alfred-Workflow', info.name)
             log.info('')
             continue
 
         log.info('[!!] workflow "%s" is using outdated version '
-                 '(%s) of Alfred-Workflow', info.name, info.aw_version)
+                 '(%s) of Alfred-Workflow', info.name, info.aw.version)
 
         if not dry_run:
             try:
@@ -329,7 +346,7 @@ def main(wf):
             except Exception as err:
                 failed += 1
                 log.error('failed to update workflow "%s" (%s): %s',
-                          info.name, info.aw_dir, err, exc_info=True)
+                          info.name, info.aw.dir, err, exc_info=True)
                 log.info('')
                 continue
 

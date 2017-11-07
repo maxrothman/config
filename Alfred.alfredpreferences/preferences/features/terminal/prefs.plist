@@ -3,11 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>application</key>
-	<integer>2</integer>
+	<integer>1</integer>
 	<key>custom</key>
 	<string>on alfred_script(q)
-	tell application "iTerm"
-		create window with default profile		tell current session of last terminal window			write text q &amp; "; clear"		end tell	end tell
+    tell application "iTerm"
+        create window with default profile
+        tell current session of current window
+            write text q
+        end tell
+    end tell
 end alfred_script</string>
 </dict>
 </plist>
