@@ -124,3 +124,7 @@
   #"|"-separated list of branches that should not be cleaned up by cleanup-merged.
   #NB: to write a literal |, it will have to be preceeded by 2 backslashes, like \\|
   excluded-branches = master
+
+[user]
+  email = max.r.rothman@gmail.com
+  name = Max Rothman
