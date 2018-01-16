@@ -24,9 +24,9 @@
 		"*.sublime-workspace",
 		"*.tfstate*"
 	],
-	"auto_find_in_selection": false,
-	"font_size": 17,
-	"ignored_packages": ["Vintage"],
+	"auto_find_in_selection": true,
+	"font_size": 16,
+	"ignored_packages": ["Vintage", "RestructuredText"],
 	"origami_auto_close_empty_panes": true,
 
   /* Enable/disable the SyncedSideBar plugin. Exposed here so it can be enabled/disabled
@@ -36,7 +36,8 @@
      Oddly enough, using ⌘K ⌘B or the view menu seems to circumvent the odd behavior. */
 	"reveal-on-activate": true,
 	"scroll_past_end": true,
-	"tab_size": 2,
+	"tab_size": 4,
+	"theme": "Adaptive.sublime-theme",
 	"translate_tabs_to_spaces": true,
 
 	// Override the hard word wrap line limit, it defaults to sublime's first column (78)
