@@ -94,7 +94,9 @@ git_path () {
   echo "${Color_BGreen}$shortened${Color_NoColor}"
 }
 
-set_prompt () {
+# See https://gitlab.com/gnachman/iterm2/issues/5964
+# set_prompt () {
+iterm2_generate_ps1 () {
   gitstuff=$(git_prompt)
   if [ -n "$VIRTUAL_ENV" ]; then
     venv="${Color_Yellow}!${Color_NoColor} "
@@ -103,15 +105,15 @@ set_prompt () {
   fi
 
   if [ -n "$gitstuff" ]; then
-    prompt="$(git_branch) $(git_prompt): $(git_path)"
+    prompt="$(git_branch) ${gitstuff}: $(git_path)"
   else
     prompt="$(user_at_loc): $(shorten_path)"
   fi
   export PS1="${venv}${prompt} ${Color_BBlue}\$${Color_NoColor} "
 }
 
-if [ -n "$PROMPT_COMMAND" ]; then
-  PROMPT_COMMAND="$PROMPT_COMMAND; set_prompt"
-else
-  PROMPT_COMMAND="set_prompt"
-fi
+# if [ -n "$PROMPT_COMMAND" ]; then
+#   PROMPT_COMMAND="$PROMPT_COMMAND; set_prompt"
+# else
+#   PROMPT_COMMAND="set_prompt"
+# fi
