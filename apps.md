@@ -26,9 +26,8 @@ Install all of these:
 
 Install these chrome plugins:
 
-* AdBlock Plus: duh
+* UBlock Origin: does a better job at blocking paywalls than Adblock Plus
 * MoveTab: a tool I wrote for moving tabs from one window to another with a keyboard shortcut. https://github.com/maxrothman/movetab
-* DevTools theme Zero Dark Matrix: dark theme for DevTools
 * Hacker Vision: I have a key for the pro version (it's free for a year). Flips colors on webpages for which there aren't Stylish themes
 * LastPass: obviously
 * The Great Suspender: suspends inactive tabs. Frees up toooons of memory

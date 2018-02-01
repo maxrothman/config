@@ -23,6 +23,7 @@ packages=(
   rename                                     # Mass file renaming
   sl                                         # Choo choo!
   source-highlight                           # For `less` syntax highlighting
+  telnet                                     # Not part of coreutils for some reason
   the_silver_searcher                        # provides ag for fast recursive searches
   tig                                        # git curses client
   trash                                      # rm-like command that moves things to the trash (I may be a monster, but I'm a cautious monster)
