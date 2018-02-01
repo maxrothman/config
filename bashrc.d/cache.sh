@@ -33,7 +33,7 @@ cache() {
     case "$opt" in
       v) verbose=1 ;;
       f) flush=1   ;;
-      F) \rm -rf "$_command_cache_dir"/* ;;
+      F) \rm -rf "$_command_cache_dir"/* ; return 0;;
       i) invalidate=1 ;;
       h) echo "$help"; return ;;
     esac
@@ -44,10 +44,14 @@ cache() {
   # Some commands behave differently depending on whether STDOUT is another command
   # or not, so we have to cache interactive and non-interactive runs separately.
   [[ -t 1 ]] && local interactive='I-' || local interactive='NI-'
+  [[ $verbose == 1 ]] && echo "interactive: $interactive"
 
   # basically echo 'I-aws ec2 terminate-instances --id=i-12345678' | md5sum
-  local key="$(md5sum <<<"${interactive}${@}" | cut -d' ' -f1)"
+  [[ $verbose == 1 ]] && echo "pre-hash key: ${interactive}${@}"
+  local key="$(md5Sum <<<"${interactive}${@}" | cut -d' ' -f1)"
+  [[ $verbose == 1 ]] && echo "key: $key"
   local keyfile="${_command_cache_dir}/${key}"
+  [[ $verbose == 1 ]] && echo "keyfile: $keyfile"
   
   if [[ $invalidate == 1 ]]; then
     [[ $verbose == 1 ]] && echo "[cache] invalidating cache for \"$keyfile\"" >&2
@@ -60,9 +64,10 @@ cache() {
   else
     [[ $verbose == 1 ]] && echo "[cache] cache miss for \"$key\"" >&2
 
-    local interactive_cmd="$([[ "$interactive" == 'I-' ]] && echo 'faketty')"
+    local interactive_cmd="$([[ "$interactive" == 'I-' ]] && echo 'faketty ')"
+    [[ $verbose == 1 ]] && echo "Running ${interactive_cmd}${@}"
 
-    eval "${interactive_cmd} ${@}" > "${keyfile}-stdout" 2> "${keyfile}-stderr"
+    eval "$(printf '%q ' "${interactive_cmd}${@}")" > "${keyfile}-stdout" 2> "${keyfile}-stderr"
     echo "$?" > "${keyfile}-exitcode"
   fi
 
