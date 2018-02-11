@@ -17,9 +17,23 @@
   # Use the "patience" diff algorithm. It's better. Google it.
   algorithm = patience
 
+[diff "json"]
+  # Hook for diffing JSON files by their semantic equivalence rather than their text.
+  # To enable, add the following to a repo's .gitattributes:
+  # *.json  diff=json
+  #
+  # Explanation: json_pp is a JSON parser included on most systems. However, by
+  # default it orders keys randomly. Since we want to perform consistent diffs, we
+  # pass the "canonical" and "pretty" options to the unerlying Perl library. The
+  # former sorts the keys, and the latter re-enables pretty-printing (which is
+  # enabled by default, but disabled if you pass any options).
+  # For whatever reason, json_pp only takes STDIN, but luckily, git handles this text
+  # naively.
+  textconv = json_pp -json_opt canonical,pretty <
+
 # Visually highlight changes inside lines
 [pager]
-  log = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
+  log =  /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
   show = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
   diff = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
   branch = cat
