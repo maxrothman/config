@@ -85,3 +85,11 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * Add new stuff (bettertouchtool for instance)
 * Sublime likes to reformat the prefs and remove comments. Find a workaround?
   * Maybe gitattributes and textconv: http://t-a-w.blogspot.com/2016/05/sensible-git-diff-for-json-files.html
+    * Tried this in [json-diffs](https://github.com/maxrothman/config/tree/json-diffs)
+      branch
+    * This makes diffs work, but it means when Sublime reformats the file, I still
+      lose all the comments. I need a way to apply the file in this repo without
+      getting in the way of Sublime's ability to write to the preferences file.
+    * Related:
+      * https://forum.sublimetext.com/t/dev-build-3101/17027/52
+      * https://github.com/SublimeTextIssues/Core/issues/426
