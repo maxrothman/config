@@ -1,19 +1,8 @@
-# Applying patches
+# Personal webpage styles
 
-Because some of the custom styles in this directory are modifications of styles
-available on [userstyles.org](https://userstyles.org/), those styles are stored as
-patches rather than full files.
-
-To install a style with a patch:
-* Download the original style from [userstyles.org](https://userstyles.org/)
-* using GNU patch, run:
-
-      patch --verbose --merge <original-style> <patch-file>
-
-  then resolve any conflicts manually.
-* Copy-paste the patched style into a new custom style
-
-To create a patch, take a modified style and run:
-
-    diff <original-style> <modified-style> > <style-name>.patch
-
+Some of the stylesheets in this directory are intended to overlay 3rd-party custom
+styles (i.e. from [userstyles.org](https://userstyles.org/)), while others are
+modified styles (likely from the same sources). Currently, the github-dark style is
+both the only one in active use and the only one that overlays a 3rd-party style. So
+long as it is added to the page after the 3rd-party style, it will overlay correctly.
+AFAICT, this means it has to appear in the Stylus list after the 3rd-party style.

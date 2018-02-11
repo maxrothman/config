@@ -1,0 +1,101 @@
+/* Personal overrides for Github Dark style
+ * https://userstyles.org/styles/37035/github-dark
+*/
+
+/* Remove dumb checkered background pattern and let the underlying background color show */
+body {
+    background-image: inherit !important;
+    background-clip: inherit !important;
+    background-origin: inherit !important;
+    background-attachment: inherit !important;
+    background-repeat: inherit !important;
+    background-size: inherit !important;
+    background-position: inherit !important;
+}
+
+/* git diff line highlights: overridden because I'm colorblind */
+
+/* git diff line additions (dark green) */
+.blob-code.blob-code-addition,
+.blob-num.blob-num-addition,
+.prose-diff .changed ins,
+.prose-diff .changed ins code,
+.prose-diff .changed ins pre,
+.prose-diff .changed .added,
+.prose-diff > .markdown-body ins pre,
+.prose-diff > .markdown-body ins code,
+.prose-diff > .markdown-body ins > div,
+.prose-diff > .markdown-body ins > p {
+    background: rgba(0, 92, 72, 0.5) !important;
+}
+
+/* git diff line deletions (dark red) */
+.blob-code.blob-code-deletion,
+.blob-num.blob-num-deletion,
+.prose-diff > .markdown-body .changed del,
+.prose-diff > .markdown-body .changed del pre,
+.prose-diff > .markdown-body .changed del code,
+.prose-diff > .markdown-body .changed del > div,
+.prose-diff > .markdown-body .changed .removed,
+.prose-diff > .markdown-body .changed .removed pre,
+.prose-diff > .markdown-body .changed .removed code,
+.prose-diff > .markdown-body .changed .removed > div,
+.CodeMirror-linebackground.conflict-background,
+.conflict-gutter-marker,
+.conflict-background + .CodeMirror-gutter-wrapper .CodeMirror-linenumber {
+    background: rgba(109, 0, 13, 0.55) !important;
+}
+
+/* End git diff line highlights */
+
+/* remove custom hover highlight in code and diffs (just set it to the same colors) */
+.highlight tr:hover .blob-num:not(.non-expandable) {
+    color: #7b7b7b !important
+}
+
+/* Had to separate the following 3 rules so selected lines have their hover behavior properly disabled */
+.diff-table tr:hover > pre,
+.highlight:not(.lines) tr:not(.inline-comments):hover td.blob-num:not(.line-age),
+.highlight:not(.lines) tr:not(.inline-comments):hover td.blob-code:not(.line-age),
+.highlight:not(.lines) tr:not(.inline-comments):hover td:not(.line-age) {
+    background: rgb(20, 20, 20) !important;
+}
+.diff-table tr:hover > pre,
+.highlight:not(.lines) tr:not(.inline-comments):hover td.selected-line.blob-num:not(.line-age),
+.highlight:not(.lines) tr:not(.inline-comments):hover td.selected-line.blob-code:not(.line-age),
+.highlight:not(.lines) tr:not(.inline-comments):hover td:not(.line-age) {
+    background: rgba(85, 85, 85, .4) !important;
+}
+.highlight:not(.lines) tr:not(.inline-comments):hover td.blob-num-expandable:not(.line-age),
+.highlight:not(.lines) tr:not(.inline-comments):hover td.blob-code-hunk:not(.line-age) {
+    background: rgb(28, 28, 28) !important;
+}
+
+/* End separated rules */
+.highlight:not(.lines) tr:not(.inline-comments):hover td.blob-num-addition:not(.line-age),
+.highlight:not(.lines) tr:not(.inline-comments):hover td.blob-code-addition:not(.line-age) {
+    background: rgba(0, 92, 72, 0.5) !important;
+}
+.highlight:not(.lines) tr:not(.inline-comments):hover td.blob-num-deletion:not(.line-age),
+.highlight:not(.lines) tr:not(.inline-comments):hover td.blob-code-deletion:not(.line-age) {
+    background: rgba(109, 0, 13, 0.55) !important;
+}
+
+/* custom hover highlight end */
+
+/* Fix inline diff highlights to match new line highlight colors */
+.blob-code-addition .x,
+.highlight .blob-code-addition .x {
+    background: rgba(88, 121, 79, 0.5) !important;
+}
+.blob-code-deletion .x,
+.highlight .blob-code-deletion .x {
+    background: rgba(155, 103, 109, 0.5) !important;
+}
+
+/* End inline diff highlights */
+
+/* Override the shade of green in the "checks passed" donut chart so I can distinguish it from the red better (I'm colorblind) */
+.donut-chart>.expected, .donut-chart>.pending {
+    fill: #c4ef05 !important;
+}
