@@ -27,8 +27,12 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
     * In Profiles>Default>Keys, change ⌥→ to "Send Escape Sequence" and "f"
     * In Profiles>Default>Keys, change ⌥← to "Send Escape Sequence" and "b"
     * In the menu, run "Install shell integration"
-    * Open Chrome, and in the menu bar, select Chrome>Warn before quitting
-    * Open Chrome developer tools, go to Settings, and under appearance, select "Dark theme"
+  * Open Chrome, and in the menu bar, select Chrome>Warn before quitting
+  * Open Chrome developer tools, go to Settings, and under appearance, select "Dark theme"
+  * Open System Preferences > Trackpad and uncheck "Swipe between pages", then change
+    "Swipe between full-screen apps" to "three fingers". This disables the annoying
+    swipe-for-back behavior in Chrome and restores the easier 3-finger swipe gesture
+    for switching workspaces.
 * Install all the plugins in `Sublime Text/packages.txt`
 * Follow the instructions in the README in automator/
 * Install brew: <http://brew.sh/>
