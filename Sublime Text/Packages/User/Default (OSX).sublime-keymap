@@ -5,7 +5,7 @@
   { "keys": ["home"], "command": "move_to", "args": {"to": "bol"} },
 
   { "keys": ["shift+space"], "command": "move", "args": {"by": "characters", "forward": true}},
-  { "keys": ["ctrl+space"], "command": "move", "args": {"by": "subword_ends", "forward": true}},
+  { "keys": ["shift+ctrl+space"], "command": "move", "args": {"by": "subword_ends", "forward": true}},
   { "keys": ["super+alt+up"], "command": "jump_back"},
 
   // Overrides default behavior which is kinda wonky
