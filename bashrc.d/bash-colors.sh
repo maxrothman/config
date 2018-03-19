@@ -3,6 +3,42 @@
 #
 # Usage: Before defining PS1, run:
 #   source .bash-colors
+#
+# Also contains some handy functions for printing color palates
+
+getcolor() {
+    # Usage: getcolor COLOR TEXT [FMT] [STYLE]
+    #   COLOR: number from 0-255
+    #   FMT: printf-compatible format specifier
+    #   STYLE: number from 0-65
+    # Reference: https://en.wikipedia.org/wiki/ANSI_escape_code#SGR_(Select_Graphic_Rendition)_parameters
+
+    #NB: we have to take the fmt string rather than letting the caller do it because
+    #printf counts nonprinting characters towards the length of a string. Not sure if
+    #there's a workaround?
+    local style
+    [ -n "$4" ] && style="$4;" || style=''
+    printf "\e[${style}38;5;${1}m%${3}\e[0m" "$2"
+}
+
+palate256 () {
+    # Usage: palate256 STYLE
+    #   STYLE: number from 0-65
+    local color     #heh heh
+    for color in {0..15}; do
+        getcolor $color x${color}x 7s "$1"
+    done
+    printf '\n\n'
+    for color in {16..231}; do
+        getcolor $color $color 4d "$1"
+        [ $(((color - 15) % 36)) -eq 0 ] && printf '\n'
+    done
+    printf '\n'
+    for color in {232..255}; do
+        getcolor $color x${color} 6s "$1"
+    done
+    printf '\n'
+}
 
 # Reset
 export Color_NoColor='\[\e[m\]'       # Text Reset
