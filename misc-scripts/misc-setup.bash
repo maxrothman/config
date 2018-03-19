@@ -17,3 +17,6 @@
 #
 # Add the following to the top of /etc/shells:
 # /usr/local/bin/bash (assuming that's where brew put it)
+
+#Symlink in docker completions
+ln -s /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion -t $(brew --prefix)/etc/bash_completion.d

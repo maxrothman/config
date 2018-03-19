@@ -7,6 +7,7 @@ fi
 
 #Outdated leaf packages (ones I installed, not including dependencies)
 alias brew-outdated-leaves='cat <(brew outdated) <(brew leaves) | sort | uniq -d | grep -f - --color=never <(brew outdated -v)'
+alias brew-upgrade-outdated-leaves='cat <(brew outdated) <(brew leaves) | sort | uniq -d | xargs brew upgrade'
 
 #bash_completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
@@ -37,4 +38,9 @@ fi
 #autojump
 if [ -f $(brew --prefix)/etc/autojump.sh ]; then
   . $(brew --prefix)/etc/autojump.sh
+fi
+
+# Add python2 to path: https://github.com/Homebrew/homebrew-core/issues/15746
+if [ -n "$(brew ls --versions python@2)" ]; then
+  export PATH="$(brew --prefix)/opt/python@2/bin:$PATH"
 fi
