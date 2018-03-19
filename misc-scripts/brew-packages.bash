@@ -8,6 +8,7 @@ packages=(
   bash-completion                            # Basic tab completion
   coreutils                                  # Make Mac more Linux-y
   cowsay                                     # Moo
+  findutils                                  # GNU find to replace weird BSD one
   fzf                                        # fuzzyfinder: https://github.com/junegunn/fzf
   git                                        # Update to newest on older systems
   gnu-sed                                    # BSD sed is weird (on Mac)

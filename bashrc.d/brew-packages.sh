@@ -29,6 +29,11 @@ if [ -n "$(brew ls --versions gnu-sed)" ]; then
   export PATH="`brew --prefix`/opt/gnu-sed/libexec/gnubin:$PATH"
 fi
 
+if [ -n "$(brew ls --versions findutils)" ]; then
+    export PATH="$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH"
+    export MANPATH="$(brew --prefix)/opt/findutils/libexec/gnuman:$MANPATH"
+fi
+
 #autojump
 if [ -f $(brew --prefix)/etc/autojump.sh ]; then
   . $(brew --prefix)/etc/autojump.sh
