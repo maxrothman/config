@@ -16,6 +16,12 @@
         {"file_path": ".*/ansible/vars/|/playbooks/.*\\.yml"},
         {"file_path": ".*/playbooks/.*\\.yml"}
       ]
+    },
+    {
+      "syntax": "Git Config/Git Config",
+      "rules": [
+        {"file_path": "^(.*/)?gitconfig"}
+      ]
     }
   ]
 }
