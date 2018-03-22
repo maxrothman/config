@@ -1,6 +1,8 @@
 # config
 A repository for various pieces of workstation setup: dotfiles, configs, extensions, etc.
 
+# WARNING: SUBLIME SETTINGS CURRENTLY DON'T SYNC. Apparently settings don't reload properly when the file is a symlink.
+
 ## Contents
 * Alfred.alfredpreferences: Alfred plugins. See the README therein for details.
 * bashrc.d: All executable files in here will be sourced by ~/.bashrc. Each file is
