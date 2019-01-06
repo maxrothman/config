@@ -65,8 +65,10 @@ body .highlight:not(.lines) tr.blob-expanded:not(.inline-comments):hover td.blob
 }
 
 /* highlights on selected lines */
-body .highlight:not(.lines) tr:not(.inline-comments):hover td.selected-line.blob-code:not(.line-age), .highlight:not(.lines) tr:not(.inline-comments):hover td.blob-code,
-body .highlight:not(.lines) tr:not(.inline-comments):hover td.selected-line.blob-num:not(.line-age), .highlight:not(.lines) tr:not(.inline-comments):hover td.blob-num {
+body .highlight:not(.lines) tr:not(.inline-comments):hover td.selected-line.blob-code:not(.line-age),
+.highlight:not(.lines) tr:not(.inline-comments):hover td.blob-code,
+body .highlight:not(.lines) tr:not(.inline-comments):hover td.selected-line.blob-num:not(.line-age),
+.highlight:not(.lines) tr:not(.inline-comments):hover td.blob-num {
     background: rgba(85, 85, 85, .4) !important;
 }
 
@@ -85,7 +87,6 @@ body .highlight:not(.lines) tr:not(.inline-comments):hover td.selected-line.blob
 
 
 /* Fix inline diff highlights to match new line highlight colors */
-/* Not actually sure what this bit does --2018-12-12 */
 .blob-code-addition .x,
 .highlight .blob-code-addition .x {
     background: rgba(88, 121, 79, 0.5) !important;
@@ -106,4 +107,32 @@ body .highlight:not(.lines) tr:not(.inline-comments):hover td.selected-line.blob
 /* Github API docs syntax highlighting is otherwise unreadable on a dark background */
 code .nt {
     color: #4078c0;
+}
+
+/* They removed sticky headers for files, but I like them */
+@supports (position: sticky) or (position: -webkit-sticky) {
+    .pull-request-tab-content .diff-view .file-header {
+        position: sticky !important;
+        position: -webkit-sticky !important;
+        top: 40px !important;
+        z-index: 6 !important;
+    }
+    .pull-request-tab-content .file-header {
+        padding: 1px 10px !important;
+    }
+    .pull-request-tab-content .diff-view .file-actions,
+    .pull-request-tab-content .diff-view .file-info {
+        margin-top: -1px !important;
+    }
+    /* below element is queried from GitHub's js for the scroll offset */
+    /* see https://github.com/StylishThemes/GitHub-Dark/issues/598 */
+    .js-sticky-offset-scroll {
+        height: 72px !important;
+    }
+    .gh-header-sticky.is-stuck .sticky-content .mt-3 {
+        margin: 5px !important;
+    }
+    .gh-header .gh-header-sticky.is-stuck + .gh-header-shadow {
+        height: 40px !important;
+    }
 }
