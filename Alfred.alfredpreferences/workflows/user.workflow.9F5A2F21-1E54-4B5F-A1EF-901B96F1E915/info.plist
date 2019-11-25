@@ -115,7 +115,7 @@
 	<key>description</key>
 	<string>Use "todo" followed by your task, then choose a list to add it to.</string>
 	<key>disabled</key>
-	<false/>
+	<true/>
 	<key>name</key>
 	<string>Simple To-Do List</string>
 	<key>objects</key>
@@ -188,6 +188,8 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
 				<key>argumenttype</key>
 				<integer>1</integer>
 				<key>fixedorder</key>

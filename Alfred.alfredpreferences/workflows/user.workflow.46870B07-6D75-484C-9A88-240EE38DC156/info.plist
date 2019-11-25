@@ -8,6 +8,19 @@
 	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
+		<key>8D6A8C96-DE48-4DC4-9DCB-058F49527E6A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>B99946B5-0C5F-4D0E-8B24-2C23AF17C752</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>B99946B5-0C5F-4D0E-8B24-2C23AF17C752</key>
 		<array>
 			<dict>
@@ -37,6 +50,10 @@
 			<dict>
 				<key>alfredfiltersresults</key>
 				<true/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
@@ -84,7 +101,7 @@ EOF</string>
 			<key>uid</key>
 			<string>B99946B5-0C5F-4D0E-8B24-2C23AF17C752</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -101,13 +118,41 @@ EOF</string>
 			<key>uid</key>
 			<string>F99A24D7-082B-46F0-BC1C-B4233D58A5DC</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>timestamp</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>UTC timestamp</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>8D6A8C96-DE48-4DC4-9DCB-058F49527E6A</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
 	<key>uidata</key>
 	<dict>
+		<key>8D6A8C96-DE48-4DC4-9DCB-058F49527E6A</key>
+		<dict>
+			<key>xpos</key>
+			<integer>120</integer>
+			<key>ypos</key>
+			<integer>170</integer>
+		</dict>
 		<key>B99946B5-0C5F-4D0E-8B24-2C23AF17C752</key>
 		<dict>
 			<key>xpos</key>

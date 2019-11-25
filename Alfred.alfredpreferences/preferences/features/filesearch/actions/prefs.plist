@@ -18,6 +18,8 @@
 		<true/>
 		<key>alfred.action.move</key>
 		<true/>
+		<key>alfred.action.recent</key>
+		<true/>
 	</dict>
 	<key>sortByUsage</key>
 	<true/>
