@@ -1,7 +1,9 @@
-# Global Python 2 packages
-# Usage: pip3 install -r python-requirements.txt
+# Global Python 3 packages
+# Usage: pip3 install -r python3-requirements.txt
 
-ipython
+jupyter
+# TODO: the ipython-sql project
+# ipython-sql
 
 #virtualenv management
 virtualenvwrapper
