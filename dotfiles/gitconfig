@@ -9,6 +9,9 @@
   #Put hooks in this directory and they'll be accessible from all repos. MAKE SURE THEY'RE ALL EXECUTABLE!
   hooksPath = ~/repos/.git-hooks
 
+  #Prevent commit messages from being lost when Vim has an error
+  editor = vim -f
+
 [fetch]
   #WARNING: will remove local branches if they've been deleted from the remote
   prune = true
@@ -83,15 +86,15 @@
   #Pretty git log with graph and colors
   lg = log --graph --format=format:'%C(red)%h%C(reset) - %C(green)(%ar)%C(reset) %C(bold blue)%an%C(reset)%C(yellow)%d%C(reset)%n          %s'
 
-  #Short-format log of all commits since the last merge
-  lastlog = "!git --no-pager log --oneline $(git --no-pager log --merges -n1 --format='%H').."
+  #Short-format log of all commits since where the branch diverged from master
+  lastlog = "!git --no-pager log --oneline $(git merge-base master @).."
 
   #Short-format log of all commits since the last push
   plastlog = "!git --no-pager log --oneline @{u}.."
  
   #Put all unpushed work on a new branch and reset this one
   #Usage: git switch <branchname>
-  switch = "!f() { [ `git rev-list @{u}.. | wc -l` = 0 ] && return; [ -z $1 ] && echo branch name required && return 2; git branch $1 && if [ -n \"$(git status --porcelain)\" ]; then git stash --all && stashed=1; fi && git reset --hard @{u} && git checkout $1 && if [ -n \"$stashed\" ]; then  git stash pop; fi; }; f"
+  switch = "!f() { [ `git rev-list @{u}.. | wc -l` = 0 ] && return; [ -z $1 ] && echo branch name required && return 2; git branch $1 && if [ -n \"$(git status --porcelain)\" ] && [ -z $2 ]; then echo \"Stashing untracked changes...\"; git stash --all && stashed=1; fi && git reset --hard @{u} && git checkout $1 && if [ -n \"$stashed\" ]; then  git stash pop; fi; }; f"
   
   #Open a pull request in github:
   # git pr: open a PR from the current branch against main-branch (defined below)
@@ -120,6 +123,13 @@
   cleanup = "!git cleanup-merged; git cleanup-deleted"
   
   postmerge = !git checkout $(git config --get myconfig.main-branch) && git pull && git cleanup
+
+  #Show authors of given path sorted by line count
+  who = "!f() { [ -e \"$1\" ] || { echo \"No such file '$1'\"; exit 2; }; git ls-tree -rz --name-only @ -- \"$1\" | xargs -0 -n1 git blame --line-porcelain HEAD | grep  '^author ' | sort | uniq -c | sort -nr | sed 's/ author//'; }; f"
+
+  #For use in interactive rebases
+  theirs = "!f() { git checkout --theirs \"$@\" && git add \"$@\"; }; f"
+  ours   = "!f() { git checkout --ours   \"$@\" && git add \"$@\"; }; f"
 
 # Custom config for aliases
 [myconfig]
