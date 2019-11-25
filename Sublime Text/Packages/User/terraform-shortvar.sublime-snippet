@@ -1,7 +1,0 @@
-<snippet>
-  <content><![CDATA[
-variable "$1" { type = "string" default = "$2" }
-]]></content>
-  <tabTrigger>variableH</tabTrigger>
-  <scope>source.terraform</scope>
-</snippet>

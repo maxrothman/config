@@ -1,1 +1,0 @@
-{"description": "Syntax highlighting for Ansible", "dependencies": [], "sublime_text": "*", "platforms": ["*"], "url": "https://github.com/clifford-github/sublime-ansible", "version": "1.0.0"}

@@ -1,8 +1,6 @@
 # config
 A repository for various pieces of workstation setup: dotfiles, configs, extensions, etc.
 
-# WARNING: SUBLIME SETTINGS CURRENTLY DON'T SYNC. Apparently settings don't reload properly when the file is a symlink.
-
 ## Contents
 * Alfred.alfredpreferences: Alfred plugins. See the README therein for details.
 * bashrc.d: All executable files in here will be sourced by ~/.bashrc. Each file is
@@ -15,7 +13,6 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * Karabiner: Karabiner configs. Currently used to remap volume buttons on my external keyboard.
 * misc-scripts: Scripts that should be run or acted on once.
 * stylish: CSS themes for the Stylish Chrome plugin
-* Sublime Text: Sublime configuration files. Will be hardlinked to their appropriate locations.
 * manual.md: stuff to manually install
 * deploy.sh: a script for automatically deploying the parts of this repo that can be automated.
 * automator: add buttons to Finder that open apps via Apple automator
@@ -39,7 +36,6 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
     * In Profiles>Default>Keys, change ⌥→ to "Send Escape Sequence" and "f"
     * In Profiles>Default>Keys, change ⌥← to "Send Escape Sequence" and "b"
     * In the menu, run "Install shell integration"
-* Install all the plugins in `Sublime Text/packages.txt`
 * In the Chrome menu bar, select Chrome>Warn before quitting
 * Open Chrome developer tools, go to Settings, and under appearance, select "Dark theme"
 * Open System Preferences > Trackpad and uncheck "Swipe between pages", then change
@@ -68,8 +64,6 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * .virtualenvwrapperrc
 * python packages
 * iTerm (Preferences>General>Load preferences from custom folder or URL)
-* Upgrade all sublime packages
-* Add sublime configs and custom color scheme
 * .gitconfig
 * bash config
 
@@ -80,7 +74,7 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * [ ] Update installation instructions for github dark style (use usercss) and other stylus config
 * [ ] Add vscode finder automator script
 * [ ] Sync vscode settings: like with sublime, using symlinks screws up reloading. Maybe use hardlinks?
-* [ ] Remove sublime text
+* [x] Remove sublime text
 
 ## Long-term Todo
 * [ ] Make all bash use strict mode and all function variables local
@@ -99,9 +93,8 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 ## Deprecated todos
 * Sublime likes to reformat the prefs and remove comments. Find a workaround?
   * Maybe gitattributes and textconv: http://t-a-w.blogspot.com/2016/05/sensible-git-diff-for-json-files.html
-* Find sublime plugins to:
+* Find vscode plugins to:
   * remove matching brackets
-  * stop giving syntax errors for print(s, end=something) in python3
   * split selection on words (rather than lines)
 * For macbooks with force touch, set force threshold to "Firm" in System Preferences, then run `defaults write com.apple.AppleMultitouchTrackpad SecondClickThreshold 1` to make force touch a little lighter
   * Maybe figure out what some of the other keys do like `ActuateDedents`
