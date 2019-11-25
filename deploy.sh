@@ -47,36 +47,6 @@ else
   exit 1
 fi
 
-echo 'Deploying Sublime configs'
-problems=false
-sublimepath=~/Library/"Application Support"/"Sublime Text 3"
-find "$configdir"/"Sublime Text" -type f -print0 | while read -d $'\0' f; do
-  relpath="${f#"$configdir"/"Sublime Text/"}"    #get the path relative to the root
-  
-  #Ignore ignoreable files
-  if git --git-dir "$configdir"/.git check-ignore "$f"; then
-    continue
-  elif [[ "$relpath" == 'packages.txt' ]]; then   #this is just the list of packages to install
-    continue
-  fi
-
-  #If the plugin for a file isn't installed, skip and log
-  if [[ ! -e "$(dirname "$sublimepath"/"$relpath")" ]]; then
-    echo "$(dirname "$sublimepath"/"$relpath") does not exist, the plugin may not be installed. Skipping..."
-    continue
-  fi
-
-  if [[ ! -e "$sublimepath"/"$relpath" ]]; then
-    ln -s "$f" "$sublimepath"/"$relpath"
-  elif [[ -L "$sublimepath"/"$relpath" && "$(readlink "$sublimepath"/"$relpath")" == "$f" ]]; then
-    :   #it's already synced
-  else
-    echo "Refusing to overwrite $sublimepath/$relpath, already exists! Resolve differences then rerun this script."
-    problems=true
-  fi
-done
-$problems && exit 1
-
 # Make bash-secure with proper git env vars
 if [[ ! -e ~/.bash-secure ]]; then
   echo 'Name? (e.g. Tom Tickle)'
@@ -102,3 +72,5 @@ else
   echo "Not writing ~/.bash-secure, one already exists"
 fi
 
+# Install brew packages and casks
+brew bundle install --global

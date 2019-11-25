@@ -20,3 +20,6 @@
 
 #Symlink in docker completions
 ln -s /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion -t $(brew --prefix)/etc/bash_completion.d
+
+#Install fzf hooks
+/usr/local/opt/fzf/install

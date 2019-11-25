@@ -16,41 +16,41 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * misc-scripts: Scripts that should be run or acted on once.
 * stylish: CSS themes for the Stylish Chrome plugin
 * Sublime Text: Sublime configuration files. Will be hardlinked to their appropriate locations.
-* apps.md: apps to manually install
+* manual.md: stuff to manually install
 * deploy.sh: a script for automatically deploying the parts of this repo that can be automated.
 * automator: add buttons to Finder that open apps via Apple automator
 
 ## Setup instructions:
 * Clone this repo somewhere
-* Install the apps in apps.md
-  * For Alfred, iTerm, etc. where the config is in this repo, follow the instructions in their READMEs to use said config.
-  * Some stuff for iTerm isn't saved in config, particularly keybindings. Add the following:
+* Install brew: <http://brew.sh/>
+* Run deploy.sh
+* Install the
+  [Stylus Chrome plugin](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne?hl=en)
+  and follow the instructions in `Stylus/README.md`
+* Follow the instructions in `Alfred.alfredpreferences/README.md`
+* Follow the instructions in the README in automator/
+* Run all the scripts in misc-scripts except pre-push
+  * TODO: and except pgcli config. Need to separate those two out
+* Manual iTerm setup:
+  * In iTerm, go to Preferences > General > Preferences and set "Load preferences from a custom folder or URL"
+    to the location of the `iTerm` directory in this repo.
+  * Some stuff for iTerm may not be saved in config, particularly keybindings. Check for the following and add if necessary:
     * In Profiles>Default>Keys, set "Left option key acts as" to +Esc
     * In Profiles>Default>Keys, change ⌥→ to "Send Escape Sequence" and "f"
     * In Profiles>Default>Keys, change ⌥← to "Send Escape Sequence" and "b"
     * In the menu, run "Install shell integration"
-  * Open Chrome, and in the menu bar, select Chrome>Warn before quitting
-  * Open Chrome developer tools, go to Settings, and under appearance, select "Dark theme"
-  * Open System Preferences > Trackpad and uncheck "Swipe between pages", then change
-    "Swipe between full-screen apps" to "three fingers". This disables the annoying
-    swipe-for-back behavior in Chrome and restores the easier 3-finger swipe gesture
-    for switching workspaces.
 * Install all the plugins in `Sublime Text/packages.txt`
-* Follow the instructions in the README in automator/
-* Install brew: <http://brew.sh/>
-* Run all the scripts in misc-scripts except pre-push starting with brew-packages.bash
+* In the Chrome menu bar, select Chrome>Warn before quitting
+* Open Chrome developer tools, go to Settings, and under appearance, select "Dark theme"
+* Open System Preferences > Trackpad and uncheck "Swipe between pages", then change
+  "Swipe between full-screen apps" to "three fingers". This disables the annoying
+  swipe-for-back behavior in Chrome and restores the easier 3-finger swipe gesture
+  for switching workspaces.
 * Change the login shell
   * In System Preferences>Users & Groups, unlock then right click on your user and select "Advanced Options"
   * Change "Login shell" to `/usr/local/bin/bash`
-* Run deploy.sh
 * Copy pre-push to where your hooksPath points in gitconfig
-* TODO: karabiner
-* Install the 
-  [Stylish Chrome plugin](https://chrome.google.com/webstore/detail/stylish/fjnbnpbmkenffdnngjfgmeleoegfcffe?hl=en)
-  and copy-paste the styles in stylish/ into it, using the matching paths noted in
-  the file headers
-  * The stylish/README.md has more info on how to install these
-* In System Preferences>Keyboard>Shortcuts, disable all of the shortcuts involving ctrl. A bunch of them are used by Sublime, but Apple decided it'd be better to use them for switching spaces.
+* In System Preferences>Keyboard>Shortcuts, disable all of the shortcuts involving ctrl. A bunch of them are used by VSCode, but Apple decided it'd be better to use them for switching spaces.
 
 ## Complete
 * brew packages
@@ -73,18 +73,36 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * .gitconfig
 * bash config
 
-## Todo
-* Make all bash use strict mode and all function variables local
-* Remove virtualenvwrapperrc since the newest release has a lazy script
-* Distribute modified Ansible package
-* Sublime plugin to split selection on words (rather than lines)
+## Short-term Todo
+* [ ] Add new stuff (bettertouchtool for instance)
+* [ ] sync new git hooks setup
+* [ ] sync pgcli config
+* [ ] Update installation instructions for github dark style (use usercss) and other stylus config
+* [ ] Add vscode finder automator script
+* [ ] Sync vscode settings: like with sublime, using symlinks screws up reloading. Maybe use hardlinks?
+* [ ] Remove sublime text
+
+## Long-term Todo
+* [ ] Make all bash use strict mode and all function variables local
+* [ ] check for package upgrades 1/day
+* [x] Look into replacing brew-packages.sh with a Brewfile? See brew bundle --help for details
+* [ ] https://github.com/clvv/fasd (or one of the other tools linked therein) might have better tab completion than autojump
+* [ ] Remove virtualenvwrapperrc since the newest release has a lazy script
+* [ ] custom jupyter color scheme? Or use vscode jupyter notebook integration
+* [ ] ipython-sql
+* [ ] separate out python packages:
+  * [ ] pgcli et al with pipsi
+  * [ ] "scratch" venv with jupyter, boto, etc.
+  * [ ] what to do with pudb?
+* [ ] iTerm2 custom title script
+
+## Deprecated todos
+* Sublime likes to reformat the prefs and remove comments. Find a workaround?
+  * Maybe gitattributes and textconv: http://t-a-w.blogspot.com/2016/05/sensible-git-diff-for-json-files.html
 * Find sublime plugins to:
   * remove matching brackets
   * stop giving syntax errors for print(s, end=something) in python3
-* check for package upgrades 1/day
+  * split selection on words (rather than lines)
 * For macbooks with force touch, set force threshold to "Firm" in System Preferences, then run `defaults write com.apple.AppleMultitouchTrackpad SecondClickThreshold 1` to make force touch a little lighter
   * Maybe figure out what some of the other keys do like `ActuateDedents`
-* Add new stuff (bettertouchtool for instance)
-* Sublime likes to reformat the prefs and remove comments. Find a workaround?
-  * Maybe gitattributes and textconv: http://t-a-w.blogspot.com/2016/05/sensible-git-diff-for-json-files.html
-* Look into replacing brew-packages.sh with a Brewfile? See brew bundle --help for details
+* Distribute modified Ansible package
