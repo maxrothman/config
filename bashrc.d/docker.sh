@@ -1,2 +1,5 @@
 # Handy docker aliases
-alias dockertmp='docker run -it --rm'
+if $(which -s docker); then
+    alias dtmp='docker run -it --rm'
+    alias dclean='docker system prune --volumes'
+fi
