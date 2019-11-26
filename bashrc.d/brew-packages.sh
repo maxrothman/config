@@ -6,6 +6,7 @@ else
 fi
 
 #Outdated leaf packages (ones I installed, not including dependencies)
+#TODO: might be obsolete now that I have brew bundle set up?
 alias brew-outdated-leaves='cat <(brew outdated) <(brew leaves) | sort | uniq -d | grep -f - --color=never <(brew outdated -v)'
 alias brew-upgrade-outdated-leaves='cat <(brew outdated) <(brew leaves) | sort | uniq -d | xargs brew upgrade'
 
@@ -41,9 +42,10 @@ if [ -f $(brew --prefix)/etc/autojump.sh ]; then
 fi
 
 # Add python2 to path: https://github.com/Homebrew/homebrew-core/issues/15746
-if [ -n "$(brew ls --versions python@2)" ]; then
-  export PATH="$(brew --prefix)/opt/python@2/bin:$PATH"
-fi
+# I think I don't need Python 2 anymore! Yay!
+# if [ -n "$(brew ls --versions python@2)" ]; then
+#   export PATH="$(brew --prefix)/opt/python@2/bin:$PATH"
+# fi
 
 # Add other man pages to the path (at the moment, just tqdm, but could be others)
 export MANPATH="$(brew --prefix)/man:$MANPATH"
