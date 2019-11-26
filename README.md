@@ -8,14 +8,18 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * bin: executables that are used by code in bashrc.d. This directory will be
   symlinked to ~/.bin
 * dotfiles: configuration files that various applications expect to be in ~/. Each
-  file will be hardlinked to ~/.$FILE (e.g. bashrc -> ~/.bashrc).
+  file will be symlinked to ~/.$FILE (e.g. bashrc -> ~/.bashrc).
 * iTerm: iTerm configuration files.
-* Karabiner: Karabiner configs. Currently used to remap volume buttons on my external keyboard.
-* misc-scripts: Scripts that should be run or acted on once.
-* stylish: CSS themes for the Stylish Chrome plugin
+* Karabiner: Karabiner configs. Used to be for remapping volume buttons on my external keyboard, but
+  not in use currently (see manual.md)
+* misc-scripts: Scripts that should be run once.
+* stylus: CSS themes for the Stylus Chrome plugin
 * manual.md: stuff to manually install
 * deploy.sh: a script for automatically deploying the parts of this repo that can be automated.
 * automator: add buttons to Finder that open apps via Apple automator
+* VSCode: VSCode configs and a list of extensions to install
+* git-hooks: My flexible git-hooks setup that allows for multiple global and repo-local hooks of the
+  same type. Mostly used to turn my pre-push hook on for all repos.
 
 ## Setup instructions:
 * Clone this repo somewhere

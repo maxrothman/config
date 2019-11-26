@@ -54,6 +54,7 @@ else
 fi
 
 # Make bash-secure with proper git env vars
+echo "Creating .bash-secure: a place for configs you don't want checked into the config repo."
 if [[ ! -e ~/.bash-secure ]]; then
   echo 'Name? (e.g. Tom Tickle)'
   read -r -p '> ' gitname
