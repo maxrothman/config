@@ -81,7 +81,6 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * [ ] Look into other vscode extensions and configs in other-peoples-vscode-extensions
 * [ ] Make all bash script function variables local
 * [ ] check for package upgrades 1/day
-* [x] Look into replacing brew-packages.sh with a Brewfile? See brew bundle --help for details
 * [ ] https://github.com/clvv/fasd (or one of the other tools linked therein) might have better tab completion than autojump
 * [ ] Remove virtualenvwrapperrc since the newest release has a lazy script
 * [ ] custom jupyter color scheme? Or use vscode jupyter notebook integration
@@ -90,7 +89,7 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
   * [ ] pgcli et al with pipsi
   * [ ] "scratch" venv with jupyter, boto, etc.
   * [ ] what to do with pudb?
-* [ ] iTerm2 custom title script
+* [ ] iTerm2 custom title script (on iterm-custom-titles branch)
 
 ## Deprecated todos
 * Sublime likes to reformat the prefs and remove comments. Find a workaround?
