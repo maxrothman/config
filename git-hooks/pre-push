@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+set -euo pipefail
+shopt -s nullglob
+
+hookname="pre-push"
+
+# Manually expand tildes because otherwise glob in loop below won't expand
+hookspath="$(git config --get core.hooksPath)"
+hookspath="${hookspath/#\~/$HOME}"
+
+# Run global hooks
+for exe in "$hookspath"/"$hookname".d/*; do
+    if [ -x "$exe" ]; then
+        "$exe" "$@"
+    fi
+done
+
+# Run repo hooks
+for exe in .git/hooks/"$hookname".d/*; do
+    if [ -x "$exe" ]; then
+        "$exe" "$@"
+    fi
+done

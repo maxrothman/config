@@ -6,7 +6,7 @@
   #only set this true if you're on windows
   ignorecase = false
 
-  #Put hooks in this directory and they'll be accessible from all repos. MAKE SURE THEY'RE ALL EXECUTABLE!
+  # Required for my git hooks setup to work. For more details, see config/git-hooks/README.md
   hooksPath = ~/repos/.git-hooks
 
   #Prevent commit messages from being lost when Vim has an error

@@ -72,5 +72,8 @@ else
   echo "Not writing ~/.bash-secure, one already exists"
 fi
 
+echo "Deploying git hooks..."
+ln -s "$configdir"/git-hooks ~/repos/.git-hooks
+
 # Install brew packages and casks
 brew bundle install --global

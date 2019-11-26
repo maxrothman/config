@@ -45,7 +45,6 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * Change the login shell
   * In System Preferences>Users & Groups, unlock then right click on your user and select "Advanced Options"
   * Change "Login shell" to `/usr/local/bin/bash`
-* Copy pre-push to where your hooksPath points in gitconfig
 * In System Preferences>Keyboard>Shortcuts, disable all of the shortcuts involving ctrl. A bunch of them are used by VSCode, but Apple decided it'd be better to use them for switching spaces.
 
 ## Complete
