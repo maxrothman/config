@@ -1,0 +1,102 @@
+Fyodor
+christian-kohler.npm-intellisense
+dbaeumer.vscode-eslint
+donjayamanne.githistory
+eg2.vscode-npm-script
+flowtype.flow-for-vscode
+heaths.vscode-guid
+hoovercj.haskell-linter
+paulhoughton.vscode-jscpd
+PeterJausovec.vscode-docker
+silverlakesoftware.searchdocsets-vscode
+swiftstudios.insert-special-symbol
+
+{
+    "workbench.colorTheme": "Quiet Light",
+    "window.zoomLevel": 0,
+    "workbench.editor.enablePreview": false,
+    "purescript.pscIdeServerExe": "purs ide server",
+    "search.exclude": {
+        "**/.stack-work": true
+    },
+    "FSharp.fsiExtraParameters": [
+        "--optimize+"
+    ],
+    "javascript.validate.enable": false,
+    "editor.fontFamily": "'Hasklig'",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 13,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "eslint.options": {
+        "rules": {
+            "indent": ["error", 4],
+            "react/jsx-indent": [2, 4],
+            "react/jsx-indent-props": [2, 4],
+            "react/prop-types": 0,
+            "react/self-closing-comp": 0,
+            "spaced-comment": 0,
+            "space-in-parens": 0,
+            "padded-blocks": 0,
+            "semi": 0
+        }
+    },
+    "haskell.hlint.ignore": [
+        "Eta reduce"
+    ],
+    "haskero.debugMode": true
+}
+
+Mohan
+74th.vimStyle
+Braver.vscode-solarized
+TroelsDamgaard.reflow-paragraph
+dbaeumer.vscode-eslint
+eamodio.gitlens
+sinchang.packagelinker
+timonwong.shellcheck
+vscodevim.vim
+vthiery.prettify-selected-json
+
+{
+    "editor.tabSize": 2,
+    "editor.detectIndentation": true,
+    "editor.minimap.enabled": false,
+    "editor.stablePeek": true,
+    "editor.autoClosingBrackets": false,
+    "editor.fontSize": 13,
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "Hasklig",
+    "window.zoomLevel": 0,
+    "files.trimTrailingWhitespace": true,
+
+    "workbench.colorTheme": "Braver's Solarized Dark",
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+
+    "extensions.ignoreRecommendations": false,
+
+    // haskell
+    "haskell.ghcMod.executablePath": "stack",
+    "search.exclude": {
+        "**/.stack-work": true
+    },
+
+    "reflow.preferredLineLength": 100,
+
+    "purescript.addNpmPath": true,
+
+    "ruby.linter.run": "onSave",
+    "ruby.specFocusTerminal": false,
+
+    "gitlens.keymap": "chorded",
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressResultsExplorerNotice": false,
+        "suppressShowKeyBindingsNotice": true
+    }
+}

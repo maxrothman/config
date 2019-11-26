@@ -1,0 +1,75 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+    //my necessities
+    {
+        "key": "shift+space",
+        "command": "cursorMove",
+        "args": {
+            "to": "right",
+            "by": "character"
+        }
+    },
+
+    // Need to disable the default function of this keyboard combo to override it
+    {
+        "key": "ctrl+space",
+        "command": "-editor.action.triggerSuggest"
+    },
+    {
+        "key": "ctrl+space",
+        "command": "cursorWordEndRight"
+    },
+    {
+        "key": "ctrl+shift+space",
+        "command": "editor.action.triggerSuggest"
+    }
+
+    // Same as above
+    {
+        "key": "ctrl+tab",
+        "command": "workbench.action.nextEditor"
+    },
+    {
+        "key": "shift+cmd+]",
+        "command": "-workbench.action.nextEditor"
+    },
+    {
+        "key": "ctrl+shift+tab",
+        "command": "workbench.action.previousEditor"
+    },
+    {
+        "key": "shift+cmd+[",
+        "command": "-workbench.action.previousEditor"
+    },
+
+    {
+        "key": "alt+j",
+        "command": "workbench.action.focusPanel",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+j",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "!editorTextFocus"
+    },
+
+    //from Expand Selection to Scope plugin
+    {
+        "key": "cmd+shift+space",
+        "command": "expand-selection-to-scope.expand"
+    },
+    {
+        "key": "cmd+shift+space",
+        "command": "-editor.action.triggerParameterHints"
+    },
+
+    //from Quick and Simple Text Selection plugin
+    {
+        "key": "cmd+'",
+        "command": "extension.selectEitherQuote"
+    },
+    {
+        "key": "cmd+shift+'",
+        "command": "extension.switchQuotes"
+    }
+]

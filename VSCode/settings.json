@@ -1,0 +1,68 @@
+{
+    "editor.minimap.enabled": false,  //This is distracting
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.fontSize": 14,  //I have astygmatism
+    "workbench.activityBar.visible": true,  //This is the sidebar with files/git/debug/etc.
+    "workbench.colorCustomizations": {  //I'm colorblind
+        "terminal.selectionBackground": "#80aeeb81",
+        "editor.selectionHighlightBorder": "#657ed3",
+        "editor.selectionBackground": "#2f4387",
+        "editor.findMatchBackground": "#6d75e69f"
+    },
+    "terminal.integrated.fontSize": 14,  //I have astygmatism
+    "workbench.colorTheme": "Monokai",  //My sublime text is showing
+    "diffEditor.renderSideBySide": false,  //I prefer inline diffs
+    "files.exclude": {  //No need to see these in the file list
+        "**/.stack-work": true,
+        "**/.vscode": true
+    },
+    "search.location": "panel",  //I don't like search taking over my sidebar, and it's too narrow to see the results
+    "explorer.confirmDelete": false,  //I never use vscode outside a git repo, deletes are low-risk
+    "breadcrumbs.enabled": true,  //Handy in big files. I disable this in some workspaces depending on the language.
+
+    //From terraform plugin
+    "terraform.codelens.enabled": false,  //I find this distracting
+    "terraform.format": {
+        "enable": true,
+        "ignoreExtensionsOnSave": [
+            ".tfsmurf"
+        ],
+        "formatOnSave": false
+    },
+    "workbench.sideBar.location": "left",
+    "window.zoomLevel": 0,
+
+    //From Python plugin
+    "python.linting.enabled": false,
+    "python.pythonPath": "/usr/local/bin/python3",  //My local installation
+    "python.jediEnabled": false,  //try the new python language server. I've heard it's better?
+    
+    //From rewrap plugin
+    "rewrap.wrappingColumn": 100,
+    
+    //From purescript plugin. I doubt it'll ever be necessary again, but it took me so long to figure this out that I feel bad removing it
+    "purescript.addNpmPath": true,
+    
+    //From gitlens plugin. Mostly disabled for now until I decide if I like it
+    "gitlens.codeLens.enabled": false,
+    "gitlens.currentLine.enabled": false,
+    "gitlens.hovers.currentLine.over": "line",
+    "gitlens.gitExplorer.enabled": false,
+    "gitlens.historyExplorer.enabled": false,
+    "gitlens.resultsExplorer.location": "explorer",
+    "gitlens.hovers.enabled": false,
+    "gitlens.views.repositories.enabled": false,
+    "gitlens.views.fileHistory.enabled": false,
+    "gitlens.views.lineHistory.enabled": false,
+    "gitlens.views.compare.location": "explorer",
+    "gitlens.views.search.location": "explorer",
+    
+    "[markdown]": {
+        "editor.quickSuggestions": false  //I remember trying this for a bit and found it got annoying
+        // {
+        //     "other": true,
+        //     "comments": false,
+        //     "strings": false
+        // }
+    }
+}

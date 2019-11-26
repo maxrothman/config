@@ -71,10 +71,14 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * [x] sync pgcli config
 * [x] Update installation instructions for github dark style (use usercss) and other stylus config
 * [x] Add vscode finder automator script
-* [ ] Sync vscode settings: like with sublime, using symlinks screws up reloading. Maybe use hardlinks?
+* [x] Sync vscode settings
+  * Using symlinks screws up reloading. Maybe use hardlinks? Or just wait for...
+  * Looks like there'll be an [official feature release](https://github.com/microsoft/vscode/labels/settings-sync) to solve    this in the next month or so. Just going to manually drop the files in and list the extensions for now
 * [x] Remove sublime text
 
 ## Long-term Todo
+* [ ] Read vscode release notes and see if there's anything I should do differently
+* [ ] Look into other vscode extensions and configs in other-peoples-vscode-extensions
 * [ ] Make all bash script function variables local
 * [ ] check for package upgrades 1/day
 * [x] Look into replacing brew-packages.sh with a Brewfile? See brew bundle --help for details
