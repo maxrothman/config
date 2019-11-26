@@ -18,15 +18,21 @@ else
 fi
 
 echo 'Deploying dotfiles...'
+dot_loc="$configdir"/dotfiles/
 problems=false
-for f in "$configdir"/dotfiles/*; do
+find "$dot_loc" -type f -print0 | while IFS= read -r -d '' f; do
   #Ignore ignoreable files
   if git --git-dir "$configdir"/.git check-ignore "$f"; then
     continue
   fi
 
-  base_name="$(basename "$f")"
-  if [[ ! -e ~/."${base_name}" ]]; then
+  base_name="${f#"$dot_loc"}"  # Remove the prefix leaving the bare filename/path
+  if [[ ! -f ~/."${base_name}" ]]; then
+    # If it's a directory, add the parents
+    if [[ "$base_name" == */* ]]; then
+      mkdir -p ~/."$(dirname $base_name)"
+    fi
+    
     ln -s "$f" ~/."${base_name}"
   elif [[ -L ~/."${base_name}" && "$(readlink ~/."${base_name}")" == "$f" ]]; then
     :   #it's already synced
@@ -73,7 +79,7 @@ else
 fi
 
 echo "Deploying git hooks..."
-ln -s "$configdir"/git-hooks ~/repos/.git-hooks
+ln -Ts "$configdir"/git-hooks ~/repos/.git-hooks
 
 # Install brew packages and casks
 brew bundle install --global

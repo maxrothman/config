@@ -26,8 +26,7 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
   and follow the instructions in `Stylus/README.md`
 * Follow the instructions in `Alfred.alfredpreferences/README.md`
 * Follow the instructions in the README in automator/
-* Run all the scripts in misc-scripts except pre-push
-  * TODO: and except pgcli config. Need to separate those two out
+* Run all the scripts in misc-scripts
 * Manual iTerm setup:
   * In iTerm, go to Preferences > General > Preferences and set "Load preferences from a custom folder or URL"
     to the location of the `iTerm` directory in this repo.
@@ -68,8 +67,8 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 
 ## Short-term Todo
 * [x] Add new stuff (bettertouchtool for instance)
-* [ ] sync new git hooks setup
-* [ ] sync pgcli config
+* [x] sync new git hooks setup
+* [x] sync pgcli config
 * [x] Update installation instructions for github dark style (use usercss) and other stylus config
 * [x] Add vscode finder automator script
 * [ ] Sync vscode settings: like with sublime, using symlinks screws up reloading. Maybe use hardlinks?
