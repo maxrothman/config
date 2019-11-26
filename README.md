@@ -71,7 +71,7 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * [x] Add new stuff (bettertouchtool for instance)
 * [ ] sync new git hooks setup
 * [ ] sync pgcli config
-* [ ] Update installation instructions for github dark style (use usercss) and other stylus config
+* [x] Update installation instructions for github dark style (use usercss) and other stylus config
 * [x] Add vscode finder automator script
 * [ ] Sync vscode settings: like with sublime, using symlinks screws up reloading. Maybe use hardlinks?
 * [x] Remove sublime text

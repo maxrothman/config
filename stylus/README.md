@@ -1,8 +1,20 @@
 # Personal webpage styles
 
-Some of the stylesheets in this directory are intended to overlay 3rd-party custom
-styles (i.e. from [userstyles.org](https://userstyles.org/)), while others are
-modified styles (likely from the same sources). Currently, the github-dark style is
-both the only one in active use and the only one that overlays a 3rd-party style. So
-long as it is added to the page after the 3rd-party style, it will overlay correctly.
-AFAICT, this means it has to appear in the Stylus list after the 3rd-party style.
+I use [Stylus](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne) to
+theme some websites I use frequently with dark styles and other small enhancements.
+
+After installing
+[Stylus](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne), install
+these public themes:
+
+* [Dark Bitbucket.org](https://userstyles.org/styles/166677/dark-bitbucket-org)
+
+Some of the themes I use are [usercss](https://github.com/openstyles/stylus/wiki/Usercss), so their
+installation method is different. To install each of the styles below, just open their links in your
+browser:
+
+* [Github dark](https://raw.githubusercontent.com/StylishThemes/GitHub-Dark/master/github-dark.user.css)
+
+I also apply some hand-written custom styles, contained in this directory. Add them to Stylus manually.
+
+In particular, my Github Dark overrides style overlays the public Github Dark style, so it must appear in Stylus' styles list **after** the public one.
