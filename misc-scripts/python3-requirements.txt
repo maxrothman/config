@@ -16,3 +16,6 @@ py-dateutil
 
 #Installs `py` command, for easier python 1-liners
 pythonpy
+
+#A better Postgres client
+pgcli

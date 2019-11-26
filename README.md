@@ -56,7 +56,7 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * src-hilite-lesspipe.sh
 * misc-setup.bash
 * installed apps
-* Add Stylish css (Chrome)
+* Stylus css (Chrome)
 * .jq
 * .vimrc
 * .virtualenvwrapperrc
@@ -75,7 +75,7 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * [x] Remove sublime text
 
 ## Long-term Todo
-* [ ] Make all bash use strict mode and all function variables local
+* [ ] Make all bash script function variables local
 * [ ] check for package upgrades 1/day
 * [x] Look into replacing brew-packages.sh with a Brewfile? See brew bundle --help for details
 * [ ] https://github.com/clvv/fasd (or one of the other tools linked therein) might have better tab completion than autojump
