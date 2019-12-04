@@ -8,7 +8,7 @@ brew 'findutils'                                  # GNU find to replace weird BS
 brew 'fzf'                                        # fuzzyfinder: https://github.com/junegunn/fzf
 brew 'git'                                        # Update to newest on older systems
 brew 'gnu-sed'                                    # BSD sed is weird (on Mac)
-brew 'homebrew/dupes/grep', args: ['--with-default-names']   # BSD grep is also weird (on Mac)
+brew 'grep'                                       # BSD grep is also weird (on Mac)
 brew 'htop-osx'                                   # Gotta have htop
 brew 'jq'                                         # JSON parsing tool: <https://stedolan.github.io/jq/>
 brew 'nmap'                                       # Mac really doesn't ship with this?!
@@ -43,7 +43,6 @@ cask 'HyperSwitch'       , {appdir: '/Applications'}   # Window-based switcher
 cask 'Itsycal'           , {appdir: '/Applications'}   # Replaces the menu bar datetime display and adds a calendar panel on click
 cask 'AppCleaner'        , {appdir: '/Applications'}   # Fully uninstall apps
 
-cask 'Docker'            , {appdir: '/Applications'}
 cask 'google-chrome'     , {appdir: '/Applications'}
 cask 'evernote'          , {appdir: '/Applications'}
 cask 'slack'             , {appdir: '/Applications'}

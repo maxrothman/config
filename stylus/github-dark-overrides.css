@@ -4,7 +4,7 @@
  * Apply to the following URLs:
  *   URL: githubusercontent.com
  *   URL: graphql-explorer.githubapp.com
- *   regex: ^https?://((gist|guides|help|raw|status|developer)\.)?github\.com/((?!generated_pages/preview).)*$ 
+ *   regex: ^https?://((gist|guides|help|raw|status|developer)\.)?github\.com/((?!generated_pages/preview).)*$
  *
  * Throughout, I use hacks like `html body` or `body .class` to increase specificity 
  */

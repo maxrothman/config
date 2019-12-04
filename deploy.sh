@@ -26,6 +26,8 @@ find "$dot_loc" -type f -print0 | while IFS= read -r -d '' f; do
     continue
   fi
 
+  f="${f#/\//}"  # Remove leading slash
+
   base_name="${f#"$dot_loc"}"  # Remove the prefix leaving the bare filename/path
   if [[ ! -f ~/."${base_name}" ]]; then
     # If it's a directory, add the parents
@@ -33,6 +35,7 @@ find "$dot_loc" -type f -print0 | while IFS= read -r -d '' f; do
       mkdir -p ~/."$(dirname $base_name)"
     fi
     
+    echo "Deploying ~/.${base_name}"
     ln -s "$f" ~/."${base_name}"
   elif [[ -L ~/."${base_name}" && "$(readlink ~/."${base_name}")" == "$f" ]]; then
     :   #it's already synced
@@ -80,7 +83,15 @@ else
 fi
 
 echo "Deploying git hooks..."
-ln -Ts "$configdir"/git-hooks ~/repos/.git-hooks
+# Mac's default ln has no -T
+if [[ ! -e ~/repos/.git-hooks ]]; then
+  ln -s "$configdir"/git-hooks ~/repos/.git-hooks
+elif [[ -L ~/.bashrc.d && "$(readlink ~/.bashrc.d)" == "$configdir"/bashrc.d ]]; then
+  :   #it's already synced
+else
+  echo "Refusing to overwrite ~/repos/.git-hooks, already exists or is a different symlink! Resolve differences then rerun this script."
+  exit 1
+fi
 
-# Install brew packages and casks
+echo "Installing brew packages and casks"
 brew bundle install --global
