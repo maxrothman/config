@@ -81,6 +81,7 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * [x] Remove sublime text
 
 ## Long-term Todo
+* [ ] Investigate https://github.com/python-mario/mario as a more featureful and better-maintained replacement for pythonpy
 * [ ] Read vscode release notes and see if there's anything I should do differently
 * [ ] Look into other vscode extensions and configs in other-peoples-vscode-extensions
 * [ ] Make all bash script function variables local
