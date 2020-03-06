@@ -58,7 +58,7 @@
 
   #Amend and don't change commit message. If file arguments are provided, amend only those files.
   #Usage: cmend [FILE ...]
-  cmend = "!f() { cd \"$GIT_PREFIX\"; [ $# -eq 0 ] && all=-a || git add $@; git commit $all --amend --no-edit; }; f"
+  cmend = "!f() { cd \"$GIT_PREFIX\"; [ $# -ne 0 ] && git add $@; git commit --amend --no-edit; }; f"
   #                   ^            ^
   #NB: without these quotes this'll run an empty cd when you're at the top of the repo taking you to ~
   
