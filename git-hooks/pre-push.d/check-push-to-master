@@ -26,7 +26,7 @@ if [ "$protected_branches" != '' ] &&  grep -qE  "$current_ref" <<< "$protected_
   read -p '> ' input
   [ "$input" = "I'm sure I want to push to $current_ref" ] && exit 0
   
-  git switch $input
+  git sw "$input"
   git pushb
   
   sleep .1  #github takes a sec to register the branch
