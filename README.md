@@ -109,6 +109,7 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * [ ] document smooth scrolling on chrome
 * [ ] document turning on rewrap's auto wrap
 * [ ] fix/sync quick-look extensions (don't work on catalina)
+* [ ] defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false (enable key repeat)
 
 ## Long-term Todo
 * [ ] Investigate https://github.com/python-mario/mario as a more featureful and better-maintained replacement for pythonpy
