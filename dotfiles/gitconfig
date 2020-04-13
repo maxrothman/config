@@ -86,6 +86,9 @@
   #Pretty git log with graph and colors
   lg = log --graph --format=format:'%C(red)%h%C(reset) - %C(green)(%ar)%C(reset) %C(bold blue)%an%C(reset)%C(yellow)%d%C(reset)%n          %s'
 
+  # Diff since the branch diverged from master
+  diffbase = "!git diff $(git merge-base $(git config --get myconfig.main-branch) @)"
+
   #Short-format log of all commits since where the branch diverged from master
   lastlog = "!git --no-pager log --oneline $(git merge-base $(git config --get myconfig.main-branch) @).."
 
