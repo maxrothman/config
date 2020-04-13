@@ -15,7 +15,7 @@
 # 
 #    - Features:
 #      - Shows repo name and branch name
-#      - + if ahead of remote, - if behind, !! if local and remote have diverged
+#      - + if ahead of remote, - if behind, !! if local and remote have diverged, ^ if not yet pushed
 #      - Branch name changes color to indicate status:
 #        - Yellow if untracked changes
 #        - Red if ready to commit
@@ -63,7 +63,10 @@ git_prompt () {
     git_branch="${git_branch#refs/heads/}"
     s=`git status`
     
-    if grep -q "ahead of" <<<"$s"; then
+    if [ "$(git rev-parse --abbrev-ref @)" != "$(git rev-parse --abbrev-ref @{u} | cut -d/ -f2)" ]; then
+      # The `cut` is to shave off the "origin/" prefix
+      symbol="${Color_Yellow}^${Color_NoColor}"
+    elif grep -q "ahead of" <<<"$s"; then
       symbol="+"
     elif grep -q "behind" <<<"$s"; then
       symbol="-"
@@ -71,12 +74,12 @@ git_prompt () {
       symbol='!!'
     fi
 
-    if grep -q "nothing to commit" <<<"$s"; then
-      git_branch="${Color_Green}($git_branch)${Color_NoColor}"
-    elif grep -q -E "Untracked files|not staged" <<<"$s"; then
+    if grep -q -E "Untracked files|not staged" <<<"$s"; then
       git_branch="${Color_Yellow}($git_branch)${Color_NoColor}"
     elif grep -q "Changes to be committed" <<<"$s"; then
       git_branch="${Color_Red}($git_branch)${Color_NoColor}"
+    else
+      git_branch="${Color_Green}($git_branch)${Color_NoColor}"
     fi
     
     [ -n "$git_branch" ] && echo "${Color_BYellow}${symbol}${Color_NoColor}${git_branch}"
