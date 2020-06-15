@@ -16,6 +16,9 @@
   #WARNING: will remove local branches if they've been deleted from the remote
   prune = true
 
+[pull]
+  rebase = true
+
 [diff]
   # Use the "patience" diff algorithm. It's better. Google it.
   algorithm = patience
