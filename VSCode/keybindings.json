@@ -71,5 +71,40 @@
     {
         "key": "cmd+shift+'",
         "command": "extension.switchQuotes"
+    },
+
+    // cmd+9 already focuses on the last editor in the group, but for some reason, by default cmd+1
+    // focuses on the first editor group
+    {
+        "key": "cmd+1",
+        "command": "workbench.action.firstEditorInGroup"
+    },
+
+    // Toggle between sidebar and main editor
+    {
+        "key": "cmd+0",
+        "command": "-workbench.action.focusSideBar",
+    },
+    {
+        "key": "cmd+0",
+        "when": "!sideBarFocus",
+        "command": "workbench.action.focusSideBar"
+    },
+    {
+        "key": "cmd+0",
+        "when": "sideBarFocus",
+        "command": "workbench.action.focusActiveEditorGroup"
+    },
+
+    // Have PageUp and PageDown only scroll a half page
+    {
+        "key": "PageDown",
+        "command": "extension.halfDown",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "PageUp",
+        "command": "extension.halfUp",
+        "when": "textInputFocus"
     }
 ]
