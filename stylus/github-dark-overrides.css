@@ -1,3 +1,4 @@
+@-moz-document url("githubusercontent.com"), url("graphql-explorer.githubapp.com"), regexp("^https?://((gist|guides|help|raw|status|developer)\\.)?github\\.com/((?!generated_pages/preview).)*$") {
 /* Personal overrides for Github Dark style
  * https://github.com/StylishThemes/GitHub-Dark
  *
@@ -137,3 +138,12 @@ code .nt {
 		height: 40px !important;
 	}
 } */
+}
+
+@-moz-document regexp("^https?://github.com/.*/.*/pull/.*$") {
+/* Why oh why did Github do away with margins? */
+.new-discussion-timeline {
+    margin-left: 148px;
+    margin-right: 148px;
+}
+}
