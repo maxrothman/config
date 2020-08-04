@@ -523,9 +523,9 @@ Resize Split Pane.Move Divider Down</string>
 	<key>NSWindow Frame NSColorPanel</key>
 	<string>0 159 224 275 0 0 1680 1027 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>403 -415 620 392 403 -1050 1680 1027 </string>
+	<string>410 363 620 392 0 0 2560 1577 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>618 0 1294 1177 0 0 1920 1177 </string>
+	<string>1024 23 1024 1234 0 0 2048 1257 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>614 264 730 477 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_8FA0A1AC-A4C5-4C2A-9879-D49F66555368</key>
@@ -2022,9 +2022,10 @@ Resize Split Pane.Move Divider Down</string>
 	</array>
 	<key>NoSyncAllAppVersions</key>
 	<array>
-		<string>3.3.7</string>
-		<string>3.3.8</string>
 		<string>3.3.9</string>
+		<string>3.3.8</string>
+		<string>3.3.11</string>
+		<string>3.3.7</string>
 	</array>
 	<key>NoSyncCommandHistoryHasEverBeenUsed</key>
 	<true/>
@@ -2040,7 +2041,7 @@ Resize Split Pane.Move Divider Down</string>
 	<key>NoSyncInstallationId</key>
 	<string>EB06EEFF-3226-4933-8614-44BCE2C973AF</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>9</integer>
+	<integer>14</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -2843,11 +2844,11 @@ Resize Split Pane.Move Divider Down</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-05-07T13:31:38Z</date>
+	<date>2020-06-26T14:28:42Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateGroupIdentifier</key>
-	<integer>3088712206</integer>
+	<integer>499239814</integer>
 	<key>SUUpdateRelaunchingMarker</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -2855,7 +2856,7 @@ Resize Split Pane.Move Divider Down</string>
 	<key>ShowBookmarkName</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
-	<false/>
+	<true/>
 	<key>ShowPaneTitles</key>
 	<true/>
 	<key>SmartPlacement</key>
@@ -2909,7 +2910,7 @@ Resize Split Pane.Move Divider Down</string>
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.3.9</string>
+	<string>3.3.11</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>6</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
