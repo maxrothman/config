@@ -59,6 +59,8 @@
   cma = commit -a
   cmal = commit -a -m
 
+  mend = commit --amend --no-edit
+
   #Amend and don't change commit message. If file arguments are provided, amend only those files.
   #Usage: cmend [FILE ...]
   cmend = "!f() { cd \"$GIT_PREFIX\"; [ $# -ne 0 ] && git add $@; git commit --amend --no-edit; }; f"

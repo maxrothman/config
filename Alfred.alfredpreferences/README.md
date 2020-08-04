@@ -2,7 +2,7 @@
 Backup of all Alfred-related configs.
 
 ## Setup
-* In Alfred's preferances, got to "Advanced"
+* In Alfred's preferences, got to "Advanced"
 * Under "syncing", set the sync folder to this directory's parent
 * In System Preferences > Keyboard > Shortcuts > Spotlight, uncheck "Show Spotlight search"
 * In Alfred > General, set the hotkey to ⌘Space
