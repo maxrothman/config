@@ -9,7 +9,7 @@ brew 'fzf'                                        # fuzzyfinder: https://github.
 brew 'git'                                        # Update to newest on older systems
 brew 'gnu-sed'                                    # BSD sed is weird (on Mac)
 brew 'grep'                                       # BSD grep is also weird (on Mac)
-brew 'htop-osx'                                   # Gotta have htop
+brew 'htop'                                       # Gotta have htop
 brew 'jq'                                         # JSON parsing tool: <https://stedolan.github.io/jq/>
 brew 'nmap'                                       # Mac really doesn't ship with this?!
 brew 'pip-completion'                             # Bash completion for pip
@@ -27,26 +27,27 @@ brew 'tree'                                       # Tree view of file structures
 brew 'watch'                                      # Gotta have watch
 brew 'wget'                                       # Mac really doesn't ship with this?!
 
+cask_args appdir: "/Applications"
+
+# All of these have problems with Mac's new app signing thing
 # Source: https://github.com/sindresorhus/quick-look-plugins
-cask 'qlcolorcode'                                # Quick Look plugin that colorizes code
-cask 'qlstephen'                                  # Quick Look plugin that previews plain text files with unknown extensions
-cask 'qlmarkdown'                                 # Quick Look plugin that renders markdown
-cask 'quicklook-json'                             # Quick Look plugin for json
+# cask 'qlcolorcode'          # Quick Look plugin that colorizes code
+# cask 'qlstephen'            # Quick Look plugin that previews plain text files with unknown extensions
+# cask 'qlmarkdown'           # Quick Look plugin that renders markdown
+# cask 'quicklook-json'       # Quick Look plugin for json
 
+cask 'iTerm2'               # A better terminal emulator
+cask 'Alfred'               # Like a text editor's palettes, but for the whole computer
+cask 'Dash'                 # Offline documentation browser (integrates with Alfred)
+cask 'visual-studio-code'   # My editor of choice
+cask 'BetterTouchTool'      # Tiling and gesture/keyboard remaps
+cask 'HyperSwitch'          # Window-based switcher
+cask 'Itsycal'              # Replaces the menu bar datetime display and adds a calendar panel on click
+cask 'AppCleaner'           # Fully uninstall apps
+cask 'usb-overdrive'        # Used to wire up the special buttons on my Microsoft Natural Ergonomic 4000 keyboard
 
-cask 'iTerm2'            , {appdir: '/Applications'}   # A better terminal emulator
-cask 'Alfred'            , {appdir: '/Applications'}   # Like a text editor's palettes, but for the whole computer
-cask 'Dash'              , {appdir: '/Applications'}   # Offline documentation browser (integrates with Alfred)
-cask 'visual-studio-code', {appdir: '/Applications'}   # My editor of choice
-cask 'BetterTouchTool'   , {appdir: '/Applications'}   # Tiling and gesture/keyboard remaps
-cask 'HyperSwitch'       , {appdir: '/Applications'}   # Window-based switcher
-cask 'Itsycal'           , {appdir: '/Applications'}   # Replaces the menu bar datetime display and adds a calendar panel on click
-cask 'AppCleaner'        , {appdir: '/Applications'}   # Fully uninstall apps
-
-cask 'google-chrome'     , {appdir: '/Applications'}
-cask 'evernote'          , {appdir: '/Applications'}
-cask 'slack'             , {appdir: '/Applications'}
-cask 'VLC'               , {appdir: '/Applications'}
-cask 'Lastpass'          , {appdir: '/Applications'}
-
-# cask 'gifox'               , {appdir: '/Applications'}  # Make gif screen recordings, good for demonstrating QA
+cask 'google-chrome'
+cask 'evernote'
+cask 'slack'
+cask 'VLC'
+cask 'Lastpass'
