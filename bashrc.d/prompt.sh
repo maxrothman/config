@@ -63,7 +63,7 @@ git_prompt () {
     git_branch="${git_branch#refs/heads/}"
     s=`git status`
     
-    if [ "$(git rev-parse --abbrev-ref @)" != "$(git rev-parse --abbrev-ref @{u} | cut -d/ -f2-)" ]; then
+    if [ "$(git rev-parse --abbrev-ref @)" != "$(git rev-parse --abbrev-ref @{u} 2>/dev/null | cut -d/ -f2-)" ]; then
       # The `cut` is to shave off the "origin/" prefix
       symbol="${Color_Yellow}^${Color_NoColor}"
     elif grep -q "ahead of" <<<"$s"; then
