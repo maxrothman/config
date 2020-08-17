@@ -12,13 +12,20 @@
     "terminal.integrated.fontSize": 14,  //I have astygmatism
     "workbench.colorTheme": "Monokai",  //My sublime text is showing
     "diffEditor.renderSideBySide": false,  //I prefer inline diffs
-    "files.exclude": {  //No need to see these in the file list
+    "editor.find.autoFindInSelection": "multiline",  //Enables select, then find-in-selection painlessly
+    "editor.definitionLinkOpensInPeek": true,  //Jumping makes it harder to read code
+    "workbench.sideBar.location": "left",  //Where else would you want it?
+    "window.zoomLevel": 0,  //Not sure why this is in here, it should be the default
+    "files.exclude": {
+        "**/__pycache__": true,
         "**/.stack-work": true,
         "**/.vscode": true
     },
-    "search.location": "panel",  //I don't like search taking over my sidebar, and it's too narrow to see the results
     "explorer.confirmDelete": false,  //I never use vscode outside a git repo, deletes are low-risk
     "breadcrumbs.enabled": true,  //Handy in big files. I disable this in some workspaces depending on the language.
+
+    // Trash >>> delete (see `brew 'trash'` in Brewfile)
+    "fileutils.delete.useTrash": true,
 
     //From terraform plugin
     "terraform.codelens.enabled": false,  //I find this distracting
@@ -29,14 +36,12 @@
         ],
         "formatOnSave": false
     },
-    "workbench.sideBar.location": "left",
-    "window.zoomLevel": 0,
 
     //From Python plugin
     "python.linting.enabled": false,
-    "python.pythonPath": "/usr/local/bin/python3",  //My local installation
     "python.jediEnabled": false,  //try the new python language server. I've heard it's better?
-    
+    "python.languageServer": "Microsoft",
+
     //From rewrap plugin
     "rewrap.wrappingColumn": 100,
     
@@ -64,5 +69,18 @@
         //     "comments": false,
         //     "strings": false
         // }
+    },
+    "[javascriptreact]": {
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[javascript]": {
+        "editor.tabSize": 2
+    },
+    "[python]": {
+        // The outline is way too noisy without these. If only I could hide them from ⌘T...
+        "outline.showModules": false,
+        "outline.showVariables": false,
+        "outline.showProperties": false,
     }
 }

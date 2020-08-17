@@ -54,7 +54,7 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
   * Using symlinks screws up reloading. Maybe use hardlinks? Or just wait for...
   * Looks like there'll be an [official feature release](https://github.com/microsoft/vscode/labels/settings-sync) to solve    this in the next month or so. Just going to manually drop the files in and list the extensions for now
 * [x] Add USB Overdrive config and move change space shortcuts from BTT to mac
-* [ ] resync vscode settings
+* [x] resync vscode settings
 * [ ] Sync BTT settings
 * [ ] Sync tunnelblick cask and alfred workflow
 * [ ] Sync hammerspoon
