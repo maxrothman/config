@@ -24,8 +24,8 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 ## Setup instructions:
 * Clone this repo somewhere
 * Install brew: <http://brew.sh/>
-* Run deploy.sh
-* Run all the scripts in misc-scripts
+* Run `deploy.sh`
+* Run `misc-scripts/misc-setup.bash`
 * Follow the instructions in `Alfred.alfredpreferences/README.md`
 * Follow the instructions in the README in `automator/`
 * Follow the instructions in `manual.md`
@@ -50,15 +50,9 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * bash config
 
 ## Short-term Todo
-* [x] Add new stuff (bettertouchtool for instance)
-* [x] sync new git hooks setup
-* [x] sync pgcli config
-* [x] Update installation instructions for github dark style (use usercss) and other stylus config
-* [x] Add vscode finder automator script
 * [x] Sync vscode settings
   * Using symlinks screws up reloading. Maybe use hardlinks? Or just wait for...
   * Looks like there'll be an [official feature release](https://github.com/microsoft/vscode/labels/settings-sync) to solve    this in the next month or so. Just going to manually drop the files in and list the extensions for now
-* [x] Remove sublime text
 * [ ] Add USB Overdrive config and move change space shortcuts from BTT to mac
 * [ ] resync vscode settings
 * [ ] Sync BTT settings
