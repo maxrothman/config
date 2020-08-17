@@ -12,6 +12,13 @@
 * Sublime Text 3
 * Stay: save window positions when changing monitor configs
 * Karabiner: remap any key. No really, any key. Last used to make media buttons on a custom keyboard act correctly.
+* GPG Suite: decent keychain-like tool for GPG en/decrypting. Sure beats using the command line
+* Database viewer: I've used a few and been only marginally satisified:
+  * Tableplus: table viewer is pretty good, but the query editor kind of sucks
+  * Postico: postgres-only, haven't used recently
+  * pgAdmin: what a mess, don't use this
+* Gifox: Make gif screen recordings, useful for demonstrating QA. Maybe superseded by Mac's new
+  screenshot tool?
 
 ## Chrome plugins
 
