@@ -19,6 +19,9 @@
 * In System Preferences>Keyboard>Text, uncheck "Correct spelling automatically and "Add period with double-space
 * in System Preferences>Dock, un-check "Show recent applications in Dock"
 * Right click on the dock and select "Turn Hiding On"
+* Run `defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false (enable key repeat)` to
+  enable key repeat (otherwise, long-press opens the the key's unicode options which I don't have
+  much use for)
 
 ## Dash
 Install the following docsets: Python3, Bash, Man pages, Docker, HTML, CSS, Javascript, Terraform,
@@ -40,6 +43,11 @@ SVG
   * LastPass: obviously
   * Stylus: custom themes for webpages. Install all the ones in the "stylish" dir.
   * Event Merge for Google Calendar: visually merges identical events on multiple calendars
+  * [Smooth Key Scroll](https://chrome.google.com/webstore/detail/smooth-key-scroll/gphmhpfbknciemgfnfhjapilmcaecljh):
+    Scroll more easily with keyboard shortcuts. Settings:
+    * ↓: 17px
+    * ⌥↓: 30px
+    * ^↓: 1px
 * In the Chrome menu bar, select Chrome>Warn before quitting
 * Open Chrome developer tools, go to Settings, and under appearance, select "Dark theme"
 * Follow the instructions in `Stylus/README.md` to set up custom styles
@@ -48,6 +56,8 @@ SVG
 * Using the command palette, open "Preferences: Open Settings (JSON)" and replace its contents with the contents of `VSCode/settings.json`
 * As above, open "Preferences: Open Keyboard Shortcuts (JSON)" and replace its contents with the contents of `VSCode/keybindings.json`
 * Install the extensions in `VSCode/extensions.txt`
+* Open the command palette and find "Rewrap: toggle auto-wrap" and turn it on. It's off by default
+  and for some damn reason it can't be controlled via the settings interface.
 
 ## Itsycal
 * In Itsycal's preferences, in the area for "Datetime pattern", enter `E MMM d  h:mm a`

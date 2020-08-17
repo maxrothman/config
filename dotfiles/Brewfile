@@ -29,7 +29,7 @@ brew 'wget'                                       # Mac really doesn't ship with
 
 cask_args appdir: "/Applications"
 
-# All of these have problems with Mac's new app signing thing
+# All of these have problems with Mac's new app signing thing on Catalina
 # Source: https://github.com/sindresorhus/quick-look-plugins
 # cask 'qlcolorcode'          # Quick Look plugin that colorizes code
 # cask 'qlstephen'            # Quick Look plugin that previews plain text files with unknown extensions
@@ -45,6 +45,7 @@ cask 'HyperSwitch'          # Window-based switcher
 cask 'Itsycal'              # Replaces the menu bar datetime display and adds a calendar panel on click
 cask 'AppCleaner'           # Fully uninstall apps
 cask 'usb-overdrive'        # Used to wire up the special buttons on my Microsoft Natural Ergonomic 4000 keyboard
+cask 'tunnelblick'          # My preferred VPN client. I've got a matching Alfred workflow to control it
 
 cask 'google-chrome'
 cask 'evernote'

@@ -55,20 +55,19 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
   * Looks like there'll be an [official feature release](https://github.com/microsoft/vscode/labels/settings-sync) to solve    this in the next month or so. Just going to manually drop the files in and list the extensions for now
 * [x] Add USB Overdrive config and move change space shortcuts from BTT to mac
 * [x] resync vscode settings
-* [ ] Sync BTT settings
-* [ ] Sync tunnelblick cask and alfred workflow
-* [ ] Sync hammerspoon
-* [ ] document https://chrome.google.com/webstore/detail/tab-to-windowpopup-keyboa/adbkphmimfcaeonicpmamfddbbnphikh?hl=en-GB
-* [ ] document smooth scrolling on chrome
-* [ ] document turning on rewrap's auto wrap
+* [x] Sync BTT settings
+* [x] Sync tunnelblick cask and alfred workflow
+* [x] document smooth scrolling on chrome
+* [x] document turning on rewrap's auto wrap
 * [ ] fix/sync quick-look extensions (don't work on catalina)
-* [ ] defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false (enable key repeat)
+* [x] defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false (enable key repeat)
 
 ## Long-term Todo
 * [ ] Investigate https://github.com/python-mario/mario as a more featureful and better-maintained replacement for pythonpy
 * [ ] Read vscode release notes and see if there's anything I should do differently
 * [ ] Look into other vscode extensions and configs in other-peoples-vscode-extensions
-* [ ] Make all bash script function variables local
+* [ ] Make all bash script function variables local (can't use strict mode without changing my shell
+  settings)
 * [ ] check for package upgrades 1/day
 * [ ] https://github.com/clvv/fasd (or one of the other tools linked therein) might have better tab completion than autojump
 * [ ] Remove virtualenvwrapperrc since the newest release has a lazy script
