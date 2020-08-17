@@ -22,10 +22,17 @@
 * Run `defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false (enable key repeat)` to
   enable key repeat (otherwise, long-press opens the the key's unicode options which I don't have
   much use for)
+* Go to System Preferences > Accessibility > Zoom, check "Use scroll gesture with modifier keys to zoom"
+* Go to System Preferences > Mission Control, uncheck "Automatically rearrange spaces based on most
+  recent use"
 
 ## Dash
 Install the following docsets: Python3, Bash, Man pages, Docker, HTML, CSS, Javascript, Terraform,
 SVG
+
+## Alfred
+* Install the Dash workflow. It's ignored by my settings because it's self-modifying so it'd be
+  different on every machine.
 
 ## iTerm
 * Go to Preferences > General > Preferences and set "Load preferences from a custom folder or URL"
@@ -51,6 +58,12 @@ SVG
 * In the Chrome menu bar, select Chrome>Warn before quitting
 * Open Chrome developer tools, go to Settings, and under appearance, select "Dark theme"
 * Follow the instructions in `Stylus/README.md` to set up custom styles
+* In Preferences > Passwords, turn off "Offer to save passwords" (I use lastpass)
+* In the Evernote extension settings:
+  * After clip: select "Automatically close clipper"
+  * Uncheck "Related results"
+  * Disable keyboard shortcuts
+* Set default zoom to 110% (I have astygmatism)
 
 ## VSCode
 * Using the command palette, open "Preferences: Open Settings (JSON)" and replace its contents with the contents of `VSCode/settings.json`
@@ -87,3 +100,15 @@ This wires up a bunch of special buttons on the keyboard:
 * Search: ⌘F
 * Home: open ~
 * Scroll wheel up/down: page up/down
+
+## Hyperswitch
+* In "General":
+  * Check "Run in background"
+  * Set "Delay activation for" to 200ms
+  * Check "Include windows from other screens"
+* In "App Switcher":
+  * Uncheck "Show window previews on the app switcher"
+  * Uncheck "When activating an app without windows, try to open the default window"
+* In "Appearance":
+  * Check "the menu bar"
+  * Uncheck "the Dock"

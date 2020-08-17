@@ -10,8 +10,6 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * dotfiles: configuration files that various applications expect to be in ~/. Each
   file will be symlinked to ~/.$FILE (e.g. bashrc -> ~/.bashrc).
 * iTerm: iTerm configuration files.
-* Karabiner: Karabiner configs. Used to be for making volume buttons work on my external keyboard, but
-  Mac seems to pick these up automatically now (see manual.md)
 * misc-stuff: Files used once during setup.
 * stylus: CSS themes for the Stylus Chrome plugin
 * manual.md: stuff to manually install
@@ -30,37 +28,8 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * Follow the instructions in the README in `automator/`
 * Follow the instructions in `manual.md`
 
-## Complete
-* brew packages
-* .dircolors
-* .bash-colors
-* .inputrc
-* pre-push
-* alfred plugins
-* src-hilite-lesspipe.sh
-* misc-setup.bash
-* installed apps
-* Stylus css (Chrome)
-* .jq
-* .vimrc
-* .virtualenvwrapperrc
-* python packages
-* iTerm (Preferences>General>Load preferences from custom folder or URL)
-* .gitconfig
-* bash config
-
 ## Short-term Todo
-* [x] Sync vscode settings
-  * Using symlinks screws up reloading. Maybe use hardlinks? Or just wait for...
-  * Looks like there'll be an [official feature release](https://github.com/microsoft/vscode/labels/settings-sync) to solve    this in the next month or so. Just going to manually drop the files in and list the extensions for now
-* [x] Add USB Overdrive config and move change space shortcuts from BTT to mac
-* [x] resync vscode settings
-* [x] Sync BTT settings
-* [x] Sync tunnelblick cask and alfred workflow
-* [x] document smooth scrolling on chrome
-* [x] document turning on rewrap's auto wrap
-* [ ] fix/sync quick-look extensions (don't work on catalina)
-* [x] defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false (enable key repeat)
+* [ ] fix/sync quick-look extensions (don't work on Catalina)
 
 ## Long-term Todo
 * [ ] Investigate https://github.com/python-mario/mario as a more featureful and better-maintained replacement for pythonpy
@@ -78,6 +47,12 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
   * [ ] "scratch" venv with jupyter, boto, etc.
   * [ ] what to do with pudb?
 * [ ] iTerm2 custom title script (on iterm-custom-titles branch)
+* [ ] Get lastpass working
+  * Hotkey broken:
+    * https://forums.lastpass.com/viewtopic.php?f=12&t=272815&start=20
+    * https://forums.lastpass.com/viewtopic.php?f=12&t=349985&p=1192855&hilit=mac#p1192855
+  * Hide from apps
+* [ ] Retire fork of iterm2 shell integration: the patch has been merged (but the need for the hack is not: https://gitlab.com/gnachman/iterm2/issues/5964#note_284811201
 
 ## Deprecated todos
 * Sublime likes to reformat the prefs and remove comments. Find a workaround?
