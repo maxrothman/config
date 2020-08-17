@@ -54,3 +54,26 @@ SVG
 * Check "Hide icon"
 * ⌘Click and drag the Itsycal item in the menu bar next to the normal time and date display
 * In System Preferences>Date & Time>Clock, un-check "Show date and time in menu bar"
+
+## BetterTouchTool
+* Add the following keyboard shortcuts:
+  * ⇧^⌥⌘→: Action: Move Left a Space
+  * ⇧^⌥⌘←: Action: Move Right a Space
+  
+  These are "pressed" by USB Overdrive when the special keys on my Microsoft Natural Ergonomic
+  4000 are pressed
+
+## USB Overdrive
+* Plug in the Microsoft Natural Ergonomic 4000 keyboard
+* In System Preferences, open USB Overdrive
+* Under "Any Other, Any Application" open the dropdown and select "Import Settings"
+* Select `misc-scripts/Any Other, Any Application.overdriveSettings`
+
+This wires up a bunch of special buttons on the keyboard:
+* Back/Forward: move left/right a space
+* Keypad =/(/): actually type the symbol in question
+* Play/Pause/Next/Previous media buttons: perform the action in question
+* Volume up/down/mute: perform the action in question
+* Search: ⌘F
+* Home: open ~
+* Scroll wheel up/down: page up/down
