@@ -12,7 +12,7 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * iTerm: iTerm configuration files.
 * Karabiner: Karabiner configs. Used to be for making volume buttons work on my external keyboard, but
   Mac seems to pick these up automatically now (see manual.md)
-* misc-scripts: Scripts that should be run once.
+* misc-stuff: Files used once during setup.
 * stylus: CSS themes for the Stylus Chrome plugin
 * manual.md: stuff to manually install
 * deploy.sh: a script for automatically deploying the parts of this repo that can be automated.
