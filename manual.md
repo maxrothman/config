@@ -80,8 +80,8 @@ SVG
 
 ## BetterTouchTool
 * Add the following keyboard shortcuts:
-  * ⇧^⌥⌘→: Action: Move Left a Space
-  * ⇧^⌥⌘←: Action: Move Right a Space
+  * ⇧^⌥⌘→: Action: Move Right a Space
+  * ⇧^⌥⌘←: Action: Move Left a Space
   
   These are "pressed" by USB Overdrive when the special keys on my Microsoft Natural Ergonomic
   4000 are pressed
@@ -90,7 +90,7 @@ SVG
 * Plug in the Microsoft Natural Ergonomic 4000 keyboard
 * In System Preferences, open USB Overdrive
 * Under "Any Other, Any Application" open the dropdown and select "Import Settings"
-* Select `misc-scripts/Any Other, Any Application.overdriveSettings`
+* Select `misc-stuff/Any Other, Any Application.overdriveSettings`
 
 This wires up a bunch of special buttons on the keyboard:
 * Back/Forward: move left/right a space

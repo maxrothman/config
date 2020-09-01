@@ -24,9 +24,9 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * Install brew: <http://brew.sh/>
 * Run `deploy.sh`
 * Run `misc-scripts/misc-setup.bash`
+* Follow the instructions in `manual.md`
 * Follow the instructions in `Alfred.alfredpreferences/README.md`
 * Follow the instructions in the README in `automator/`
-* Follow the instructions in `manual.md`
 
 ## Short-term Todo
 * [ ] fix/sync quick-look extensions (don't work on Catalina)
