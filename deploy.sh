@@ -18,7 +18,7 @@ else
 fi
 
 echo 'Deploying dotfiles...'
-dot_loc="$configdir"/dotfiles/
+dot_loc="$configdir"/dotfiles
 problems=false
 find "$dot_loc" -type f -print0 | while IFS= read -r -d '' f; do
   #Ignore ignoreable files
@@ -26,9 +26,9 @@ find "$dot_loc" -type f -print0 | while IFS= read -r -d '' f; do
     continue
   fi
 
-  f="${f#/\//}"  # Remove leading slash
-
   base_name="${f#"$dot_loc"}"  # Remove the prefix leaving the bare filename/path
+  base_name="${base_name#/}"   # Remove leading slash
+
   if [[ ! -f ~/."${base_name}" ]]; then
     # If it's a directory, add the parents
     if [[ "$base_name" == */* ]]; then
