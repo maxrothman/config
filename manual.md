@@ -33,6 +33,7 @@ SVG
 ## Alfred
 * Install the Dash workflow. It's ignored by my settings because it's self-modifying so it'd be
   different on every machine.
+* In Features > Clipboard History, enable all the Clipboard History options
 
 ## iTerm
 * Go to Preferences > General > Preferences and set "Load preferences from a custom folder or URL"
