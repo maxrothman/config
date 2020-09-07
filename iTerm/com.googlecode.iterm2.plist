@@ -527,9 +527,9 @@ Resize Split Pane.Move Divider Down</string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>99 293 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>4 114 919 747 0 0 1440 877 </string>
+	<string>528 222 730 477 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>4 114 919 747 0 0 1440 877 </string>
+	<string>4 384 730 477 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>340 399 730 477 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -1142,7 +1142,7 @@ Resize Split Pane.Move Divider Down</string>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
-			<integer>1</integer>
+			<integer>0</integer>
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
@@ -2028,17 +2028,19 @@ Resize Split Pane.Move Divider Down</string>
 	</array>
 	<key>NoSyncAllAppVersions</key>
 	<array>
-		<string>3.3.6</string>
-		<string>3.3.8</string>
+		<string>3.3.0beta9</string>
 		<string>3.3.0beta12</string>
 		<string>3.3.1</string>
+		<string>3.3.8</string>
 		<string>3.3.0beta13</string>
-		<string>3.3.7</string>
-		<string>3.3.9</string>
-		<string>3.3.0beta15</string>
-		<string>3.3.0beta9</string>
+		<string>3.3.12</string>
+		<string>3.3.6</string>
 		<string>3.3.5beta1</string>
+		<string>3.3.11</string>
+		<string>3.3.0beta15</string>
 		<string>3.3.3beta2</string>
+		<string>3.3.9</string>
+		<string>3.3.7</string>
 	</array>
 	<key>NoSyncCommandHistoryHasEverBeenUsed</key>
 	<true/>
@@ -2060,7 +2062,7 @@ Resize Split Pane.Move Divider Down</string>
 	<key>NoSyncLastTipTime</key>
 	<real>568740200.11297703</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>56</integer>
+	<integer>59</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -2980,11 +2982,11 @@ Resize Split Pane.Move Divider Down</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-06-03T02:30:29Z</date>
+	<date>2020-08-26T20:36:38Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateGroupIdentifier</key>
-	<integer>3420830734</integer>
+	<integer>547497591</integer>
 	<key>SUUpdateRelaunchingMarker</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -3046,7 +3048,7 @@ Resize Split Pane.Move Divider Down</string>
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.3.9</string>
+	<string>3.3.12</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
