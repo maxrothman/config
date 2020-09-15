@@ -17,3 +17,5 @@ alias file='file -h'
 
 # Replace the built-in diff with the better colorized git version
 alias diff='git diff --no-index'
+
+export EDITOR=vim
