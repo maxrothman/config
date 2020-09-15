@@ -91,10 +91,10 @@
   #Pretty git log with graph and colors
   lg = log --graph --format=format:'%C(red)%h%C(reset) - %C(green)(%ar)%C(reset) %C(bold blue)%an%C(reset)%C(yellow)%d%C(reset)%n          %s'
 
-  # Diff since the branch diverged from master
+  # Diff since the branch diverged from the main branch
   diffbase = "!git diff $(git merge-base $(git config --get myconfig.main-branch) @)"
 
-  #Short-format log of all commits since where the branch diverged from master
+  #Short-format log of all commits since where the branch diverged from the main branch
   lastlog = "!git --no-pager log --oneline $(git merge-base $(git config --get myconfig.main-branch) @).."
 
   #Short-format log of all commits since the last push
@@ -138,6 +138,9 @@
   #For use in interactive rebases
   theirs = "!f() { git checkout --theirs \"$@\" && git add \"$@\"; }; f"
   ours   = "!f() { git checkout --ours   \"$@\" && git add \"$@\"; }; f"
+
+  squash = "!git rebase -i \"$(git merge-base \"$(git config --get myconfig.main-branch)\" @)\""
+  update = "!git checkout \"$(git config --get myconfig.main-branch)\" && git pull && git checkout - && git rebase \"$(git config --get myconfig.main-branch)\""
 
 # Custom config for aliases
 [myconfig]
