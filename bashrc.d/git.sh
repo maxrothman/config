@@ -1,8 +1,10 @@
 # Handy git aliases
 lastm() { git --no-pager log --merges -n1 --format='%H'; }  #commits since last merge
 lastp() { git --no-pager rev-parse "@{u}"; }                #commits since last push
-gbase() { git merge-base master @; }                        #common ancestor with master
 alias gcd='cd $(git rev-parse --show-toplevel)'             #cd to top of repo
+
+#common ancestor with master
+gbase() { git merge-base $(git config --get myconfig.main-branch) @; }
 
 #I'm so lazy I don't even want to type the space in git commands
 #TODO: fix completion
