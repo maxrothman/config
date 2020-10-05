@@ -25,6 +25,10 @@
 * Go to System Preferences > Accessibility > Zoom, check "Use scroll gesture with modifier keys to zoom"
 * Go to System Preferences > Mission Control, uncheck "Automatically rearrange spaces based on most
   recent use"
+* Plug in the Microsoft Natural Ergonomic 4000 keyboard, then go to System
+  Preferences > Keyboard. On the Keyboard tab, click "Modifier Keys...", and in
+  the resulting modal, select the Microsoft keyboard from the dropdown and
+  remap ⌥ to ⌘ and ⌘ to ⌥
 
 ## Dash
 Install the following docsets: Python3, Bash, Man pages, Docker, HTML, CSS, Javascript, Terraform,
