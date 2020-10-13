@@ -22,7 +22,7 @@
     {
         "key": "ctrl+shift+space",
         "command": "editor.action.triggerSuggest"
-    }
+    },
 
     // Same as above
     {
@@ -50,7 +50,7 @@
     {
         "key": "alt+j",
         "command": "workbench.action.focusActiveEditorGroup",
-        "when": "!editorTextFocus"
+        "when": "panelFocus"
     },
 
     //from Expand Selection to Scope plugin
