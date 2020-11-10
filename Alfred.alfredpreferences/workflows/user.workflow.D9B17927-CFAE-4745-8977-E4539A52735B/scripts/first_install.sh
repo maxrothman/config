@@ -45,32 +45,3 @@ if isRunning then
 	end tell
 end if
 EOD
-
-
-#Ask user for permission to install launchd startup check
-scriptstring="tell app \"System Events\" to display dialog \"Would you like EggTimer to resume your running timers when you log back in to your computer after a restart? 
-
-See documentation (“timer help” in Alfred) for more info.\" buttons {\"No thanks\", \"Do it!\"} default button {\"Do it!\"} with title \"EggTimer for Alfred\" with icon POSIX file \"$wfdir/resources/icon.icns\""
-
-permission=$(osascript -e "$scriptstring")
-
-if [ "$permission" = "button returned:Do it!" ]; then
-	#Create plist for launchd item
-	echo '<?xml version="1.0" encoding="UTF-8"?>
-	<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-	<plist version="1.0">
-	<dict>
-	   <key>Label</key>
-	   <string>net.philosophicalzombie.eggtimer</string>
-		<key>ProgramArguments</key>
-			<array>
-			<string>automator</string>
-			<string>'$EGGPREFS'/login_check.workflow</string>
-			</array>
-	   <key>RunAtLoad</key>
-	   <true/>
-	</dict>
-	</plist>' > net.philosophicalzombie.eggtimer.plist
-	
-	mv net.philosophicalzombie.eggtimer.plist ~/Library/LaunchAgents
-fi
