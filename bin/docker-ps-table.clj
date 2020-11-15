@@ -157,11 +157,12 @@
 (defn fmt-horizontal-sep
   "Return a horizontal separator string that consists of a number of
    straight-chars equal to each of the numbers in col-widths joined by cross-chars"
-  [col-widths straight-char cross-char]
+  [col-widths straight-char cross-char end-char-left end-char-right]
   (->> col-widths
        (map #(repeat % straight-char))
        (map #(join %))
-       (join cross-char)))
+       (join cross-char)
+       (#(join (concat [end-char-left] % [end-char-right])))))
 
 (defn docker-ps-table []
   (let [;; parsed :: Table String
@@ -175,7 +176,7 @@
 
         ;; Reserve space for fancy column separators. -1 because only printing internal table
         ;; separators, if we printed separators around the whole table we'd subtract (count "| ") twice
-        max-table-width (- (get-term-width) (* col-sep-width (-> parsed cols count (- 1))))
+        max-table-width (- (get-term-width) (* col-sep-width (-> parsed cols count (- 1))) 6)
 
         ; Wrap table columns to fit the terminal
         desired-widths (distribute-width
@@ -230,17 +231,22 @@
         ;; padded (map-cols #(deepmap 2 (partial pad-right %2 " ") %1) wrapped col-widths)
         ;; joined (mapcat join-table-row padded)
         horizontal-seps (cons
-                         (fmt-horizontal-sep col-widths "═" "═╪═")
-                         (repeat (fmt-horizontal-sep col-widths "─" "─┼─")))
+                         (fmt-horizontal-sep col-widths "═" "═╪═" "╞═" "═╡")
+                         (repeat (fmt-horizontal-sep col-widths "─" "─┼─" "├─" "─┤")))
         fmt-row (fn [hsep row] (concat
                                 (->> row                  ; :: Row (List String)
                                      join-table-row       ; :: List (Row String)
                                      (map #(map pad-right col-widths (repeat " ") %))  ; :: List (Row String)
-                                     (map #(join " │ " %))) ; :: List String
+                                     (map #(join " │ " %)) ; :: List String
+                                     (map #(join (concat ["│ "] % [" │"])))
+                                     trace)
                                 [hsep]))]
     (->> wrapped
          (mapcat fmt-row horizontal-seps)
          butlast  ; Drop the extra hsep at the end
+         (#(concat [(fmt-horizontal-sep col-widths "─" "─┬─" "┌─" "─┐")]
+                   %
+                   [(fmt-horizontal-sep col-widths "─" "─┴─" "└─" "─┘")]))
          (join "\n"))))
 
 
