@@ -10,9 +10,12 @@ fi
 alias brew-outdated-leaves='cat <(brew outdated) <(brew leaves) | sort | uniq -d | grep -f - --color=never <(brew outdated -v)'
 alias brew-upgrade-outdated-leaves='cat <(brew outdated) <(brew leaves) | sort | uniq -d | xargs brew upgrade'
 
+# brew --prefix gets used a bunch of times below, and brew is sloooow.
+brew_prefix="$(brew --prefix)"
+
 #bash_completion
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
+if [ -f $brew_prefix/etc/bash_completion ]; then
+  . "$brew_prefix"/etc/bash_completion
 fi
 
 
@@ -20,43 +23,45 @@ fi
 # so they replace system ones.
 # Assumes you've installed coreutils and gnu-sed via brew.
 
-if [ -n "$(brew ls --versions coreutils)" ]; then
-  export MANPATH="`brew --prefix`/opt/coreutils/libexec/gnuman:$MANPATH"
-  export PATH="`brew --prefix`/opt/coreutils/libexec/gnubin:$PATH"
+# The "proper" way to check whether a package is installed is to do:
+# if [ -n $(brew ls --versions <PACKAGE>) ]; then do something; fi
+# But "brew ls" is suuuper slow, so this is a faster but more fragile alternative.
+if [ -d "$brew_prefix"/Cellar/coreutils ]; then
+  export MANPATH="$brew_prefix/opt/coreutils/libexec/gnuman:$MANPATH"
+  export PATH="$brew_prefix/opt/coreutils/libexec/gnubin:$PATH"
 
 fi
 
-if [ -n "$(brew ls --versions grep)" ]; then
-  export MANPATH="$(brew --prefix)/opt/grep/libexec/gnubin:$MANPATH"
-  export PATH="$(brew --prefix)/opt/grep/libexec/gnubin:$PATH"
+if [ -d "$brew_prefix"/Cellar/grep ]; then
+  export MANPATH="$brew_prefix/opt/grep/libexec/gnubin:$MANPATH"
+  export PATH="$brew_prefix/opt/grep/libexec/gnubin:$PATH"
 fi
   
-if [ -n "$(brew ls --versions gnu-sed)" ]; then
-  export MANPATH="`brew --prefix`/opt/gnu-sed/libexec/gnuman:$MANPATH"
-  export PATH="`brew --prefix`/opt/gnu-sed/libexec/gnubin:$PATH"
+if [ -d "$brew_prefix"/Cellar/gnu-sed ]; then
+  export MANPATH="$brew_prefix/opt/gnu-sed/libexec/gnuman:$MANPATH"
+  export PATH="$brew_prefix/opt/gnu-sed/libexec/gnubin:$PATH"
 fi
 
-if [ -n "$(brew ls --versions grep)" ]; then
-  export MANPATH="$(brew --prefix)/opt/grep/libexec/gnuman:$MANPATH"
-  export PATH="$(brew --prefix)/opt/grep/libexec/gnubin:$PATH"
+if [ -d "$brew_prefix"/Cellar/grep ]; then
+  export MANPATH="$brew_prefix/opt/grep/libexec/gnuman:$MANPATH"
+  export PATH="$brew_prefix/opt/grep/libexec/gnubin:$PATH"
 fi
 
-if [ -n "$(brew ls --versions findutils)" ]; then
-    export PATH="$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH"
-    export MANPATH="$(brew --prefix)/opt/findutils/libexec/gnuman:$MANPATH"
+if [ -d "$brew_prefix"/Cellar/findutils ]; then
+    export PATH="$brew_prefix/opt/findutils/libexec/gnubin:$PATH"
+    export MANPATH="$brew_prefix/opt/findutils/libexec/gnuman:$MANPATH"
 fi
 
 #autojump
-if [ -f $(brew --prefix)/etc/autojump.sh ]; then
-  . $(brew --prefix)/etc/autojump.sh
+if [ -f $brew_prefix/etc/autojump.sh ]; then
+  . "$brew_prefix"/etc/autojump.sh
 fi
 
 # Add python2 to path: https://github.com/Homebrew/homebrew-core/issues/15746
 # I think I don't need Python 2 anymore! Yay!
-# if [ -n "$(brew ls --versions python@2)" ]; then
-#   export PATH="$(brew --prefix)/opt/python@2/bin:$PATH"
+# if [ -d "$brew_prefix"/Cellar/python@2 ]; then
+#   export PATH="$brew_prefix/opt/python@2/bin:$PATH"
 # fi
 
 # Add other man pages to the path (at the moment, just tqdm, but could be others)
-export MANPATH="$(brew --prefix)/man:$MANPATH"
-
+export MANPATH="$brew_prefix/man:$MANPATH"
