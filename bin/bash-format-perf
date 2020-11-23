@@ -1,0 +1,28 @@
+#!/usr/bin/env bb -io
+
+;; When running a bash script with `-x`, bash outputs the timestamp at which each command was
+;; started, along with the stack depth of the command and the command itself. This script parses
+;; that format and replaces the timestamps with relativing timings, so that the number next to each
+;; command is how long the command took to execute.
+;; 
+;; This script is really simple and has lots of room for improvement. Most significantly, some
+;; commands contain newlines, which leads to a timing file that looks like this:
+;;
+;; ++++ 1606154722.870975000	 __git_am_inprogress_options='--skip
+;;   --continue
+;;   --resolved
+;;   --abort
+;;   --quit
+;;   --show-current-patch
+;; '
+;;
+;; This script chokes on those lines, so they have to be manually removed first. An obvious
+;; improvement would be to remove that limitation, but that would require changing the `map` to a
+;; more general looping approach, which was out-of-scope last time I touched this file.
+
+(->> *input*
+     (partition 2)
+     (map #(let [[prev next] %
+                 prevtime (edn/read-string (re-find #"\d+\.\d+" prev))
+                 nexttime (edn/read-string (re-find #"\d+\.\d+" next))]
+             (str/replace prev #"\d+\.\d+" (str (- nexttime prevtime))))))

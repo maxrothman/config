@@ -2,7 +2,15 @@
 source_all() {
   if [[ -d "$1" ]]; then
     for script in "$1"/*; do
-      [ -x "$script" ] && source "$script"
+      if [ "$__bashrc_bench" ]; then
+        local old
+        old="$TIMEFORMAT"
+        TIMEFORMAT="$script: %R"
+        [ -x "$script" ] && time source "$script"
+        TIMEFORMAT="$old"
+      else
+        [ -x "$script" ] && source "$script"
+      fi
     done
   else
     echo "$1 is not a directory!" >&2

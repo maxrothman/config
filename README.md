@@ -32,7 +32,9 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * [ ] fix/sync quick-look extensions (don't work on Catalina)
 
 ## Long-term Todo
+* Build a better timer alfred workflow with not shitty sounds
 * [ ] Investigate https://github.com/python-mario/mario as a more featureful and better-maintained replacement for pythonpy
+  * Or just use babashka?
 * [ ] Read vscode release notes and see if there's anything I should do differently
 * [ ] Look into other vscode extensions and configs in other-peoples-vscode-extensions
 * [ ] Make all bash script function variables local (can't use strict mode without changing my shell
@@ -63,3 +65,40 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * For macbooks with force touch, set force threshold to "Firm" in System Preferences, then run `defaults write com.apple.AppleMultitouchTrackpad SecondClickThreshold 1` to make force touch a little lighter
   * Maybe figure out what some of the other keys do like `ActuateDedents`
 * Distribute modified Ansible package
+
+## Troubleshooting bash prompt performance problems
+My bashrc setup is complex enough that performance can be an issue. This repo contains a few tools
+for troubleshooting such issues:
+* Run `__bashrc_bench=1 bash -i` to time the evaluation of each file in `bashrc.d/`
+* To troubleshoot performance issues within a file:
+  * Add the following lines to the file:
+    ```bash
+    # At the very top
+    PS4='+ $(date "+%s.%N")\011 '
+    exec 3>&2 2>/tmp/bashstart.$$.log
+    set -x
+
+    ...
+
+    # At the very bottom
+    set +x
+    exec 2>&3 3>&-
+    ```
+  * Source the instrumented file. This will create a file `/tmp/bashstart.XXXX.log`, where `XXXX` is
+    the PID of the process.
+  * Some of the logged lines in the bashstart file contain newlines, which interferes with the next
+    step. Edit the file to collapse those into single lines or simply remove the extra lines. Once
+    you're done, every line should look something like this:
+    ```
+    ++++ 1606154722.825342000	 __git_merge_strategies=
+    ```
+  * Run `bin/bash-format-perf < bashstart.XXXX.log > formatted.log` to change the absolute
+    timestamps in the perf log into relative timings
+  * To find the most expensive lines, you might want to edit `formatted.log` to remove the `+`s and
+    run `sort -n` on it.
+
+
+### References
+* https://danpker.com/posts/2020/faster-bash-startup/
+* https://work.lisk.in/2020/11/20/even-faster-bash-startup.html
+* https://stackoverflow.com/questions/5014823/how-to-profile-a-bash-shell-script-slow-startup/20855353
