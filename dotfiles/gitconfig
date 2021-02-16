@@ -101,8 +101,7 @@
   plastlog = "!git --no-pager log --oneline @{u}.."
  
   #Put all unpushed work on a new branch and reset this one
-  #Usage: git sw <branchname>
-  sw = "!f() { [ `git rev-list @{u}.. | wc -l` = 0 ] && return; [ -z $1 ] && echo branch name required && return 2; git branch $1 && if [ -n \"$(git status --porcelain)\" ] && [ -z $2 ]; then echo \"Stashing untracked changes...\"; git stash --include-untracked && stashed=1; fi && git reset --hard @{u} && git checkout $1 && if [ -n \"$stashed\" ]; then  git stash pop; fi; }; f"
+  sw = "!f() { \"$HOME\"/.bin/git-sw.sh \"$@\";  }; f"
   
   #Open a pull request in github:
   # git pr: open a PR from the current branch against main-branch (defined below)
