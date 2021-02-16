@@ -139,7 +139,7 @@
   ours   = "!f() { git checkout --ours   \"$@\" && git add \"$@\"; }; f"
 
   squash = "!git rebase -i \"$(git merge-base \"$(git config --get myconfig.main-branch)\" @)\""
-  update = "!git checkout \"$(git config --get myconfig.main-branch)\" && git pull && git checkout - && git rebase \"$(git config --get myconfig.main-branch)\""
+  refresh = "!git checkout \"$(git config --get myconfig.main-branch)\" && git pull && git checkout - && git rebase \"$(git config --get myconfig.main-branch)\""
 
 # Custom config for aliases
 [myconfig]
