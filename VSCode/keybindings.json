@@ -128,12 +128,12 @@
     {
         "key": "alt+up",
         "command": "paredit.forwardUpSexp",
-        "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
+        "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/ && !calva:outputWindowActive && !calva:replHistoryCommandsActive"
     },
     {
         "key": "alt+down",
         "command": "paredit.forwardDownSexp",
-        "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
+        "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/ && !calva:outputWindowActive && !calva:replHistoryCommandsActive"
     },
     {
         "key": "ctrl+alt+up",
@@ -252,6 +252,13 @@
     {
         "key": "ctrl+down",
         "command": "-paredit.forwardDownSexp",
+        "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
+    },
+
+    // Defer to subword navigation's delete word part left
+    {
+        "key": "ctrl+backspace",
+        "command": "-paredit.killListBackward",
         "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
     }
 ]
