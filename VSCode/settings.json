@@ -15,7 +15,6 @@
     "editor.find.autoFindInSelection": "multiline",  //Enables select, then find-in-selection painlessly
     "editor.definitionLinkOpensInPeek": true,  //Jumping makes it harder to read code
     "workbench.sideBar.location": "left",  //Where else would you want it?
-    "window.zoomLevel": 0,  //Not sure why this is in here, it should be the default
     "files.exclude": {
         "**/__pycache__": true,
         "**/.stack-work": true,
@@ -72,7 +71,7 @@
     },
     "[javascriptreact]": {
         "editor.tabSize": 2,
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        // "editor.defaultFormatter": "esbenp.prettier-vscode",
     },
     "[javascript]": {
         "editor.tabSize": 2
@@ -89,6 +88,23 @@
         "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?",
         "editor.tabSize": 2
     },
-    "rewrap.autoWrap.enabled": true
+    "rewrap.autoWrap.enabled": true,
+    "calva.prettyPrintingOptions": {
+        "enabled": true,
+        "printEngine": "pprint",
+        "width": 120,
+        "maxLength": 50
+    },
+    "calva.paredit.defaultKeyMap": "strict",
+    "calva.highlight.matchedBracketStyle": {
+        "borderWidth": "1px",
+        "borderStyle": "solid",
+        "borderColor": "#b3b3b3"
+    },
+    "editor.wordWrapColumn": 100,
+    "calva.openCalvaSaysOnStart": false,
+    "files.associations": {
+        "*.avsc": "avroavsc"
+    }
 }
 
