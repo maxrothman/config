@@ -14,12 +14,14 @@
 	<false/>
 	<key>AutoHideTmuxClientSession</key>
 	<false/>
+	<key>BootstrapDaemon</key>
+	<false/>
 	<key>CheckTestRelease</key>
 	<false/>
 	<key>ClosingHotkeySwitchesSpaces</key>
 	<true/>
 	<key>CommandSelection</key>
-	<false/>
+	<true/>
 	<key>Control</key>
 	<integer>1</integer>
 	<key>ConvertDosNewlines</key>
@@ -483,12 +485,16 @@ Resize Split Pane.Move Divider Down</string>
 			</dict>
 			<key>Ansi 1 Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
 				<real>0.0</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.0</real>
+				<real>0.11199355427176763</real>
 				<key>Red Component</key>
-				<real>0.73333334922790527</real>
+				<real>0.948577880859375</real>
 			</dict>
 			<key>Ansi 10 Color</key>
 			<dict>
@@ -564,16 +570,12 @@ Resize Split Pane.Move Divider Down</string>
 			</dict>
 			<key>Ansi 4 Color</key>
 			<dict>
-				<key>Alpha Component</key>
-				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.99832898378372192</real>
-				<key>Color Space</key>
-				<string>Calibrated</string>
+				<real>0.73333334922790527</real>
 				<key>Green Component</key>
-				<real>0.25212115049362183</real>
+				<real>0.0</real>
 				<key>Red Component</key>
-				<real>0.17836131155490875</real>
+				<real>0.0</real>
 			</dict>
 			<key>Ansi 5 Color</key>
 			<dict>
@@ -644,9 +646,9 @@ Resize Split Pane.Move Divider Down</string>
 				<key>Blue Component</key>
 				<real>0.0</real>
 				<key>Color Space</key>
-				<string>Calibrated</string>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.0</real>
+				<real>0.1491314172744751</real>
 				<key>Red Component</key>
 				<real>1</real>
 			</dict>
@@ -672,7 +674,7 @@ Resize Split Pane.Move Divider Down</string>
 			<key>Character Encoding</key>
 			<integer>4</integer>
 			<key>Close Sessions On End</key>
-			<true/>
+			<integer>1</integer>
 			<key>Columns</key>
 			<integer>80</integer>
 			<key>Command</key>
@@ -693,11 +695,11 @@ Resize Split Pane.Move Divider Down</string>
 				<key>Blue Component</key>
 				<real>1</real>
 				<key>Color Space</key>
-				<string>Calibrated</string>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.91000000000000003</real>
+				<real>0.9268307089805603</real>
 				<key>Red Component</key>
-				<real>0.65000000000000002</real>
+				<real>0.70213186740875244</real>
 			</dict>
 			<key>Cursor Text Color</key>
 			<dict>
@@ -1044,13 +1046,13 @@ Resize Split Pane.Move Divider Down</string>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.67800000000000005</real>
+				<real>0.73423302173614502</real>
 				<key>Color Space</key>
-				<string>Calibrated</string>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.27000000000000002</real>
+				<real>0.35916060209274292</real>
 				<key>Red Component</key>
-				<real>0.023</real>
+				<real>0.0</real>
 			</dict>
 			<key>Log Directory</key>
 			<string></string>
@@ -1071,7 +1073,7 @@ Resize Split Pane.Move Divider Down</string>
 			<key>Prompt Before Closing 2</key>
 			<integer>0</integer>
 			<key>Right Option Key Sends</key>
-			<integer>0</integer>
+			<integer>2</integer>
 			<key>Rows</key>
 			<integer>25</integer>
 			<key>Screen</key>
@@ -1968,9 +1970,9 @@ Resize Split Pane.Move Divider Down</string>
 	<key>PasteFromClipboard</key>
 	<false/>
 	<key>PasteSpecialRegex</key>
-	<string></string>
+	<string>\n</string>
 	<key>PasteSpecialSubstitution</key>
-	<string></string>
+	<string> </string>
 	<key>PasteSpecialUseRegexSubstitution</key>
 	<false/>
 	<key>PasteTabToStringTabStopSize</key>
@@ -2031,7 +2033,9 @@ Resize Split Pane.Move Divider Down</string>
 	<key>SoundForEsc</key>
 	<false/>
 	<key>SplitPaneDimmingAmount</key>
-	<real>0.28648588061332703</real>
+	<real>0.18985467493956815</real>
+	<key>SuppressRestartAnnouncement</key>
+	<true/>
 	<key>SwitchTabModifier</key>
 	<integer>4</integer>
 	<key>SwitchWindowModifier</key>
@@ -2075,7 +2079,7 @@ Resize Split Pane.Move Divider Down</string>
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>kCPKSelectionViewPreferredModeKey</key>
-	<integer>0</integer>
+	<integer>6</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
 	<false/>
 	<key>kCommandHistoryHasEverBeenUsed</key>
