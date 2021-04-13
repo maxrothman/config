@@ -146,21 +146,6 @@
         "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
     },
 
-    // Calva's default bindings for selection make alt+shift+left/right always grow the selection,
-    // which is confusing if you're used to the default behavior
-    // TODO: this is not currently possible because there's no data in the "when" context to tell
-    // you whether the selection is to the left or right of the cursor
-    // Ref: https://github.com/BetterThanTomorrow/calva/issues/1062
-    // {
-    //     "key": "shift+alt+right",
-    //     "command": "paredit.selectForwardSexp",
-    //     "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
-    // },
-    // {
-    //     "key": "shift+alt+left",
-    //     "command": "paredit.backwardDownSexp",
-    //     "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
-    // },
 
     // Redo the wrap-in shortcuts to saner bindings
     {
@@ -208,19 +193,29 @@
         "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
     },
     {
+        "key": "alt+cmd+backspace",
+        "command": "deleteWordLeft",
+        "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/ && !editorReadonly"
+    },
+    {
         "key": "alt+cmd+up",
-        "command": "cursorWordEndRight",
+        "command": "editor.action.moveLinesUpAction",
+        "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/ && !editorReadonly"
+    },
+    {
+        "key": "alt+cmd+down",
+        "command": "editor.action.moveLinesDownAction",
+        "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/ && !editorReadonly"
+    },
+    {
+        "key": "alt+cmd+shift+left",
+        "command": "cursorWordLeftSelect",
         "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
     },
     {
-        "key": "alt+cmd+up",
-        "command": "editor.action.moveLinesUpAction",
-        "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/ && !editorReadonly"
-    },
-    {
-        "key": "alt+cmd+up",
-        "command": "editor.action.moveLinesUpAction",
-        "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/ && !editorReadonly"
+        "key": "alt+cmd+shift+right",
+        "command": "cursorWordEndRightSelect",
+        "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
     },
 
     // These two previously used alt+cmd+up/down, so remap them to require shift as well

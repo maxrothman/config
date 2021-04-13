@@ -14,7 +14,7 @@
     "diffEditor.renderSideBySide": false,  //I prefer inline diffs
     "editor.find.autoFindInSelection": "multiline",  //Enables select, then find-in-selection painlessly
     "editor.definitionLinkOpensInPeek": true,  //Jumping makes it harder to read code
-    "workbench.sideBar.location": "left",  //Where else would you want it?
+    "workbench.sideBar.location": "left", //Where else would you want it?
     "files.exclude": {
         "**/__pycache__": true,
         "**/.stack-work": true,
@@ -104,7 +104,7 @@
     "editor.wordWrapColumn": 100,
     "calva.openCalvaSaysOnStart": false,
     "files.associations": {
-        "*.avsc": "avroavsc"
+        "*.avsc": "avroavsc",
+        "*.bb": "clojure"
     }
 }
-
