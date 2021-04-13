@@ -6,3 +6,4 @@ set backspace=indent,eol,start    "backspace over space indents
 "set mouse=a                      "enable mouse
 filetype plugin indent on         "enable syntax-specific autotab
 :set hlsearch                     "hilight search matches 
+:set nowrap
