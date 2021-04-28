@@ -67,7 +67,7 @@ cache() {
     local interactive_cmd="$([[ "$interactive" == 'I-' ]] && echo 'faketty ')"
     [[ $verbose == 1 ]] && echo "Running ${interactive_cmd}${@}"
 
-    eval "$(printf '%q ' "${interactive_cmd}${@}")" > "${keyfile}-stdout" 2> "${keyfile}-stderr"
+    eval "${interactive_cmd}${@}" > "${keyfile}-stdout" 2> "${keyfile}-stderr"
     echo "$?" > "${keyfile}-exitcode"
   fi
 
