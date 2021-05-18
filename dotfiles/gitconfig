@@ -55,7 +55,7 @@
   s = status
   ch = checkout
 
-  cm = commit -m
+  cm = "!f() { fs=(\"${@::$#-1}\"); [ \"${#fs[@]}\" -gt 0 ] && git add \"${fs[@]}\"; git commit -m \"${@: -1}\"; }; f"
   cma = commit -a
   cmal = commit -a -m
 
