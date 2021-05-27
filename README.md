@@ -29,6 +29,12 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * Follow the instructions in the README in `automator/`
 
 ## Short-term Todo
+* [ ] Install clojure lang def for source-highlight
+  * See
+    https://github.com/clojure-cookbook/clojure-cookbook/blob/master/script/asciidoc/bootstrap.sh
+    for installation instructions, use lang def from
+    https://gist.github.com/alandipert/265810/
+  * Also: where does /usr/local/bin/src-hilite-lesspipe.sh come from? I have a custom one in ~/.bin
 * [ ] fix/sync quick-look extensions (don't work on Catalina)
 
 ## Long-term Todo
