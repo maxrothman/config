@@ -1,5 +1,19 @@
 #!/usr/bin/env bb -i -o
 
+;;; TODO
+;; Group by docker-compose, can get that using label. All possible labels:
+;; com.docker.compose.config-hash
+;; com.docker.compose.container-number
+;; com.docker.compose.oneoff
+;; com.docker.compose.project.config_files
+;; com.docker.compose.project.working_dir
+;; com.docker.compose.project  -- This one!
+;; com.docker.compose.service
+;; com.docker.compose.version
+;; desktop.docker.io/binds/0/Source
+;; desktop.docker.io/binds/0/SourceKind
+;; desktop.docker.io/binds/0/Target
+
 ; There's probably a better way to do the shebang, but since you can't use command substitution in
 ; shebangs, I'm stuck with copying the output of `clojure -Spath -Sdeps '{:deps {table {:mvn/version "0.5.0"}}}'`
 
