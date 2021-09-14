@@ -22,7 +22,7 @@
 [diff]
   # Use the "patience" diff algorithm. It's better. Google it.
   algorithm = patience
-	colorMoved =  default
+  colorMoved =  default
   renames = copy
 
 # Visually highlight changes inside lines
@@ -122,7 +122,7 @@
   
   #Delete all local branches that have been merged into main-branch (as determined by the "git merged" alias)
   #TODO: make simpler? https://stackoverflow.com/questions/6127328/how-can-i-delete-all-git-branches-which-have-been-merged
-  cleanup-merged = "!git for-each-ref --format '%(refname)' refs/heads | grep -vE $(git config --get myconfig.protected-branches) | while read ref; do git merged $ref $(git config --get myconfig.main-branch) >/dev/null && git branch -D ${ref#refs/heads/}; done"
+  cleanup-merged = "!git for-each-ref --format '%(refname)' refs/heads | grep -vE $(git config --get myconfig.protected-branches | tr ',' '|') | while read ref; do git merged $ref $(git config --get myconfig.main-branch) >/dev/null && git branch -D ${ref#refs/heads/}; done"
 
   #Delete all local branches whose upstreams no longer exist (excluding branches that never had upstreams)
   #TODO: make simpler? https://stackoverflow.com/questions/3184555/cleaning-up-old-remote-git-branches
