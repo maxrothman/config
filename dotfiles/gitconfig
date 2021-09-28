@@ -97,7 +97,11 @@
   lg = log --graph --format=format:'%C(red)%h%C(reset) - %C(green)(%ar)%C(reset) %C(bold blue)%an%C(reset)%C(yellow)%d%C(reset)%n          %s'
 
   # Diff since the branch diverged from the main branch
-  diffbase = "!git diff $(git merge-base $(git safe-get-config myconfig.main-branch) @)"
+  diffbase = "!git diff \"$@\" $(git merge-base $(git safe-get-config myconfig.main-branch) @)"
+
+  # Diff ignoring whitespace (i.e. "ignores whitespace at line end, all other seqs of 1+ whitespace chars considered equivalent")
+  # Requried because if you don't set both, move detection acts weird
+  diffw = diff --ignore-space-change --color-moved-ws=ignore-space-change
 
   #Short-format log of all commits since where the branch diverged from the main branch
   lastlog = "!git --no-pager log --oneline $(git merge-base $(git safe-get-config myconfig.main-branch) @).."
