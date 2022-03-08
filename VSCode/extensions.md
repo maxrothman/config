@@ -1,26 +1,26 @@
 ## Definitely
 * [Bookmarks](https://marketplace.visualstudio.com/items?itemName=alefragnani.Bookmarks): Set bookmarks in code and jump between them
+* [Brewfile](https://marketplace.visualstudio.com/items?itemName=sharat.vscode-brewfile): Useful in this repo!
+* [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker): Simple spell checker
 * [Copy Relative Path](https://marketplace.visualstudio.com/items?itemName=alexdima.copy-relative-path): What it says on the tin. Sometimes you want relative paths instead of absolute ones
 * [Dash](https://marketplace.visualstudio.com/items?itemName=deerawan.vscode-dash): I really should use this more rather than typing things into Alfred
 * [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker): I mostly just use this for syntax support, maybe I should try out the other features?
 * [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig): Support editorconfig. I don't use this much, but it can't hurt to leave it on
 * [Expand Selection To Scope](https://marketplace.visualstudio.com/items?itemName=vittorioromeo.expand-selection-to-scope): Super useful feature
+* [File Utils](https://marketplace.visualstudio.com/items?itemName=sleistner.vscode-fileutils): Mostly used for "delete" and "Rename file"
+* [Halfscroll](https://marketplace.visualstudio.com/items?itemName=dNk.halfscroll): Make pageup/down scroll a half rather than a full page of code
+* [In Any Case](https://marketplace.visualstudio.com/items?itemName=will-stone.in-any-case): Change casing
 * [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one): List editing, table formatting, other basic necessities
 * [Open in Github, Bitbucket, Gitlab, VisualStudio.com](https://marketplace.visualstudio.com/items?itemName=ziyasal.vscode-open-in-github): Useful for sending people links to particular files/lines to communicate about them
 * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python): Normally I'd put this under the language-specific section, but I always end up using python somehow
 * [Quick and Simple Text Selection](https://marketplace.visualstudio.com/items?itemName=dbankier.vscode-quick-select): Not used it its default config, instead provides select-in-quotes and switch-quotes. If only it provided switch-brackets...
 * [Rewrap](https://marketplace.visualstudio.com/items?itemName=stkb.rewrap): Hard-wrap long lines
+* [Sync Settings](https://marketplace.visualstudio.com/items?itemName=zokugun.sync-settings): Supports syncing to a local directory, unlike VSCode's native settings sync feature
 * [Simple Alignment](https://marketplace.visualstudio.com/items?itemName=earshinov.simple-alignment): Align on multiple select
-* [Spell Right](https://marketplace.visualstudio.com/items?itemName=ban.spellright): Simple spell checker
 * [Subword Navigation](https://marketplace.visualstudio.com/items?itemName=ow.vscode-subword-navigation): Cursor motions for sub-words, e.g. subWord or sub_word
-* [File Utils](https://marketplace.visualstudio.com/items?itemName=sleistner.vscode-fileutils):
-  Mostly used for "delete to trash" and "Rename file"
-* [Halfscroll](https://marketplace.visualstudio.com/items?itemName=dNk.halfscroll): Make pageup/down
-  scroll a half rather than a full page of code
-* [Brewfile](https://marketplace.visualstudio.com/items?itemName=sharat.vscode-brewfile): Useful in
-  this repo!
 
 ## Language-specific
+* [Calva](https://marketplace.visualstudio.com/items?itemName=betterthantomorrow.calva)
 * [Haskell Syntax Highlighing](https://marketplace.visualstudio.com/items?itemName=justusadam.language-haskell)
 * [Haskell Language Server](https://marketplace.visualstudio.com/items?itemName=alanz.vscode-hie-server)
 * [pgFormatter](https://marketplace.visualstudio.com/items?itemName=bradymholt.pgformatter)
@@ -32,8 +32,8 @@
 * [Purescript Language Support](https://marketplace.visualstudio.com/items?itemName=nwolverson.language-purescript)
 * [reStructuredText](https://marketplace.visualstudio.com/items?itemName=nwolverson.language-purescript)
 * [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint): Linter for Javascript
-* [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode): Formatter
-  for Javascript
+* [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode): Formatter for Javascript
+* [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
 
 ## Needs evaluating
 * [Github Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github): There was some critical missing feature last time, but I don't remember what it was

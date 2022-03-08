@@ -112,28 +112,31 @@
     //
 
     // Use alt+arrows for sexp navigation (and backspace)
+    // Add ctrl to do the same motion backwards
     // Also disable unused default bindings
     {
         "key": "ctrl+alt+backspace",
         "command": "-paredit.killSexpBackward",
-        "when": "calva:keybindingsEnabled && editorTextFocus && && !editorReadonly && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
+    },
+    {
+        "key": "alt+backspace",
+        "command": "-paredit.forceDeleteBackward"
     },
     {
         "key": "alt+backspace",
         "command": "paredit.killSexpBackward",
-        "when": "calva:keybindingsEnabled && editorTextFocus && !editorReadOnly && editorLangId == 'clojure' && paredit:keyMap == 'strict'"
+        "when": "!calva:cursorInComment && !editorReadOnly && calva:keybindingsEnabled && config.calva.paredit.hijackVSCodeDefaults && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/ && editorTextFocus"
     },
-
 
     {
         "key": "alt+up",
         "command": "paredit.forwardUpSexp",
-        "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/ && !calva:outputWindowActive && !calva:replHistoryCommandsActive"
+        "when": "!calva:outputWindowActive && calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
     },
     {
         "key": "alt+down",
         "command": "paredit.forwardDownSexp",
-        "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/ && !calva:outputWindowActive && !calva:replHistoryCommandsActive"
+        "when": "!calva:outputWindowActive && calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
     },
     {
         "key": "ctrl+alt+up",
@@ -146,95 +149,161 @@
         "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
     },
 
+    // Adding shift gets you selection
+    {
+        "key": "shift+alt+right",
+        "command": "paredit.selectForwardSexp",
+        "when": "!calva:cursorInComment && calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
+    },
+    {
+        "key": "shift+alt+right",
+        "command": "-paredit.selectForwardSexp",
+    },
+
+    {
+        "key": "shift+alt+left",
+        "command": "paredit.selectBackwardSexp",
+        "when": "!calva:cursorInComment && calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
+    },
+    {
+        "key": "shift+alt+left",
+        "command": "-paredit.selectBackwardSexp",
+    },
+
+    // Adding cmd gets you dragging
+    {
+        "key": "cmd+alt+left",
+        "command": "-workbench.action.previousEditor",
+        "when": "!calva:cursorInComment && calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
+    }
+    {
+        "key": "cmd+alt+left",
+        "command": "paredit.dragSexprBackward",
+        "when": "!calva:cursorInComment && calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
+    },
+
+    {
+        "key": "cmd+alt+right",
+        "command": "-workbench.action.nextEditor",
+        "when": "!calva:cursorInComment && calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
+    },
+    {
+        "key": "cmd+alt+right",
+        "command": "paredit.dragSexprForward",
+        "when": "!calva:cursorInComment && calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
+    },
+
+    {
+        "key": "cmd+alt+up",
+        "command": "-editor.action.insertCursorAbove",
+        "when": "!calva:cursorInComment && calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
+    },
+    {
+        "key": "cmd+alt+up",
+        "command": "paredit.dragSexprForwardUp",
+        "when": "!calva:cursorInComment && calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
+    },
+
+    {
+        "key": "cmd+alt+down",
+        "command": "-editor.action.insertCursorBelow",
+        "when": "!calva:cursorInComment && calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
+    },
+    {
+        "key": "cmd+alt+down",
+        "command": "paredit.dragSexprForwardDown",
+        "when": "!calva:cursorInComment && calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
+    },
+
+    {
+        "key": "cmd+alt+ctrl+up",
+        "command": "paredit.dragSexprBackwardUp",
+        "when": "!calva:cursorInComment && calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
+    },
+    {
+        "key": "cmd+alt+ctrl+down",
+        "command": "paredit.dragSexprBackwardDown",
+        "when": "!calva:cursorInComment && calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
+    },
 
     // Redo the wrap-in shortcuts to saner bindings
     {
         "key": "ctrl+shift+alt+9",
         "command": "paredit.wrapAroundParens",
-        "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/ && !editorReadonly"
+        "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
+
     },
     {
         "key": "ctrl+shift+alt+p",
-        "command": "-paredit.wrapAroundParens",
-        "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/ && !editorReadonly"
+        "command": "-paredit.wrapAroundParens"
     },
 
     {
         "key": "ctrl+alt+[",
         "command": "paredit.wrapAroundSquare",
-        "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/ && !editorReadonly"
+        "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
     },
     {
         "key": "ctrl+shift+alt+s",
-        "command": "-paredit.wrapAroundSquare",
-        "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/ && !editorReadonly"
+        "command": "-paredit.wrapAroundSquare"
     },
 
     {
         "key": "ctrl+shift+alt+[",
         "command": "paredit.wrapAroundCurly",
-        "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/ && !editorReadonly"
+        "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
     },
     {
         "key": "ctrl+shift+alt+c",
         "command": "-paredit.wrapAroundCurly",
-        "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/ && !editorReadonly"
     },
 
-    // Remap non-clojure alt shortcuts to cmd+alt
+    // Remap non-clojure alt shortcuts to cmd+ctrl
     {
-        "key": "alt+cmd+right",
+        "key": "ctrl+cmd+right",
         "command": "cursorWordEndRight",
         "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
     },
     {
-        "key": "alt+cmd+left",
+        "key": "ctrl+cmd+left",
         "command": "cursorWordLeft",
         "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
     },
     {
-        "key": "alt+cmd+backspace",
+        "key": "ctrl+cmd+backspace",
         "command": "deleteWordLeft",
         "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/ && !editorReadonly"
     },
     {
-        "key": "alt+cmd+up",
+        "key": "ctrl+cmd+up",
         "command": "editor.action.moveLinesUpAction",
         "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/ && !editorReadonly"
     },
     {
-        "key": "alt+cmd+down",
+        "key": "ctrl+cmd+down",
         "command": "editor.action.moveLinesDownAction",
         "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/ && !editorReadonly"
     },
     {
-        "key": "alt+cmd+shift+left",
+        "key": "ctrl+cmd+shift+left",
         "command": "cursorWordLeftSelect",
         "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
     },
     {
-        "key": "alt+cmd+shift+right",
+        "key": "ctrl+cmd+shift+right",
         "command": "cursorWordEndRightSelect",
         "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
     },
 
-    // These two previously used alt+cmd+up/down, so remap them to require shift as well
+    // These two previously used ctrl+cmd+up/down, so remap them to require shift as well
     {
-        "key": "alt+cmd+shift+up",
+        "key": "ctrl+cmd+shift+up",
         "command": "editor.action.insertCursorAbove",
         "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
     },
     {
-        "key": "alt+cmd+shift+down",
+        "key": "ctrl+cmd+shift+down",
         "command": "editor.action.insertCursorBelow",
-        "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
-    },
-
-    // Restore these to their defaults
-    {
-        // Move by word
-        "key": "ctrl+backspace",
-        "command": "-paredit.killListBackward",
         "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
     },
     
@@ -242,18 +311,15 @@
     {
         "key": "ctrl+up",
         "command": "-paredit.backwardUpSexp",
-        "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
     },
     {
         "key": "ctrl+down",
         "command": "-paredit.forwardDownSexp",
-        "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
     },
 
     // Defer to subword navigation's delete word part left
     {
         "key": "ctrl+backspace",
         "command": "-paredit.killListBackward",
-        "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
     }
 ]

@@ -1,0 +1,185 @@
+{
+    //
+    // Settings for built-in features
+    //
+    "redhat.telemetry.enabled": false,
+    "editor.minimap.enabled": false,  //This is distracting
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.fontSize": 14,  //I have astigmatism
+    "workbench.activityBar.visible": true,  //This is the sidebar with files/git/debug/etc.
+    "workbench.colorCustomizations": {  //I'm colorblind
+        "terminal.selectionBackground": "#80aeeb81",
+        "editor.selectionHighlightBorder": "#657ed3",
+        "editor.selectionBackground": "#2f4387",
+        "editor.findMatchBackground": "#6d75e69f"
+    },
+    "terminal.integrated.fontSize": 14,  //I have astigmatism
+    "workbench.colorTheme": "Monokai",  //My sublime text is showing
+    "diffEditor.renderSideBySide": false,  //I prefer inline diffs
+    "editor.find.autoFindInSelection": "multiline",  //Enables select, then find-in-selection painlessly
+    "editor.definitionLinkOpensInPeek": true,  //Jumping makes it harder to read code
+    "workbench.sideBar.location": "left", //Where else would you want it?
+    "explorer.confirmDelete": false, //I never use vscode outside a git repo, deletes are low-risk
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.stack-work": true,
+        "**/.vscode": true
+    },
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "files.associations": {
+        "*.avsc": "avroavsc",
+        "*.bb": "clojure"
+    },
+    "terminal.integrated.tabs.enabled": true,
+    "editor.wordWrapColumn": 100,
+
+    // Sync Settings. VSCode's settings sync won't do plain ol' files
+    "syncSettings.resources": [
+        "keybindings",
+        "settings",
+        "snippets"
+    ],
+    "syncSettings.additionalFiles": [
+        "~/Library/Application Support/Code/User/globalStorage/zokugun.sync-settings/settings.yml"
+    ],
+
+    //From rewrap plugin
+    "rewrap.wrappingColumn": 80,
+    "rewrap.autoWrap.enabled": true,
+    
+    // Markdown
+    "markdown.extension.toc.updateOnSave": false,
+    "[markdown]": {
+        "editor.quickSuggestions": false  //I remember trying this for a bit and found it got annoying
+        // {
+        //     "other": true,
+        //     "comments": false,
+        //     "strings": false
+        // }
+    },
+
+    //From terraform plugin
+    "terraform.codelens.enabled": false,  //I find this distracting
+    "terraform.format": {
+        "enable": true,
+        "ignoreExtensionsOnSave": [
+            ".tfsmurf"
+        ],
+        "formatOnSave": false
+    },  
+
+    //From Python plugin
+    "python.linting.enabled": false,
+    "python.defaultInterpreterPath": "/usr/local/bin/python3",
+    "[python]": {
+        // The outline is way too noisy without these. If only I could hide them from ⌘T...
+        "outline.showModules": false,
+        "outline.showVariables": false,
+        "outline.showProperties": false,
+    },
+
+    //From purescript plugin. I doubt it'll ever be necessary again, but it took me so long to figure this out that I feel bad removing it
+    "purescript.addNpmPath": true,
+    
+    // Javascript
+    "[javascriptreact]": {
+        "editor.tabSize": 2,
+        // "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[javascript]": {
+        "editor.tabSize": 2
+    },
+
+    // Clojure
+    "[clojure]": {
+        "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?",
+        "editor.tabSize": 2,
+
+        // I kind of prefer these to the ones from calva, they're more visually clear
+        "editor.guides.bracketPairs": "active",
+        "editor.bracketPairColorization.enabled": true,
+    },
+    "calva.paredit.defaultKeyMap": "strict",
+    "calva.showCalvaSaysOnStart": false,
+    "calva.prettyPrintingOptions": {
+        "enabled": true,
+        "printEngine": "pprint",
+        "width": 120,
+        "maxLength": 50
+    },
+
+    // I found the default style wasn't visually clear enough
+    "calva.highlight.matchedBracketStyle": {
+        "borderWidth": "1px",
+        "borderStyle": "solid",
+        "borderColor": "#b3b3b3"
+    },
+
+
+    //From gitlens plugin. Mostly disabled for now until I decide if I like it
+    // Not currently installed
+    "gitlens.codeLens.enabled": false,
+    "gitlens.currentLine.enabled": false,
+    "gitlens.hovers.currentLine.over": "line",
+    "gitlens.gitExplorer.enabled": false,
+    "gitlens.historyExplorer.enabled": false,
+    "gitlens.resultsExplorer.location": "explorer",
+    "gitlens.hovers.enabled": false,
+    "gitlens.views.repositories.enabled": false,
+    "gitlens.views.fileHistory.enabled": false,
+    "gitlens.views.lineHistory.enabled": false,
+    "gitlens.views.compare.location": "explorer",
+    "gitlens.views.search.location": "explorer",
+
+    // Spell checker
+    "cSpell.enabledLanguageIds": [
+        "asciidoc",
+        "c",
+        "cpp",
+        "csharp",
+        "css",
+        "git-commit",
+        "go",
+        "graphql",
+        "handlebars",
+        "haskell",
+        "html",
+        "jade",
+        "java",
+        "javascript",
+        "javascriptreact",
+        "json",
+        "jsonc",
+        "jupyter",
+        "latex",
+        "less",
+        "markdown",
+        "php",
+        "plaintext",
+        "python",
+        "pug",
+        "restructuredtext",
+        "rust",
+        "scala",
+        "scss",
+        "swift",
+        "text",
+        "typescript",
+        "typescriptreact",
+        "vue",
+        "yaml",
+        "yml",
+        "clojure"
+    ],
+    "cSpell.userWords": [
+        "cond",
+        "datasource",
+        "defn",
+        "doseq",
+        "mapv",
+        "vals",
+        "zipmap"
+    ]
+}

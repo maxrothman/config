@@ -1,0 +1,7 @@
+resources:
+  - keybindings
+  - settings
+  - snippets
+additionalFiles:
+  - ~/Library/Application
+    Support/Code/User/globalStorage/zokugun.sync-settings/settings.yml
