@@ -48,7 +48,7 @@
     //From rewrap plugin
     "rewrap.wrappingColumn": 80,
     "rewrap.autoWrap.enabled": true,
-    
+
     // Markdown
     "markdown.extension.toc.updateOnSave": false,
     "[markdown]": {
@@ -68,7 +68,7 @@
             ".tfsmurf"
         ],
         "formatOnSave": false
-    },  
+    },
 
     //From Python plugin
     "python.linting.enabled": false,
@@ -82,7 +82,7 @@
 
     //From purescript plugin. I doubt it'll ever be necessary again, but it took me so long to figure this out that I feel bad removing it
     "purescript.addNpmPath": true,
-    
+
     // Javascript
     "[javascriptreact]": {
         "editor.tabSize": 2,
@@ -118,7 +118,7 @@
     },
 
 
-    //From gitlens plugin. Mostly disabled for now until I decide if I like it
+    // From gitlens plugin. Mostly disabled for now until I decide if I like it
     // Not currently installed
     "gitlens.codeLens.enabled": false,
     "gitlens.currentLine.enabled": false,
