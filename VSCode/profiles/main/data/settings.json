@@ -101,6 +101,7 @@
         "editor.guides.bracketPairs": "active",
         "editor.bracketPairColorization.enabled": true,
     },
+    "calva.highlight.enableBracketColors": false,
     "calva.paredit.defaultKeyMap": "strict",
     "calva.showCalvaSaysOnStart": false,
     "calva.prettyPrintingOptions": {
