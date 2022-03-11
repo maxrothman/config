@@ -30,7 +30,8 @@
     },
     "files.associations": {
         "*.avsc": "avroavsc",
-        "*.bb": "clojure"
+        "*.bb": "clojure",
+        "*.hcl": "terraform"
     },
     "terminal.integrated.tabs.enabled": true,
     "editor.wordWrapColumn": 100,
@@ -40,9 +41,6 @@
         "keybindings",
         "settings",
         "snippets"
-    ],
-    "syncSettings.additionalFiles": [
-        "~/Library/Application Support/Code/User/globalStorage/zokugun.sync-settings/settings.yml"
     ],
 
     //From rewrap plugin
@@ -58,16 +56,6 @@
         //     "comments": false,
         //     "strings": false
         // }
-    },
-
-    //From terraform plugin
-    "terraform.codelens.enabled": false,  //I find this distracting
-    "terraform.format": {
-        "enable": true,
-        "ignoreExtensionsOnSave": [
-            ".tfsmurf"
-        ],
-        "formatOnSave": false
     },
 
     //From Python plugin
