@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 set -euo pipefail
-
 # Pre-push hook
 #
 # Install:
@@ -14,7 +13,7 @@ set -euo pipefail
 # Warns about pushing to protected branches, prompts user to switch to another branch
 # Dependencies: pushb, pr, and switch aliases, and myconfig.protected-branches config (see ~/.gitconfig)
 current_ref="$(git symbolic-ref --short HEAD)"
-protected_branches="$(git config --get myconfig.protected-branches)"
+protected_branches="$(git config --get myconfig.protected-branches)" || :
 if [ "$protected_branches" != '' ] &&  grep -qE  "$current_ref" <<< "$protected_branches"; then
   #wc reads from stdin by default
   [ "$(wc -l)" -le 0 ] && exit  #no refs pushed, nothing to do
