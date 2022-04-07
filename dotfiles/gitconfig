@@ -25,12 +25,25 @@
   colorMoved =  default
   renames = copy
 
+  # Use Difftastic
+  # external = difft
+  tool = difftastic
+
+[difftool]
+  prompt = false
+
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
+
+
 # Visually highlight changes inside lines
 [pager]
   log = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
   show = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
   diff = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
   branch = cat
+  difftool = true
+
 [interactive]
   diffFilter = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight
 
