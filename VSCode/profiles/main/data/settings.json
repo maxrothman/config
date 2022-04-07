@@ -79,6 +79,10 @@
     "[javascript]": {
         "editor.tabSize": 2
     },
+    "[jsonc]": {
+        // This is necessary if prettier is installed and harmless if not
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
 
     // Clojure
     "[clojure]": {
@@ -95,7 +99,7 @@
     "calva.prettyPrintingOptions": {
         "enabled": true,
         "printEngine": "pprint",
-        "width": 120,
+        "width": 50,
         "maxLength": 50
     },
 
@@ -163,12 +167,18 @@
         "clojure"
     ],
     "cSpell.userWords": [
+        "authn",
+        "authz",
         "cond",
         "datasource",
+        "datasources",
         "defn",
+        "defrecords",
         "doseq",
+        "jdbc",
         "mapv",
         "vals",
         "zipmap"
-    ]
+    ],
+    "timeline.excludeSources": []
 }
