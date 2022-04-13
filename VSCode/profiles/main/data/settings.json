@@ -41,9 +41,6 @@
         "settings",
         "snippets"
     ],
-    "syncSettings.additionalFiles": [
-        "~/Library/Application Support/Code/User/globalStorage/zokugun.sync-settings/settings.yml"
-    ],
 
     //From rewrap plugin
     "rewrap.wrappingColumn": 80,

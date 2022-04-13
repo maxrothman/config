@@ -115,6 +115,16 @@
     // Add ctrl to do the same motion backwards
     // Also disable unused default bindings
     {
+        "key": "alt+right",
+        "command": "cursorWordEndRight",
+        "when": "calva:cursorInString && calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
+    },
+    {
+        "key": "alt+left",
+        "command": "cursorWordLeft",
+        "when": "calva:cursorInString && calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
+    },
+    {
         "key": "ctrl+alt+backspace",
         "command": "-paredit.killSexpBackward",
     },
