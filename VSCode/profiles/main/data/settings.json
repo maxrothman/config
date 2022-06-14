@@ -12,6 +12,16 @@
         "editor.selectionBackground": "#2f4387",
         "editor.findMatchBackground": "#6d75e69f"
     },
+    "editor.semanticTokenColorCustomizations": {
+        "[Monokai]": {
+            "rules": {
+                // Terraform's default highlighter colors suck in monokai
+                "hcl-blockType": "#66D9EF",
+                "hcl-blockLabel.terraform-type": "#A6E22E",
+                "hcl-blockLabel.terraform-name": "#FD971F"
+            }
+        }
+    },
     "terminal.integrated.fontSize": 14,  //I have astigmatism
     "workbench.colorTheme": "Monokai",  //My sublime text is showing
     "diffEditor.renderSideBySide": false,  //I prefer inline diffs
