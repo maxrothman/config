@@ -20,6 +20,10 @@
     "editor.definitionLinkOpensInPeek": true,  //Jumping makes it harder to read code
     "workbench.sideBar.location": "left", //Where else would you want it?
     "explorer.confirmDelete": false, //I never use vscode outside a git repo, deletes are low-risk
+    "window.newWindowDimensions": "maximized",
+    "editor.guides.bracketPairs": "active",
+    "editor.guides.bracketPairsHorizontal": false,
+    "timeline.excludeSources": [],
     "files.exclude": {
         "**/__pycache__": true,
         "**/.stack-work": true,
@@ -44,7 +48,7 @@
     ],
 
     //From rewrap plugin
-    "rewrap.wrappingColumn": 80,
+    "rewrap.wrappingColumn": 100,
     "rewrap.autoWrap.enabled": true,
 
     // Markdown
@@ -102,13 +106,14 @@
         // I kind of prefer these to the ones from calva, they're more visually clear
         "editor.guides.bracketPairs": "active",
         "editor.bracketPairColorization.enabled": true,
+        "editor.guides.bracketPairsHorizontal": true,
     },
     "calva.highlight.enableBracketColors": false,
     "calva.paredit.defaultKeyMap": "strict",
     "calva.showCalvaSaysOnStart": false,
     "calva.prettyPrintingOptions": {
-        "enabled": true,
         "printEngine": "pprint",
+        "enabled": true,
         "width": 50,
         "maxLength": 50
     },
@@ -184,11 +189,13 @@
         "datasources",
         "defn",
         "defrecords",
+        "deftype",
+        "doall",
         "doseq",
         "jdbc",
+        "mapcat",
         "mapv",
         "vals",
         "zipmap"
-    ],
-    "timeline.excludeSources": []
+    ]
 }
