@@ -2,7 +2,6 @@
     //
     // Settings for built-in features
     //
-    "redhat.telemetry.enabled": false,
     "editor.minimap.enabled": false,  //This is distracting
     "workbench.startupEditor": "newUntitledFile",
     "editor.fontSize": 14,  //I have astigmatism
@@ -54,22 +53,16 @@
     // Markdown
     "markdown.extension.toc.updateOnSave": false,
     "[markdown]": {
-        "editor.quickSuggestions": false  //I remember trying this for a bit and found it got annoying
+        "editor.quickSuggestions": {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+        }  //I remember trying this for a bit and found it got annoying
         // {
         //     "other": true,
         //     "comments": false,
         //     "strings": false
         // }
-    },
-
-    //From terraform plugin
-    "terraform.codelens.enabled": false,  //I find this distracting
-    "terraform.format": {
-        "enable": true,
-        "ignoreExtensionsOnSave": [
-            ".tfsmurf"
-        ],
-        "formatOnSave": false
     },
 
     //From Python plugin
