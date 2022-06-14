@@ -20,8 +20,17 @@
     },
     {
         "key": "ctrl+shift+space",
-        "command": "editor.action.triggerSuggest"
-    },
+        "command": "cursorMove",
+        "args": {
+            "to": "left",
+            "by": "character"
+        }
+    }
+    // Do I ever actually use this? Currently conflicts with "back one character"
+    // {
+    //     "key": "ctrl+shift+space",
+    //     "command": "editor.action.triggerSuggest"
+    // },
 
     // Same as above
     {
@@ -105,6 +114,18 @@
         "key": "PageUp",
         "command": "extension.halfUp",
         "when": "textInputFocus"
+    },
+
+    // So I don't have to reach for the arrow keys while interacting with intellisense
+    {
+        "key": "tab",
+        "command": "selectNextSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "shift+tab",
+        "command": "selectPrevSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
     },
 
     //
