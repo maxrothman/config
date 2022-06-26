@@ -257,7 +257,7 @@
         "when": "!calva:cursorInComment && calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
     },
 
-    // Redo the wrap-in shortcuts to saner bindings
+    // Redo the wrap-in shortcuts to saner bindings. ctrl+alt wraps
     {
         "key": "ctrl+shift+alt+9",
         "command": "paredit.wrapAroundParens",
@@ -287,6 +287,37 @@
     {
         "key": "ctrl+shift+alt+c",
         "command": "-paredit.wrapAroundCurly",
+    },
+
+    // And do the same for the rewrap keybindings. ctrl+cmd rewraps
+    {
+        "key": "cmd+ctrl+[",
+        "command": "paredit.rewrapSquare",
+        "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
+    },
+    {
+        "key": "ctrl+alt+r ctrl+alt+s",
+        "command": "-paredit.rewrapSquare"
+    },
+
+    {
+        "key": "cmd+ctrl+shift+[",
+        "command": "paredit.rewrapCurly",
+        "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
+    },
+    {
+        "key": "ctrl+alt+r ctrl+alt+c",
+        "command": "-paredit.rewrapCurly"
+    },
+
+    {
+        "key": "cmd+ctrl+shift+9",
+        "command": "paredit.rewrapParens",
+        "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
+    },
+    {
+        "key": "ctrl+alt+r ctrl+alt+p",
+        "command": "-paredit.rewrapParens"
     },
 
     // Remap non-clojure alt shortcuts to cmd+ctrl

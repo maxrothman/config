@@ -101,6 +101,10 @@
         "editor.defaultFormatter": "vscode.json-language-features"
     },
 
+    "[terraform]": {
+        "editor.formatOnSave": true
+    },
+
     // Clojure
     "[clojure]": {
         "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?",
