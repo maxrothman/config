@@ -127,6 +127,16 @@
         "command": "selectPrevSuggestion",
         "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
     },
+    {
+        "key": "tab",
+        "command": "selectNextCodeAction",
+        "when": "codeActionMenuVisible"
+    },
+    {
+        "key": "shift+tab",
+        "command": "selectPrevCodeAction",
+        "when": "codeActionMenuVisible"
+    },
 
     //
     // Clojure Calva stuff

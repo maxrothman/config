@@ -32,7 +32,7 @@
     "window.newWindowDimensions": "maximized",
     "editor.guides.bracketPairs": "active",
     "editor.guides.bracketPairsHorizontal": false,
-    "timeline.excludeSources": [],
+    "git.mergeEditor": true,
     "files.exclude": {
         "**/__pycache__": true,
         "**/.stack-work": true,
@@ -47,6 +47,7 @@
         "*.hcl": "terraform"
     },
     "terminal.integrated.tabs.enabled": true,
+    "terminal.integrated.shellIntegration.enabled": true,
     "editor.wordWrapColumn": 100,
 
     // Sync Settings. VSCode's settings sync won't do plain ol' files
@@ -96,8 +97,12 @@
     "[javascript]": {
         "editor.tabSize": 2
     },
+
+    // This is necessary if prettier is installed and harmless if not
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
     "[jsonc]": {
-        // This is necessary if prettier is installed and harmless if not
         "editor.defaultFormatter": "vscode.json-language-features"
     },
 
@@ -115,6 +120,7 @@
         "editor.bracketPairColorization.enabled": true,
         "editor.guides.bracketPairsHorizontal": true,
     },
+    "calva.keybindingsEnabled": true,
     "calva.highlight.enableBracketColors": false,
     "calva.paredit.defaultKeyMap": "strict",
     "calva.showCalvaSaysOnStart": false,
@@ -197,6 +203,7 @@
         "defn",
         "defrecords",
         "deftype",
+        "dissoc",
         "doall",
         "doseq",
         "jdbc",
