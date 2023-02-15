@@ -7,8 +7,8 @@ fi
 
 #Outdated leaf packages (ones I installed, not including dependencies)
 #TODO: might be obsolete now that I have brew bundle set up?
-alias brew-outdated-leaves='brew update; cat <(brew outdated) <(brew leaves) | sort | uniq -d | grep -f - --color=never <(brew outdated -v)'
-alias brew-upgrade-outdated-leaves='cat <(brew outdated) <(brew leaves) | sort | uniq -d | xargs brew upgrade'
+alias brew-outdated-leaves='brew update; cat <(brew outdated) <(brew leaves -r) | sort | uniq -d | grep -f - --color=never <(brew outdated -v)'
+alias brew-upgrade-outdated-leaves='cat <(brew outdated) <(brew leaves -r) | sort | uniq -d | xargs brew upgrade'
 
 # brew --prefix gets used a bunch of times below, and brew is sloooow.
 brew_prefix="$(brew --prefix)"
@@ -50,6 +50,11 @@ fi
 if [ -d "$brew_prefix"/Cellar/findutils ]; then
     export PATH="$brew_prefix/opt/findutils/libexec/gnubin:$PATH"
     export MANPATH="$brew_prefix/opt/findutils/libexec/gnuman:$MANPATH"
+fi
+
+if [ -d "$brew_prefix"/opt/sqlite ]; then
+    export PATH="$brew_prefix/opt/sqlite/bin:$PATH"
+    export MANPATH="$brew_prefix/opt/sqlite/share/man:$MANPATH"
 fi
 
 #autojump
