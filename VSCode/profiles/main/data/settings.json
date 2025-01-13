@@ -2,16 +2,17 @@
     //
     // Settings for built-in features
     //
-    "editor.minimap.enabled": false,  //This is distracting
+    "editor.minimap.enabled": false, //This is distracting
     "workbench.startupEditor": "newUntitledFile",
-    "editor.fontSize": 14,  //I have astigmatism
-    "workbench.activityBar.visible": true,  //This is the sidebar with files/git/debug/etc.
-    "workbench.colorCustomizations": {  //I'm colorblind
+    "editor.fontSize": 14, //This is the sidebar with files/git/debug/etc.
+    "workbench.colorCustomizations": {
+         //I'm colorblind
         "terminal.selectionBackground": "#80aeeb81",
+        "terminal.ansiGreen":"#1df373",
         "editor.selectionHighlightBorder": "#657ed3",
         "editor.selectionBackground": "#2f4387",
         "editor.findMatchBackground": "#6d75e69f"
-    },
+    }, 
     "editor.semanticTokenColorCustomizations": {
         "[Monokai]": {
             "rules": {
@@ -22,17 +23,16 @@
             }
         }
     },
-    "terminal.integrated.fontSize": 14,  //I have astigmatism
-    "workbench.colorTheme": "Monokai",  //My sublime text is showing
-    "diffEditor.renderSideBySide": false,  //I prefer inline diffs
-    "editor.find.autoFindInSelection": "multiline",  //Enables select, then find-in-selection painlessly
-    "editor.definitionLinkOpensInPeek": true,  //Jumping makes it harder to read code
+    "terminal.integrated.fontSize": 14, //I have astigmatism
+    "workbench.colorTheme": "Monokai", //My sublime text is showing
+    "diffEditor.renderSideBySide": false, //I prefer inline diffs
+    "editor.find.autoFindInSelection": "multiline", //Enables select, then find-in-selection painlessly
+    "editor.definitionLinkOpensInPeek": true, //Jumping makes it harder to read code
     "workbench.sideBar.location": "left", //Where else would you want it?
     "explorer.confirmDelete": false, //I never use vscode outside a git repo, deletes are low-risk
     "window.newWindowDimensions": "maximized",
     "editor.guides.bracketPairs": "active",
     "editor.guides.bracketPairsHorizontal": false,
-    "timeline.excludeSources": [],
     "files.exclude": {
         "**/__pycache__": true,
         "**/.stack-work": true,
@@ -48,14 +48,12 @@
     },
     "terminal.integrated.tabs.enabled": true,
     "editor.wordWrapColumn": 100,
-
     // Sync Settings. VSCode's settings sync won't do plain ol' files
     "syncSettings.resources": [
         "keybindings",
         "settings",
         "snippets"
     ],
-
     //From rewrap plugin
     "rewrap.wrappingColumn": 100,
     "rewrap.autoWrap.enabled": true,
@@ -67,27 +65,24 @@
             "comments": "off",
             "strings": "off",
             "other": "off"
-        }  //I remember trying this for a bit and found it got annoying
+        } //I remember trying this for a bit and found it got annoying
         // {
         //     "other": true,
         //     "comments": false,
         //     "strings": false
         // }
     },
-
     //From Python plugin
     "python.linting.enabled": false,
-    "python.defaultInterpreterPath": "/usr/local/bin/python3",
     "[python]": {
         // The outline is way too noisy without these. If only I could hide them from ⌘T...
         "outline.showModules": false,
         "outline.showVariables": false,
         "outline.showProperties": false,
+        "editor.formatOnType": true,
     },
-
     //From purescript plugin. I doubt it'll ever be necessary again, but it took me so long to figure this out that I feel bad removing it
     "purescript.addNpmPath": true,
-
     // Javascript
     "[javascriptreact]": {
         "editor.tabSize": 2,
@@ -100,20 +95,15 @@
         // This is necessary if prettier is installed and harmless if not
         "editor.defaultFormatter": "vscode.json-language-features"
     },
-
-    "[terraform]": {
-        "editor.formatOnSave": true
-    },
-
+    "[terraform]": {},
     // Clojure
     "[clojure]": {
         "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?",
         "editor.tabSize": 2,
-
         // I kind of prefer these to the ones from calva, they're more visually clear
         "editor.guides.bracketPairs": "active",
         "editor.bracketPairColorization.enabled": true,
-        "editor.guides.bracketPairsHorizontal": true,
+        "editor.guides.bracketPairsHorizontal": true
     },
     "calva.highlight.enableBracketColors": false,
     "calva.paredit.defaultKeyMap": "strict",
@@ -124,15 +114,12 @@
         "width": 50,
         "maxLength": 50
     },
-
     // I found the default style wasn't visually clear enough
     "calva.highlight.matchedBracketStyle": {
         "borderWidth": "1px",
         "borderStyle": "solid",
         "borderColor": "#b3b3b3"
     },
-
-
     // From gitlens plugin. Mostly disabled for now until I decide if I like it
     // Not currently installed
     "gitlens.codeLens.enabled": false,
@@ -147,62 +134,80 @@
     "gitlens.views.lineHistory.enabled": false,
     "gitlens.views.compare.location": "explorer",
     "gitlens.views.search.location": "explorer",
-
     // Spell checker
-    "cSpell.enabledLanguageIds": [
-        "asciidoc",
-        "c",
-        "cpp",
-        "csharp",
-        "css",
-        "git-commit",
-        "go",
-        "graphql",
-        "handlebars",
-        "haskell",
-        "html",
-        "jade",
-        "java",
-        "javascript",
-        "javascriptreact",
-        "json",
-        "jsonc",
-        "jupyter",
-        "latex",
-        "less",
-        "markdown",
-        "php",
-        "plaintext",
-        "python",
-        "pug",
-        "restructuredtext",
-        "rust",
-        "scala",
-        "scss",
-        "swift",
-        "text",
-        "typescript",
-        "typescriptreact",
-        "vue",
-        "yaml",
-        "yml",
-        "clojure"
-    ],
+    "cSpell.enabledFileTypes": {"*": true},
     "cSpell.userWords": [
         "authn",
         "authz",
+        "butlast",
         "cond",
         "datasource",
         "datasources",
+        "defmacro",
+        "defmethod",
+        "defmulti",
         "defn",
         "defrecords",
         "deftype",
         "doall",
         "doseq",
+        "fnil",
         "jdbc",
+        "juxt",
         "mapcat",
         "mapv",
         "vals",
         "zipmap"
-    ]
+    ],
+    "explorer.confirmDragAndDrop": false,
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "githubPullRequests.pullBranch": "never",
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "explorer.excludeGitIgnore": true,
+    "calva.replConnectSequences": [
+        {
+            "name": "Leiningen + Portal",
+            "projectType": "Leiningen",
+            "customJackInCommandLine": "pushd JACK-IN-PROJECT-ROOT-PATH ; lein update-in :dependencies conj '[nrepl,\"JACK-IN-NREPL-VERSION\"]' '[djblue/portal,\"0.51.0\"]' -- update-in :plugins conj '[cider/cider-nrepl,\"JACK-IN-CIDER-NREPL-VERSION\"]' -- update-in '[:repl-options,:nrepl-middleware]' conj '[\"JACK-IN-CLJ-MIDDLEWARE\"]' '[\"portal.nrepl/wrap-portal\"]' -- repl :headless ; popd",
+            "afterCLJReplJackInCode": "(require '[portal.api :as portal]) (def p (p/open {:launcher :vs-code})) (add-tap #'p/submit)"
+        }
+    ],
+    "explorer.sortOrder": "mixed",
+    "editor.stickyScroll.enabled": true,
+    "calva.useLegacyReplWindowPath": false,
+    "accessibility.signals.taskCompleted": {
+        "sound": "on",
+        "announcement": "auto"
+    },
+    "accessibility.signals.taskFailed": {
+        "sound": "on",
+        "announcement": "auto"
+    },
+    "calva.autoOpenInspector": false,
+    "redhat.telemetry.enabled": false,
+    "python.REPL.sendToNativeREPL": true,
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "cSpell.diagnosticLevel": "Hint",
+    "[git-commit]": {
+
+        "editor.rulers": [
+            50,
+            72
+        ],
+        "editor.wordWrap": "off",
+        "workbench.editor.restoreViewState": false,
+        "rewrap.wrappingColumn": 72,
+        "rewrap.autoWrap.enabled": true,
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "terminal.integrated.scrollback": 5000,
+    "diffEditor.hideUnchangedRegions.enabled": true
 }

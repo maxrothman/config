@@ -19,3 +19,7 @@ command_not_found_handle() {
 }
 
 alias g=git
+
+# gs conflicts with ghostscript. I never use ghostscript directly, so I'm fine
+# with shadowing it
+alias gs='git status'

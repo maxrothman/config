@@ -8,7 +8,6 @@
             "by": "character"
         }
     },
-
     // Need to disable the default function of this keyboard combo to override it
     {
         "key": "ctrl+space",
@@ -25,13 +24,12 @@
             "to": "left",
             "by": "character"
         }
-    }
+    },
     // Do I ever actually use this? Currently conflicts with "back one character"
     // {
     //     "key": "ctrl+shift+space",
     //     "command": "editor.action.triggerSuggest"
     // },
-
     // Same as above
     {
         "key": "ctrl+tab",
@@ -49,28 +47,20 @@
         "key": "shift+cmd+[",
         "command": "-workbench.action.previousEditor"
     },
-
     {
         "key": "alt+j",
         "command": "workbench.action.focusPanel",
-        "when": "editorTextFocus"
+        "when": "editorTextFocus || sideBarFocus"
     },
     {
         "key": "alt+j",
         "command": "workbench.action.focusActiveEditorGroup",
         "when": "panelFocus"
     },
-
-    //from Expand Selection to Scope plugin
     {
-        "key": "cmd+shift+space",
-        "command": "expand-selection-to-scope.expand"
+        "key": "cmd+ctrl+space",
+        "command": "editor.action.triggerParameterHints"
     },
-    {
-        "key": "cmd+shift+space",
-        "command": "-editor.action.triggerParameterHints"
-    },
-
     //from Quick and Simple Text Selection plugin
     {
         "key": "cmd+'",
@@ -80,14 +70,50 @@
         "key": "cmd+shift+'",
         "command": "extension.switchQuotes"
     },
-
-    // cmd+9 already focuses on the last editor in the group, but for some reason, by default cmd+1
-    // focuses on the first editor group
+    // cmd+9 already focuses on the last editor in the group, but for some reason, by default
+    // cmd+1-8 focuses on editor groups instead
     {
         "key": "cmd+1",
         "command": "workbench.action.firstEditorInGroup"
     },
-
+    // and cmd+2 focuses on the second editor group
+    {
+        "key": "cmd+2",
+        "command": "workbench.action.openEditorAtIndex2"
+    },
+    {
+        "key": "cmd+3",
+        "command": "workbench.action.openEditorAtIndex3"
+    },
+    {
+        "key": "cmd+4",
+        "command": "workbench.action.openEditorAtIndex4"
+    },
+    {
+        "key": "cmd+5",
+        "command": "workbench.action.openEditorAtIndex5"
+    },
+    {
+        "key": "cmd+6",
+        "command": "workbench.action.openEditorAtIndex6"
+    },
+    {
+        "key": "cmd+7",
+        "command": "workbench.action.openEditorAtIndex7"
+    },
+    {
+        "key": "cmd+8",
+        "command": "workbench.action.openEditorAtIndex8"
+    },
+    // Then map editor group switching to cmd+shift
+    {
+        "key": "cmd+shift+1",
+        "command": "workbench.action.focusFirstEditorGroup"
+    },
+    {
+        "key": "cmd+shift+2",
+        "command": "workbench.action.focusSecondEditorGroup"
+    },
     // Toggle between sidebar and main editor
     {
         "key": "cmd+0",
@@ -103,7 +129,6 @@
         "when": "sideBarFocus",
         "command": "workbench.action.focusActiveEditorGroup"
     },
-
     // Have PageUp and PageDown only scroll a half page
     {
         "key": "PageDown",
@@ -115,7 +140,6 @@
         "command": "extension.halfUp",
         "when": "textInputFocus"
     },
-
     // So I don't have to reach for the arrow keys while interacting with intellisense
     {
         "key": "tab",
@@ -127,11 +151,29 @@
         "command": "selectPrevSuggestion",
         "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
     },
+    // Reuse muscle memory from iTerm
+    {
+        "key": "cmd+shift+enter",
+        "command": "workbench.action.toggleMaximizedPanel",
+        "when": "panelFocus"
+    },
+    {
+        "key": "alt+.",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": {
+            "text": "\u001b\u002e"
+        }
+    },
+    // Surround scope with parens, a little taste of paredit in non-clojure languages
+    {
+        "key": "ctrl+shift+alt+9",
+        "command": "joyride.runUserScript",
+        "args": "expand.cljs"
+    },
 
     //
     // Clojure Calva stuff
     //
-
     // Use alt+arrows for sexp navigation (and backspace)
     // Add ctrl to do the same motion backwards
     // Also disable unused default bindings
@@ -147,7 +189,7 @@
     },
     {
         "key": "ctrl+alt+backspace",
-        "command": "-paredit.killSexpBackward",
+        "command": "-paredit.killSexpBackward"
     },
     {
         "key": "alt+backspace",
@@ -158,7 +200,6 @@
         "command": "paredit.killSexpBackward",
         "when": "!calva:cursorInComment && !editorReadOnly && calva:keybindingsEnabled && config.calva.paredit.hijackVSCodeDefaults && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/ && editorTextFocus"
     },
-
     {
         "key": "alt+up",
         "command": "paredit.forwardUpSexp",
@@ -179,7 +220,6 @@
         "command": "paredit.backwardDownSexp",
         "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
     },
-
     // Adding shift gets you selection
     {
         "key": "shift+alt+right",
@@ -188,9 +228,8 @@
     },
     {
         "key": "shift+alt+right",
-        "command": "-paredit.selectForwardSexp",
+        "command": "-paredit.selectForwardSexp"
     },
-
     {
         "key": "shift+alt+left",
         "command": "paredit.selectBackwardSexp",
@@ -198,21 +237,19 @@
     },
     {
         "key": "shift+alt+left",
-        "command": "-paredit.selectBackwardSexp",
+        "command": "-paredit.selectBackwardSexp"
     },
-
     // Adding cmd gets you dragging
     {
         "key": "cmd+alt+left",
         "command": "-workbench.action.previousEditor",
         "when": "!calva:cursorInComment && calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
-    }
+    },
     {
         "key": "cmd+alt+left",
         "command": "paredit.dragSexprBackward",
         "when": "!calva:cursorInComment && calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
     },
-
     {
         "key": "cmd+alt+right",
         "command": "-workbench.action.nextEditor",
@@ -223,7 +260,6 @@
         "command": "paredit.dragSexprForward",
         "when": "!calva:cursorInComment && calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
     },
-
     {
         "key": "cmd+alt+up",
         "command": "-editor.action.insertCursorAbove",
@@ -234,7 +270,6 @@
         "command": "paredit.dragSexprForwardUp",
         "when": "!calva:cursorInComment && calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
     },
-
     {
         "key": "cmd+alt+down",
         "command": "-editor.action.insertCursorBelow",
@@ -245,7 +280,6 @@
         "command": "paredit.dragSexprForwardDown",
         "when": "!calva:cursorInComment && calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
     },
-
     {
         "key": "cmd+alt+ctrl+up",
         "command": "paredit.dragSexprBackwardUp",
@@ -256,19 +290,16 @@
         "command": "paredit.dragSexprBackwardDown",
         "when": "!calva:cursorInComment && calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
     },
-
     // Redo the wrap-in shortcuts to saner bindings. ctrl+alt wraps
     {
         "key": "ctrl+shift+alt+9",
         "command": "paredit.wrapAroundParens",
         "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
-
     },
     {
         "key": "ctrl+shift+alt+p",
         "command": "-paredit.wrapAroundParens"
     },
-
     {
         "key": "ctrl+alt+[",
         "command": "paredit.wrapAroundSquare",
@@ -278,7 +309,6 @@
         "key": "ctrl+shift+alt+s",
         "command": "-paredit.wrapAroundSquare"
     },
-
     {
         "key": "ctrl+shift+alt+[",
         "command": "paredit.wrapAroundCurly",
@@ -286,9 +316,8 @@
     },
     {
         "key": "ctrl+shift+alt+c",
-        "command": "-paredit.wrapAroundCurly",
+        "command": "-paredit.wrapAroundCurly"
     },
-
     // And do the same for the rewrap keybindings. ctrl+cmd rewraps
     {
         "key": "cmd+ctrl+[",
@@ -299,7 +328,6 @@
         "key": "ctrl+alt+r ctrl+alt+s",
         "command": "-paredit.rewrapSquare"
     },
-
     {
         "key": "cmd+ctrl+shift+[",
         "command": "paredit.rewrapCurly",
@@ -309,7 +337,6 @@
         "key": "ctrl+alt+r ctrl+alt+c",
         "command": "-paredit.rewrapCurly"
     },
-
     {
         "key": "cmd+ctrl+shift+9",
         "command": "paredit.rewrapParens",
@@ -319,7 +346,6 @@
         "key": "ctrl+alt+r ctrl+alt+p",
         "command": "-paredit.rewrapParens"
     },
-
     // Remap non-clojure alt shortcuts to cmd+ctrl
     {
         "key": "ctrl+cmd+right",
@@ -356,7 +382,6 @@
         "command": "cursorWordEndRightSelect",
         "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
     },
-
     // These two previously used ctrl+cmd+up/down, so remap them to require shift as well
     {
         "key": "ctrl+cmd+shift+up",
@@ -368,20 +393,33 @@
         "command": "editor.action.insertCursorBelow",
         "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
     },
-    
     // Do nothing to avoid confusion
     {
         "key": "ctrl+up",
-        "command": "-paredit.backwardUpSexp",
+        "command": "-paredit.backwardUpSexp"
     },
     {
         "key": "ctrl+down",
-        "command": "-paredit.forwardDownSexp",
+        "command": "-paredit.forwardDownSexp"
     },
-
     // Defer to subword navigation's delete word part left
     {
         "key": "ctrl+backspace",
-        "command": "-paredit.killListBackward",
+        "command": "-paredit.killListBackward"
+    },
+    {
+        "key": "ctrl+alt+cmd+h",
+        "command": "clojureLsp.refactor.moveToLet",
+        "args": {"name": "foobar"}
+    },
+    {
+        "key": "shift+cmd+space",
+        "command": "editor.action.smartSelect.expand",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+cmd+right",
+        "command": "-editor.action.smartSelect.expand",
+        "when": "editorTextFocus"
     }
 ]

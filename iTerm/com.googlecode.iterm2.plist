@@ -2024,9 +2024,9 @@ Resize Split Pane.Move Divider Down</string>
 	<key>PasteSpecialRegex</key>
 	<string>\n</string>
 	<key>PasteSpecialSubstitution</key>
-	<string> </string>
+	<string>  </string>
 	<key>PasteSpecialUseRegexSubstitution</key>
-	<false/>
+	<true/>
 	<key>PasteTabToStringTabStopSize</key>
 	<integer>2</integer>
 	<key>PointerActions</key>

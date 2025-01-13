@@ -75,9 +75,7 @@
   # Usage: git cm [FILE]... MESSAGE
   cm = "!f() { fs=(\"${@::$#-1}\"); [ \"${#fs[@]}\" -gt 0 ] && git add \"${fs[@]}\"; git commit -m \"${@: -1}\"; }; f"
   cma = commit -a
-  cmal = commit -a -m
-
-  mend = commit --amend --no-edit
+  cmal = "!f() { cd \"$GIT_PREFIX\" && git add . && git commit -a -m \"$@\"; }; f"
 
   #Amend and don't change commit message. If file arguments are provided, amend only those files.
   #Usage: cmend [FILE ...]
