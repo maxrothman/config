@@ -23,12 +23,16 @@
   enable key repeat (otherwise, long-press opens the the key's unicode options which I don't have
   much use for)
 * Go to System Preferences > Accessibility > Zoom, check "Use scroll gesture with modifier keys to zoom"
-* Go to System Preferences > Mission Control, uncheck "Automatically rearrange spaces based on most
-  recent use"
 * Plug in the Microsoft Natural Ergonomic 4000 keyboard, then go to System
   Preferences > Keyboard. On the Keyboard tab, click "Modifier Keys...", and in
   the resulting modal, select the Microsoft keyboard from the dropdown and
   remap ⌥ to ⌘ and ⌘ to ⌥
+* In Desktop & Dock:
+  * Disable "Click wallpaper to reveal desktop"
+  * Disable "Show suggested and recent apps in Dock"
+  * Disable Stage Manager
+  * Disable "Tiled windows have margins"
+  * Disable "Automatically rearrange Spaces based on most recent use"
 
 ## Dash
 Install the following docsets: Python3, Bash, Man pages, Docker, HTML, CSS, Javascript, Terraform,

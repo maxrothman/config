@@ -1,0 +1,182 @@
+#!/usr/bin/env python3
+"""
+Homebrew wrapper that forces you to manage your packages using a brewfile
+"""
+
+import argparse
+import os
+import shutil
+import subprocess
+import sys
+
+cmds = {}
+
+def cmd(*args, partial=False):
+    has_args = not callable(next(iter(args), True))
+
+    def dec(f):
+        cmds[f.__name__.replace('_', '-')] = {
+            'f': f,
+            'args': args if has_args else [],   # Same args as ArgumentParser.add_argument
+            'partial': partial,
+        }
+        return f
+
+    if has_args:
+        return dec
+    else:
+        return dec(args[0])
+
+def walk_argsspecs(subparser, node):
+    typ, *spec = node
+
+    if typ == 'arg':
+        args, kwargs = spec
+        subparser.add_argument(*args, **kwargs)
+    elif typ == 'grp':
+        grp = subparser.add_mutually_exclusive_group()
+        for node in spec[0]:
+            walk_argsspecs(grp, node)
+
+def parse_args():
+    parser = argparse.ArgumentParser(
+        prog="brew",
+        description=__doc__,
+    )
+    subparsers = parser.add_subparsers(required=True)
+    subparsers.metavar = 'CMD'
+
+    partial = False
+
+    for cmd, desc in cmds.items():
+        if desc['partial']: partial = True
+
+        subparser = subparsers.add_parser(cmd, description=desc['f'].__doc__, help=desc['f'].__doc__)
+        subparser.set_defaults(func=desc['f'])
+
+        for node in desc['args']:
+            walk_argsspecs(subparser, node)
+
+    if partial:
+        return parser.parse_known_args()
+    else:
+        return parser.parse_args(), None
+
+brew_exec = shutil.which('brew')
+
+def brew(*cmd):
+    subprocess.run([brew_exec] + list(cmd), check=True, stderr=sys.stderr, stdout=sys.stdout)
+
+def all_tracked_formulas():
+    global_formulas = set(subprocess.check_output([brew_exec, 'bundle', 'list', '--file', '~/.Brewfile']).splitlines())
+    local_formulas = set(subprocess.check_output([brew_exec, 'bundle', 'list', '--file', '~/.Brewfile.local']).splitlines())
+    return global_formulas | local_formulas
+
+def arg(*args, **kwargs):
+    return 'arg', args, kwargs
+
+def grp(*args):
+    return 'grp', args
+
+### Commands
+
+@cmd
+def sync():
+    """Install all formulas in all brewfiles"""
+    brew("bundle", "install", "--file", "~/.Brewfile")
+    brew("bundle", "install", "--file", "~/.Brewfile.local")
+
+@cmd(arg('pkg', metavar='FORMULA/CASK', nargs='+'),
+     grp(arg('-g', '--global', dest='glbl', action='store_true', help='Add the packages to the global brewfile'),
+         arg('-l', '--local',  dest='lcl',  action='store_true', help='Add the packages to the local brewfile (default)')),
+     arg('-n', '--no-install', action='store_true', help='Do not install the packages after adding them to the brewfile'))
+def add(args):
+    """Add packages to your brewfile and install them"""
+    file = '~/.Brewfile.local' if args.lcl else '~/.Brewfile'
+    brew('add', *args.pkg, '--file', file)
+    if not args.no_install:
+        brew('install', *args.pkg)
+
+@cmd(arg('pkg', metavar='FORMULA/CASK', nargs='+'),
+     arg('-n', '--no-remove', action='store_true', help='Do not remove the packages after adding removing them from the brewfile'))
+def rm(args):
+    """Remove packages from your brewfile and uninstall them"""
+    brew('drop', *args.pkg, '--file', '~/.Brewfile')
+    brew('drop', *args.pkg, '--file', '~/.Brewfile.local')
+    if not args.no_remove:
+        brew('rm' *args.pkg)
+
+@cmd(arg('pkg', metavar='FORMULA/CASK', nargs='*'))
+def upgrade(args):
+    """Upgrade formulas in brewfiles"""
+    if args.pkg:
+        formulas = args.pkg
+    else:
+        formulas = all_tracked_formulas()
+    brew('upgrade', *formulas)
+
+@cmd(arg('pkg', metavar='FORMULA/CASK', nargs='*'))
+def outdated(args):
+    """List all outdated packages in brewfiles"""
+    if args.pkg:
+        formulas = args.pkg
+    else:
+        formulas = all_tracked_formulas()
+    brew('outdated', *formulas)
+
+def get_untracked():
+    formulas = all_tracked_formulas()
+    tracked = set(subprocess.check_output([brew_exec, 'deps', '--union', *formulas]).splitlines())
+    all_formulas = set(subprocess.check_output([brew_exec, 'ls']).splitlines())
+    return all_formulas - (tracked | formulas)
+
+@cmd
+def untracked():
+    """List all installed formulas which are not either in a brewfile or a dependency of such a formula"""
+    fs = get_untracked()
+    if not fs:
+        print("All formulas are tracked! ✔")
+    else:
+        print('\n'.join(fs))
+
+@cmd(arg('-f', '--no-prompt', action='store_true', help="Don't prompt for confirmation before uninstalling formulas"))
+def rm_untracked(args):
+    """Uninstall all formulas that are not either in a brewfile or a dependency of such a formula"""
+    fs = get_untracked()
+
+    if not fs:
+        print("All formulas are tracked! ✔")
+    else:
+        go = False
+        if not args.no_prompt:
+            print("The following formulas will be uninstalled:")
+            print("===========================================")
+            print(b', '.join(untracked).decode())
+            print()
+            answer = input("Are you sure you want to continue? (y/n): ")
+            go = answer.lower == 'y'
+        if go or args.no_prompt:
+            brew('rm', **untracked)
+
+@cmd(partial=True)
+def search(args):
+    """Search for formulas"""
+    brew('search', *args)
+
+@cmd(partial=True)
+def raw(args):
+    """Run arbitrary brew commands"""
+    brew(*args)
+
+### End commands
+
+def main():
+    args, unparsed = parse_args()
+    try:
+        has_args = vars(args).keys() - {'func'}
+        args.func(*([args] if has_args else []), *([unparsed] if unparsed else []))
+    except subprocess.CalledProcessError as e:
+        sys.exit(e.returncode)
+
+if __name__ == '__main__':
+    main()

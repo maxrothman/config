@@ -24,3 +24,9 @@ ln -s /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion -t 
 
 #Install fzf hooks
 /usr/local/opt/fzf/install
+
+#Enable touchid for sudo
+echo 'auth sufficient pam_tid.so' > sudo_local
+chmod 444 sudo_local
+chown root:wheel sudo_local
+sudo mv sudo_local /etc/pam.d/
