@@ -110,6 +110,7 @@
         "editor.bracketPairColorization.enabled": true,
         "editor.guides.bracketPairsHorizontal": true
     },
+    "calva.keybindingsEnabled": true,
     "calva.highlight.enableBracketColors": false,
     "calva.paredit.defaultKeyMap": "strict",
     "calva.showCalvaSaysOnStart": false,
