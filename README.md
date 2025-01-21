@@ -27,9 +27,6 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * Follow the instructions in `Alfred.alfredpreferences/README.md`
 * Follow the instructions in the README in `automator/`
 
-## TODO
-* go through misc-stuff
-
 ## Short-term Todo
 * [ ] Install clojure lang def for source-highlight
   * See
