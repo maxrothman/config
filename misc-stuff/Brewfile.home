@@ -1,0 +1,26 @@
+# ln -s Brewfile.home ~/.Brewfile.home
+
+# General work stuff
+brew 'hashicorp/tap/terraform'
+brew 'libpq'   #psql, pg_dump, etc. without the entirety of Postgres
+
+# Klezmer Archive stuff
+brew 'awscli'
+brew 'hugo'
+
+# repos/music-encoding
+brew 'ant'
+
+# Clojure
+brew 'clojure/tools/clojure'
+brew 'leiningen'
+
+# Python
+brew 'python3'
+brew 'pip-completion'
+
+# Resume
+brew 'pandoc'
+
+# Advent of code
+brew 'z3'

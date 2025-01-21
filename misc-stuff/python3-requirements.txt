@@ -1,21 +1,22 @@
 # Global Python 3 packages
 # Usage: pip3 install -r python3-requirements.txt
 
-jupyter
+# Been using this more on a per-project basis
+# jupyter
 # TODO: the ipython-sql project
 # ipython-sql
 
-#virtualenv management
-virtualenvwrapper
+#virtualenv management. Haven't used this recently
+# virtualenvwrapper
 
 #show pip dependency tree
 pipdeptree
 
-#Natual datetime parsing
-py-dateutil
+#Natual datetime parsing. Haven't needed this in a while
+# py-dateutil
 
-#Installs `py` command, for easier python 1-liners
-pythonpy
+#Installs `py` command, for easier python 1-liners. Using bb for this more these days
+# pythonpy
 
-#A better Postgres client
-pgcli
+#A better Postgres client. Not using this much anymore
+# pgcli

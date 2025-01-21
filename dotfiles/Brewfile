@@ -1,54 +1,32 @@
-#   homebrew/boneyard/apg # Secure password generator. Removed from formulas?
-brew 'autojump'                                   # cd on steroids: <https://github.com/wting/autojump>
-brew 'bash'                                       # Update to latest
-brew 'bash-completion'                            # Basic tab completion
-brew 'coreutils'                                  # Make Mac more Linux-y
-brew 'cowsay'                                     # Moo
-brew 'findutils'                                  # GNU find to replace weird BSD one
-brew 'fzf'                                        # fuzzyfinder: https://github.com/junegunn/fzf
-brew 'git'                                        # Update to newest on older systems
-brew 'gnu-sed'                                    # BSD sed is weird (on Mac)
-brew 'grep'                                       # BSD grep is also weird (on Mac)
-brew 'htop'                                       # Gotta have htop
-brew 'jq'                                         # JSON parsing tool: <https://stedolan.github.io/jq/>
-brew 'nmap'                                       # Mac really doesn't ship with this?!
-brew 'pip-completion'                             # Bash completion for pip
-brew 'pstree'                                     # Gives you something like ps f on linux since there's no f on mac
-#Let's see if we can get by without this brew 'python'  # Update to 2.7.10 which fixes major SSL flaws
-brew 'python3'                                    # If only this were default
-brew 'rename'                                     # Mass file renaming
-brew 'sl'                                         # Choo choo!
-brew 'source-highlight'                           # For `less` syntax highlighting
-brew 'telnet'                                     # Not part of coreutils for some reason
-brew 'the_silver_searcher'                        # provides ag for fast recursive searches
-brew 'tig'                                        # git curses client
-brew 'trash'                                      # rm-like command that moves things to the trash (I may be a monster, but I'm a cautious monster)
-brew 'tree'                                       # Tree view of file structures
-brew 'watch'                                      # Gotta have watch
-brew 'wget'                                       # Mac really doesn't ship with this?!
+### Foundational packages ###
+brew 'asdf'                           # tool version manager
+brew 'autojump'                       # cd on steroids: <https://github.com/wting/autojump>
+brew 'bash-completion'                # Basic tab completion
+brew 'bash'                           # I got used to bash and never learned zsh. Install the latest version, mac's default is pretty old
+brew 'borkdude/brew/babashka'         # Handy for quick Clojure
+brew 'coreutils'                      # Make Mac more Linux-y
+brew 'diffutils'                      # Mac's default is old
+brew 'findutils'                      # GNU find to replace weird BSD one
+brew 'fzf'                            # fuzzyfinder: https://github.com/junegunn/fzf
+brew 'git'                            # Update to newest on older systems
+brew 'gnu-sed'                        # BSD sed is weird (on Mac)
+brew 'grep'                           # BSD grep is also weird (on Mac)
+brew 'jq'                             # JSON parsing tool: <https://stedolan.github.io/jq/>
+brew 'nmap'                           # Mac really doesn't ship with this?!
+brew 'pstree'                         # Gives you something like ps f on linux since there's no f on mac
+brew 'rename'                         # Mass file renaming
+brew 'ripgrep'                        # provides rg for fast recursive searches
+brew 'source-highlight'               # For `less` syntax highlighting
+brew 'telnet'                         # Not part of coreutils for some reason
+brew 'tig'                            # git curses client
+brew 'trash'                          # rm-like command that moves things to the trash (I may be a monster, but I'm a cautious monster)
+brew 'tree'                           # Tree view of file structures
+brew 'watch'                          # Gotta have watch
+brew 'wget'                           # Mac really doesn't ship with this?!
 
-cask_args appdir: "/Applications"
+tap "superatomic/bundle-extensions"   # Used by my custom brew wrapper
 
-# All of these have problems with Mac's new app signing thing on Catalina
-# Source: https://github.com/sindresorhus/quick-look-plugins
-# cask 'qlcolorcode'          # Quick Look plugin that colorizes code
-# cask 'qlstephen'            # Quick Look plugin that previews plain text files with unknown extensions
-# cask 'qlmarkdown'           # Quick Look plugin that renders markdown
-# cask 'quicklook-json'       # Quick Look plugin for json
-
-cask 'iTerm2'               # A better terminal emulator
-cask 'Alfred'               # Like a text editor's palettes, but for the whole computer
-cask 'Dash'                 # Offline documentation browser (integrates with Alfred)
-cask 'visual-studio-code'   # My editor of choice
-cask 'BetterTouchTool'      # Tiling and gesture/keyboard remaps
-cask 'HyperSwitch'          # Window-based switcher
-cask 'Itsycal'              # Replaces the menu bar datetime display and adds a calendar panel on click
-cask 'AppCleaner'           # Fully uninstall apps
-cask 'usb-overdrive'        # Used to wire up the special buttons on my Microsoft Natural Ergonomic 4000 keyboard
-cask 'tunnelblick'          # My preferred VPN client. I've got a matching Alfred workflow to control it
-
-cask 'google-chrome'
-cask 'evernote'
-cask 'slack'
-cask 'VLC'
-cask 'Lastpass'
+# Borrowed from https://github.com/Homebrew/homebrew-bundle/issues/521
+Dir.glob(File.join(File.dirname(__FILE__), '.Brewfile.*')) do |brewfile|
+    eval(IO.read(brewfile), binding)
+end

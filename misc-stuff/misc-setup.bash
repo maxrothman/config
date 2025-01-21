@@ -25,6 +25,10 @@ ln -s /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion -t 
 #Install fzf hooks
 /usr/local/opt/fzf/install
 
+#Install asdf plugins
+asdf plugin add java
+asdf plugin add nodejs
+
 #Enable touchid for sudo
 echo 'auth sufficient pam_tid.so' > sudo_local
 chmod 444 sudo_local
