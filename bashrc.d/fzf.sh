@@ -6,4 +6,5 @@ if [ -f ~/.fzf.bash ]; then
   export FZF_COMPLETION_TRIGGER='*'
 fi
 
+# fzf + jq live query hack
 export PATH="$PATH:~/.bin/jqp"
