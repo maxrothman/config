@@ -21,4 +21,4 @@ source_all() {
 source_all ~/.bashrc.d
 
 # Put stuff in here if you don't want it checked in
-[ -e ~/.bash-secure ] && source ~/.bash-secure
+[ -e ~/.bash-local ] && source ~/.bash-local
