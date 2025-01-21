@@ -23,3 +23,10 @@ alias g=git
 # gs conflicts with ghostscript. I never use ghostscript directly, so I'm fine
 # with shadowing it
 alias gs='git status'
+
+# Visually highlight changes inside lines
+# Normally these would go in .gitconfig, but they need to be here so the path to git can be dynamic
+git config pager.log  "$BREW_PREFIX/share/git-core/contrib/diff-highlight/diff-highlight | less"
+git config pager.show "$BREW_PREFIX/share/git-core/contrib/diff-highlight/diff-highlight | less"
+git config pager.diff "$BREW_PREFIX/share/git-core/contrib/diff-highlight/diff-highlight | less"
+git config interactive.diffFilter "$BREW_PREFIX/share/git-core/contrib/diff-highlight/diff-highlight"

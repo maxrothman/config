@@ -12,6 +12,10 @@
   #Prevent commit messages from being lost when Vim has an error
   editor = vim -f
 
+[user]
+  email = max.r.rothman@gmail.com
+  name = Max Rothman
+
 [fetch]
   #WARNING: will remove local branches if they've been deleted from the remote
   prune = true
@@ -25,27 +29,9 @@
   colorMoved =  default
   renames = copy
 
-  # Use Difftastic
-  # external = difft
-  tool = difftastic
-
-[difftool]
-  prompt = false
-
-[difftool "difftastic"]
-  cmd = difft "$LOCAL" "$REMOTE"
-
-
-# Visually highlight changes inside lines
+# Fancy highlighting for log/show/diff is set up in bashrc.d/git.sh
 [pager]
-  log = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
-  show = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
-  diff = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
   branch = cat
-  difftool = true
-
-[interactive]
-  diffFilter = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight
 
 #For explanation on the following group of options, see <http://grimoire.ca/git/config>
 [rebase]
@@ -63,6 +49,10 @@
   clean = git media clean %f
   smudge = git media smudge %f
   required = true
+
+[color "diff"]
+  oldMoved = 207
+  newMoved = 111
 
 [alias]
   # Used in other aliases, defined here for clarity
@@ -172,11 +162,3 @@
   #"|"-separated list of branches that should not be cleaned up by cleanup-merged.
   #NB: to write a literal |, it will have to be preceeded by 2 backslashes, like \\|
   #protected-branches = master
-
-[user]
-  email = max.r.rothman@gmail.com
-  name = Max Rothman
-
-[color "diff"]
-  oldMoved = 207
-  newMoved = 111
