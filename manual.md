@@ -70,11 +70,15 @@ Clojure, ClojureDocs
 * Set default zoom to 110% (I have astygmatism)
 
 ## VSCode
-* Using the command palette, open "Preferences: Open Settings (JSON)" and replace its contents with the contents of `VSCode/settings.json`
-* As above, open "Preferences: Open Keyboard Shortcuts (JSON)" and replace its contents with the contents of `VSCode/keybindings.json`
 * Install the extensions in `VSCode/extensions.txt`
-* Open the command palette and find "Rewrap: toggle auto-wrap" and turn it on. It's off by default
-  and for some damn reason it can't be controlled via the settings interface.
+* Run "Sync Settings: Open the repository settings" then put this in it:
+  ```yml
+  repository:
+    type: file
+    # path of the local directory to sync with, required
+    path: ~/repos/config/VSCode/
+  ```
+* Run "Sync Settings: Download"
 
 ## BetterTouchTool
 * Add the following keyboard shortcuts:

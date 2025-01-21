@@ -20,6 +20,7 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * Clone this repo somewhere
 * Install brew: <http://brew.sh/>
 * Run `deploy.sh` (idempotent)
+* Run `brew sync` (in a new shell if this is a new machine)
 * Run `misc-scripts/misc-setup.bash` (not idempotent)
 * Install apps listed in `apps.md` as needed
 * Follow the instructions in `manual.md`

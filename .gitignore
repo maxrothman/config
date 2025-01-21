@@ -2,3 +2,4 @@
 *.swp
 bash-secure*
 .calva
+.clj-kondo

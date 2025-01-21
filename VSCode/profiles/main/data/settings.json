@@ -6,13 +6,13 @@
     "workbench.startupEditor": "newUntitledFile",
     "editor.fontSize": 14, //This is the sidebar with files/git/debug/etc.
     "workbench.colorCustomizations": {
-         //I'm colorblind
+        //I'm colorblind
         "terminal.selectionBackground": "#80aeeb81",
-        "terminal.ansiGreen":"#1df373",
+        "terminal.ansiGreen": "#1df373",
         "editor.selectionHighlightBorder": "#657ed3",
         "editor.selectionBackground": "#2f4387",
         "editor.findMatchBackground": "#6d75e69f"
-    }, 
+    },
     "editor.semanticTokenColorCustomizations": {
         "[Monokai]": {
             "rules": {
@@ -29,25 +29,38 @@
     "editor.find.autoFindInSelection": "multiline", //Enables select, then find-in-selection painlessly
     "editor.definitionLinkOpensInPeek": true, //Jumping makes it harder to read code
     "workbench.sideBar.location": "left", //Where else would you want it?
-    "explorer.confirmDelete": false, //I never use vscode outside a git repo, deletes are low-risk
+    "explorer.confirmDelete": false, //I never use vscode outside a git repo, deletes/moves are low-risk
+    "explorer.confirmDragAndDrop": false,
+    "explorer.sortOrder": "mixed",
     "window.newWindowDimensions": "maximized",
     "editor.guides.bracketPairs": "active",
     "editor.guides.bracketPairsHorizontal": false,
+    "editor.stickyScroll.enabled": true,
     "files.exclude": {
         "**/__pycache__": true,
         "**/.stack-work": true,
         "**/.vscode": true
     },
-    "workbench.editorAssociations": {
-        "*.ipynb": "jupyter.notebook.ipynb"
-    },
+    "explorer.excludeGitIgnore": true,
     "files.associations": {
-        "*.avsc": "avroavsc",
         "*.bb": "clojure",
         "*.hcl": "terraform"
     },
     "terminal.integrated.tabs.enabled": true,
     "editor.wordWrapColumn": 100,
+    "accessibility.signals.taskCompleted": {
+        "sound": "on",
+        "announcement": "auto"
+    },
+    "accessibility.signals.taskFailed": {
+        "sound": "on",
+        "announcement": "auto"
+    },
+    "terminal.integrated.scrollback": 5000,
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    // 
+    // EXTENSION/LANGUAGE-SPECIFIC SETTINGS
+    // 
     // Sync Settings. VSCode's settings sync won't do plain ol' files
     "syncSettings.resources": [
         "keybindings",
@@ -57,7 +70,6 @@
     //From rewrap plugin
     "rewrap.wrappingColumn": 100,
     "rewrap.autoWrap.enabled": true,
-
     // Markdown
     "markdown.extension.toc.updateOnSave": false,
     "[markdown]": {
@@ -65,15 +77,11 @@
             "comments": "off",
             "strings": "off",
             "other": "off"
-        } //I remember trying this for a bit and found it got annoying
-        // {
-        //     "other": true,
-        //     "comments": false,
-        //     "strings": false
-        // }
+        },
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
     },
     //From Python plugin
-    "python.linting.enabled": false,
+    "python.REPL.sendToNativeREPL": true,
     "[python]": {
         // The outline is way too noisy without these. If only I could hide them from ⌘T...
         "outline.showModules": false,
@@ -81,8 +89,6 @@
         "outline.showProperties": false,
         "editor.formatOnType": true,
     },
-    //From purescript plugin. I doubt it'll ever be necessary again, but it took me so long to figure this out that I feel bad removing it
-    "purescript.addNpmPath": true,
     // Javascript
     "[javascriptreact]": {
         "editor.tabSize": 2,
@@ -95,7 +101,6 @@
         // This is necessary if prettier is installed and harmless if not
         "editor.defaultFormatter": "vscode.json-language-features"
     },
-    "[terraform]": {},
     // Clojure
     "[clojure]": {
         "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?",
@@ -120,22 +125,13 @@
         "borderStyle": "solid",
         "borderColor": "#b3b3b3"
     },
-    // From gitlens plugin. Mostly disabled for now until I decide if I like it
-    // Not currently installed
-    "gitlens.codeLens.enabled": false,
-    "gitlens.currentLine.enabled": false,
-    "gitlens.hovers.currentLine.over": "line",
-    "gitlens.gitExplorer.enabled": false,
-    "gitlens.historyExplorer.enabled": false,
-    "gitlens.resultsExplorer.location": "explorer",
-    "gitlens.hovers.enabled": false,
-    "gitlens.views.repositories.enabled": false,
-    "gitlens.views.fileHistory.enabled": false,
-    "gitlens.views.lineHistory.enabled": false,
-    "gitlens.views.compare.location": "explorer",
-    "gitlens.views.search.location": "explorer",
+    "calva.useLegacyReplWindowPath": false,
+    "calva.autoOpenInspector": false,
     // Spell checker
-    "cSpell.enabledFileTypes": {"*": true},
+    "cSpell.enabledFileTypes": {
+        "*": true
+    },
+    "cSpell.diagnosticLevel": "Hint",
     "cSpell.userWords": [
         "authn",
         "authz",
@@ -159,43 +155,16 @@
         "vals",
         "zipmap"
     ],
-    "explorer.confirmDragAndDrop": false,
     "[html]": {
         "editor.defaultFormatter": "vscode.html-language-features"
     },
-    "githubPullRequests.pullBranch": "never",
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
-    "explorer.excludeGitIgnore": true,
-    "calva.replConnectSequences": [
-        {
-            "name": "Leiningen + Portal",
-            "projectType": "Leiningen",
-            "customJackInCommandLine": "pushd JACK-IN-PROJECT-ROOT-PATH ; lein update-in :dependencies conj '[nrepl,\"JACK-IN-NREPL-VERSION\"]' '[djblue/portal,\"0.51.0\"]' -- update-in :plugins conj '[cider/cider-nrepl,\"JACK-IN-CIDER-NREPL-VERSION\"]' -- update-in '[:repl-options,:nrepl-middleware]' conj '[\"JACK-IN-CLJ-MIDDLEWARE\"]' '[\"portal.nrepl/wrap-portal\"]' -- repl :headless ; popd",
-            "afterCLJReplJackInCode": "(require '[portal.api :as portal]) (def p (p/open {:launcher :vs-code})) (add-tap #'p/submit)"
-        }
-    ],
-    "explorer.sortOrder": "mixed",
-    "editor.stickyScroll.enabled": true,
-    "calva.useLegacyReplWindowPath": false,
-    "accessibility.signals.taskCompleted": {
-        "sound": "on",
-        "announcement": "auto"
-    },
-    "accessibility.signals.taskFailed": {
-        "sound": "on",
-        "announcement": "auto"
-    },
-    "calva.autoOpenInspector": false,
-    "redhat.telemetry.enabled": false,
-    "python.REPL.sendToNativeREPL": true,
     "[typescriptreact]": {
         "editor.defaultFormatter": "vscode.typescript-language-features"
     },
-    "cSpell.diagnosticLevel": "Hint",
     "[git-commit]": {
-
         "editor.rulers": [
             50,
             72
@@ -208,6 +177,24 @@
     "[typescript]": {
         "editor.defaultFormatter": "vscode.typescript-language-features"
     },
-    "terminal.integrated.scrollback": 5000,
-    "diffEditor.hideUnchangedRegions.enabled": true
+    "redhat.telemetry.enabled": false,
+    // 
+    // Copilot junk
+    "github.copilot.enable": {
+        // Even when it's installed, it should be disabled by default
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false,
+        "git-commit": false
+    },
+    "inlineChat.lineNaturalLanguageHint": false,
+    "disable-copilot-comment-completions.textMateRules": [
+        {
+            "type": "string",
+            "value": "comment",
+            "mode": "includes"
+        }
+    ],
+    "chat.commandCenter.enabled": false
 }

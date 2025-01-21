@@ -67,5 +67,15 @@ else
   exit 1
 fi
 
-echo "Installing brew packages and casks"
-brew sync
+echo "Deploying joyride script..."
+jrdir=~/.config/joyride/scripts
+if [ ! -d "$jrdir" ]; then
+  mkdir -p "$jrdir"
+fi
+if [ ! -e "$jrdir"/user_activate.cljs ]; then
+  ln -s "$configdir"/user_activate.cljs "$jrdir"/user_activate.cljs
+elif [[ -L "$jrdir"/user_activate.cljs && "$(readlink "$jrdir"/user_activate.cljs)" == "$configdir"/user_activate.cljs ]]; then
+  :    # already synced
+else
+  echo "Refusing to overwrite ${jrdir}/user_activate.cljs, already exists or is a different symlink! Resolve differences then rerun this script."
+fi

@@ -1,5 +1,7 @@
 [
-    //my necessities
+    // ============================
+    // Shortcuts for built-in stuff
+    // ============================
     {
         "key": "shift+space",
         "command": "cursorMove",
@@ -14,23 +16,19 @@
         "command": "-editor.action.triggerSuggest"
     },
     {
+        "key": "ctrl+shift+space",
+        "command": "editor.action.triggerSuggest"
+    },
+    {
         "key": "ctrl+space",
         "command": "cursorWordEndRight"
     },
     {
         "key": "ctrl+shift+space",
-        "command": "cursorMove",
-        "args": {
-            "to": "left",
-            "by": "character"
-        }
+        "command": "editor.action.triggerSuggest"
     },
-    // Do I ever actually use this? Currently conflicts with "back one character"
-    // {
-    //     "key": "ctrl+shift+space",
-    //     "command": "editor.action.triggerSuggest"
-    // },
-    // Same as above
+    //
+    // use ctrl[+shift]+tab to switch between editors
     {
         "key": "ctrl+tab",
         "command": "workbench.action.nextEditor"
@@ -48,6 +46,20 @@
         "command": "-workbench.action.previousEditor"
     },
     {
+        "key": "shift+cmd+space",
+        "command": "editor.action.smartSelect.expand",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+cmd+right",
+        "command": "-editor.action.smartSelect.expand",
+        "when": "editorTextFocus"
+    },
+    //
+    // Changing focus
+    //
+    // To and from bottom panel
+    {
         "key": "alt+j",
         "command": "workbench.action.focusPanel",
         "when": "editorTextFocus || sideBarFocus"
@@ -57,18 +69,20 @@
         "command": "workbench.action.focusActiveEditorGroup",
         "when": "panelFocus"
     },
+    // Between sidebar and main editor
     {
-        "key": "cmd+ctrl+space",
-        "command": "editor.action.triggerParameterHints"
-    },
-    //from Quick and Simple Text Selection plugin
-    {
-        "key": "cmd+'",
-        "command": "extension.selectEitherQuote"
+        "key": "cmd+0",
+        "command": "-workbench.action.focusSideBar",
     },
     {
-        "key": "cmd+shift+'",
-        "command": "extension.switchQuotes"
+        "key": "cmd+0",
+        "when": "!sideBarFocus",
+        "command": "workbench.action.focusSideBar"
+    },
+    {
+        "key": "cmd+0",
+        "when": "sideBarFocus",
+        "command": "workbench.action.focusActiveEditorGroup"
     },
     // cmd+9 already focuses on the last editor in the group, but for some reason, by default
     // cmd+1-8 focuses on editor groups instead
@@ -76,7 +90,6 @@
         "key": "cmd+1",
         "command": "workbench.action.firstEditorInGroup"
     },
-    // and cmd+2 focuses on the second editor group
     {
         "key": "cmd+2",
         "command": "workbench.action.openEditorAtIndex2"
@@ -114,32 +127,13 @@
         "key": "cmd+shift+2",
         "command": "workbench.action.focusSecondEditorGroup"
     },
-    // Toggle between sidebar and main editor
+    //
+    // Param hints
     {
-        "key": "cmd+0",
-        "command": "-workbench.action.focusSideBar",
+        "key": "cmd+ctrl+space",
+        "command": "editor.action.triggerParameterHints"
     },
-    {
-        "key": "cmd+0",
-        "when": "!sideBarFocus",
-        "command": "workbench.action.focusSideBar"
-    },
-    {
-        "key": "cmd+0",
-        "when": "sideBarFocus",
-        "command": "workbench.action.focusActiveEditorGroup"
-    },
-    // Have PageUp and PageDown only scroll a half page
-    {
-        "key": "PageDown",
-        "command": "extension.halfDown",
-        "when": "textInputFocus"
-    },
-    {
-        "key": "PageUp",
-        "command": "extension.halfUp",
-        "when": "textInputFocus"
-    },
+    //
     // So I don't have to reach for the arrow keys while interacting with intellisense
     {
         "key": "tab",
@@ -151,7 +145,9 @@
         "command": "selectPrevSuggestion",
         "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
     },
-    // Reuse muscle memory from iTerm
+    //
+    // Terminal stuff
+    //
     {
         "key": "cmd+shift+enter",
         "command": "workbench.action.toggleMaximizedPanel",
@@ -164,13 +160,41 @@
             "text": "\u001b\u002e"
         }
     },
+    {
+        "key": "alt+backspace",
+        "command": "deleteWordPartLeft",
+        "when": "terminalFocus"
+    },
+    // ========================
+    // Shortcuts for extensions
+    // ========================
+    //
+    //from Quick and Simple Text Selection plugin
+    {
+        "key": "cmd+'",
+        "command": "extension.selectEitherQuote"
+    },
+    {
+        "key": "cmd+shift+'",
+        "command": "extension.switchQuotes"
+    },
+    // Have PageUp and PageDown only scroll a half page
+    {
+        "key": "PageDown",
+        "command": "extension.halfDown",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "PageUp",
+        "command": "extension.halfUp",
+        "when": "textInputFocus"
+    },
     // Surround scope with parens, a little taste of paredit in non-clojure languages
     {
         "key": "ctrl+shift+alt+9",
         "command": "joyride.runUserScript",
         "args": "expand.cljs"
     },
-
     //
     // Clojure Calva stuff
     //
@@ -406,20 +430,5 @@
     {
         "key": "ctrl+backspace",
         "command": "-paredit.killListBackward"
-    },
-    {
-        "key": "ctrl+alt+cmd+h",
-        "command": "clojureLsp.refactor.moveToLet",
-        "args": {"name": "foobar"}
-    },
-    {
-        "key": "shift+cmd+space",
-        "command": "editor.action.smartSelect.expand",
-        "when": "editorTextFocus"
-    },
-    {
-        "key": "ctrl+shift+cmd+right",
-        "command": "-editor.action.smartSelect.expand",
-        "when": "editorTextFocus"
     }
 ]
