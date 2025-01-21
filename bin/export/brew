@@ -4,6 +4,7 @@ Homebrew wrapper that forces you to manage your packages using a brewfile
 """
 
 import argparse
+import os
 import shutil
 import subprocess
 import sys
@@ -61,7 +62,7 @@ def parse_args():
     else:
         return parser.parse_args(), None
 
-brew_exec = shutil.which('brew')
+brew_exec = os.environ['BREW_EXEC']
 
 def brew(*cmd):
     subprocess.run([brew_exec] + list(cmd), check=True, stderr=sys.stderr, stdout=sys.stdout)

@@ -1,7 +1,7 @@
 if [ -x /opt/homebrew/bin/brew ]; then
-  BREW_EXEC=/opt/homebrew/bin/brew
+  export BREW_EXEC=/opt/homebrew/bin/brew
 elif [ -x /usr/local/bin/brew ]; then
-  BREW_EXEC=/usr/local/bin/brew
+  export BREW_EXEC=/usr/local/bin/brew
 fi
 eval "$($BREW_EXEC shellenv)"
 # This sets HOMEBREW_PREFIX, puts homebrew-installed binaries into PATH, and some other stuff
