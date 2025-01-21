@@ -11,11 +11,9 @@
 * In System Preferences>Keyboard>Shortcuts, disable all of the shortcuts involving ctrl. A bunch of them are used by VSCode, but Apple decided it'd be better to use them for switching spaces.
 * In System Preferences>Users & Groups>your user>Login Items, add the following:
   * BetterTouchTool
-  * Alfred 4
+  * Alfred 5
   * Docker
-  * LastPass
   * HyperSwitch
-  * Itsycal
 * In System Preferences>Keyboard>Text, uncheck "Correct spelling automatically and "Add period with double-space
 * in System Preferences>Dock, un-check "Show recent applications in Dock"
 * Right click on the dock and select "Turn Hiding On"
@@ -36,7 +34,7 @@
 
 ## Dash
 Install the following docsets: Python3, Bash, Man pages, Docker, HTML, CSS, Javascript, Terraform,
-SVG
+Clojure, ClojureDocs
 
 ## Alfred
 * Install the Dash workflow. It's ignored by my settings because it's self-modifying so it'd be
@@ -51,14 +49,12 @@ SVG
     * Set "Left option key acts as" to +Esc
     * Change ⌥→ to "Send Escape Sequence" and "f"
     * Change ⌥← to "Send Escape Sequence" and "b"
-  * In the menu, run "Install shell integration"
+  * In the menu, check "Load shell integration automatically"
 
 ## Chrome
 * Install the following extensions:
   * UBlock Origin: does a better job at blocking paywalls than Adblock Plus
   * LastPass: obviously
-  * Stylus: custom themes for webpages. Install all the ones in the "stylish" dir.
-  * Event Merge for Google Calendar: visually merges identical events on multiple calendars
   * [Smooth Key Scroll](https://chrome.google.com/webstore/detail/smooth-key-scroll/gphmhpfbknciemgfnfhjapilmcaecljh):
     Scroll more easily with keyboard shortcuts. Settings:
     * ↓: 17px
@@ -66,7 +62,6 @@ SVG
     * ^↓: 1px
 * In the Chrome menu bar, select Chrome>Warn before quitting
 * Open Chrome developer tools, go to Settings, and under appearance, select "Dark theme"
-* Follow the instructions in `Stylus/README.md` to set up custom styles
 * In Preferences > Passwords, turn off "Offer to save passwords" (I use lastpass)
 * In the Evernote extension settings:
   * After clip: select "Automatically close clipper"
@@ -80,12 +75,6 @@ SVG
 * Install the extensions in `VSCode/extensions.txt`
 * Open the command palette and find "Rewrap: toggle auto-wrap" and turn it on. It's off by default
   and for some damn reason it can't be controlled via the settings interface.
-
-## Itsycal
-* In Itsycal's preferences, in the area for "Datetime pattern", enter `E MMM d  h:mm a`
-* Check "Hide icon"
-* ⌘Click and drag the Itsycal item in the menu bar next to the normal time and date display
-* In System Preferences>Date & Time>Clock, un-check "Show date and time in menu bar"
 
 ## BetterTouchTool
 * Add the following keyboard shortcuts:
