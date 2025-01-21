@@ -98,8 +98,9 @@ git_path () {
 }
 
 # See https://gitlab.com/gnachman/iterm2/issues/5964
-# set_prompt () {
-iterm2_generate_ps1 () {
+# Maybe this is fixed now?
+# iterm2_generate_ps1 () {
+set_prompt () {
   gitstuff=$(git_prompt)
   if [ -n "$VIRTUAL_ENV" ]; then
     venv="${Color_Yellow}!${Color_NoColor} "
@@ -115,8 +116,8 @@ iterm2_generate_ps1 () {
   export PS1="${venv}${prompt} ${Color_BBlue}\$${Color_NoColor} "
 }
 
-# if [ -n "$PROMPT_COMMAND" ]; then
-#   PROMPT_COMMAND="$PROMPT_COMMAND; set_prompt"
-# else
-#   PROMPT_COMMAND="set_prompt"
-# fi
+if [ -n "$PROMPT_COMMAND" ]; then
+  PROMPT_COMMAND="$PROMPT_COMMAND; set_prompt"
+else
+  PROMPT_COMMAND="set_prompt"
+fi
