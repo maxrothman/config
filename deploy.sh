@@ -56,32 +56,6 @@ else
   exit 1
 fi
 
-# Make bash-secure with proper git env vars
-echo "Creating .bash-secure: a place for configs you don't want checked into the config repo."
-if [[ ! -e ~/.bash-secure ]]; then
-  echo 'Name? (e.g. Tom Tickle)'
-  read -r -p '> ' gitname
-  echo 'Email address? (e.g. tom@tickle.me)'
-  read -r -p '> ' gitemail
-  echo 'Deploying sample bash-secure'
-  cat <<EOF > ~/.bash-secure
-export GIT_AUTHOR_NAME="$gitname"
-export GIT_AUTHOR_EMAIL="$gitemail"
-export GIT_COMMITTER_NAME="$gitname"
-export GIT_COMMITTER_EMAIL="$gitemail"
-
-# Add things to this file that you don't want to check in to git
-# For example:
-# if [ -f some/other/script.sh ]; then
-# source some/other/script.sh
-# export some_variable="a value"
-# fi
-
-EOF
-else
-  echo "Not writing ~/.bash-secure, one already exists"
-fi
-
 echo "Deploying git hooks..."
 # Mac's default ln has no -T
 if [[ ! -e ~/repos/.git-hooks ]]; then
@@ -94,4 +68,4 @@ else
 fi
 
 echo "Installing brew packages and casks"
-brew bundle install --global
+brew sync

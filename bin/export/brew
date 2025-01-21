@@ -4,7 +4,6 @@ Homebrew wrapper that forces you to manage your packages using a brewfile
 """
 
 import argparse
-import os
 import shutil
 import subprocess
 import sys
