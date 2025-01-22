@@ -68,9 +68,7 @@ def brew(*cmd):
     subprocess.run([brew_exec] + list(cmd), check=True, stderr=sys.stderr, stdout=sys.stdout)
 
 def all_tracked_formulas():
-    global_formulas = set(subprocess.check_output([brew_exec, 'bundle', 'list', '--file', '~/.Brewfile']).splitlines())
-    local_formulas = set(subprocess.check_output([brew_exec, 'bundle', 'list', '--file', '~/.Brewfile.local']).splitlines())
-    return global_formulas | local_formulas
+    return set(subprocess.check_output([brew_exec, 'bundle', 'list', '--file', '~/.Brewfile']).splitlines())
 
 def arg(*args, **kwargs):
     return 'arg', args, kwargs
@@ -83,8 +81,7 @@ def grp(*args):
 @cmd
 def sync():
     """Install all formulas in all brewfiles"""
-    brew("bundle", "install", "--file", "~/.Brewfile")
-    brew("bundle", "install", "--file", "~/.Brewfile.local")
+    brew("bundle", "install", "-v", "--file", "~/.Brewfile")
 
 @cmd(arg('pkg', metavar='FORMULA/CASK', nargs='+'),
      grp(arg('-g', '--global', dest='glbl', action='store_true', help='Add the packages to the global brewfile'),

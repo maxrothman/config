@@ -3,7 +3,8 @@ brew 'asdf'                           # tool version manager
 brew 'autojump'                       # cd on steroids: <https://github.com/wting/autojump>
 brew 'bash-completion'                # Basic tab completion
 brew 'bash'                           # I got used to bash and never learned zsh. Install the latest version, mac's default is pretty old
-brew 'borkdude/brew/babashka'         # Handy for quick Clojure
+tap 'borkdude/brew/'
+brew 'babashka'                       # Handy for quick Clojure
 brew 'coreutils'                      # Make Mac more Linux-y
 brew 'diffutils'                      # Mac's default is old
 brew 'findutils'                      # GNU find to replace weird BSD one
