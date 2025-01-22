@@ -1,7 +1,8 @@
 # ln -s Brewfile.home ~/.Brewfile.home
 
 # General work stuff
-brew 'hashicorp/tap/terraform'
+tap 'hashicorp/tap'
+brew 'terraform'
 brew 'libpq'   #psql, pg_dump, etc. without the entirety of Postgres
 
 # Klezmer Archive stuff
