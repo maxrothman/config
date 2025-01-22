@@ -29,7 +29,7 @@
   colorMoved =  default
   renames = copy
 
-# Fancy highlighting for log/show/diff is set up in bashrc.d/git.sh
+# Fancy highlighting for log/show/diff is set up in misc-setup.bash
 [pager]
   branch = cat
 

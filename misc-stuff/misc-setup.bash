@@ -34,3 +34,10 @@ echo 'auth sufficient pam_tid.so' > sudo_local
 chmod 444 sudo_local
 chown root:wheel sudo_local
 sudo mv sudo_local /etc/pam.d/
+
+# Visually highlight changes inside lines
+# Normally these would go in .gitconfig, but they need to be here so the path to git can be dynamic
+git config --global pager.log  "$BREW_PREFIX/share/git-core/contrib/diff-highlight/diff-highlight | less"
+git config --global pager.show "$BREW_PREFIX/share/git-core/contrib/diff-highlight/diff-highlight | less"
+git config --global pager.diff "$BREW_PREFIX/share/git-core/contrib/diff-highlight/diff-highlight | less"
+git config --global interactive.diffFilter "$BREW_PREFIX/share/git-core/contrib/diff-highlight/diff-highlight"
