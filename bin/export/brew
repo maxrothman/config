@@ -48,7 +48,7 @@ PASSTHROUGH_EXACT = {
 
 def parse_args():
     if sys.argv[1] in PASSTHROUGH_PREFIX or tuple(sys.argv[1:]) in PASSTHROUGH_EXACT:
-        r = subprocess.run([brew_exec] + sys.argv, stderr=sys.stderr, stdout=sys.stdout)
+        r = subprocess.run([brew_exec] + sys.argv[1:], stderr=sys.stderr, stdout=sys.stdout)
         sys.exit(r.returncode)
 
     parser = argparse.ArgumentParser(
