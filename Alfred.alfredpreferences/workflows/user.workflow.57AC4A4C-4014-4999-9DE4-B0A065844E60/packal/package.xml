@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<workflow>
-  <name>Tunnelblick Toggle</name>
-  <version>1.0</version>
-  <bundle>com.shau-kote.alfred.tunnelblick-toggle</bundle>
-  <updated>1462257036</updated>
-  <file>tunnelblick_toggle.alfredworkflow</file>
-</workflow>

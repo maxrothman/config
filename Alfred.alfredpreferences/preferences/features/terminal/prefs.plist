@@ -6,12 +6,12 @@
 	<integer>1</integer>
 	<key>custom</key>
 	<string>on alfred_script(q)
-    tell application "iTerm"
-        create window with default profile
-        tell current session of current window
-            write text q
-        end tell
-    end tell
+	tell application "iTerm"
+		create window with default profile
+		tell current session of current window
+			write text q
+		end tell
+	end tell
 end alfred_script</string>
 </dict>
 </plist>

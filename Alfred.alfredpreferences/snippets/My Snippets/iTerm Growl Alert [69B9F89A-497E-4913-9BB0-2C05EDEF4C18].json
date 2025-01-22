@@ -1,9 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "echo -ne '\\e]9;Done!\\007'",
-    "dontautoexpand" : true,
-    "uid" : "69B9F89A-497E-4913-9BB0-2C05EDEF4C18",
-    "name" : "iTerm Growl Alert",
-    "keyword" : "alert"
-  }
-}
