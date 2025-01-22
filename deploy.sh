@@ -8,7 +8,7 @@ set -euo pipefail
 configdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo 'Deploying bashrc.d...'
-if [[ ! -e ~/.bashrc.d && -L ~/.bashrc.d ]]; then
+if [[ ! -e ~/.bashrc.d || -L ~/.bashrc.d ]]; then
   ln -s "$configdir"/bashrc.d ~/.bashrc.d
 elif [[ -L ~/.bashrc.d && "$(readlink ~/.bashrc.d)" == "$configdir"/bashrc.d ]]; then
   :   #it's already synced
@@ -29,7 +29,7 @@ find "$dot_loc" -type f -print0 | while IFS= read -r -d '' f; do
   base_name="${f#"$dot_loc"}"  # Remove the prefix leaving the bare filename/path
   base_name="${base_name#/}"   # Remove leading slash
 
-  if [[ ! -f ~/."${base_name}" ]]; then
+  if [[ ! -f ~/."${base_name}" || -L ~/."${base_name}" ]]; then
     # If it's a directory, add the parents
     if [[ "$base_name" == */* ]]; then
       mkdir -p ~/."$(dirname $base_name)"
@@ -47,7 +47,7 @@ done
 $problems && exit 1
 
 echo 'Deploying bin...'
-if [[ ! -e ~/.bin && -L ~/.bin ]]; then
+if [[ ! -e ~/.bin || -L ~/.bin ]]; then
   ln -s "$configdir"/bin ~/.bin
 elif [[ -L ~/.bin && "$(readlink ~/.bin)" == "$configdir"/bin ]]; then
   :   #it's already synced
@@ -58,7 +58,7 @@ fi
 
 echo "Deploying git hooks..."
 # Mac's default ln has no -T
-if [[ ! -e ~/repos/.git-hooks && -L ~/repos/.git-hooks ]]; then
+if [[ ! -e ~/repos/.git-hooks || -L ~/repos/.git-hooks ]]; then
   ln -s "$configdir"/git-hooks ~/repos/.git-hooks
 elif [[ -L ~/.bashrc.d && "$(readlink ~/.bashrc.d)" == "$configdir"/bashrc.d ]]; then
   :   #it's already synced
@@ -72,7 +72,7 @@ jrdir=~/.config/joyride/scripts
 if [ ! -d "$jrdir" ]; then
   mkdir -p "$jrdir"
 fi
-if [ ! -e "$jrdir"/user_activate.cljs && -L "$jrdir"/user_activate.cljs ]; then
+if [[ ! -e "$jrdir"/user_activate.cljs || -L "$jrdir"/user_activate.cljs ]]; then
   ln -s "$configdir"/misc-stuff/user_activate.cljs "$jrdir"/user_activate.cljs
 elif [[ -L "$jrdir"/user_activate.cljs && "$(readlink "$jrdir"/user_activate.cljs)" == "$configdir"/misc-stuff/user_activate.cljs ]]; then
   :    # already synced
