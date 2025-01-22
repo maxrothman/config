@@ -1,3 +1,3 @@
-if [ -f "$BREW_PREFIX"/bin/terraform ]; then
-    complete -C "$BREW_PREFIX"/bin/terraform terraform
+if [ -f "$HOMEBREW_PREFIX"/bin/terraform ]; then
+    complete -C "$HOMEBREW_PREFIX"/bin/terraform terraform
 fi

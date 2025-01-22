@@ -37,7 +37,7 @@ sudo mv sudo_local /etc/pam.d/
 
 # Visually highlight changes inside lines
 # Normally these would go in .gitconfig, but they need to be here so the path to git can be dynamic
-git config --global pager.log  "$BREW_PREFIX/share/git-core/contrib/diff-highlight/diff-highlight | less"
-git config --global pager.show "$BREW_PREFIX/share/git-core/contrib/diff-highlight/diff-highlight | less"
-git config --global pager.diff "$BREW_PREFIX/share/git-core/contrib/diff-highlight/diff-highlight | less"
-git config --global interactive.diffFilter "$BREW_PREFIX/share/git-core/contrib/diff-highlight/diff-highlight"
+git config --global pager.log  "$HOMEBREW_PREFIX/share/git-core/contrib/diff-highlight/diff-highlight | less"
+git config --global pager.show "$HOMEBREW_PREFIX/share/git-core/contrib/diff-highlight/diff-highlight | less"
+git config --global pager.diff "$HOMEBREW_PREFIX/share/git-core/contrib/diff-highlight/diff-highlight | less"
+git config --global interactive.diffFilter "$HOMEBREW_PREFIX/share/git-core/contrib/diff-highlight/diff-highlight"
