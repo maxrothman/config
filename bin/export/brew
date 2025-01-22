@@ -5,7 +5,6 @@ Homebrew wrapper that forces you to manage your packages using a brewfile
 
 import argparse
 import os
-import shutil
 import subprocess
 import sys
 
@@ -38,7 +37,20 @@ def walk_argsspecs(subparser, node):
         for node in spec[0]:
             walk_argsspecs(grp, node)
 
+# If the args match any of these, just pass it straight through. This includes some common commands
+# like search and info, but also ones needed to get the tab completion to work
+PASSTHROUGH_PREFIX = {'info', 'search', '--prefix'}
+PASSTHROUGH_EXACT = {
+    ('formulae',), ('casks',), ('--cellar',), ('--caskroom',),
+    ('outdated', '--formula', '--quiet'), ('outdated', '--cask', '--quiet'),
+    ('--repository',), ('doctor', '--list-checks'),
+}
+
 def parse_args():
+    if sys.argv[1] in PASSTHROUGH_PREFIX or tuple(sys.argv[1:]) in PASSTHROUGH_EXACT:
+        r = subprocess.run([brew_exec] + sys.argv, stderr=sys.stderr, stdout=sys.stdout)
+        sys.exit(r.returncode)
+
     parser = argparse.ArgumentParser(
         prog="brew",
         description=__doc__,
