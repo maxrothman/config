@@ -21,6 +21,7 @@
   enable key repeat (otherwise, long-press opens the the key's unicode options which I don't have
   much use for)
 * Go to System Preferences > Accessibility > Zoom, check "Use scroll gesture with modifier keys to zoom"
+* In the notes app, go to edit > spelling and grammar and uncheck correct spelling automatically (why isn't this a real preference???)
 * Plug in the Microsoft Natural Ergonomic 4000 keyboard, then go to System
   Preferences > Keyboard. On the Keyboard tab, click "Modifier Keys...", and in
   the resulting modal, select the Microsoft keyboard from the dropdown and

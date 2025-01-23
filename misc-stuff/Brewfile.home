@@ -2,7 +2,7 @@
 
 # General work stuff
 tap 'hashicorp/tap'
-brew 'terraform'
+brew 'hashicorp/tap/terraform'
 brew 'libpq'   #psql, pg_dump, etc. without the entirety of Postgres
 
 # Klezmer Archive stuff
@@ -13,6 +13,7 @@ brew 'hugo'
 brew 'ant'
 
 # Clojure
+tap 'clojure/tools'
 brew 'clojure/tools/clojure'
 brew 'leiningen'
 
