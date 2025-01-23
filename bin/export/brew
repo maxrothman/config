@@ -136,7 +136,7 @@ def outdated(args):
 def get_untracked():
     formulas = all_tracked_formulas()
     tracked = set(subprocess.check_output([brew_exec, 'deps', '--union', *formulas]).splitlines())
-    all_formulas = set(subprocess.check_output([brew_exec, 'ls']).splitlines())
+    all_formulas = set(subprocess.check_output([brew_exec, 'ls', '--full-name']).splitlines())
     return all_formulas - (tracked | formulas)
 
 @cmd
@@ -160,12 +160,12 @@ def rm_untracked(args):
         if not args.no_prompt:
             print("The following formulas will be uninstalled:")
             print("===========================================")
-            print(b', '.join(untracked).decode())
+            print(b', '.join(fs).decode())
             print()
             answer = input("Are you sure you want to continue? (y/n): ")
-            go = answer.lower == 'y'
+            go = answer.lower() == 'y'
         if go or args.no_prompt:
-            brew('rm', **untracked)
+            brew('rm', *fs)
 
 @cmd(partial=True)
 def search(args):
