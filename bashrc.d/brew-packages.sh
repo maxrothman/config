@@ -7,8 +7,8 @@ eval "$($BREW_EXEC shellenv)"
 # This sets HOMEBREW_PREFIX, puts homebrew-installed binaries into PATH, and some other stuff
 
 #bash_completion
-if [ -f $HOMEBREW_PREFIX/etc/bash_completion ]; then
-  . "$HOMEBREW_PREFIX"/etc/bash_completion
+if [ -f $HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh ]; then
+  . "$HOMEBREW_PREFIX"/etc/profile.d/bash_completion.sh
 fi
 
 
