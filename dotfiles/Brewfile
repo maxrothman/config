@@ -12,12 +12,12 @@ brew 'fzf'                            # fuzzyfinder: https://github.com/junegunn
 brew 'git'                            # Update to newest on older systems
 brew 'gnu-sed'                        # BSD sed is weird (on Mac)
 brew 'grep'                           # BSD grep is also weird (on Mac)
+brew "highlight"                      # For `less` syntax highlighting
 brew 'jq'                             # JSON parsing tool: <https://stedolan.github.io/jq/>
 brew 'nmap'                           # Mac really doesn't ship with this?!
 brew 'pstree'                         # Gives you something like ps f on linux since there's no f on mac
 brew 'rename'                         # Mass file renaming
 brew 'ripgrep'                        # provides rg for fast recursive searches
-brew 'source-highlight'               # For `less` syntax highlighting
 brew 'telnet'                         # Not part of coreutils for some reason
 brew 'tig'                            # git curses client
 brew 'trash'                          # rm-like command that moves things to the trash (I may be a monster, but I'm a cautious monster)

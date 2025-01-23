@@ -40,6 +40,15 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * [ ] Look into other vscode extensions and configs in other-peoples-vscode-extensions
 * [ ] https://github.com/clvv/fasd (or one of the other tools linked therein) might have better tab completion than autojump
 * [ ] iTerm2 custom title script (on iterm-custom-titles branch)
+* `highlight`'s bash completions aren't getting seen because they're in
+  `/opt/homebrew/share/bash-completion/completions/`, whereas
+  bash-completion looks in `/homebrew/etc/bash-completion.d/`
+  * Reading the bash-completion docs, it seems like it prefers the place
+    it's looking but there's some indication it should be looking in
+    other places too?
+  * Not solving this now because I don't really need tab completion for
+    `highlight`, but in case it matters later, links:
+    * https://salsa.debian.org/debian/bash-completion
 
 ## Troubleshooting bash prompt performance problems
 My bashrc setup is complex enough that performance can be an issue. This repo contains a few tools
