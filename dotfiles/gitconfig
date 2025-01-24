@@ -1,7 +1,5 @@
 # Git per-user config file
 
-# Username and email are set by environment variables in ~/.bash-secure
-
 [core]
   #only set this true if you're on windows
   ignorecase = false
@@ -15,6 +13,12 @@
 [user]
   email = max.r.rothman@gmail.com
   name = Max Rothman
+
+[include]
+  # Paths for pager.log|show|diff, which depend on where homebrew is
+  # installed. Since gitconfig doesn't support env var expansion, these
+  # are written on machine setup per-machine
+  path = ~/.gitconfig.local
 
 [fetch]
   #WARNING: will remove local branches if they've been deleted from the remote

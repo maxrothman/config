@@ -5,8 +5,9 @@ if $(which -s docker); then
 fi
 
 # Bash completion
-for p in "$HOMEBREW_PREFIX"/etc/bash_completion.d/*.bash-completion; do
-  if ! [ -L "$p" ]; then
-    ln -s /Applications/Docker.app/Contents/Resources/etc/"$(basename "$p" .docker-completion)"  "$p" 
+for p in /Applications/Docker.app/Contents/Resources/etc/*.bash-completion; do
+  lname="$(basename "$p")"
+  if ! [ -L "$HOMEBREW_PREFIX/etc/bash_completion.d/$lname" ]; then
+    ln -s "$p" "$HOMEBREW_PREFIX/etc/bash_completion.d/$lname"
   fi
 done
