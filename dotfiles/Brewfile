@@ -15,6 +15,7 @@ brew 'grep'                           # BSD grep is also weird (on Mac)
 brew "highlight"                      # For `less` syntax highlighting
 brew 'jq'                             # JSON parsing tool: <https://stedolan.github.io/jq/>
 brew 'nmap'                           # Mac really doesn't ship with this?!
+brew "pipdeptree"                     # It's crazy this isn't built-in
 brew 'pstree'                         # Gives you something like ps f on linux since there's no f on mac
 brew 'rename'                         # Mass file renaming
 brew 'ripgrep'                        # provides rg for fast recursive searches
