@@ -17,7 +17,7 @@ defaults write com.apple.screencapture type jpg; killall SystemUIServer
 # found the need to necessarily do
 
 #Install fzf hooks
-/usr/local/opt/fzf/install
+"$(brew --prefix)"/opt/fzf/install
 
 #Install asdf plugins
 asdf plugin add java
@@ -32,7 +32,7 @@ asdf global nodejs latest
 #Enable touchid for sudo
 echo 'auth sufficient pam_tid.so' > sudo_local
 chmod 444 sudo_local
-chown root:wheel sudo_local
+sudo chown root:wheel sudo_local
 sudo mv sudo_local /etc/pam.d/
 
 # Visually highlight changes inside lines
