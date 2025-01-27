@@ -98,13 +98,14 @@ def sync():
 @cmd(arg('pkg', metavar='FORMULA/CASK', nargs='+'),
      grp(arg('-g', '--global', dest='glbl', action='store_true', help='Add the packages to the global brewfile'),
          arg('-l', '--local',  dest='lcl',  action='store_true', help='Add the packages to the local brewfile (default)')),
-     arg('-n', '--no-install', action='store_true', help='Do not install the packages after adding them to the brewfile'))
+     arg('-n', '--no-install', action='store_true', help='Do not install the packages after adding them to the brewfile'),
+     arg('--cask', action='store_true', help='Treat all named arguments as casks'))
 def add(args):
     """Add packages to your brewfile and install them"""
-    file = '~/.Brewfile.local' if args.lcl else '~/.Brewfile'
-    brew('add', *args.pkg, '--file', file)
+    file = '~/.Brewfile' if args.glbl else '~/.Brewfile.local'
+    brew('add', *args.pkg, '--file', file, *(['--cask'] if args.cask else []))
     if not args.no_install:
-        brew('install', *args.pkg)
+        brew('install', *args.pkg, *(['--cask'] if args.cask else []))
 
 @cmd(arg('pkg', metavar='FORMULA/CASK', nargs='+'),
      arg('-n', '--no-remove', action='store_true', help='Do not remove the packages after adding removing them from the brewfile'))
