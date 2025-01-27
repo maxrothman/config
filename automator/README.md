@@ -16,3 +16,7 @@ directory.
 - Select the icon in the top-left and hit "cmd+c"
 - Find the workflow app and open "Get Info"
 - Select the icon in the top-left and hit "cmd+v"
+
+### Bonus 2: hide the apps from Alfred
+- Open each of the apps with cmd+i, then to the comments add `alfred:ignore`
+- If they're still showing up, go to Advanced in the alfred prefs and hit "Clear application cache"
