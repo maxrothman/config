@@ -28,14 +28,6 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * Follow the instructions in `Alfred.alfredpreferences/README.md`
 * Follow the instructions in the README in `automator/`
 
-## Short-term Todo
-* [ ] Install clojure lang def for source-highlight
-  * See
-    https://github.com/clojure-cookbook/clojure-cookbook/blob/master/script/asciidoc/bootstrap.sh
-    for installation instructions, use lang def from
-    https://gist.github.com/alandipert/265810/
-  * Also: where does /usr/local/bin/src-hilite-lesspipe.sh come from? I have a custom one in ~/.bin
-
 ## Long-term Todo
 * [ ] Look into other vscode extensions and configs in other-peoples-vscode-extensions
 * [ ] https://github.com/clvv/fasd (or one of the other tools linked therein) might have better tab completion than autojump
