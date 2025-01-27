@@ -17,7 +17,7 @@
 * In System Preferences>Keyboard>Text, uncheck "Correct spelling automatically and "Add period with double-space
 * in System Preferences>Dock, un-check "Show recent applications in Dock"
 * Right click on the dock and select "Turn Hiding On"
-* Run `defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false (enable key repeat)` to
+* Run `defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false` to
   enable key repeat (otherwise, long-press opens the the key's unicode options which I don't have
   much use for)
 * Go to System Preferences > Accessibility > Zoom, check "Use scroll gesture with modifier keys to zoom"
