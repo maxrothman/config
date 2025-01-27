@@ -57,6 +57,16 @@
         "announcement": "auto"
     },
     "terminal.integrated.scrollback": 5000,
+    "terminal.integrated.profiles.osx": {
+        "bash": {
+            "path": "/opt/homebrew/bin/bash",
+            "args": [
+                "-l"
+            ],
+            "icon": "terminal-bash"
+        }
+    },
+    "terminal.integrated.defaultProfile.osx": "bash",
     "diffEditor.hideUnchangedRegions.enabled": true,
     // 
     // EXTENSION/LANGUAGE-SPECIFIC SETTINGS
