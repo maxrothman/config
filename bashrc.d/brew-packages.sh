@@ -46,6 +46,13 @@ if [ -d "$HOMEBREW_PREFIX"/Cellar/findutils ]; then
 fi
 
 #autojump
-if [ -f $HOMEBREW_PREFIX/etc/autojump.sh ]; then
+if [ -f "$HOMEBREW_PREFIX/etc/autojump.sh" ]; then
   . "$HOMEBREW_PREFIX"/etc/autojump.sh
 fi
+
+#pg_dump, et al
+if [ -d "$HOMEBREW_PREFIX/opt/libpq" ]; then
+  export PATH="$HOMEBREW_PREFIX/opt/libpq/bin:$PATH"
+  export MANPATH="$HOMEBREW_PREFIX/opt/libpq/share/man:$MANPATH"
+fi
+
