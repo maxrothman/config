@@ -56,3 +56,7 @@ if [ -d "$HOMEBREW_PREFIX/opt/libpq" ]; then
   export MANPATH="$HOMEBREW_PREFIX/opt/libpq/share/man:$MANPATH"
 fi
 
+#asdf
+if [ -d "$HOMEBREW_PREFIX/opt/asdf" ]; then
+  . "$HOMEBREW_PREFIX"/opt/asdf/libexec/asdf.sh
+fi
