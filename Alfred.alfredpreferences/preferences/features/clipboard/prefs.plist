@@ -13,5 +13,7 @@
 	</dict>
 	<key>snippetKeyword</key>
 	<string>s</string>
+	<key>snippetsAtTop</key>
+	<false/>
 </dict>
 </plist>
