@@ -26,3 +26,6 @@ brew 'pandoc'
 
 # Advent of code
 brew 'z3'
+
+# Temp
+brew "slackdump"
