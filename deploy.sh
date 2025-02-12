@@ -67,15 +67,18 @@ else
   exit 1
 fi
 
-echo "Deploying joyride script..."
+echo "Deploying joyride scripts..."
 jrdir=~/.config/joyride/scripts
 if [ ! -d "$jrdir" ]; then
   mkdir -p "$jrdir"
 fi
-if [[ ! -e "$jrdir"/user_activate.cljs && ! -L "$jrdir"/user_activate.cljs ]]; then
-  ln -s "$configdir"/misc-stuff/user_activate.cljs "$jrdir"/user_activate.cljs
-elif [[ -L "$jrdir"/user_activate.cljs && "$(readlink "$jrdir"/user_activate.cljs)" == "$configdir"/misc-stuff/user_activate.cljs ]]; then
-  :    # already synced
-else
-  echo "Refusing to overwrite ${jrdir}/user_activate.cljs, already exists or is a different symlink! Resolve differences then rerun this script."
-fi
+for f in "$configdir"/misc-stuff/joyride/*; do
+  fname="$(basename "$f")"
+  if [[ ! -e "$jrdir"/"$fname" && ! -L "$jrdir"/"$fname" ]]; then
+    ln -s "$configdir"/misc-stuff/joyride/"$fname" "$jrdir"/"$fname"
+  elif [[ -L "$jrdir"/"$fname" && "$(readlink "$jrdir"/"$fname")" == "$configdir"/misc-stuff/joyride/"$fname" ]]; then
+    :    # already synced
+  else
+    echo "Refusing to overwrite ${jrdir}/"$fname", already exists or is a different symlink! Resolve differences then rerun this script."
+  fi
+done
