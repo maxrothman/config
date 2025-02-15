@@ -7,78 +7,45 @@ set -euo pipefail
 # This magic gets the location of the current script
 configdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-echo 'Deploying bashrc.d...'
-if [[ ! -e ~/.bashrc.d && ! -L ~/.bashrc.d ]]; then
-  ln -s "$configdir"/bashrc.d ~/.bashrc.d
-elif [[ -L ~/.bashrc.d && "$(readlink ~/.bashrc.d)" == "$configdir"/bashrc.d ]]; then
-  :   #it's already synced
-else
-  echo "Refusing to overwrite ~/.bashrc.d, already exists or is a different symlink! Resolve differences then rerun this script."
-  exit 1
-fi
+deploy() {
+  local source="$1" dest="$2"
 
-echo 'Deploying dotfiles...'
-dot_loc="$configdir"/dotfiles
-problems=false
-find "$dot_loc" -type f -print0 | while IFS= read -r -d '' f; do
   #Ignore ignoreable files
-  if git --git-dir "$configdir"/.git check-ignore "$f"; then
-    continue
+  if git --git-dir "$configdir"/.git check-ignore "$source"; then
+    return
   fi
 
-  base_name="${f#"$dot_loc"}"  # Remove the prefix leaving the bare filename/path
-  base_name="${base_name#/}"   # Remove leading slash
-
-  if [[ ! -f ~/."${base_name}" && ! -L ~/."${base_name}" ]]; then
-    # If it's a directory, add the parents
-    if [[ "$base_name" == */* ]]; then
-      mkdir -p ~/."$(dirname $base_name)"
+  echo -n "Deploying $(basename "$source")..."
+  # Mac's default ln has no -T
+  if [[ ! -e "$dest" && ! -L "$dest" ]]; then
+    # Create parents if they don't already exist
+    if [[ "$dest" == */* ]]; then
+      mkdir -p "$(dirname $dest)"
     fi
-    
-    echo "Deploying ~/.${base_name}"
-    ln -s "$f" ~/."${base_name}"
-  elif [[ -L ~/."${base_name}" && "$(readlink ~/."${base_name}")" == "$f" ]]; then
-    :   #it's already synced
-  else
-    echo "Refusing to overwrite ~/.${base_name}, already exists! Resolve differences then rerun this script."
-    problems=true
-  fi
-done
-$problems && exit 1
-
-echo 'Deploying bin...'
-if [[ ! -e ~/.bin && ! -L ~/.bin ]]; then
-  ln -s "$configdir"/bin ~/.bin
-elif [[ -L ~/.bin && "$(readlink ~/.bin)" == "$configdir"/bin ]]; then
-  :   #it's already synced
-else
-  echo "Refusing to overwrite ~/.bin, already exists or is a different symlink! Resolve differences then rerun this script."
-  exit 1
-fi
-
-echo "Deploying git hooks..."
-# Mac's default ln has no -T
-if [[ ! -e ~/repos/.git-hooks && ! -L ~/repos/.git-hooks ]]; then
-  ln -s "$configdir"/git-hooks ~/repos/.git-hooks
-elif [[ -L ~/.bashrc.d && "$(readlink ~/.bashrc.d)" == "$configdir"/bashrc.d ]]; then
-  :   #it's already synced
-else
-  echo "Refusing to overwrite ~/repos/.git-hooks, already exists or is a different symlink! Resolve differences then rerun this script."
-  exit 1
-fi
-
-echo "Deploying joyride scripts..."
-jrdir=~/.config/joyride/scripts
-if [ ! -d "$jrdir" ]; then
-  mkdir -p "$jrdir"
-fi
-for f in "$configdir"/misc-stuff/joyride/*; do
-  fname="$(basename "$f")"
-  if [[ ! -e "$jrdir"/"$fname" && ! -L "$jrdir"/"$fname" ]]; then
-    ln -s "$configdir"/misc-stuff/joyride/"$fname" "$jrdir"/"$fname"
-  elif [[ -L "$jrdir"/"$fname" && "$(readlink "$jrdir"/"$fname")" == "$configdir"/misc-stuff/joyride/"$fname" ]]; then
+    ln -s "$source" "$dest"
+    echo "Created $dest"
+  elif [[ -L "$dest" && "$(readlink "$dest")" == "$source" ]]; then
+    echo
     :    # already synced
   else
-    echo "Refusing to overwrite ${jrdir}/"$fname", already exists or is a different symlink! Resolve differences then rerun this script."
+    echo
+    echo "Refusing to overwrite $dest, already exists or is a different symlink! Resolve differences then rerun this script."
+    return 1
   fi
+}
+
+deploy "$configdir"/bashrc.d ~/.bashrc.d
+
+for f in "$configdir"/dotfiles/*; do
+  deploy "$f" ~/."$(basename "$f")"
 done
+
+deploy "$configdir"/bin ~/.bin
+deploy "$configdir"/git-hooks ~/repos/.git-hooks
+
+jrdir=~/.config/joyride/scripts
+for f in "$configdir"/misc-stuff/joyride/scripts/*; do
+  deploy "$f" "$jrdir/$(basename "$f")"
+done
+
+deploy "$configdir"/misc-stuff/ignore ~/.config/git/ignore
