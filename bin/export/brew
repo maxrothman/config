@@ -10,7 +10,7 @@ import sys
 
 cmds = {}
 
-def cmd(*args, partial=False):
+def cmd(*args, partial=False, add_help=True):
     has_args = not callable(next(iter(args), True))
 
     def dec(f):
@@ -18,6 +18,7 @@ def cmd(*args, partial=False):
             'f': f,
             'args': args if has_args else [],   # Same args as ArgumentParser.add_argument
             'partial': partial,
+            'add_help': add_help,
         }
         return f
 
@@ -63,7 +64,10 @@ def parse_args():
     for cmd, desc in cmds.items():
         if desc['partial']: partial = True
 
-        subparser = subparsers.add_parser(cmd, description=desc['f'].__doc__, help=desc['f'].__doc__)
+        subparser = subparsers.add_parser(
+            cmd, description=desc['f'].__doc__, help=desc['f'].__doc__,
+            add_help=desc['add_help'],
+        )
         subparser.set_defaults(func=desc['f'])
 
         for node in desc['args']:
@@ -168,12 +172,7 @@ def rm_untracked(args):
         if go or args.no_prompt:
             brew('rm', *fs)
 
-@cmd(partial=True)
-def search(args):
-    """Search for formulas"""
-    brew('search', *args)
-
-@cmd(partial=True)
+@cmd(partial=True, add_help=False)
 def raw(args):
     """Run arbitrary brew commands"""
     brew(*args)
