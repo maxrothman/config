@@ -1,3 +1,6 @@
+# Bash seems to iterate over files in sorted order. This file has to be evaluated first because brew
+# env vars are used in other files.
+
 if [ -x /opt/homebrew/bin/brew ]; then
   export BREW_EXEC=/opt/homebrew/bin/brew
 elif [ -x /usr/local/bin/brew ]; then
