@@ -27,5 +27,10 @@ brew 'pandoc'
 # Advent of code
 brew 'z3'
 
-# Temp
+
+### Temp ###
 brew "slackdump"
+
+# For generating MEI example images
+brew "librsvg"
+brew "imagemagick"
