@@ -159,7 +159,7 @@
     "BTTNotchBarNotchMenubarModeHideRightScrollable" : true,
     "BSTSnapAreaDefaultPictoDistanceFromLeft" : 0.10000000149011612
   },
-  "BTTPresetUUID" : "1F0ECF77-ED41-4907-97C7-D33BE1479B5A",
+  "BTTPresetUUID" : "607BB6EF-9A08-4CD7-8A8F-5B81B16F0594",
   "BTTPresetContent" : [
     {
       "BTTAppBundleIdentifier" : "BT.L",
@@ -217,45 +217,6 @@
             }
           ],
           "BTTGestureNotes" : "Disable clamshell mode"
-        },
-        {
-          "BTTActionCategory" : 0,
-          "BTTLastUpdatedAt" : 1740328758.92593,
-          "BTTTriggerType" : 739,
-          "BTTTriggerTypeDescriptionReadOnly" : "Did Unlock Screen",
-          "BTTTriggerTypeDescription" : "[W] Time clock reminder",
-          "BTTTriggerClass" : "BTTTriggerTypeOtherTriggers",
-          "BTTUUID" : "EDBD791E-FCD8-4776-B97F-C5A72DAFBE67",
-          "BTTPredefinedActionType" : 366,
-          "BTTPredefinedActionName" : "Empty Placeholder",
-          "BTTNotesInsteadOfDescription" : 1,
-          "BTTEnabled" : 1,
-          "BTTEnabled2" : 1,
-          "BTTOrder" : 4,
-          "BTTAdditionalActions" : [
-            {
-              "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1740328758.925946,
-              "BTTTriggerParentUUID" : "EDBD791E-FCD8-4776-B97F-C5A72DAFBE67",
-              "BTTIsPureAction" : true,
-              "BTTTriggerClass" : "BTTTriggerTypeOtherTriggers",
-              "BTTUUID" : "2BCD7712-1F83-43D9-B74E-392A1DF1588A",
-              "BTTPredefinedActionType" : 172,
-              "BTTPredefinedActionName" : "Run Apple Script (blocking)",
-              "BTTAdditionalActionData" : {
-                "BTTScriptType" : 0,
-                "BTTAppleScriptUsePath" : false,
-                "BTTScriptLocation" : 0,
-                "BTTAppleScriptRunInBackground" : false,
-                "BTTAppleScriptString" : "display dialog \"Remember to start the time clock!\""
-              },
-              "BTTInlineAppleScript" : "display dialog \"Remember to start the time clock!\"",
-              "BTTEnabled" : 1,
-              "BTTEnabled2" : 1,
-              "BTTOrder" : 2
-            }
-          ],
-          "BTTGestureNotes" : "[W] Time clock reminder"
         },
         {
           "BTTActionCategory" : 0,
