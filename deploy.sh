@@ -49,5 +49,4 @@ for f in "$configdir"/misc-stuff/joyride/scripts/*; do
 done
 
 deploy "$configdir"/misc-stuff/ignore ~/.config/git/ignore
-deploy "$configdir"/bettertouchtool/BetterTouchTool ~/Library/'Application Support'/BetterTouchTool
 
