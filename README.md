@@ -16,9 +16,7 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * git-hooks: My flexible git-hooks setup that allows for multiple global and repo-local hooks of the
   same type. Mostly used to turn my pre-push hook on for all repos.
 * BetterTouchTool setup: stored in ~/.btt_autoload_preset.json, which is loaded and overrides any
-  existing preset on launch (according to
-  [this](https://community.folivora.ai/t/syncing-the-config-in-git/34840/4)). If there are certain
-  triggers you don't want checked in, put them in a different preset.
+  existing preset on launch. See manual.md for details.
 
 ## Setup instructions:
 * Clone this repo somewhere

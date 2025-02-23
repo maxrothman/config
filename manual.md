@@ -82,12 +82,13 @@ Clojure, ClojureDocs
 * Run "Sync Settings: Download"
 
 ## BetterTouchTool
-* Add the following keyboard shortcuts:
-  * ⇧^⌥⌘→: Action: Move Right a Space
-  * ⇧^⌥⌘←: Action: Move Left a Space
-  
-  These are "pressed" by USB Overdrive when the special keys on my Microsoft Natural Ergonomic
-  4000 are pressed
+Synced BetterTouchTool config is stored in ~/.btt_autoload_preset.json and loaded on startup. It
+will create/replace a preset named "Global". A few notes/caveats:
+* The only documentation for this feature as far as I can tell is [this thread](https://community.folivora.ai/t/syncing-the-config-in-git/34840/4)
+* BTT will not replace the "master" preset with the one in ~/.btt_autoload_preset.json, that's why a
+  separate preset is used
+* If you create a new trigger and want it to get synced, make sure to add it to the "Global" preset
+* If you *don't* want a trigger to be synced add it to the master ("Default") preset
 
 ## USB Overdrive
 * Plug in the Microsoft Natural Ergonomic 4000 keyboard
