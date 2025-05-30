@@ -118,7 +118,7 @@ def rm(args):
     brew('drop', *args.pkg, '--file', '~/.Brewfile')
     brew('drop', *args.pkg, '--file', '~/.Brewfile.local')
     if not args.no_remove:
-        brew('rm' *args.pkg)
+        brew('rm', *args.pkg)
 
 @cmd(arg('pkg', metavar='FORMULA/CASK', nargs='*'))
 def upgrade(args):

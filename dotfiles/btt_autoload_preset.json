@@ -43,7 +43,7 @@
     "BTTNotchBarNotchMenubarModeHideLeftFixed" : true,
     "BTTMovePastedToTop" : true,
     "BTTMaxAllowedDrawingRotation" : 30,
-    "BTTDidRegisterForUpdateStats" : "5.218",
+    "BTTDidRegisterForUpdateStats" : "5.294",
     "BTTNotchBarNotchWidgetModeHideRightFixed" : false,
     "BTTFavoriteActions" : {
       "371" : false
@@ -159,24 +159,8 @@
     "BTTNotchBarNotchMenubarModeHideRightScrollable" : true,
     "BSTSnapAreaDefaultPictoDistanceFromLeft" : 0.10000000149011612
   },
-  "BTTPresetUUID" : "4909A5F6-9A27-419E-AEE5-F821F8C781D8",
+  "BTTPresetUUID" : "F3849395-2432-48F2-B442-E26C08AA1B63",
   "BTTPresetContent" : [
-    {
-      "BTTAppBundleIdentifier" : "BT.L",
-      "BTTAppName" : "Recently Used",
-      "BTTAppAutoInvertIcon" : 1,
-      "BTTTriggers" : [
-
-      ]
-    },
-    {
-      "BTTAppBundleIdentifier" : "com.apple.finder",
-      "BTTAppName" : "Finder",
-      "BTTAppAutoInvertIcon" : 1,
-      "BTTTriggers" : [
-
-      ]
-    },
     {
       "BTTAppBundleIdentifier" : "BT.G",
       "BTTAppName" : "Global",
@@ -187,50 +171,40 @@
       "BTTTriggers" : [
         {
           "BTTActionCategory" : 0,
-          "BTTLastUpdatedAt" : 1740329509.5110199,
-          "BTTTriggerType" : 793,
-          "BTTTriggerTypeDescriptionReadOnly" : "Screen\/Display Did Disconnect",
-          "BTTTriggerTypeDescription" : "Turn on laptop display when monitor disconnected",
+          "BTTLastUpdatedAt" : 1740330367.9571719,
+          "BTTTriggerConditionsFormatReadOnly" : "connected_screens MATCHES \".+\"",
+          "BTTTriggerConditionsData" : "YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGvEBYLDBMYICorLTQ4PT5BRUlOT1JYXWFjVSRudWxs0w0ODxAREl8QF05TQ29tcG91bmRQcmVkaWNhdGVUeXBlXxAPTlNTdWJwcmVkaWNhdGVzViRjbGFzcxABgAKAFdIUDxUXWk5TLm9iamVjdHOhFoADgBTUDxkaGxwdHh9fEBFOU1JpZ2h0RXhwcmVzc2lvbl8QEE5TTGVmdEV4cHJlc3Npb25fEBNOU1ByZWRpY2F0ZU9wZXJhdG9ygBOADoAEgBHVISIjJA8lJicoKVlOU09wZXJhbmReTlNTZWxlY3Rvck5hbWVfEBBOU0V4cHJlc3Npb25UeXBlW05TQXJndW1lbnRzgAaABRADgAiADVx2YWx1ZUZvcktleTrSIw8QLIAH0i4vMDFaJGNsYXNzbmFtZVgkY2xhc3Nlc18QEE5TU2VsZkV4cHJlc3Npb26jMDIzXE5TRXhwcmVzc2lvblhOU09iamVjdNIUDzU3oTaACYAM0w8jOTo7PFlOU0tleVBhdGiACxAKgApfEBFjb25uZWN0ZWRfc2NyZWVuc9IuLz9AXxAcTlNLZXlQYXRoU3BlY2lmaWVyRXhwcmVzc2lvbqM_MjPSLi9CQ15OU011dGFibGVBcnJheaNCRDNXTlNBcnJhedIuL0ZHXxATTlNLZXlQYXRoRXhwcmVzc2lvbqRGSDIzXxAUTlNGdW5jdGlvbkV4cHJlc3Npb27TSiMPS0xNXxAPTlNDb25zdGFudFZhbHVlgA8QAIAQUi4r0i4vUFFfEBlOU0NvbnN0YW50VmFsdWVFeHByZXNzaW9uo1AyM9QPU1RVVkxMV1pOU01vZGlmaWVyV05TRmxhZ3NeTlNPcGVyYXRvclR5cGWAEhAG0i4vWVpfEBtOU01hdGNoaW5nUHJlZGljYXRlT3BlcmF0b3KkWVtcM18QGU5TU3RyaW5nUHJlZGljYXRlT3BlcmF0b3JfEBNOU1ByZWRpY2F0ZU9wZXJhdG9y0i4vXl9fEBVOU0NvbXBhcmlzb25QcmVkaWNhdGWjXmAzW05TUHJlZGljYXRl0i4vRGKiRDPSLi9kZV8QE05TQ29tcG91bmRQcmVkaWNhdGWjZGAzAAgAEQAaACQAKQAyADcASQBMAFEAUwBsAHIAeQCTAKUArACuALAAsgC3AMIAxADGAMgA0QDlAPgBDgEQARIBFAEWASEBKwE6AU0BWQFbAV0BXwFhAWMBcAF1AXcBfAGHAZABowGnAbQBvQHCAcQBxgHIAc8B2QHbAd0B3wHzAfgCFwIbAiACLwIzAjsCQAJWAlsCcgJ5AosCjQKPApEClAKZArUCuQLCAs0C1QLkAuYC6ALtAwsDEAMsA0IDRwNfA2MDbwN0A3cDfAOSAAAAAAAAAgEAAAAAAAAAZgAAAAAAAAAAAAAAAAAAA5Y=",
+          "BTTTriggerType" : 683,
+          "BTTTriggerTypeDescriptionReadOnly" : "Did Close Macbook Lid",
+          "BTTTriggerTypeDescription" : "Disable clamshell mode",
           "BTTTriggerClass" : "BTTTriggerTypeOtherTriggers",
-          "BTTUUID" : "4B5B58DC-4234-4C57-BF48-B4BEB27E0044",
+          "BTTUUID" : "5BBE91A9-4287-44A3-AF14-4C9C6583D7C0",
           "BTTPredefinedActionType" : 366,
           "BTTPredefinedActionName" : "Empty Placeholder",
-          "BTTGenericActionConfig" : ".*DELL.*",
           "BTTNotesInsteadOfDescription" : 1,
           "BTTEnabled" : 1,
           "BTTEnabled2" : 1,
-          "BTTOrder" : 2,
+          "BTTOrder" : 0,
           "BTTAdditionalActions" : [
             {
               "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1740329509.5111179,
-              "BTTTriggerParentUUID" : "4B5B58DC-4234-4C57-BF48-B4BEB27E0044",
+              "BTTLastUpdatedAt" : 1740330367.9573941,
+              "BTTTriggerParentUUID" : "5BBE91A9-4287-44A3-AF14-4C9C6583D7C0",
               "BTTIsPureAction" : true,
               "BTTTriggerClass" : "BTTTriggerTypeOtherTriggers",
-              "BTTUUID" : "28C861EF-62BA-4A12-8D1A-33BB6E176C92",
-              "BTTPredefinedActionType" : 281,
-              "BTTPredefinedActionName" : "Run Real JavaScript",
-              "BTTAdditionalActionData" : {
-                "BTTScriptFunctionToCall" : "someJavaScriptFunction",
-                "BTTJavaScriptUseIsolatedContext" : false,
-                "BTTAppleScriptRunInBackground" : false,
-                "BTTScriptType" : 3,
-                "BTTAppleScriptString" : "callBTT('set_number_variable', {variable_name: 'BuiltInDisplayBrightness', to: 0.5});\nreturnToBTT('');",
-                "BTTActionJSRunInSeparateContext" : false,
-                "BTTAppleScriptUsePath" : false,
-                "BTTScriptLocation" : 0
-              },
-              "BTTRealJavaScriptString" : "callBTT('set_number_variable', {variable_name: 'BuiltInDisplayBrightness', to: 0.5});\nreturnToBTT('');",
+              "BTTUUID" : "A9C1AB03-301A-4559-ADF0-1395C5D6BA48",
+              "BTTPredefinedActionType" : 13,
+              "BTTPredefinedActionName" : "Sleep Display",
               "BTTEnabled" : 1,
               "BTTEnabled2" : 1,
-              "BTTOrder" : 2
+              "BTTOrder" : 1
             }
           ],
-          "BTTGestureNotes" : "Turn on laptop display when monitor disconnected"
+          "BTTGestureNotes" : "Disable clamshell mode"
         },
         {
           "BTTActionCategory" : 0,
-          "BTTLastUpdatedAt" : 1740329509.5107841,
+          "BTTLastUpdatedAt" : 1740330367.9569778,
           "BTTTriggerType" : 792,
           "BTTTriggerTypeDescriptionReadOnly" : "Screen\/Display Did Connect",
           "BTTTriggerTypeDescription" : "Turn off laptop display when monitor connected",
@@ -246,7 +220,7 @@
           "BTTAdditionalActions" : [
             {
               "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1740329509.510895,
+              "BTTLastUpdatedAt" : 1740330367.957067,
               "BTTTriggerParentUUID" : "8DD05E87-8EBF-4989-8B6C-41F1BEFC5F95",
               "BTTIsPureAction" : true,
               "BTTTriggerClass" : "BTTTriggerTypeOtherTriggers",
@@ -273,40 +247,50 @@
         },
         {
           "BTTActionCategory" : 0,
-          "BTTLastUpdatedAt" : 1740329509.509999,
-          "BTTTriggerConditionsFormatReadOnly" : "connected_screens MATCHES \".+\"",
-          "BTTTriggerConditionsData" : "YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGvEBYLDBMYICorLTQ4PT5BRUlOT1JYXWFjVSRudWxs0w0ODxAREl8QF05TQ29tcG91bmRQcmVkaWNhdGVUeXBlXxAPTlNTdWJwcmVkaWNhdGVzViRjbGFzcxABgAKAFdIUDxUXWk5TLm9iamVjdHOhFoADgBTUDxkaGxwdHh9fEBFOU1JpZ2h0RXhwcmVzc2lvbl8QEE5TTGVmdEV4cHJlc3Npb25fEBNOU1ByZWRpY2F0ZU9wZXJhdG9ygBOADoAEgBHVISIjJA8lJicoKVlOU09wZXJhbmReTlNTZWxlY3Rvck5hbWVfEBBOU0V4cHJlc3Npb25UeXBlW05TQXJndW1lbnRzgAaABRADgAiADVx2YWx1ZUZvcktleTrSIw8QLIAH0i4vMDFaJGNsYXNzbmFtZVgkY2xhc3Nlc18QEE5TU2VsZkV4cHJlc3Npb26jMDIzXE5TRXhwcmVzc2lvblhOU09iamVjdNIUDzU3oTaACYAM0w8jOTo7PFlOU0tleVBhdGiACxAKgApfEBFjb25uZWN0ZWRfc2NyZWVuc9IuLz9AXxAcTlNLZXlQYXRoU3BlY2lmaWVyRXhwcmVzc2lvbqM_MjPSLi9CQ15OU011dGFibGVBcnJheaNCRDNXTlNBcnJhedIuL0ZHXxATTlNLZXlQYXRoRXhwcmVzc2lvbqRGSDIzXxAUTlNGdW5jdGlvbkV4cHJlc3Npb27TSiMPS0xNXxAPTlNDb25zdGFudFZhbHVlgA8QAIAQUi4r0i4vUFFfEBlOU0NvbnN0YW50VmFsdWVFeHByZXNzaW9uo1AyM9QPU1RVVkxMV1pOU01vZGlmaWVyV05TRmxhZ3NeTlNPcGVyYXRvclR5cGWAEhAG0i4vWVpfEBtOU01hdGNoaW5nUHJlZGljYXRlT3BlcmF0b3KkWVtcM18QGU5TU3RyaW5nUHJlZGljYXRlT3BlcmF0b3JfEBNOU1ByZWRpY2F0ZU9wZXJhdG9y0i4vXl9fEBVOU0NvbXBhcmlzb25QcmVkaWNhdGWjXmAzW05TUHJlZGljYXRl0i4vRGKiRDPSLi9kZV8QE05TQ29tcG91bmRQcmVkaWNhdGWjZGAzAAgAEQAaACQAKQAyADcASQBMAFEAUwBsAHIAeQCTAKUArACuALAAsgC3AMIAxADGAMgA0QDlAPgBDgEQARIBFAEWASEBKwE6AU0BWQFbAV0BXwFhAWMBcAF1AXcBfAGHAZABowGnAbQBvQHCAcQBxgHIAc8B2QHbAd0B3wHzAfgCFwIbAiACLwIzAjsCQAJWAlsCcgJ5AosCjQKPApEClAKZArUCuQLCAs0C1QLkAuYC6ALtAwsDEAMsA0IDRwNfA2MDbwN0A3cDfAOSAAAAAAAAAgEAAAAAAAAAZgAAAAAAAAAAAAAAAAAAA5Y=",
-          "BTTTriggerType" : 683,
-          "BTTTriggerTypeDescriptionReadOnly" : "Did Close Macbook Lid",
-          "BTTTriggerTypeDescription" : "Disable clamshell mode",
+          "BTTLastUpdatedAt" : 1740330367.9566331,
+          "BTTTriggerType" : 793,
+          "BTTTriggerTypeDescriptionReadOnly" : "Screen\/Display Did Disconnect",
+          "BTTTriggerTypeDescription" : "Turn on laptop display when monitor disconnected",
           "BTTTriggerClass" : "BTTTriggerTypeOtherTriggers",
-          "BTTUUID" : "5BBE91A9-4287-44A3-AF14-4C9C6583D7C0",
+          "BTTUUID" : "4B5B58DC-4234-4C57-BF48-B4BEB27E0044",
           "BTTPredefinedActionType" : 366,
           "BTTPredefinedActionName" : "Empty Placeholder",
+          "BTTGenericActionConfig" : ".*DELL.*",
           "BTTNotesInsteadOfDescription" : 1,
           "BTTEnabled" : 1,
           "BTTEnabled2" : 1,
-          "BTTOrder" : 0,
+          "BTTOrder" : 2,
           "BTTAdditionalActions" : [
             {
               "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1740329509.5103722,
-              "BTTTriggerParentUUID" : "5BBE91A9-4287-44A3-AF14-4C9C6583D7C0",
+              "BTTLastUpdatedAt" : 1740330367.9568291,
+              "BTTTriggerParentUUID" : "4B5B58DC-4234-4C57-BF48-B4BEB27E0044",
               "BTTIsPureAction" : true,
               "BTTTriggerClass" : "BTTTriggerTypeOtherTriggers",
-              "BTTUUID" : "A9C1AB03-301A-4559-ADF0-1395C5D6BA48",
-              "BTTPredefinedActionType" : 13,
-              "BTTPredefinedActionName" : "Sleep Display",
+              "BTTUUID" : "28C861EF-62BA-4A12-8D1A-33BB6E176C92",
+              "BTTPredefinedActionType" : 281,
+              "BTTPredefinedActionName" : "Run Real JavaScript",
+              "BTTAdditionalActionData" : {
+                "BTTScriptFunctionToCall" : "someJavaScriptFunction",
+                "BTTJavaScriptUseIsolatedContext" : false,
+                "BTTAppleScriptRunInBackground" : false,
+                "BTTScriptType" : 3,
+                "BTTAppleScriptString" : "callBTT('set_number_variable', {variable_name: 'BuiltInDisplayBrightness', to: 0.5});\nreturnToBTT('');",
+                "BTTActionJSRunInSeparateContext" : false,
+                "BTTAppleScriptUsePath" : false,
+                "BTTScriptLocation" : 0
+              },
+              "BTTRealJavaScriptString" : "callBTT('set_number_variable', {variable_name: 'BuiltInDisplayBrightness', to: 0.5});\nreturnToBTT('');",
               "BTTEnabled" : 1,
               "BTTEnabled2" : 1,
-              "BTTOrder" : 1
+              "BTTOrder" : 2
             }
           ],
-          "BTTGestureNotes" : "Disable clamshell mode"
+          "BTTGestureNotes" : "Turn on laptop display when monitor disconnected"
         },
         {
           "BTTActionCategory" : 0,
-          "BTTLastUpdatedAt" : 1740329509.5105371,
+          "BTTLastUpdatedAt" : 1740330367.9575171,
           "BTTTriggerType" : 678,
           "BTTTriggerTypeDescriptionReadOnly" : "Repeating or Time Based Trigger",
           "BTTTriggerTypeDescription" : "Sync BTT settings",
@@ -322,7 +306,7 @@
           "BTTAdditionalActions" : [
             {
               "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1740329989.0848799,
+              "BTTLastUpdatedAt" : 1740330367.9576111,
               "BTTTriggerParentUUID" : "9D22534A-031B-4886-8A4C-ACEDC2F0A768",
               "BTTIsPureAction" : true,
               "BTTTriggerClass" : "BTTTriggerTypeOtherTriggers",
@@ -347,6 +331,22 @@
           ],
           "BTTGestureNotes" : "Sync BTT settings"
         }
+      ]
+    },
+    {
+      "BTTAppBundleIdentifier" : "BT.L",
+      "BTTAppName" : "Recently Used",
+      "BTTAppAutoInvertIcon" : 1,
+      "BTTTriggers" : [
+
+      ]
+    },
+    {
+      "BTTAppBundleIdentifier" : "com.apple.finder",
+      "BTTAppName" : "Finder",
+      "BTTAppAutoInvertIcon" : 1,
+      "BTTTriggers" : [
+
       ]
     }
   ],

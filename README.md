@@ -31,6 +31,7 @@ A repository for various pieces of workstation setup: dotfiles, configs, extensi
 * Follow the instructions in the README in `automator/`
 
 ## Long-term Todo
+* Implmement vscode navigate in file cmds in joyride? [issue](https://github.com/microsoft/vscode/issues/166314)
 * [ ] Look into other vscode extensions and configs in other-peoples-vscode-extensions
 * [ ] https://github.com/clvv/fasd (or one of the other tools linked therein) might have better tab completion than autojump
 * [ ] iTerm2 custom title script (on iterm-custom-titles branch)

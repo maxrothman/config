@@ -137,13 +137,14 @@
   #TODO: make simpler? https://stackoverflow.com/questions/6127328/how-can-i-delete-all-git-branches-which-have-been-merged
   cleanup-merged = "!git for-each-ref --format '%(refname)' refs/heads | grep -vE $(git safe-get-config myconfig.protected-branches | tr ',' '|') | while read ref; do git merged $ref $(git safe-get-config myconfig.main-branch) >/dev/null && git branch -D ${ref#refs/heads/}; done"
 
-  #Delete all local branches whose upstreams no longer exist (excluding branches that never had upstreams)
-  #TODO: make simpler? https://stackoverflow.com/questions/3184555/cleaning-up-old-remote-git-branches
-  cleanup-deleted = "!git for-each-ref refs/heads --format='%(refname:short) %(upstream:short)' | while read l; do remote=$(cut -d' ' -f2 <<< $l); here=$(cut -d' ' -f1 <<< $l); if [ -n \"$remote\" ]; then git rev-parse \"$remote\" &>/dev/null; result=$?; [ \"$result\" -gt 0 ] && git branch -D $here; fi; done"
+  #Delete all local branches whose upstreams no longer exist (excluding branches that never had
+  #upstreams)
+  # Excludes branches whose upstreams have a different name, those presumably are branches-of-branches
+  cleanup-deleted = "!git for-each-ref refs/heads --format='%(refname:short) %(upstream:short)' | while read l; do remote=$(cut -d' ' -f2 <<< $l); here=$(cut -d' ' -f1 <<< $l); if [ -n \"$remote\" ]; then git rev-parse \"$remote\" &>/dev/null; result=$?; [ \"$result\" -gt 0 ] && [ \"$remote\" = origin/\"$here\" ] && git branch -D $here; fi; done"
 
   cleanup = "!git cleanup-merged; git cleanup-deleted"
   
-  postmerge = !git checkout $(git safe-get-config myconfig.main-branch) && git pull && git cleanup
+  postmerge = !git checkout $(git safe-get-config myconfig.main-branch) && git pull --prune && git cleanup
 
   #Show authors of given path sorted by line count
   who = "!f() { [ -e \"$1\" ] || { echo \"No such file '$1'\"; exit 2; }; git ls-tree -rz --name-only @ -- \"$1\" | xargs -0 -n1 git blame --line-porcelain HEAD | grep  '^author ' | sort | uniq -c | sort -nr | sed 's/ author//'; }; f"

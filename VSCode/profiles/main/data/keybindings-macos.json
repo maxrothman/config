@@ -165,6 +165,17 @@
         "command": "deleteWordPartLeft",
         "when": "terminalFocus"
     },
+    // Reuse muscle memory from iTerm
+    {
+        "key": "shift+cmd+e",
+        "command": "workbench.action.terminal.split",
+        "when": "terminalFocus && terminalProcessSupported || terminalFocus && terminalWebExtensionContributedProfile"
+    },
+    {
+        "key": "cmd+\\",
+        "command": "-workbench.action.terminal.split",
+        "when": "terminalFocus && terminalProcessSupported || terminalFocus && terminalWebExtensionContributedProfile"
+    },
     // ========================
     // Shortcuts for extensions
     // ========================
@@ -430,5 +441,24 @@
     {
         "key": "ctrl+backspace",
         "command": "-paredit.killListBackward"
+    },
+    // Use source control panel with keyboard
+    {
+        "key": "cmd+up",
+        "command": "git.stage",
+        "when": "sideBarFocus && activeViewlet == 'workbench.view.scm'"
+    },
+    // They define cmd+down but not cmd+up?!
+    {
+        "key": "cmd+up",
+        "command": "search.focus.previousInputBox",
+        "when": "inSearchEditor && inputBoxFocus || inputBoxFocus && searchViewletVisible"
+    },
+    {
+        // Without this, when you're on the file results list you can't send focus back up to the
+        // search boxes
+        "key": "cmd+up",
+        "command": "search.focus.previousInputBox",
+        "when": "fileMatchOrMatchFocus && searchViewletVisible"
     }
 ]

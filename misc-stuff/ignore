@@ -1,2 +1,3 @@
 # Global git ignore file
 .vscode
+.DS_Store

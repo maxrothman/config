@@ -41,7 +41,6 @@
         "**/.stack-work": true,
         "**/.vscode": true
     },
-    "explorer.excludeGitIgnore": true,
     "files.associations": {
         "*.bb": "clojure",
         "*.hcl": "terraform"
@@ -61,7 +60,7 @@
         "bash": {
             "path": "/opt/homebrew/bin/bash",
             "args": [
-                "-l"
+                "--login"
             ],
             "icon": "terminal-bash"
         }
@@ -80,6 +79,9 @@
     //From rewrap plugin
     "rewrap.wrappingColumn": 100,
     "rewrap.autoWrap.enabled": true,
+    // Git blame info
+    "git.blame.editorDecoration.enabled": false,
+    "git.blame.statusBarItem.enabled": true,
     // Markdown
     "markdown.extension.toc.updateOnSave": false,
     "[markdown]": {
@@ -184,20 +186,28 @@
         "workbench.editor.restoreViewState": false,
         "rewrap.wrappingColumn": 72,
         "rewrap.autoWrap.enabled": true,
+        "editor.suggest.showWords": false
     },
     "[typescript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
+        "editor.defaultFormatter": "vscode.typescript-language-features",
+        "editor.tabSize": 2,
+        "outline.showProperties": false
+        // This hides not only variables inside functions, but also functions defined as f = () =>
+        // {}. FU vscode
+        // "outline.showVariables": false
     },
     "redhat.telemetry.enabled": false,
     // 
     // Copilot junk
     "github.copilot.enable": {
-        // Even when it's installed, it should be disabled by default
-        "*": false,
+        "*": true,
         "plaintext": false,
         "markdown": false,
         "scminput": false,
-        "git-commit": false
+        "git-commit": false,
+        "typescript": true,
+        "typescriptreact": true,
+        "csharp": true
     },
     "inlineChat.lineNaturalLanguageHint": false,
     "disable-copilot-comment-completions.textMateRules": [
@@ -207,5 +217,12 @@
             "mode": "includes"
         }
     ],
-    "chat.commandCenter.enabled": false
+    "chat.commandCenter.enabled": false,
+    "github.copilot.editor.enableAutoCompletions": false,
+    "diffEditor.ignoreTrimWhitespace": true,
+    "cSpell.enabledNotifications": {
+        "Average Word Length too Long": false,
+        "Lines too Long": false,
+        "Maximum Word Length Exceeded": false
+    }
 }
