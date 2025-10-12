@@ -8,6 +8,7 @@ brew 'libpq'   #psql, pg_dump, etc. without the entirety of Postgres
 # Klezmer Archive stuff
 brew 'awscli'
 brew 'hugo'
+brew 'verovio'
 
 # repos/music-encoding
 brew 'ant'
@@ -23,6 +24,7 @@ brew 'pip-completion'
 
 # Resume
 brew 'pandoc'
+brew 'weasyprint'
 
 # Advent of code
 brew 'z3'
@@ -30,7 +32,15 @@ brew 'z3'
 
 ### Temp ###
 brew "slackdump"
+brew "gh"
+brew "act"  #run gh actions locally
 
 # For generating MEI example images
 brew "librsvg"
 brew "imagemagick"
+
+# RecMINT
+brew 'direnv'
+brew 'aws2-wrap'
+cask 'ngrok'
+

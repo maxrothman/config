@@ -2,3 +2,5 @@ resources:
   - keybindings
   - settings
   - snippets
+additionalFiles:
+  - ~/Library/Application Support/Code/User/tasks.json

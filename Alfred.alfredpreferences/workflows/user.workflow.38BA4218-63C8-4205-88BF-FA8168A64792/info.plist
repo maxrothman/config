@@ -67,6 +67,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>FDC351BA-388C-4424-910B-C216856C67E1</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>50B0CD10-4D52-4898-9C05-DD3A34A829C3</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>Alan He</string>
@@ -92,6 +105,27 @@
 			<string>alfred.workflow.action.launchfiles</string>
 			<key>uid</key>
 			<string>B551E16A-99ED-4CFD-9FA2-BF5DE3680187</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>keyword</key>
+				<string>mfa</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>2fa</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>FDC351BA-388C-4424-910B-C216856C67E1</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -263,44 +297,51 @@ update sqlite by brew</string>
 		<key>26DC9FDD-521B-4837-8A52-0351B2C1ABEF</key>
 		<dict>
 			<key>xpos</key>
-			<real>245</real>
+			<real>410</real>
 			<key>ypos</key>
-			<real>75</real>
+			<real>70</real>
 		</dict>
 		<key>50B0CD10-4D52-4898-9C05-DD3A34A829C3</key>
 		<dict>
 			<key>xpos</key>
-			<real>70</real>
+			<real>235</real>
 			<key>ypos</key>
-			<real>50</real>
+			<real>45</real>
 		</dict>
 		<key>59FACEBF-8E54-4ED8-8978-2E2701470C14</key>
 		<dict>
 			<key>xpos</key>
-			<real>600</real>
+			<real>765</real>
 			<key>ypos</key>
-			<real>375</real>
+			<real>370</real>
 		</dict>
 		<key>A9745FFC-587E-445F-88A1-052F2B9F0226</key>
 		<dict>
 			<key>xpos</key>
-			<real>385</real>
+			<real>550</real>
 			<key>ypos</key>
-			<real>520</real>
+			<real>515</real>
 		</dict>
 		<key>B551E16A-99ED-4CFD-9FA2-BF5DE3680187</key>
 		<dict>
 			<key>xpos</key>
-			<real>400</real>
+			<real>565</real>
 			<key>ypos</key>
-			<real>45</real>
+			<real>40</real>
 		</dict>
 		<key>DDD1D4C2-BC2D-4E83-9029-EE6A670EAFF9</key>
 		<dict>
 			<key>xpos</key>
-			<real>390</real>
+			<real>555</real>
 			<key>ypos</key>
-			<real>375</real>
+			<real>370</real>
+		</dict>
+		<key>FDC351BA-388C-4424-910B-C216856C67E1</key>
+		<dict>
+			<key>xpos</key>
+			<real>45</real>
+			<key>ypos</key>
+			<real>45</real>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>
