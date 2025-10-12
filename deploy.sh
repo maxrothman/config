@@ -50,3 +50,4 @@ done
 
 deploy "$configdir"/misc-stuff/ignore ~/.config/git/ignore
 
+deploy $"configdir"/misc-stuff/deps.edn ~/.clojure/deps.edn

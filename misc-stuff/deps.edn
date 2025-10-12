@@ -1,0 +1,6 @@
+{:aliases 
+ {:flowstorm {:classpath-overrides {org.clojure/clojure nil}
+              :extra-deps {com.github.flow-storm/clojure {:mvn/version "1.12.2-1"}
+                           com.github.flow-storm/flow-storm-dbg {:mvn/version "4.5.6"}}
+              :jvm-opts ["-Dflowstorm.theme=dark"]}
+  :flowstorm-recbus {:jvm-opts ["-Dclojure.storm.instrumentSkipPrefixes=com.hapgood.ephemeral,io.recbus.caribou"]}}}
