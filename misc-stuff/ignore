@@ -1,2 +1,8 @@
 # Global git ignore file
 .vscode
+.DS_Store
+.calva
+.clj-kondo
+.lsp
+notes.local
+.nrepl-port
