@@ -38,6 +38,7 @@
     "editor.stickyScroll.enabled": true,
     "files.exclude": {
         "**/__pycache__": true,
+        "**/.clj-kondo": true,
         "**/.stack-work": true,
         "**/.vscode": true
     },
@@ -48,14 +49,15 @@
     },
     "terminal.integrated.tabs.enabled": true,
     "editor.wordWrapColumn": 100,
-    "accessibility.signals.taskCompleted": {
-        "sound": "on",
-        "announcement": "auto"
-    },
-    "accessibility.signals.taskFailed": {
-        "sound": "on",
-        "announcement": "auto"
-    },
+    // VSCode will now send native mac notifications on task completion
+    // "accessibility.signals.taskCompleted": {
+    //     "sound": "on",
+    //     "announcement": "auto"
+    // },
+    // "accessibility.signals.taskFailed": {
+    //     "sound": "on",
+    //     "announcement": "auto"
+    // },
     "terminal.integrated.scrollback": 5000,
     "terminal.integrated.profiles.osx": {
         "bash": {
@@ -77,6 +79,8 @@
         "settings",
         "snippets"
     ],
+    // TODO: remove after https://github.com/zokugun/vscode-sync-settings/issues/88 is resolved
+    "syncSettings.additionalFiles": ["~/Library/Application Support/Code/User/tasks.json"],
     //From rewrap plugin
     "rewrap.wrappingColumn": 100,
     "rewrap.autoWrap.enabled": true,
@@ -138,6 +142,10 @@
     },
     "calva.useLegacyReplWindowPath": false,
     "calva.autoOpenInspector": false,
+    "calva.myCljAliases": [
+        "flowstorm",
+        "flowstorm-recbus"
+    ],
     // Spell checker
     "cSpell.enabledFileTypes": {
         "*": true
@@ -207,5 +215,30 @@
             "mode": "includes"
         }
     ],
-    "chat.commandCenter.enabled": false
+    "git.blame.editorDecoration.enabled": false,
+    "editor.stickyScroll.maxLineCount": 7,
+    "xml.server.vmargs": "-Xmx128M",
+    "[xslt]": {
+        "editor.semanticHighlighting.enabled": true
+    },
+    "[xml]": {
+        "editor.defaultFormatter": "redhat.vscode-xml"
+    },
+    "githubLocalActions.dockerDesktopPath": "/Applications/Docker.app",
+    "git.blame.statusBarItem.enabled": true,
+    "diffEditor.experimental.showMoves": true,
+    "[dockercompose]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": true
+        },
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "[github-actions-workflow]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    }
 }

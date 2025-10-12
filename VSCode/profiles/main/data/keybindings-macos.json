@@ -165,6 +165,11 @@
         "command": "deleteWordPartLeft",
         "when": "terminalFocus"
     },
+    // Useful for copy-pasting stuff out of the terminal without using the mouse
+    {
+        "key": "shift+cmd+c",
+        "command": "editor.action.accessibleView"
+    },
     // ========================
     // Shortcuts for extensions
     // ========================
@@ -179,6 +184,16 @@
         "command": "extension.switchQuotes"
     },
     // Have PageUp and PageDown only scroll a half page
+    {
+        "key": "pagedown",
+        "command": "-cursorPageDown",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "pageup",
+        "command": "-cursorPageUp",
+        "when": "textInputFocus"
+    },
     {
         "key": "PageDown",
         "command": "extension.halfDown",
@@ -342,6 +357,16 @@
         "key": "ctrl+shift+alt+c",
         "command": "-paredit.wrapAroundCurly"
     },
+    // After next calva release... (https://github.com/BetterThanTomorrow/calva/pull/2948)
+    // {
+    //     "key": "ctrl+shift+alt+3",
+    //     "command": "paredit.wrapAroundSet",
+    //     "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
+    // },
+    // {
+    //     "key": "ctrl+shift+alt+c",
+    //     "command": "-paredit.wrapAroundCurly"
+    // },
     // And do the same for the rewrap keybindings. ctrl+cmd rewraps
     {
         "key": "cmd+ctrl+[",
@@ -369,6 +394,15 @@
     {
         "key": "ctrl+alt+r ctrl+alt+p",
         "command": "-paredit.rewrapParens"
+    },
+    {
+        "key": "cmd+ctrl+shift+3",
+        "command": "paredit.rewrapSet",
+        "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
+    },
+    {
+        "key": "ctrl+alt+r ctrl+alt+h",
+        "command": "-paredit.rewrapSet",
     },
     // Remap non-clojure alt shortcuts to cmd+ctrl
     {
@@ -417,6 +451,23 @@
         "command": "editor.action.insertCursorBelow",
         "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure' && paredit:keyMap =~ /original|strict/"
     },
+    // The original ctrl+cmd+right/left is used by calva, remap
+    {
+        "key": "ctrl+shift+alt+cmd+right",
+        "command": "workbench.action.moveEditorToNextGroup"
+    },
+    {
+        "key": "ctrl+cmd+right",
+        "command": "-workbench.action.moveEditorToNextGroup"
+    },
+    {
+        "key": "ctrl+shift+alt+cmd+left",
+        "command": "workbench.action.moveEditorToPreviousGroup"
+    },
+    {
+        "key": "ctrl+cmd+left",
+        "command": "-workbench.action.moveEditorToPreviousGroup"
+    },
     // Do nothing to avoid confusion
     {
         "key": "ctrl+up",
@@ -430,5 +481,18 @@
     {
         "key": "ctrl+backspace",
         "command": "-paredit.killListBackward"
+    },
+    {
+        "key": "ctrl+enter",
+        "command": "-github.copilot.generate",
+        "when": "editorTextFocus && github.copilot.activated && !commentEditorFocused && !inInteractiveInput && !interactiveEditorFocused"
+    },
+    {
+        "key": "ctrl+alt+tab",
+        "command": "workbench.action.focusNextGroup"
+    },
+    {
+        "key": "ctrl+shift+alt+tab",
+        "command": "workbench.action.focusPreviousGroup"
     }
 ]
