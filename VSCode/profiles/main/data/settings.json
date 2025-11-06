@@ -77,10 +77,9 @@
     "syncSettings.resources": [
         "keybindings",
         "settings",
-        "snippets"
+        "snippets",
+        "tasks"
     ],
-    // TODO: remove after https://github.com/zokugun/vscode-sync-settings/issues/88 is resolved
-    "syncSettings.additionalFiles": ["~/Library/Application Support/Code/User/tasks.json"],
     //From rewrap plugin
     "rewrap.wrappingColumn": 100,
     "rewrap.autoWrap.enabled": true,
