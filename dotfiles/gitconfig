@@ -4,9 +4,6 @@
   #only set this true if you're on windows
   ignorecase = false
 
-  # Required for my git hooks setup to work. For more details, see config/git-hooks/README.md
-  hooksPath = ~/repos/.git-hooks
-
   #Prevent commit messages from being lost when Vim has an error
   editor = vim -f
 
@@ -19,6 +16,10 @@
   # installed. Since gitconfig doesn't support env var expansion, these
   # are written on machine setup per-machine
   path = ~/.gitconfig.local
+
+[hook "check-push-to-main"]
+  event = pre-push
+  command = ~/.bin/check-push-to-master
 
 [fetch]
   #WARNING: will remove local branches if they've been deleted from the remote
@@ -153,7 +154,7 @@
   ours   = "!f() { git checkout --ours   \"$@\" && git add \"$@\"; }; f"
 
   squash = "!git rebase -i \"$(git merge-base \"$(git safe-get-config myconfig.main-branch)\" @)\""
-  refresh = "!git checkout \"$(git safe-get-config myconfig.main-branch)\" && git pull && git checkout - && git rebase \"$(git safe-get-config myconfig.main-branch)\""
+  refresh = "!git stash push -m refresh-tmp && git checkout \"$(git safe-get-config myconfig.main-branch)\" && git pull && git checkout - && git rebase \"$(git safe-get-config myconfig.main-branch)\" && if git stash list | head | grep -q refresh-tmp; then git stash pop; fi"
 
 # Custom config for aliases
 [myconfig]

@@ -3,10 +3,9 @@ set -euo pipefail
 # Pre-push hook
 #
 # Install:
-#   If you're using my gitconfig, copy to wherever core.hooksPath points
-#   (~/repos/.git-hooks by default). If you're not, copy to .git/hooks/ in the
-#   repo where you want to use the hook (or merge this content with an
-#   existing pre-push file there).
+#   If you're using my gitconfig, copy to wherever [hook "check-push-to-main"].command
+#   points. If you're not, copy to .git/hooks/ in the repo where you want to use
+#   the hook or put it somewhere central and add a [hook "<hook-name>"] block to your config
 #          
 #   Make sure it's executable!
 #

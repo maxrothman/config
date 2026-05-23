@@ -41,7 +41,6 @@ for f in "$configdir"/dotfiles/*; do
 done
 
 deploy "$configdir"/bin ~/.bin
-deploy "$configdir"/git-hooks ~/repos/.git-hooks
 
 jrdir=~/.config/joyride/scripts
 for f in "$configdir"/misc-stuff/joyride/scripts/*; do
